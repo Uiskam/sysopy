@@ -3,20 +3,9 @@
 #include <stdlib.h>
 #include <sys/wait.h>
 #include <sys/types.h>
+#include <string.h>
 #define NULL_PID -1
-void wyp(int tab[], int size) {
-    for(int i = 0; i < size; i++)
-        printf("%d ", tab[i]);
-    printf("\n");
-}
 
-void clean_prev_files(int n) {
-    char command[10];
-    for(int i = 0; i < n; i++) {
-        snprintf(command,10,"rm w%d.txt",i);    
-        system(command);
-    }
-}
 /*
  * INPUT: 2 parametry:
  *      dok - dokładnośc obliczeń (liczba prostokątów na jakie dziele przedział)
@@ -31,29 +20,45 @@ void clean_prev_files(int n) {
  * 
  * Pradiwłowy wynik całki: pi = 3.14159265
  */
+void wyp(int tab[], int size) {
+    for(int i = 0; i < size; i++)
+        printf("%d ", tab[i]);
+    printf("\n");
+}
 
+void clean_prev_files(int n) {
+    char command[60];
+    for(int i = 0; i < n; i++) {
+        snprintf(command,10,"rm w%d.txt",i);    
+        //strcat(command, " > /dev/null");printf("%s command\n", command);
+        system(command);
+    }
+}
 int find_relative_pid(int* tab, int size) {
     int rpid = 0;
     while (rpid < size && tab[rpid] != NULL_PID)
         rpid++;
     return rpid - 1;
 }
-double f(int x) {
-    return (double)(4 / (x * x + 1));
+double f(double x) {
+    return (double)(4.0 / (x * x + 1));
 }
-void calculations(int pid, int square_qunatity, int proccess_count) {
-    double begin = pid * square_qunatity, square_width = proccess_count/square_qunatity;
+void calculations(int pid, int square_qunatity, double square_width) {
+    double begin = pid * square_qunatity * square_width;
+    printf("begin %f pid %d\n",begin,pid);
     double result = 0;
     for(int i = 0; i < square_qunatity; i++) {
-        result += f(begin);
+        result += f(begin) * square_width;
+        if(pid == 0)
         begin += square_width;
     }
-    FILE* output;
     
+    FILE* output;
     char file_name[50];
     snprintf(file_name,50,"w%d.txt",pid);    
     output = fopen(file_name, "w");
-    fwrite(&result, sizeof(double), 1, output);
+    fprintf(output,"%f",result);
+    //printf("res of %d: %f file name: %s\n", pid, result, file_name);
     fclose(output);
 }
 
@@ -71,29 +76,35 @@ void result(int pid_count) {
 }
 
 int main(int argc, char **argv) {
+    //clean_prev_files(20);
     if (argc != 3) {
         printf("Precisely two int arg are required!\n");
         return -1;
     }
-    int  n = atoi(argv[2]);
+    int n = atoi(argv[2]), square_quantity, *process_register = (int*)malloc(n * sizeof(int));;
     double precision = atof(argv[1]);
-    printf("%f %d\n",precision, n);
-    int *process_register = (int*)malloc(n * sizeof(int));
-    for(int i = 0; i < n; i++) {
-        process_register[i] = NULL_PID;
-    }
+    precision = 0.000000001;
     if (n <= 0 || precision <= 0) {
-        printf("Postive int is required as arg!\n");
+        printf("Postive double int are required as arg!\n");
         return -1;
     }
-    int i_am_mother = 0;
+
+    printf("%f %d\n",precision, n);
+    square_quantity= 1 / precision;
+    for(int i = 0; i < n; i++) 
+        process_register[i] = NULL_PID;
+
+    
+    int i_am_mother = 10;
     for (int i = 0; i < n; i++) {
         process_register[i] = i;
+        //printf("new proc %d %d %d\n",i,n,i_am_mother);
         i_am_mother = fork();
         if(i_am_mother == 0) {
-            printf("My PID is %d\n", i + 1);
-            wyp(process_register,n);
+            
+            calculations(i, square_quantity / n, precision);
             i = n;
+            break;
         }
     }
 
@@ -102,5 +113,6 @@ int main(int argc, char **argv) {
             if (wait(NULL) == -1)
                 break;
         }
+        result(n);
     }
 }
