@@ -32,22 +32,22 @@ int main(int argc, char **argv) {
         return -1;
     }
     if (strcmp(argv[1], "mask") == 0 || strcmp(argv[1], "pending") == 0) {
-        sigset_t new_mask; //zbiór sygnałów, umożliwa grupowanie ich aby można było zarządzac cała ich grupą
-        sigemptyset(&new_mask); //inicjalizacja pustego zbioru
-        sigaddset(&new_mask, SIGUSR1); //dodanie sygnału edo maski
-        if (sigprocmask(SIG_BLOCK, &new_mask, NULL) < 0) //ustawia maskę dla aktualnego procesu return 0 if setting was succesfull -1 in other case
+        sigset_t new_mask;
+        sigemptyset(&new_mask);
+        sigaddset(&new_mask, SIGUSR1);
+        if (sigprocmask(SIG_BLOCK, &new_mask, NULL) < 0)
             perror("Signal was not blocked\n");
     } else if (strcmp(argv[1], "handler") == 0) {
-        signal(SIGUSR1, handler); //ustawia funkcje do obslugi sygnaly (funckja ta musi byc void i jako arg musi miec nr sygnalu do przechycebia
+        signal(SIGUSR1, handler);
     } else if (strcmp(argv[1], "ignore") == 0) {
-        signal(SIGUSR1, SIG_IGN);//SIG_IGN to oznaczenie że sygnał ma być ignorowany
+        signal(SIGUSR1, SIG_IGN);
     }
-    raise(SIGUSR1);// równoważne z kill(getpid(), sig);
+    raise(SIGUSR1);
     sigset_t new_mask;
 
     if (strcmp(argv[1], "mask") == 0 || strcmp(argv[1], "pending") == 0) {
-        sigpending(&new_mask); //odczytuje liuste sygnałów oczeukjącuch
-        printf("Signal pending: %d\n", sigismember(&new_mask, SIGUSR1));//sigmemeber == contain?
+        sigpending(&new_mask);
+        printf("Signal pending: %d\n", sigismember(&new_mask, SIGUSR1));
     }
 
     if (strcmp(argv[2], "exec") == 0) {
