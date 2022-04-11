@@ -35,8 +35,10 @@ int main(int argc, char **argv) {
         sigset_t new_mask;
         sigemptyset(&new_mask);
         sigaddset(&new_mask, SIGUSR1);
-        if (sigprocmask(SIG_BLOCK, &new_mask, NULL) < 0)
-            perror("Signal was not blocked\n");
+        if (sigprocmask(SIG_BLOCK, &new_mask, NULL) < 0) {
+            printf("Signal was not blocked\n");
+            return -1;
+        }
     } else if (strcmp(argv[1], "handler") == 0) {
         signal(SIGUSR1, handler);
     } else if (strcmp(argv[1], "ignore") == 0) {

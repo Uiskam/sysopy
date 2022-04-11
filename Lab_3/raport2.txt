@@ -1,0 +1,24 @@
+Dokładność 0.000000010 liczba procesów 1 
+	REAL_TIME: 0.290000l
+
+Dokładność 0.000000010 liczba procesów 2 
+	REAL_TIME: 0.190000l
+
+Dokładność 0.000000010 liczba procesów 3 
+	REAL_TIME: 0.100000l
+
+Dokładność 0.000000010 liczba procesów 4 
+	REAL_TIME: 0.090000l
+
+Dokładność 0.000000001 liczba procesów 1 
+	REAL_TIME: 2.860000l
+
+Dokładność 0.000000001 liczba procesów 2 
+	REAL_TIME: 1.440000l
+
+Dokładność 0.000000001 liczba procesów 3 
+	REAL_TIME: 0.960000l
+
+Dokładność 0.000000001 liczba procesów 4 
+	REAL_TIME: 0.750000l
+

@@ -1,0 +1,63 @@
+Potoki dzielą się na nazwane i nienzazwane i sa fajne bo korzystają z RAM a nie dysku więc zpaewniają szybką
+komunikacje między procesami (IPC inter-process communication).
+
+Potoki nienazwane:
+    - są najstarszą metoda na komunikacje między procesami
+    - ograniecznie: tylko dla procesów, które posiadają wspólnego przeodka (można powiedzieć komunikacja w rodzinie)
+    - przez to, że są dość proste w użyciu znajdują szerokie zastosowanie
+    - umożliwiaja komunikajce tylko w 1 strone (half-duplex)
+
+Tworzenie:
+    za pomoca pipe z <unistd.h>
+
+    int pipe(int fd[2]); (returns 0 on succes and -1 on error (np jeżeli zły adres do fd albo wyjebie limit deskryptorów)
+    argumentem pipe jest tablica 2 intów, do któych zapisane zostaną deskrytpory pipa
+    fd[1] - zapis
+    fd[0] - odczyt (takie same oznaczenia jak w przyapdku standardowych strumieni)
+    Ponieważ komunikacja jest tylko w 1 stronę dobrze jest zamknąć stumień, kótry nie bedzie używany
+    (close())
+
+Korzystanie:
+    read i write do których podaje się odpowiedni deskryptor (sa one blokujące (read czeka aż się coś pojawi)
+    (a write czeka na koniec zapisu))
+    read zwraca 0 (EOF) jeżeli trafi na zamknięty koniec, a write wysyła SIDPIPE do procesu który probwał pisać
+    i zwraca -1
+
+    Zasady czytania:
+        - jeżeli proces mniej niz jest w pipe to przeczyta tyle ile chce
+        - jeżeli będzie chciał czytac więcej to przeczyta tyle ile jest
+        - jeżeli wyjście jest puste to proces zasypia do czasu jak się coś tam pojawi, zwrocony jest EAGAIN
+          (jeżeli została ustawiona flaga O_NOBLOCK)
+        - jeżeli nie ma pisarzy to return 0 (EOF)
+
+    Zasadu zapisu:
+        - jezeli pisze mniej niż jest miejsca to spoko
+        - jeżeli miejsce się skończy a bedziemy chcieli pisac to dostaniemy liczbę bajtów zapsianych
+          (jeżeli ustationo O_NOBLOCK (jezeli nic się nie udało to bład EAGAIN)), domyslnie proces jest
+          usypiany aż do momentu zwolnienia się miejsca
+        - jeżeli brak czytelników to bład EPIPE (i SIGPIPE do procesu) (standartdowo SIDPIPE kończy proces)
+
+popen - tworzy potok i wywołuje proces do i przekazuje mu końcówkę przeciwną która wybraliśmy dla siebie
+        później można korzystać z tego jak ze strumienia zwykłego
+pclose - czeka aż proces się skończy
+
+
+Potoki nazwane:
+    - sa mega w pyte
+    - pozwalają na komunikację miedzy procsami bez wspólnego przodka
+    - robi się to za pomoca pliku na dysku (nie jest to plik reguralnt S_IFIFO, słuzy tylko do indetyfikacji
+      pipa który opreuje na RAMie)
+
+Tworzenie: (<sys/types.h> i <sys/stat.h>)
+    - mkfifo NAME (mkfifoat pozwala na zrobinie fifo w zadanym miejscu jest też mknodat)
+    - mknod NAME p
+
+Usuwanie:
+    - rm NAME
+
+Korzystanie:
+    -read/write
+
+
+Uwagi:
+    otwarcie potoku w trybie do odczytu/zapidu uspia proces aż inny proces otworzy go w trybie zapisu/odczytu

@@ -1,4 +1,4 @@
-all:
+ all:
 	make normal
 	make clean
 
