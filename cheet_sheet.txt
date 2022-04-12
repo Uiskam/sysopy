@@ -1,0 +1,85 @@
+Lab_2:
+Pliki:
+    open - otwieranie pliku (fopen)
+    close - zamykanie (flcose)
+    read(int fd, void *buf, size_t count) - czytanie z pliku fd do buf max count bajtów
+    write(int fd, void *buf, size_t cont) zapis z buf do fd
+    long lseek(int fd, off_offest, int whence) - ustawia fd na offset pozycję w pliku (whence SEEK_SET - offset liczony od początku, SEEK_END - koniec, SEEK_CUR - wg aktualnej pozycji fd)
+
+
+    LEPIEJ uzywac(dużo bardziej czytelne):
+    fopen (char * filename, char * mode)
+        mody:
+            r - odczyt
+            w - zapis (nadpisywanie tego co byłwo wcześniej)
+            a - dopisywanie do tego co było
+            r+ - zapis + odczyt ale plik musi istnieć (nie nadpisuje jak w+)
+            w+ - zapisy + odczyt ale musi istnieć
+            a+ - odczyt i dopisywanie
+            [rwa+]b - jako binarny a nie tekstowy
+
+    fread(void *ptr, size_t size, size_t count, FILE *file) - kopuje count elementów z file do ptr, zwraca liczbę skopiownych elementów
+                                                              później wskaźnik jest przesuwany tak żeby przeczytał ostani nieprzeczytany element
+                                                              size to rozmiar elementu tablicy
+
+    fwrite(void *ptr, size_t size, size_t count, FILE *file) - kopoujce count elementów o rozmiarze size z ptr do pliku
+                                                               zwraca liczbę faktycznie zapisanych elementów
+
+    int fseek(FILE * file, long int offset, int mode) - ustawia pozycję w file na offset w zależności od wartości mode:
+                                                        0 - offset liczony od początku
+                                                        1 - nowa pozyja liczona od aktualnej
+                                                        2 - nowa pozycja wzgl końca pliku
+                                                        zwraca 0 jeżeli wszystko poprwanie zorbione
+
+    int fsetpos( FILE* file, fpose_t* pos) - zmienia położenie wskaźnika do file na pos (zwraca 0 jeżeli pomyślnie zrobione)
+
+    int getpos(FILE* file, fgpos_t* pos) - zapisuje do pos pozycje wskaxnika file (o jeżeli bez błędów)
+
+    flcose() - zamyka plik
+
+
+Katalogi:
+    DIR jak FILE tylko dla katalogów
+
+    struct dirent - strutkura zawierająca:
+        d_ino - numer i-węzła pliku
+        char d_name[] - nazwa katalogu
+
+    DIR* opendir(const char* dirname) - otwiera katalog dirname, NULL w przyadku niepowodzenia zwraca
+
+    int closedir(DIR* dirp) - 0 powodzenie, -1 wpp
+
+    struct dirent* readdir(DIR* dir) - zwraca dirent i przesuwa DIR o 1 do przodu (nie zwlaniac tego co zwróci)
+                                       NULL na koniec folderu
+
+    void rewinddir(DIR) - powrót na poczatek
+
+    void seekdir(DIR * dirp, lon int loc) - zmienia pozycję sturmienia katalgowego
+
+    int stat(char * path, struct ctat *buf) - pobranie statystyk pliku i zapisanie ich do buf
+
+    ROZMIAR PLIKU:
+        fseek (fp, 0, SEEK_END);
+        fgetpos (fp, &file_size);
+        printf("%d",file_size) //chuj wie w jakich jednostkach XD
+
+
+Lab 3:
+    int execl(char const *path, char const *arg0, ...)
+    funkcja jako pierwszy argument przyjmuje ścieżkę do pliku, następne są argumenty wywołania funkcji, gdzie arg0 jest nazwą programu
+
+    int execle(char const *path, char const *arg0, ..., char const * const *envp)
+    podobnie jak execl, ale pozwala na podanie w ostatnim argumencie tablicy ze zmiennymi środowiskowymi
+
+    int execlp(char const *file, char const *arg0, ...)
+    również przyjmuje listę argumentów ale, nie podajemy tutaj ścieżki do pliku, lecz samą jego nazwę, zmienna środowiskowa PATH zostanie przeszukana w celu zlokalizowania pliku
+
+    int execv(char const *path, char const * const * argv)
+    analogicznie do execl, ale argumenty podawane są w tablicy
+
+    int execve(char const *path, char const * const *argv, char const * const *envp)
+    analogicznie do execle, również argumenty przekazujemy tutaj w tablicy tablic znakowych
+
+    int execvp(char const *file, char const * const *argv)
+    analogicznie do execlp, argumenty w tablicy
+
