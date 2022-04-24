@@ -33,9 +33,9 @@ void send_email(char* email, char* topic, char* text) {
 void print_mails(int mode) {
     char* command;
     if(mode == 0) { //sort by date
-        command = "echo | mail -H";
+        command = "echo | mail";
     } else { //sort by sender
-        command = "echo | mail -H | sort -k 3";
+        command = "echo | mail | sort -k 3";
     }
     FILE* recievied_pipe = popen(command, "r");
     if(recievied_pipe == NULL) {
