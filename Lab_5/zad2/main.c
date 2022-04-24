@@ -14,19 +14,19 @@
     
     Jeżeli program zostanie wywołany z trzema argumentami, to (za pomocą popen()) uruchamiany jest program mail i za jego pomocą wysyłany jest e-mail do określonego nadawcy z określonym tematem i treścią
 
-*/
+ari*/
 int send_email(char* email, char* topic, char* text) {
-    char *command = malloc(sizeof text  + sizeof topic + sizeof email + sizeof(char) * 32); 
+    char *command = (char *)malloc(sizeof text  + sizeof topic + sizeof email + sizeof(char) * 64); 
     sprintf(command, "echo -e \"%s\" | mail -s %s %s", text, topic, email);
     FILE* sending_pipe = popen(command, "r");
-    print("command drafted: %s\n", command);
+    printf("command drafted: %s\n", command);
     if(sending_pipe == NULL) {
         perror("error while creating pipe\n");
         return -1;
     }
     
-    char* return_value = malloc(sizeof(char) * 100);
-    fgets(return_value, 10, sending_pipe);
+    char* return_value =(char*) malloc(sizeof(char) * 100);
+    getline(return_value, 100, sending_pipe);
     printf("commmunicat %s\n", return_value);
     pclose(sending_pipe);
     free(return_value);
