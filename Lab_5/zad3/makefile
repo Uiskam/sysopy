@@ -7,7 +7,7 @@ mprod:
 	rm pipe
 	mkfifo pipe
 	$(CC) -o prod prod.c
-	./prod pipe 3 supply.txt 10
+	./prod pipe 1 supply.txt 10
 
 mkons:
 	$(CC) -o kons kons.c

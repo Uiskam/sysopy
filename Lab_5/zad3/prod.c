@@ -80,12 +80,12 @@ void produce(int row_number, char* supply_path, int N, char* output_name) {
         exit(1);
     }
     int chars_read;
-    while ((chars_read = fread(buffer,sizeof(char),N,supply)) == N) {
-        /*if(chars_read != N) {
+    while ((chars_read = fread(buffer,sizeof(char),N,supply))) {
+        if(chars_read != N) {
             for(int b = chars_read; b < N; b++){
                 buffer[b] = ' ';
             }
-        }*/
+        }
         sub_newlines(buffer);
         flock(fileno(production_output), LOCK_EX);
         fwrite(&row_number, sizeof(int),1,production_output);

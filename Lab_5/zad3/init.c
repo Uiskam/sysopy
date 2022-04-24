@@ -40,6 +40,10 @@
                 - czyta nr wiersza i oraz N znaków z potoku
                 - umieszcza odczytane znaki w linii i pliku tekstowego 
 
+    init:
+        -argumenty:
+            - liczba producentów
+            
     Oba programy komunikają sie przez potok
 */
 int main() {

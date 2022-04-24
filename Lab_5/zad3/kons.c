@@ -64,7 +64,7 @@ void consume(char* input_path, char* output_path, int N) {
         perror("Memomry alloaction error");
         exit(1);
     }
-    FILE* output = fopen(output_path,"w+");
+    FILE* output = fopen(output_path,"rw+");
         if(output == NULL) {
             perror("openieng out file error");
             exit(1);
