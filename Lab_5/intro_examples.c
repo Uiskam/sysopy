@@ -2,7 +2,7 @@
 #include <stdio.h>
 
 int main() {
-
+    /*
     int fd[2];
     pipe(fd);
     pid_t pid = fork();
@@ -15,14 +15,14 @@ int main() {
         close(fd[0]);
         char text[] = "Ala ma kota";
         write(fd[1], text,sizeof(text)/sizeof(text[0]));
-    }
-    /*
-     *
+    }*/
+    
+    
     FILE* grep_input = popen("grep Ala", "w");
-    fputs("Ala ma kota\n Antek ma psa", grep_input);
+    fputs("Alsa ma kota\n Antek ma psa", grep_input);
     pclose(grep_input);
 
-    int fd[2];
+    /*int fd[2];
     pipe(fd);
     pid_t pid = fork();
     if (pid == 0) { // dziecko
