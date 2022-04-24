@@ -49,16 +49,7 @@ void print_mails(int mode) {
         printf("%s",mail_recieved);
     }
     free(mail_recieved);
-
-    /*char *line;
-    size_t len = 0, read;
-    while((read = getline(&line, &len, file)) != -1) {
-        printf("%s", line);
-    }
-    free(line);
-    pclose(recievied_pipe);*/
-    //free(command);
-    //free(mail_recieved);
+    pclose(recievied_pipe);
 }
 int main(int argc, char **argv) {
     switch (argc)
