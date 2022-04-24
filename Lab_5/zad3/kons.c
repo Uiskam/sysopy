@@ -76,12 +76,10 @@ void consume(char* input_path, char* output_path, int N) {
         int cur_row = 0;
         char c;
         fseek(output, 0, SEEK_SET);
-        //printf("row _nb %d\n",row_number);
         while (fread(&c, sizeof(char), 1 , output)) {
             if(c == '\n') {
                 cur_row++;
             }
-            //printf("iteration\n");
             if(cur_row >= row_number) {
                 fseek(output, -1, SEEK_CUR);
                 char* rest = (char *)malloc(4096 * sizeof(char));
@@ -94,9 +92,7 @@ void consume(char* input_path, char* output_path, int N) {
                 break;
             }
         }
-        //printf("cur %d\n",cur_row);
         if(cur_row < row_number) {
-            printf("HERE\n");
             for(int i = cur_row + 1; i <= row_number; i++) {
                 char new_row[2] = "\n";
                 fwrite(new_row, sizeof(char), strlen(new_row), output);
@@ -106,8 +102,6 @@ void consume(char* input_path, char* output_path, int N) {
             fwrite("\n", sizeof(char), 1, output);
         }
         flock(fileno(output), LOCK_UN);
-        //fclose(output);
-        //break;
     }
     fclose(output);
     fclose(input);
