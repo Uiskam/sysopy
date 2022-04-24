@@ -7,6 +7,7 @@
 #include <fcntl.h>
 #include <sys/stat.h>
 #include <ctype.h>
+#include <sys/file.h>
 /*
     producent:
         - produkuje treści
@@ -43,7 +44,6 @@ int isnumber(const char *number) {
     }
     int tmp = atoi(begin);
     if(tmp == 0){
-        printf("HERE %d numb = %s\n",tmp,begin);
         return 0;
     }
     return 1;
@@ -57,13 +57,13 @@ void sub_newlines(char *buf) {
 
 void produce(char* row_number, char* supply_path, int N, char* output_name) {
     FILE* production_output = fopen(output_name, "w");
-    if(production_output == -1) {
+    if(production_output == NULL) {
         perror("Pipe open fail!");
-        return -1;
+        exit(1);
     }
     if(production_out_type_check(output_name) == 0){
         puts("Wrong file type of file given");
-        return -1;
+        exit(1);
     }
 
     FILE* supply = fopen(supply_path, "r");
@@ -76,8 +76,13 @@ void produce(char* row_number, char* supply_path, int N, char* output_name) {
         perror("Buffer allocation error");
         exit(1);
     }
+    //strcpy(buffer, row_number);
+    //buffer[strlen(row_number)] = ' ';  + strlen(row_number) + 1
     int chars_read;
-    while ((chars_read = fread(buffer,sizeof(char),N,supply))) {
+    while ((chars_read = fread(buffer ,sizeof(char),N,supply))) {
+        /*if(chars_read < N) {
+            buffer[chars_read + strlen(row_number) + 1] = '\0';
+        }*/
         sub_newlines(buffer);   
         flock(fileno(production_output), LOCK_EX);
         if(fwrite(buffer, sizeof(char), N + strlen(row_number) + 1, production_output) <= 0) {
@@ -95,11 +100,13 @@ int main(int argc, char** argv) {
     switch (argc)
     {
     case 5:;
+        
         if(!isnumber(argv[2]) || !isnumber(argv[4])) {
             puts("Row number and N - number of char read must be a postivie int");
             return -1;
         }
-        produce(argv[2], argv[3], argv[4], argv[1]);
+        
+        produce(argv[2], argv[3], atoi(argv[4]), argv[1]);
         break;
     
     default:

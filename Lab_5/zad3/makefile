@@ -5,6 +5,7 @@ clean_prod:
 
 mprod:
 	$(CC) -o prod prod.c
+	./prod pipe 1 supply.txt 30
 
 mkons:
 	$(CC) -o kons kons.c
