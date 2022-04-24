@@ -50,12 +50,15 @@ int isnumber(const char *number) {
 }
 
 void sub_newlines(char *buf) {
-    while (*buf++)
-        if (*buf == '\n')
+    while (*buf){
+        if (*buf == '\n'){
             *buf = '\t';
+        }
+        buf++;
+    }
 }
 
-void produce(char* row_number, char* supply_path, int N, char* output_name) {
+void produce(int row_number, char* supply_path, int N, char* output_name) {
     FILE* production_output = fopen(output_name, "w");
     if(production_output == NULL) {
         perror("Pipe open fail!");
@@ -71,29 +74,25 @@ void produce(char* row_number, char* supply_path, int N, char* output_name) {
         perror("Supply file opening eroor");
         exit(1);
     }
-    char* buffer = (char *)malloc(sizeof(char) * (N + 1));
+    char* buffer = (char *)malloc(sizeof(char) * N);
     if(buffer == NULL) {
         perror("Buffer allocation error");
         exit(1);
     }
     int chars_read;
     int licz = 0;
-    while ((chars_read = fread(buffer,sizeof(char),N,supply))) {
-        if(chars_read < N) {
-            buffer[chars_read + strlen(row_number) + 1] = '\0';
-        }
-        //sub_newlines(buffer);   
-        //flock(fileno(production_output), LOCK_EX);
-        //printf("writing)\n");
-        licz++;
-        if(fwrite(buffer, sizeof(char), N, production_output) <= 0) {
-            printf("Wrting to production output error\n");
-            exit(1);
-        }
-        //flock(fileno(production_output), LOCK_UN);
-        //fflush(production_output);
+    while ((chars_read = fread(buffer,sizeof(char),N,supply)) == N) {
+        /*if(chars_read != N) {
+            for(int b = chars_read; b < N; b++){
+                buffer[b] = ' ';
+            }
+        }*/
+        sub_newlines(buffer);
+        flock(fileno(production_output), LOCK_EX);
+        fwrite(&row_number, sizeof(int),1,production_output);
+        fwrite(buffer, sizeof(char),N,production_output);
+        flock(fileno(production_output), LOCK_UN);
     }
-    printf("licz %d\n",licz);
     free(buffer);
     fclose(production_output);
     fclose(supply);
@@ -102,13 +101,12 @@ int main(int argc, char** argv) {
     switch (argc)
     {
     case 5:;
-        printf("int %d %d\n",sizeof(int), sizeof(char));
         if(!isnumber(argv[2]) || !isnumber(argv[4])) {
             puts("Row number and N - number of char read must be a postivie int");
             return -1;
         }
         
-        produce(argv[2], argv[3], atoi(argv[4]), argv[1]);
+        produce(atoi(argv[2]), argv[3], atoi(argv[4]), argv[1]);
         break;
     
     default:

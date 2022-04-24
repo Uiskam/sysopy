@@ -66,9 +66,10 @@ int main(int argc, char** argv) {
         return -1;
     }
     int read;
+    //int N = atoi(argv[2]);
     char* buffer = (char *)malloc(100*sizeof(char));
     //printf("A\n");
-    while ((read = fread(buffer, 50, sizeof(char),tmp)))
+    while ((read = fread(buffer,1 , sizeof(char),tmp)))
     {
         //printf("XDDDD\n");
         printf("%s",buffer);
