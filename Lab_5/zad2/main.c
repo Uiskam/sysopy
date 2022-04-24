@@ -19,6 +19,7 @@ int send_email(char* email, char* topic, char* text) {
     char *command = malloc(sizeof text  + sizeof topic + sizeof email + sizeof(char) * 32); 
     sprintf(command, "echo -e \"%s\" | mail -s %s %s", text, topic, email);
     FILE* sending_pipe = popen(command, "r");
+    print("command drafted: %s\n", command);
     if(sending_pipe == NULL) {
         perror("error while creating pipe\n");
         return -1;
