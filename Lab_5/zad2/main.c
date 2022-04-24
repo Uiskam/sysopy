@@ -5,7 +5,7 @@
 #include <sys/types.h>
 #include <sys/wait.h>
 #include <string.h>
-
+#include <string.h>
 /*
     Napisać program przyjmujący jeden (nadawca lub data) lub trzy argumenty (<adresEmail> <tytuł> <treść>):
 
@@ -22,12 +22,12 @@ int main(int argc, char **argv) {
         printf("2\n");
         break;
     case 3:
-        printf("3\n");
+        char *command; 
+        
         break;
     default:
         printf("wrong arg number (2 or 3 are requiered)\n");
         return -1;
-        break;
     }
     return 0;
 }

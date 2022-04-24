@@ -18,8 +18,8 @@ int main() {
     }*/
     
     
-    FILE* grep_input = popen("grep Ala", "w");
-    fputs("Alsa ma kota\n Antek ma psa", grep_input);
+    FILE* grep_input = popen("mail -s \"XD\"", "w");
+    fputs(" \"Sub\" ", grep_input);
     pclose(grep_input);
 
     /*int fd[2];
