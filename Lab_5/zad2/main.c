@@ -15,24 +15,16 @@
     Jeżeli program zostanie wywołany z trzema argumentami, to (za pomocą popen()) uruchamiany jest program mail i za jego pomocą wysyłany jest e-mail do określonego nadawcy z określonym tematem i treścią
 
 ari*/
-int send_email(char* email, char* topic, char* text) {
+void send_email(char* email, char* topic, char* text) {
     char *command = (char *)malloc(sizeof text  + sizeof topic + sizeof email + sizeof(char) * 64); 
     sprintf(command, "echo -e \"%s\" | mail -s %s %s", text, topic, email);
     FILE* sending_pipe = popen(command, "r");
-    printf("command drafted: %s\n", command);
     if(sending_pipe == NULL) {
         perror("error while creating pipe\n");
-        return -1;
+        exit(1);
     }
-    
-    char* return_value =(char*) malloc(sizeof(char) * 100);
-    printf("fgets status: %s\n",fgets(return_value, 100, sending_pipe));
-    printf("respo: %s\n", return_value);
-    
     pclose(sending_pipe);
-    free(return_value);
     free(command);
-    return 0;
 }
 int main(int argc, char **argv) {
     switch (argc)
@@ -42,6 +34,7 @@ int main(int argc, char **argv) {
         break;
     case 4:
         send_email(argv[1], argv[2], argv[3]);
+        printf("msg sent\n");
         break;
     default:
         printf("wrong arg number (1 or 3 are requiered)\n");
