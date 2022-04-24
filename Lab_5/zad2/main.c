@@ -44,7 +44,8 @@ void print_mails(int mode) {
     }
     
     char* mail_recieved;
-    size_t mail_info_len = 0, read;
+    size_t mail_info_len = 0;
+    int read;
     while ((read = getline(&mail_recieved, &mail_info_len, recievied_pipe)) != -1) {
         printf("%s",mail_recieved);
     }
