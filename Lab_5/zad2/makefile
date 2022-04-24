@@ -1,6 +1,10 @@
-one:
+data:
 	gcc -Wall -Wextra -pedantic main.c -o zad2
-	./zad2 1
+	./zad2 data
+
+sender:
+	gcc -Wall -Wextra -pedantic main.c -o zad2
+	./zad2 nadawca
 
 three:
 	gcc -Wall -Wextra -pedantic main.c -o zad2
