@@ -33,7 +33,7 @@ void send_email(char* email, char* topic, char* text) {
 void print_mails(int mode) {
     char* command;
     if(mode == 0) { //sort by date
-        command = "echo | mail";
+        command = "echo 'q' | mail | sort -k5M -k6n -k7";
     } else { //sort by sender
         command = "echo | mail | sort -k 3";
     }
