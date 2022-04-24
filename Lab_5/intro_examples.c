@@ -18,8 +18,16 @@ int main() {
     }*/
     
     
-    FILE* grep_input = popen("mail -s \"XD\"", "w");
-    fputs(" \"Sub\" ", grep_input);
+    FILE* grep_input = popen("grep Ala tmp.txt", "r");
+    char response[100];
+    fgets(response, 100, grep_input);
+    printf("respo: %s\n", response);
+    fgets(response, 100, grep_input);
+    printf("respo: %s\n", response);
+    fgets(response, 100, grep_input);
+    printf("respo: %s\n", response);
+    printf("XD %s\n",fgets(response, 100, grep_input));
+    printf("respo: %s\n", response);
     pclose(grep_input);
 
     /*int fd[2];
