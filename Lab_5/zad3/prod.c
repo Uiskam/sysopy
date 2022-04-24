@@ -80,7 +80,6 @@ void produce(int row_number, char* supply_path, int N, char* output_name) {
         exit(1);
     }
     int chars_read;
-    int licz = 0;
     while ((chars_read = fread(buffer,sizeof(char),N,supply)) == N) {
         /*if(chars_read != N) {
             for(int b = chars_read; b < N; b++){

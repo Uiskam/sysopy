@@ -7,6 +7,7 @@
 #include <fcntl.h>
 #include <sys/stat.h>
 #include <ctype.h>
+#include <sys/file.h>
 
 /*
     konsument:
@@ -48,7 +49,6 @@ int isnumber(const char *number) {
 
 void consume(char* input_path, char* output_path, int N) {
     FILE* input = fopen(input_path, "r");
-    FILE* output = fopen(output_path,"w");
     if(input == NULL) {
         perror("Pipe open fail!");
         exit(1);
@@ -57,27 +57,64 @@ void consume(char* input_path, char* output_path, int N) {
         puts("Wrong file type of file given");
         exit(1);
     }
-
+    
+    int row_number;
+    char* product = (char *)malloc(sizeof(char) * (N + 1));
+    if(product == NULL){
+        perror("Memomry alloaction error");
+        exit(1);
+    }
+    FILE* output = fopen(output_path,"w+");
+        if(output == NULL) {
+            perror("openieng out file error");
+            exit(1);
+        }   
+    while (fread(&row_number, sizeof(int), 1, input)){
+        
+        flock(fileno(output), LOCK_EX);
+        fread(product, sizeof(char), N, input);
+        int cur_row = 0;
+        char c;
+        fseek(output, 0, SEEK_SET);
+        //printf("row _nb %d\n",row_number);
+        while (fread(&c, sizeof(char), 1 , output)) {
+            if(c == '\n') {
+                cur_row++;
+            }
+            //printf("iteration\n");
+            if(cur_row >= row_number) {
+                fseek(output, -1, SEEK_CUR);
+                char* rest = (char *)malloc(4096 * sizeof(char));
+                int rest_size = fread(rest, sizeof(char), 4096, output);
+                if(rest == NULL) exit(1);
+                fseek(output, -rest_size, SEEK_CUR);
+                fwrite(product, sizeof(char), N, output);
+                fwrite(rest, sizeof(char), rest_size, output);
+                free(rest);
+                break;
+            }
+        }
+        //printf("cur %d\n",cur_row);
+        if(cur_row < row_number) {
+            printf("HERE\n");
+            for(int i = cur_row + 1; i <= row_number; i++) {
+                char new_row[2] = "\n";
+                fwrite(new_row, sizeof(char), strlen(new_row), output);
+            }
+            fseek(output, -1, SEEK_CUR);
+            fwrite(product, sizeof(char), N, output);
+            fwrite("\n", sizeof(char), 1, output);
+        }
+        flock(fileno(output), LOCK_UN);
+        //fclose(output);
+        //break;
+    }
+    fclose(output);
+    fclose(input);
+    free(product);
     
 }
 int main(int argc, char** argv) {
-    FILE* tmp = fopen(argv[1], "r");
-    if(tmp == NULL) {
-        return -1;
-    }
-    int read;
-    //int N = atoi(argv[2]);
-    char* buffer = (char *)malloc(100*sizeof(char));
-    //printf("A\n");
-    while ((read = fread(buffer,1 , sizeof(char),tmp)))
-    {
-        //printf("XDDDD\n");
-        printf("%s",buffer);
-    }
-    //printf("A\n");
-    free(buffer);
-    fclose(tmp);
-    return 0;
     switch (argc)
     {
     case 4:
@@ -85,7 +122,7 @@ int main(int argc, char** argv) {
             puts("N - number of char read must be a postivie int");
             return -1;
         }
-
+        consume(argv[1], argv[2], atoi(argv[3]));
         break;
     
     default:
