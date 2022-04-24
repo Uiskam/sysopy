@@ -6,6 +6,7 @@
 #include <unistd.h>
 #include <fcntl.h>
 #include <sys/stat.h>
+#include <ctype.h>
 /*
     producent:
         - produkuje treści
@@ -26,23 +27,79 @@
 int production_out_type_check(char* filepath) {
     struct stat fileinfo;
     if(stat(filepath, &fileinfo) == 0) {
-        return !S_ISFIFO(fileinfo.st_mode);
+        return S_ISFIFO(fileinfo.st_mode);
     }
-    return -3;
+    return 0;
+}
+
+int isnumber(const char *number) {
+    const char* begin = number;
+    if (number == NULL)
+        return 1;
+    while (*number != '\0') {
+        if (!isdigit(*number))
+            return 0;
+        number++;
+    }
+    int tmp = atoi(begin);
+    if(tmp == 0){
+        printf("HERE %d numb = %s\n",tmp,begin);
+        return 0;
+    }
+    return 1;
+}
+
+void sub_newlines(char *buf) {
+    while (*buf++)
+        if (*buf == '\n')
+            *buf = '\t';
+}
+
+void produce(char* row_number, char* supply_path, int N, char* output_name) {
+    FILE* production_output = fopen(output_name, "w");
+    if(production_output == -1) {
+        perror("Pipe open fail!");
+        return -1;
+    }
+    if(production_out_type_check(output_name) == 0){
+        puts("Wrong file type of file given");
+        return -1;
+    }
+
+    FILE* supply = fopen(supply_path, "r");
+    if(supply == NULL) {
+        perror("Supply file opening eroor");
+        exit(1);
+    }
+    char* buffer = (char *)malloc(sizeof(char) * (N + 1));
+    if(buffer == NULL) {
+        perror("Buffer allocation error");
+        exit(1);
+    }
+    int chars_read;
+    while ((chars_read = fread(buffer,sizeof(char),N,supply))) {
+        sub_newlines(buffer);   
+        flock(fileno(production_output), LOCK_EX);
+        if(fwrite(buffer, sizeof(char), N + strlen(row_number) + 1, production_output) <= 0) {
+            printf("Wrting to production output error\n");
+            exit(1);
+        }
+        flock(fileno(production_output), LOCK_UN);
+        fflush(production_output);
+    }
+    free(buffer);
+    fclose(production_output);
+    fclose(supply);
 }
 int main(int argc, char** argv) {
     switch (argc)
     {
     case 5:;
-        FILE* production_output = fopen(argv[1], "W");
-        if(production_output == -1) {
-            perror("Pipe open fail! ");
+        if(!isnumber(argv[2]) || !isnumber(argv[4])) {
+            puts("Row number and N - number of char read must be a postivie int");
             return -1;
         }
-        if(production_out_type_check(argv[1])){
-            puts("Wrong file type of file given");
-            return -1;
-        }
+        produce(argv[2], argv[3], argv[4], argv[1]);
         break;
     
     default:
