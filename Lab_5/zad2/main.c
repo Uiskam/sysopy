@@ -26,8 +26,10 @@ int send_email(char* email, char* topic, char* text) {
     }
     
     char* return_value =(char*) malloc(sizeof(char) * 100);
+    
     getline(return_value, 100, sending_pipe);
     printf("commmunicat %s\n", return_value);
+    
     pclose(sending_pipe);
     free(return_value);
     free(command);
