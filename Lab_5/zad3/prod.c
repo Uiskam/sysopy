@@ -76,22 +76,24 @@ void produce(char* row_number, char* supply_path, int N, char* output_name) {
         perror("Buffer allocation error");
         exit(1);
     }
-    //strcpy(buffer, row_number);
-    //buffer[strlen(row_number)] = ' ';  + strlen(row_number) + 1
     int chars_read;
-    while ((chars_read = fread(buffer ,sizeof(char),N,supply))) {
-        /*if(chars_read < N) {
+    int licz = 0;
+    while ((chars_read = fread(buffer,sizeof(char),N,supply))) {
+        if(chars_read < N) {
             buffer[chars_read + strlen(row_number) + 1] = '\0';
-        }*/
-        sub_newlines(buffer);   
-        flock(fileno(production_output), LOCK_EX);
-        if(fwrite(buffer, sizeof(char), N + strlen(row_number) + 1, production_output) <= 0) {
+        }
+        //sub_newlines(buffer);   
+        //flock(fileno(production_output), LOCK_EX);
+        //printf("writing)\n");
+        licz++;
+        if(fwrite(buffer, sizeof(char), N, production_output) <= 0) {
             printf("Wrting to production output error\n");
             exit(1);
         }
-        flock(fileno(production_output), LOCK_UN);
-        fflush(production_output);
+        //flock(fileno(production_output), LOCK_UN);
+        //fflush(production_output);
     }
+    printf("licz %d\n",licz);
     free(buffer);
     fclose(production_output);
     fclose(supply);
@@ -100,7 +102,7 @@ int main(int argc, char** argv) {
     switch (argc)
     {
     case 5:;
-        
+        printf("int %d %d\n",sizeof(int), sizeof(char));
         if(!isnumber(argv[2]) || !isnumber(argv[4])) {
             puts("Row number and N - number of char read must be a postivie int");
             return -1;

@@ -67,13 +67,13 @@ int main(int argc, char** argv) {
     }
     int read;
     char* buffer = (char *)malloc(100*sizeof(char));
-    printf("A\n");
+    //printf("A\n");
     while ((read = fread(buffer, 50, sizeof(char),tmp)))
     {
-        printf("XDDDD\n");
+        //printf("XDDDD\n");
         printf("%s",buffer);
     }
-    printf("A\n");
+    //printf("A\n");
     free(buffer);
     fclose(tmp);
     return 0;

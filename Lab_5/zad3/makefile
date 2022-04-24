@@ -4,8 +4,10 @@ clean_prod:
 	gcc -Wall -Wextra -Wshadow -Wunused -Wconversion -g -O2 -fsanitize=address    kons.c   -o kons
 
 mprod:
+	rm pipe
+	mkfifo pipe
 	$(CC) -o prod prod.c
-	./prod pipe 1 supply.txt 30
+	./prod pipe 1 supply.txt 1
 
 mkons:
 	$(CC) -o kons kons.c
