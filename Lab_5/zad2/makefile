@@ -5,5 +5,6 @@ one:
 three:
 	gcc -Wall -Wextra -pedantic main.c -o zad2
 	./zad2 example@egxample.com topic "tekst to be send"
+
 pedantic:
-	gcc -Wall -Wextra -pedantic main.c -o zad2
+	gcc -Wall -Wextra -pedantic -Werror main.c -o zad2
