@@ -42,15 +42,23 @@ void print_mails(int mode) {
         perror("error while creating pipe\n");
         exit(1);
     }
-    char* mail_recieved;
-    size_t mail_info_len;
-    while (getline(&mail_recieved, &mail_info_len, recievied_pipe) != -1) {
-        printf("%s\n",mail_recieved);
-    }
     
-    pclose(recievied_pipe);
-    free(command);
+    char* mail_recieved;
+    size_t mail_info_len = 0, read;
+    while ((read = getline(&mail_recieved, &mail_info_len, recievied_pipe)) != -1) {
+        printf("%s",mail_recieved);
+    }
     free(mail_recieved);
+
+    /*char *line;
+    size_t len = 0, read;
+    while((read = getline(&line, &len, file)) != -1) {
+        printf("%s", line);
+    }
+    free(line);
+    pclose(recievied_pipe);*/
+    //free(command);
+    //free(mail_recieved);
 }
 int main(int argc, char **argv) {
     switch (argc)
