@@ -8,7 +8,7 @@
 #include <sys/stat.h>
 #include <ctype.h>
 #include <sys/file.h>
-
+#include <sys/wait.h>
 /*
     konsument:
         - konsumuje tresci od producentów
@@ -52,6 +52,10 @@ void consume(char* input_path, char* output_path, int N) {
     if(input == NULL) {
         perror("Pipe open fail!");
         exit(1);
+    }
+    for (int i = 0; ; i++) {
+            if (wait(NULL) == -1)
+                break;
     }
     if(production_input_type_check(input_path) == 0){
         puts("Wrong file type of file given");
@@ -109,7 +113,9 @@ void consume(char* input_path, char* output_path, int N) {
     
 }
 int main(int argc, char** argv) {
-    //puts("kons ready");
+    
+    
+    puts("kons ready");
     switch (argc)
     {
     case 4:
