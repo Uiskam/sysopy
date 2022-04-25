@@ -14,12 +14,11 @@ mkons:
 minit:
 	$(CC) -o init init.c
 
-run: mprod mkons minit
+run:  mprod mkons minit
 	rm pipe
 	mkfifo pipe
 	./init 3 pipe 10 1
-	./checker.sh
-	rm prod kons init
+	
 
 test: mprod mkons minit
 	rm pipe
@@ -33,13 +32,27 @@ test: mprod mkons minit
 	./init 1 pipe 10 3
 	./checker_1_n.sh
 	 
-
 	rm pipe
 	mkfifo pipe
 	./init 3 pipe 10 3
 	./checker.sh
 
-	rm prod kons init
+	rm pipe
+	mkfifo pipe
+	./init 3 pipe 5000 1
+	./checker.sh
+	 
+
+	rm pipe
+	mkfifo pipe
+	./init 1 pipe 5000 3
+	./checker_1_n.sh
+	 
+
+	rm pipe
+	mkfifo pipe
+	./init 3 pipe 5000 3
+	./checker.sh
 	 
 	
 	

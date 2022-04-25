@@ -50,12 +50,18 @@ int isnumber(const char *number) {
     return 1;
 }
 
-void sub_newlines(char *buf) {
+void sub_newlines(char *buf, int N) {
+
+    int i = 0;
     while (*buf){
+        if(i == N) break;
         if (*buf == '\n'){
             *buf = '\t';
         }
+        i++;
+        if(i == N) break;
         buf++;
+        
     }
 }
 
@@ -95,7 +101,7 @@ void produce(int row_number, char* supply_path, int N, char* output_name) {
             printf("Nanosleep error\n");
             exit(1);
         }
-        sub_newlines(buffer);
+        sub_newlines(buffer,N);
         flock(fileno(production_output), LOCK_EX);
         fwrite(&row_number, sizeof(int),1,production_output);
         fwrite(buffer, sizeof(char),N,production_output);
