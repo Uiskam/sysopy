@@ -15,4 +15,48 @@ minit:
 run: mprod mkons minit
 	rm pipe
 	mkfifo pipe
-	./init 5 pipe 10
+	./init 3 pipe 10 1
+	sleep 5
+	./checker.sh
+
+test: mprod mkons minit
+	rm pipe
+	mkfifo pipe
+	./init 3 pipe 10 1
+	sleep 5
+	./checker.sh
+	sleep 5
+
+	rm pipe
+	mkfifo pipe
+	./init 1 pipe 10 3
+	sleep 5
+	./checker_1_n.sh
+	sleep 5
+
+	rm pipe
+	mkfifo pipe
+	./init 3 pipe 10 3
+	sleep 5
+	./checker.sh
+	sleep 5
+	
+	rm pipe
+	mkfifo pipe
+	./init 3 pipe 5000 1
+	sleep 5
+	./checker.sh
+	sleep 5
+
+	rm pipe
+	mkfifo pipe
+	./init 1 pipe 5000 3
+	sleep 5
+	./checker_1_n.sh
+	sleep 5
+
+	rm pipe
+	mkfifo pipe
+	./init 3 pipe 5000 3
+	sleep 5
+	./checker.sh

@@ -8,6 +8,8 @@
 #include <sys/stat.h>
 #include <ctype.h>
 #include <sys/file.h>
+#include <limits.h>
+#include <sys/wait.h>
 /*
     2 niezależne programy:
 
@@ -45,6 +47,7 @@
             - liczba producentów
             - nazwa potoku
             - liczba N
+            - liczba klientów
         - działanie:
             - uruchamia zadana licbe producenßów i konsumenta
 
@@ -68,15 +71,13 @@ int isnumber(const char *number) {
 int main(int argc, char** argv) {
     switch (argc)
     {
-    case 4:
+    case 5:
         if(!isnumber(argv[1])){
             puts("Producers number must be a postivie int");
             return -1;
         }
         int number_of_producers = atoi(argv[1]);
-        //printf("nb of prod %d\n",number_of_producers);
         for(int i = 1; i <= number_of_producers; i++) {
-            //puts("XDD");
             if(fork() == 0){
                 char prod_nb[5], prod_input_name[10];
                 sprintf(prod_nb,"%d",i*2);
@@ -86,11 +87,16 @@ int main(int argc, char** argv) {
                 break;
             }
         }
-        execl("./kons","./kons",argv[2],"result.out",argv[3],NULL);
+        int number_of_clients = atoi(argv[4]);
+        for(int i = 1; i <= number_of_clients; i++){
+            if(fork() == 0){
+                execl("./kons","./kons",argv[2],"result.out",argv[3],NULL);
+            }
+        }
         break;
     
     default:
-        printf("there must be 3 arg (number of proucers, fifo name, N)\n");
+        printf("there must be 4 arg (number of proucers, fifo name, N, client number)\n");
         return -1;
         break;
     }

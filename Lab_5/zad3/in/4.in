@@ -1,12 +1,3 @@
 konsument:
         - konsumuje tresci od producentów
         - otrzymane dane od producenta nr i mają się pojwaić w linii nr i pliku wynikowego
-        - argumenty:
-            - ściezka do potoku
-            - sciezka do pliku teksotwego
-            - N l. znaków odczytywanych na raz
-        - działanie:
-            - otwiera potok
-            -aż do oczytania cąlego pliku
-                - czyta nr wiersza i oraz N znaków z potoku
-                - umieszcza odczytane znaki w linii i pliku tekstowego 

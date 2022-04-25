@@ -1,0 +1,1 @@
+Ze względu na kłopoty z synchronizacją pracy procesów (klient kończy pracę przed producentami). Wyniki testów są losowe. 
