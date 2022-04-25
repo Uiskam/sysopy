@@ -10,7 +10,7 @@ data: compile
 sender: compile
 	./zad2 nadawca
 
-three:
+send:
 	gcc -Wall -Wextra -pedantic main.c -o zad2
 	./zad2 example@egxample.com topic "tekst to be send"
 
