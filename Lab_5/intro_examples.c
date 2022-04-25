@@ -1,34 +1,26 @@
 #include <unistd.h>
 #include <stdio.h>
-
+#include <string.h>
 int main() {
-    /*
+    
     int fd[2];
     pipe(fd);
     pid_t pid = fork();
     if (pid == 0) { // dziecko
         close(fd[1]);
-        int result = dup2(fd[0],STDIN_FILENO);
-        printf("%d\n",result);
+        dup2(fd[0],STDIN_FILENO);
         execlp("grep", "grep","Ala", NULL);
     } else { // rodzic
         close(fd[0]);
-        char text[] = "Ala ma kota";
-        write(fd[1], text,sizeof(text)/sizeof(text[0]));
-    }*/
+        char text[] = "0 Ala ma kota'n Ala sadas\0\n";
+        write(fd[1], text,strlen(text));
+    }
     
     
-    FILE* grep_input = popen("grep Ala tmp.txt", "r");
-    char response[100];
-    fgets(response, 100, grep_input);
-    printf("respo: %s\n", response);
-    fgets(response, 100, grep_input);
-    printf("respo: %s\n", response);
-    fgets(response, 100, grep_input);
-    printf("respo: %s\n", response);
-    printf("XD %s\n",fgets(response, 100, grep_input));
-    printf("respo: %s\n", response);
-    pclose(grep_input);
+    /*FILE* grep_input = popen("grep Ala", "w");
+    fputs("Aala ma kots\n",grep_input);
+    fputs("Asla nie ma as",grep_input);
+    pclose(grep_input);*/
 
     /*int fd[2];
     pipe(fd);
