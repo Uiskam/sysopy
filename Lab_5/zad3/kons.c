@@ -117,7 +117,7 @@ int main(int argc, char** argv) {
             return -1;
         }
         consume(argv[1], argv[2], atoi(argv[3]));
-        puts("koniec pracy");
+        //puts("koniec pracy");
         break;
     
     default:

@@ -121,7 +121,7 @@ int main(int argc, char** argv) {
             return -1;
         }
         produce(atoi(argv[2]), argv[3], atoi(argv[4]), argv[1]);
-        puts("fabryka się zamyka");
+        //puts("fabryka się zamyka");
         break;
     
     default:
