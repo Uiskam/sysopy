@@ -88,13 +88,13 @@ void produce(int row_number, char* supply_path, int N, char* output_name) {
                 buffer[b] = ' ';
             }
         }
-        /*struct timespec tim;
+        struct timespec tim;
         tim.tv_sec = 1;
         tim.tv_nsec = (rand()%1000)*1000000;
         if(nanosleep(&tim, NULL) < 0 ) {
             printf("Nanosleep error\n");
             exit(1);
-        }*/
+        }
         sub_newlines(buffer);
         flock(fileno(production_output), LOCK_EX);
         fwrite(&row_number, sizeof(int),1,production_output);
@@ -114,8 +114,8 @@ int main(int argc, char** argv) {
             printf("Row number and N - number of char read must be a postivie int. Rows: %s N: %s\n",argv[2],argv[4]);
             return -1;
         }
-        
         produce(atoi(argv[2]), argv[3], atoi(argv[4]), argv[1]);
+        puts("fabryka się zamyka");
         break;
     
     default:

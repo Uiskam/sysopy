@@ -53,10 +53,6 @@ void consume(char* input_path, char* output_path, int N) {
         perror("Pipe open fail!");
         exit(1);
     }
-    /*for (int i = 0; false; i++) {
-            if (wait(NULL) == -1)
-                break;
-    }*/
     if(production_input_type_check(input_path) == 0){
         puts("Wrong file type of file given");
         exit(1);
@@ -107,10 +103,10 @@ void consume(char* input_path, char* output_path, int N) {
         }
         flock(fileno(output), LOCK_UN);
     }
+    fflush(output);
     fclose(output);
     fclose(input);
     free(product);
-    
 }
 int main(int argc, char** argv) {
     switch (argc)
@@ -121,6 +117,7 @@ int main(int argc, char** argv) {
             return -1;
         }
         consume(argv[1], argv[2], atoi(argv[3]));
+        puts("koniec pracy");
         break;
     
     default:
