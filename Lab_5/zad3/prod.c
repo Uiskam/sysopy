@@ -97,11 +97,12 @@ void produce(int row_number, char* supply_path, int N, char* output_name) {
     fclose(supply);
 }
 int main(int argc, char** argv) {
+    //puts("Im on");
     switch (argc)
     {
     case 5:;
         if(!isnumber(argv[2]) || !isnumber(argv[4])) {
-            puts("Row number and N - number of char read must be a postivie int");
+            printf("Row number and N - number of char read must be a postivie int. Rows: %s N: %s\n",argv[2],argv[4]);
             return -1;
         }
         

@@ -64,11 +64,11 @@ void consume(char* input_path, char* output_path, int N) {
         perror("Memomry alloaction error");
         exit(1);
     }
-    FILE* output = fopen(output_path,"rw+");
-        if(output == NULL) {
-            perror("openieng out file error");
-            exit(1);
-        }   
+    FILE* output = fopen(output_path,"w+");
+    if(output == NULL) {
+        perror("openieng out file error");
+        exit(1);
+    }   
     while (fread(&row_number, sizeof(int), 1, input)){
         
         flock(fileno(output), LOCK_EX);
@@ -109,6 +109,7 @@ void consume(char* input_path, char* output_path, int N) {
     
 }
 int main(int argc, char** argv) {
+    //puts("kons ready");
     switch (argc)
     {
     case 4:

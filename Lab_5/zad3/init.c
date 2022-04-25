@@ -1,13 +1,13 @@
 #include <stdio.h>
-#include <signal.h>
 #include <stdlib.h>
 #include <unistd.h>
 #include <sys/types.h>
-#include <sys/wait.h>
 #include <string.h>
-#include <string.h>
-#include <stdbool.h>
-
+#include <unistd.h>
+#include <fcntl.h>
+#include <sys/stat.h>
+#include <ctype.h>
+#include <sys/file.h>
 /*
     2 niezależne programy:
 
@@ -43,9 +43,54 @@
     init:
         -argumenty:
             - liczba producentów
-            
+            - nazwa potoku
+            - liczba N
+        - działanie:
+            - uruchamia zadana licbe producenßów i konsumenta
+
     Oba programy komunikają sie przez potok
 */
-int main() {
-
+int isnumber(const char *number) {
+    const char* begin = number;
+    if (number == NULL)
+        return 1;
+    while (*number != '\0') {
+        if (!isdigit(*number))
+            return 0;
+        number++;
+    }
+    int tmp = atoi(begin);
+    if(tmp == 0){
+        return 0;
+    }
+    return 1;
+}
+int main(int argc, char** argv) {
+    switch (argc)
+    {
+    case 4:
+        if(!isnumber(argv[1])){
+            puts("Producers number must be a postivie int");
+            return -1;
+        }
+        int number_of_producers = atoi(argv[1]);
+        //printf("nb of prod %d\n",number_of_producers);
+        for(int i = 1; i <= number_of_producers; i++) {
+            //puts("XDD");
+            if(fork() == 0){
+                char prod_nb[5], prod_input_name[10];
+                sprintf(prod_nb,"%d",i);
+                sprintf(prod_input_name,"%d.in",i);
+                execl("./prod","./prod",argv[2],prod_nb,prod_input_name,argv[3],NULL);
+                break;
+            }
+        }
+        execl("./kons","./kons",argv[2],"result.out",argv[3],NULL);
+        break;
+    
+    default:
+        printf("there must be 3 arg (number of proucers, fifo name, N)\n");
+        return -1;
+        break;
+    }
 }
