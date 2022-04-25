@@ -7,6 +7,7 @@
 #include <fcntl.h>
 #include <sys/stat.h>
 #include <ctype.h>
+#include <time.h>
 #include <sys/file.h>
 /*
     producent:
@@ -80,12 +81,20 @@ void produce(int row_number, char* supply_path, int N, char* output_name) {
         exit(1);
     }
     int chars_read;
+
     while ((chars_read = fread(buffer,sizeof(char),N,supply))) {
         if(chars_read != N) {
             for(int b = chars_read; b < N; b++){
                 buffer[b] = ' ';
             }
         }
+        /*struct timespec tim;
+        tim.tv_sec = 1;
+        tim.tv_nsec = (rand()%1000)*1000000;
+        if(nanosleep(&tim, NULL) < 0 ) {
+            printf("Nanosleep error\n");
+            exit(1);
+        }*/
         sub_newlines(buffer);
         flock(fileno(production_output), LOCK_EX);
         fwrite(&row_number, sizeof(int),1,production_output);

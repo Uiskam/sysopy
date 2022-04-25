@@ -79,9 +79,10 @@ int main(int argc, char** argv) {
             //puts("XDD");
             if(fork() == 0){
                 char prod_nb[5], prod_input_name[10];
-                sprintf(prod_nb,"%d",i);
-                sprintf(prod_input_name,"%d.in",i);
+                sprintf(prod_nb,"%d",i*2);
+                sprintf(prod_input_name,"./in/%d.in",i);
                 execl("./prod","./prod",argv[2],prod_nb,prod_input_name,argv[3],NULL);
+                //pipepath, row_nb, inpath, N
                 break;
             }
         }
