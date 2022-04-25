@@ -79,6 +79,7 @@ int main(int argc, char** argv) {
         int number_of_producers = atoi(argv[1]);
         for(int i = 1; i <= number_of_producers; i++) {
             if(fork() == 0){
+                //puts("child");
                 char prod_nb[5], prod_input_name[10];
                 sprintf(prod_nb,"%d",i*2);
                 sprintf(prod_input_name,"./in/%d.in",i);
@@ -88,11 +89,13 @@ int main(int argc, char** argv) {
             }
         }
         int number_of_clients = atoi(argv[4]);
-        for(int i = 1; i <= number_of_clients; i++){
+        for(int i = 0; i < number_of_clients; i++){
             if(fork() == 0){
                 execl("./kons","./kons",argv[2],"result.out",argv[3],NULL);
+                return 0;
             }
         }
+        while (wait(NULL) != -1);
         break;
     
     default:
