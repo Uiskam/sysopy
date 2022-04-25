@@ -18,6 +18,7 @@ run:  mprod mkons minit
 	rm pipe
 	mkfifo pipe
 	./init 3 pipe 10 1
+	./checker.sh
 	
 
 test: mprod mkons minit
