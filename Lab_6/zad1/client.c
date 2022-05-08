@@ -5,6 +5,7 @@
 #include <time.h>
 #include <string.h>
 #include <sys/types.h>
+#include <sys/select.h>
 #include "comm_def.h"
 #include <signal.h>
 /*
@@ -153,6 +154,16 @@ void received_SERVER_SHUTD_DOWN() {
     send_STOP();
 }
 
+int stdin_nonempty(void) {
+    fd_set rfds;
+    struct timeval tv;
+    tv.tv_sec = 1;
+    tv.tv_usec = 0;
+    FD_ZERO(&rfds);
+    FD_SET(0, &rfds);
+    return select(STDIN_FILENO + 1, &rfds, NULL, NULL, &tv);
+    //return (FD_ISSET(0, &rfds));
+}
 
 int main(int argc, char **argv) {
     struct passwd *pw = getpwuid(getuid());
@@ -174,9 +185,9 @@ int main(int argc, char **argv) {
         perror("server queue opening error");
         //return -1;
     }
-    send_INIT();
-    msgrcv(server_queue, &received_msg, sizeof(received_msg), INIT, 0);
-    received_INIT();
+    //send_INIT();
+    //msgrcv(server_queue, &received_msg, sizeof(received_msg), INIT, 0);
+    //received_INIT();
     int active_users[SERVER_CAPACITY];
     for(int i = 0; i < SERVER_CAPACITY; i++) active_users[i] = -1;
 
@@ -187,7 +198,30 @@ int main(int argc, char **argv) {
         else if(msgrcv(my_queue, &received_msg, sizeof(received_msg), LIST, IPC_NOWAIT) >= 0) {
             send_LIST();
         }
-        msgrcv(my_queue, &received_msg, sizeof(received_msg), 0, IPC_NOWAIT);
+        if (msgrcv(my_queue, &received_msg, sizeof(received_msg), 0, IPC_NOWAIT) >= 0) {
+            switch (received_msg.mtype) {
+                case LIST:
+                    received_LIST(active_users);
+                    break;
+                case TWOALL:
+                    received_2ALL_2ONE();
+                    break;
+                case TWOONE:
+                    received_2ALL_2ONE();
+                    break;
+                case SERVER_SHUT_DOWN:
+                    received_SERVER_SHUTD_DOWN();
+                    break;
+                default:
+                    printf("unknown msg type: %ld id: %d \n",received_msg.mtype,init_ID);
+                    break;
+            }
+        }
+        sleep(1);
+        char cmd[MAXMSG + 10];
+        if(stdin_nonempty() && scanf("%s", cmd) > 0) {
+
+        }
     }
 
 }
