@@ -22,6 +22,7 @@ int main(int argc, char** argv) {
 
     for (long i=0; i<20; i++) {
         p.msg = (char) i;
+        p.type = i % 2 + 1;
         printf("sending (%ld, %d) size %lu\n", p.type, p.msg, sizeof(p));
         int retval = msgsnd(queue_id, &p, sizeof(p), 0);
         if (retval < 0) {
