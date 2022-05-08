@@ -1,18 +1,16 @@
 basic_comp :=  gcc -Wall -Wextra -pedantic
-mem_err_comp := gcc -Wall -Wextra -Wshadow -Wunused -Wconversion -g -O2 -fsanitize=address    main.c   -o zad2
-werr_comp := gcc -Wall -Wextra -pedantic -Werror main.c -o zad2
+mem_err_comp := gcc -Wall -Wextra -Wshadow -Wunused -Wconversion -g -O2 -fsanitize=address
+werr_comp := gcc -Wall -Wextra -pedantic -Werror
 
 clean:
-	rm zad1 2> /dev/null
+	rm server 2> /dev/null
+	rm client 2> /dev/null
 
-compile: clean
-	$(basic_comp) main.c -o zad1
-	./zad1
+compile:
+	$(basic_comp) client.c -o client
 
 mem: clean
-	$(mem_err_comp) main.c -o zad1
-	./zad1
+	$(mem_err_comp) client.c -o client
 
 werr: clean
-	$(werr_comp) main.c -o zad1
-	./zad1
+	$(werr_comp) client.c -o client
