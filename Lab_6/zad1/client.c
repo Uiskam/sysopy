@@ -237,29 +237,28 @@ int main(int argc, char **argv) {
                 continue;
             }
             strncpy(msg_input, cmd + msg_begin, strlen(cmd));
-            switch (request_number) {
-                case LIST:
-                    send_LIST();
-                    break;
-                case TWOALL:
-                    send_2ALL(msg_input);
-                    break;
-                case TWOONE:;
-                    int receiver_id = atoi(msg_input);
-                    char msg_to_send[MAXMSG + 10];
-                    msg_begin = find_begin_of_msg(msg_input);
-                    if(msg_begin == -1){
-                        puts("wrong instruction");
-                        continue;
-                    }
-                    strncpy(msg_to_send, msg_input + msg_begin, strlen(msg_input));
-                    send_2ONE(receiver_id, msg_to_send);
-                case STOP:;
-                    send_STOP();
-                    break;
-                default:
-                    printf("lower unknown msg type: %ld id: %d \n", received_msg.mtype, init_ID);
-                    break;
+
+            if(request_number == LIST) {
+                send_LIST();
+            }
+            else if (request_number == TWOALL) {
+                send_2ALL(msg_input);
+            }
+            else if (request_number == TWOONE) {
+                int receiver_id = atoi(msg_input);
+                char msg_to_send[MAXMSG + 10];
+                msg_begin = find_begin_of_msg(msg_input);
+                if (msg_begin == -1) {
+                    puts("wrong instruction");
+                    continue;
+                }
+                strncpy(msg_to_send, msg_input + msg_begin, strlen(msg_input));
+                send_2ONE(receiver_id, msg_to_send);
+            }
+            else if (request_number == STOP) {
+                send_STOP();
+            } else {
+                printf("lower unknown msg type: %ld id: %d \n", received_msg.mtype, init_ID);
             }
         }
     }
