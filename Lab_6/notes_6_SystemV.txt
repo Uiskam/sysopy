@@ -112,4 +112,4 @@ Funkcje kolejek:
         dostępne cmd:
             IPC_STAT: uzyskanie struktury msgid_ds odpowiadającej kolejce (zostaje ona skopiowana pod adres wskazywany przez buf)
             IPC_SET: modyfikacja wartości struktury ipc_perm odpowiadającej kolejce
-            IPC_RMID: skasowanie kolejki
+            IPC_RMID: usunięcie, skasowanie kolejki
