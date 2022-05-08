@@ -1,0 +1,12 @@
+tar - an arching utility
+options:
+    c - create a new archive (.tar)
+    x - extract files from archive
+    v - verbosely list files processed
+    f - following is the archive name
+    z - filter the archive through gzip (.gz - so cz are required in order to create file.tar.gz (.tgz == .tar.gz)
+        used both for zipping and unzipping (depend on c or x options)
+    j - filter through bzip2 (.bz2, .tar.bz2 == tbz == .tb2)(more time required but more comprresed file is achvied)
+        used for both compressing like decompression (depend on c or x options)
+
+those are the basics, for more info: https://www.thegeekstuff.com/2010/04/unix-tar-command-examples/
