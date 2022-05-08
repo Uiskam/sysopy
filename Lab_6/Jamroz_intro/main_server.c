@@ -19,15 +19,15 @@ int main(int argc, char** argv) {
 
     while (1) {
         packet_st p;
-        int retval = msgrcv(queue_id, &p, sizeof(p), 1, IPC_NOWAIT);
+        int retval = msgrcv(queue_id, &p, sizeof(p), 0, IPC_NOWAIT);
         if (retval < 0) {
             perror("msgrcv");
             break;
         }
 
-        printf("received: %d\n", p.msg);
+        printf("received: %d\n", p.type);
     }
-
+    puts("HERE");
     msgctl(queue_id, IPC_RMID, NULL);
 
     return 0;
