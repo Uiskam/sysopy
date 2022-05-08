@@ -2,9 +2,11 @@
 #include <sys/ipc.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include <time.h>
 #include <string.h>
 #include <sys/types.h>
 #include "comm_def.h"
+#include <signal.h>
 /*
  * Klient wysyła zlecenia, które zawierają:
  *  - typ wiadomości, typ zlecenia
@@ -19,15 +21,15 @@
  *      wysyła klientowi przypisane mu ID (przez kolejke klienta)
  *  otwarcie kolejki klienta (nr w kolejności zgłoszeń) i odsyła mu to ID
  *    (komunikacja ta zachodzi przez kolejke klienta)
- *  - LIST
+ *  - LIST done
  *    serwer:
  *      wypisanie aktywnych klientów
- *  - 2ALL string
+ *  - 2ALL string done
  *    klient:
  *      wiadomość
  *    serwer:
  *      przekazuje do wszystkich innych wiadomość, ID nadawcy i aktualna datę
- *  - 2ONE id_klient string,
+ *  - 2ONE id_klient string, done
  *    klient:
  *      ID adresata (z listy od serwera)
  *      wiadomość
@@ -48,13 +50,144 @@
  *
  *  Po tym klient może wysyłać zlecenia na serwer (czytane ze stdin), (czyta typy komunikatów)
  */
-int main(int argc, char** argv) {
+//const key_t server_queue = SERVER_QUE_KEY;
+int my_id = -1;
+int my_queue;
+int init_ID;
+struct comm_msg received_msg;
+
+void send_STOP();
+
+void intHandler(int sig_number) {
+    printf("WORK END id: %d\n", init_ID);
+    send_STOP();
+    exit(0);
+}
+
+void send_INIT() {
+    struct comm_msg my_msg;
+    my_msg.mtype = INIT;
+    my_msg.senderID = my_id;
+    sprintf(my_msg.mtext, "%d", my_queue);
+    if( msgsnd(SERVER_QUE_KEY, &my_msg, sizeof(my_msg), 0) < 0) {
+        printf("INIT error id: %d\n", init_ID);
+        perror("error");
+        exit(-1);
+    }
+    printf("INIT sent id: %d\n", my_id);
+}
+
+void send_LIST() {
+    struct comm_msg my_msg;
+    my_msg.mtype = LIST;
+    my_msg.senderID = my_id;
+    if (msgsnd(SERVER_QUE_KEY, &my_msg, sizeof(my_msg), 0) < 0) {
+        printf("LIST error id: %d\n", init_ID);
+        perror("error");
+        exit(-1);
+    }
+}
+
+void send_2ALL(char *message) {
+    struct comm_msg my_msg;
+    my_msg.mtype = TWOALL;
+    my_msg.senderID = my_id;
+    sprintf(my_msg.mtext,"%s",message);
+    if (msgsnd(SERVER_QUE_KEY, &my_msg, sizeof(my_msg), 0) < 0) {
+        printf("2ALL error id: %d\n", init_ID);
+        perror("error");
+        exit(-1);
+    }
+}
+
+void send_2ONE(int receiver_id, char *message) {
+    struct comm_msg my_msg;
+    my_msg.mtype = TWOONE;
+    my_msg.senderID = my_id;
+    sprintf(my_msg.mtext, "%d;%s", receiver_id, message);
+    if (msgsnd(SERVER_QUE_KEY, &my_msg, sizeof(my_msg), 0) < 0) {
+        printf("2ONE error id: %d\n", init_ID);
+        perror("error");
+        exit(-1);
+    }
+}
+
+void send_STOP() {
+    struct comm_msg my_msg;
+    my_msg.mtype = STOP;
+    my_msg.senderID = my_id;
+    sprintf(my_msg.mtext, "STOP");
+    if(msgsnd(SERVER_QUE_KEY, &my_msg, sizeof(my_msg), 0) < 0) {
+        printf("STOP error id: %d\n", init_ID);
+        perror("error");
+        exit(-1);
+    }
+    if (msgctl(my_queue, IPC_RMID, NULL) < 0) {
+        printf("delete queue error id: %d\n", init_ID);
+        perror("error");
+        exit(-1);
+    }
+}
+
+void received_INIT() {
+    my_id = atoi(received_msg.mtext);
+    printf("init received id: %d\n", my_id);
+}
+
+void received_LIST(int* user_list) {
+    for(int i = 0; i < SERVER_CAPACITY; i++) {
+        user_list[i] = received_msg.active_users[i];
+    }
+}
+
+void received_2ALL_2ONE() {
+    time_t t = time(NULL);
+    struct tm tm = *localtime(&t);
+    printf("client with id: %d\n",init_ID);
+    printf("received from: %ld\n",received_msg.senderID);
+    printf("on: %d-%02d-%02d %02d:%02d:%02d\n", tm.tm_year + 1900, tm.tm_mon + 1, tm.tm_mday, tm.tm_hour, tm.tm_min, tm.tm_sec);
+    printf("msg: %s\n\n",received_msg.mtext);
+}
+
+void received_SERVER_SHUTD_DOWN() {
+    send_STOP();
+}
+
+
+int main(int argc, char **argv) {
     struct passwd *pw = getpwuid(getuid());
     const char *homedir = pw->pw_dir;
-    if(argc != 2) {
+    signal(SIGINT, intHandler);
+    if (argc != 2) {
         printf("wrong arg number, 1 arg (int) is required\n");
         return -1;
     }
-    int my_queue = msgget(ftok(homedir, atoi(argv[1])), IPC_CREAT | IPC_EXCL);
-    printf("%d\n",my_queue);
+    init_ID = atoi(argv[1]);
+    my_queue = msgget(ftok(homedir, init_ID), IPC_CREAT);
+    printf("%d my q\n",my_queue);
+    if (my_queue < 0) {
+        perror("queue creation error");
+        //return -1;
+    }
+    int server_queue = msgget(SERVER_QUE_KEY, 0600);
+    if (server_queue < 0) {
+        perror("server queue opening error");
+        //return -1;
+    }
+    send_INIT();
+    msgrcv(server_queue, &received_msg, sizeof(received_msg), INIT, 0);
+    received_INIT();
+    int active_users[SERVER_CAPACITY];
+    for(int i = 0; i < SERVER_CAPACITY; i++) active_users[i] = -1;
+
+    while (1) {
+        if(msgrcv(my_queue, &received_msg, sizeof(received_msg), STOP, IPC_NOWAIT) >= 0) {
+            send_STOP();
+        }
+        else if(msgrcv(my_queue, &received_msg, sizeof(received_msg), LIST, IPC_NOWAIT) >= 0) {
+            send_LIST();
+        }
+        msgrcv(my_queue, &received_msg, sizeof(received_msg), 0, IPC_NOWAIT);
+    }
+
 }

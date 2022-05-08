@@ -8,17 +8,23 @@
 
 #define STOP 1
 #define LIST 2
-#define INIT 3
-#define TWOALL 4
-#define TWOONE 5
-#define MAXMSG 400
-#define SERVER_QUE_ID ftok(getpwuid(getuid())->pw_dir,0)
+#define TWOALL 3
+#define TWOONE 4
 
-struct msg {
+#define INIT 20
+#define SERVER_SHUT_DOWN 30
+
+#define SERVER_CAPACITY 10
+#define MAXMSG 200
+#define SERVER_QUE_KEY ftok(getpwuid(getuid())->pw_dir,0)
+
+struct comm_msg {
     long mtype;         /* typ komunikatu   */
-    char mtext[MAXMSG];      /* tresc komunikatu */
+    long senderID;      /* id nadawcy */
+    char mtext[MAXMSG];      /* treść komunikatu */
+    int active_users[SERVER_CAPACITY];
 };
 
 
 
-#endif //MYSYSOPY_COMM_DEF_H
+#endif //SYSOPY_COMM_DEF_H
