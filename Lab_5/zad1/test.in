@@ -1,0 +1,2 @@
+składnik1 = cat /etc/passwd | wc -l | wc -rwd | ls -alr /etc/
+skaldnik2 = ls -al | cd .. | cd /etc/pwd/ | tr -d -s tmp.txt
