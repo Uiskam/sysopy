@@ -17,6 +17,8 @@
  *  - LIST
  *    serwer:
  *      wypisanie aktywnych klientów
+ *    klient:
+ *      akutalizacja listy klientów
  *  - 2ALL string
  *    klient:
  *      wiadomość

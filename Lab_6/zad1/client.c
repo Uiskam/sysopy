@@ -2,6 +2,8 @@
 #include <sys/ipc.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
+#include <sys/types.h>
 #include "comm_def.h"
 /*
  * Klient wysyła zlecenia, które zawierają:
@@ -46,9 +48,12 @@
  *
  *  Po tym klient może wysyłać zlecenia na serwer (czytane ze stdin), (czyta typy komunikatów)
  */
-int main() {
-    struct passwd *pw = getpwuid(getuid());
-    const char *homedir = pw->pw_dir;
-    printf("%s is the value of $HOME\n",homedir);
-    printf("%d %d %d %d %d\n",STOP, LIST, INIT, TWOALL, MAXMSG);
+const char *homedir = getpwuid(getuid())->pw_dir;
+int main(int argc, char** argv) {
+    if(argc != 2) {
+        printf("wrong arg number, 1 arg (int) is required\n");
+        return -1;
+    }
+    int my_queue = msgget(ftok(homedir, atoi(argv[1])), IPC_CREAT | IPC_EXCL);
+    printf("%d\n",my_queue);
 }
