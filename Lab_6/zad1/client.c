@@ -48,8 +48,9 @@
  *
  *  Po tym klient może wysyłać zlecenia na serwer (czytane ze stdin), (czyta typy komunikatów)
  */
-const char *homedir = getpwuid(getuid())->pw_dir;
 int main(int argc, char** argv) {
+    struct passwd *pw = getpwuid(getuid());
+    const char *homedir = pw->pw_dir;
     if(argc != 2) {
         printf("wrong arg number, 1 arg (int) is required\n");
         return -1;
