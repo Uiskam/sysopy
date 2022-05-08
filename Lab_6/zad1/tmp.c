@@ -31,6 +31,10 @@ int find_begin_of_msg(const char tmp[MAXMSG + 10]) {
 }
 //12;this if test string
 int main(){
+    printf("%d\n", atoi("\n 12324;sad21e"));
+    int xd = atoi("12213 21");
+    printf("%d\n",xd);
+    return 0;
     char cmd[MAXMSG + 10];
     int value = 0;
     fgets(cmd, MAXMSG + 10, stdin);

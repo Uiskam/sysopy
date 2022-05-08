@@ -70,7 +70,7 @@ void send_INIT() {
     my_msg.mtype = INIT;
     my_msg.senderID = my_id;
     sprintf(my_msg.mtext, "%d", my_queue);
-    if( msgsnd(SERVER_QUE_KEY, &my_msg, sizeof(my_msg), 0) < 0) {
+    if (msgsnd(SERVER_QUE_KEY, &my_msg, sizeof(my_msg), 0) < 0) {
         printf("INIT error id: %d\n", init_ID);
         perror("error");
         exit(-1);
@@ -93,7 +93,7 @@ void send_2ALL(char *message) {
     struct comm_msg my_msg;
     my_msg.mtype = TWOALL;
     my_msg.senderID = my_id;
-    sprintf(my_msg.mtext,"%s",message);
+    sprintf(my_msg.mtext, "%s", message);
     if (msgsnd(SERVER_QUE_KEY, &my_msg, sizeof(my_msg), 0) < 0) {
         printf("2ALL error id: %d\n", init_ID);
         perror("error");
@@ -118,7 +118,7 @@ void send_STOP() {
     my_msg.mtype = STOP;
     my_msg.senderID = my_id;
     sprintf(my_msg.mtext, "STOP");
-    if(msgsnd(SERVER_QUE_KEY, &my_msg, sizeof(my_msg), 0) < 0) {
+    if (msgsnd(SERVER_QUE_KEY, &my_msg, sizeof(my_msg), 0) < 0) {
         printf("STOP error id: %d\n", init_ID);
         perror("error");
         exit(-1);
@@ -135,8 +135,8 @@ void received_INIT() {
     printf("init received id: %d\n", my_id);
 }
 
-void received_LIST(int* user_list) {
-    for(int i = 0; i < SERVER_CAPACITY; i++) {
+void received_LIST(int *user_list) {
+    for (int i = 0; i < SERVER_CAPACITY; i++) {
         user_list[i] = received_msg.active_users[i];
     }
 }
@@ -144,10 +144,11 @@ void received_LIST(int* user_list) {
 void received_2ALL_2ONE() {
     time_t t = time(NULL);
     struct tm tm = *localtime(&t);
-    printf("client with id: %d\n",init_ID);
-    printf("received from: %ld\n",received_msg.senderID);
-    printf("on: %d-%02d-%02d %02d:%02d:%02d\n", tm.tm_year + 1900, tm.tm_mon + 1, tm.tm_mday, tm.tm_hour, tm.tm_min, tm.tm_sec);
-    printf("msg: %s\n\n",received_msg.mtext);
+    printf("client with id: %d\n", init_ID);
+    printf("received from: %ld\n", received_msg.senderID);
+    printf("on: %d-%02d-%02d %02d:%02d:%02d\n", tm.tm_year + 1900, tm.tm_mon + 1, tm.tm_mday, tm.tm_hour, tm.tm_min,
+           tm.tm_sec);
+    printf("msg: %s\n\n", received_msg.mtext);
 }
 
 void received_SERVER_SHUTD_DOWN() {
@@ -165,6 +166,15 @@ int stdin_nonempty(void) {
     //return (FD_ISSET(0, &rfds));
 }
 
+int find_begin_of_msg(const char input_str[MAXMSG + 10]) {
+    for (size_t i = 0; i < strlen(input_str); i++) {
+        if (input_str[i] == ';') {
+            return i + 1;
+        }
+    }
+    return -1;
+}
+
 int main(int argc, char **argv) {
     struct passwd *pw = getpwuid(getuid());
     const char *homedir = pw->pw_dir;
@@ -175,7 +185,7 @@ int main(int argc, char **argv) {
     }
     init_ID = atoi(argv[1]);
     my_queue = msgget(ftok(homedir, init_ID), IPC_CREAT);
-    printf("%d my q\n",my_queue);
+    printf("%d my q\n", my_queue);
     if (my_queue < 0) {
         perror("queue creation error");
         //return -1;
@@ -189,13 +199,12 @@ int main(int argc, char **argv) {
     //msgrcv(server_queue, &received_msg, sizeof(received_msg), INIT, 0);
     //received_INIT();
     int active_users[SERVER_CAPACITY];
-    for(int i = 0; i < SERVER_CAPACITY; i++) active_users[i] = -1;
+    for (int i = 0; i < SERVER_CAPACITY; i++) active_users[i] = -1;
 
     while (1) {
-        if(msgrcv(my_queue, &received_msg, sizeof(received_msg), STOP, IPC_NOWAIT) >= 0) {
+        if (msgrcv(my_queue, &received_msg, sizeof(received_msg), STOP, IPC_NOWAIT) >= 0) {
             send_STOP();
-        }
-        else if(msgrcv(my_queue, &received_msg, sizeof(received_msg), LIST, IPC_NOWAIT) >= 0) {
+        } else if (msgrcv(my_queue, &received_msg, sizeof(received_msg), LIST, IPC_NOWAIT) >= 0) {
             send_LIST();
         }
         if (msgrcv(my_queue, &received_msg, sizeof(received_msg), 0, IPC_NOWAIT) >= 0) {
@@ -213,14 +222,45 @@ int main(int argc, char **argv) {
                     received_SERVER_SHUTD_DOWN();
                     break;
                 default:
-                    printf("unknown msg type: %ld id: %d \n",received_msg.mtype,init_ID);
+                    printf("unknown msg type: %ld id: %d \n", received_msg.mtype, init_ID);
                     break;
             }
         }
         sleep(1);
         char cmd[MAXMSG + 10];
-        if(stdin_nonempty() && scanf("%s", cmd) > 0) {
-
+        char msg_input[MAXMSG + 10];
+        if (stdin_nonempty() && fgets(cmd, MAXMSG + 10, stdin) != NULL) {
+            int request_number = atoi(cmd);
+            int msg_begin = find_begin_of_msg(cmd);
+            if(msg_begin == -1){
+                puts("wrong instruction");
+                continue;
+            }
+            strncpy(msg_input, cmd + msg_begin, strlen(cmd));
+            switch (request_number) {
+                case LIST:
+                    send_LIST();
+                    break;
+                case TWOALL:
+                    send_2ALL(msg_input);
+                    break;
+                case TWOONE:;
+                    int receiver_id = atoi(msg_input);
+                    char msg_to_send[MAXMSG + 10];
+                    msg_begin = find_begin_of_msg(msg_input);
+                    if(msg_begin == -1){
+                        puts("wrong instruction");
+                        continue;
+                    }
+                    strncpy(msg_to_send, msg_input + msg_begin, strlen(msg_input));
+                    send_2ONE(receiver_id, msg_to_send);
+                case STOP:;
+                    send_STOP();
+                    break;
+                default:
+                    printf("lower unknown msg type: %ld id: %d \n", received_msg.mtype, init_ID);
+                    break;
+            }
         }
     }
 
