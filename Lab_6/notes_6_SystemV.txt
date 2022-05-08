@@ -1,3 +1,5 @@
+<sys/msg.h> <sys/ipc.h> - msgget, msgctl, msgsnd, msgrcv, ftok
+
 IPC (Inter Process Communication) - grupa mechanizmów do komunikacji i synchronizacji proesów, działających na tym samym systemie
                                     chyba lepsze niż potoki?
 rodzaje IPC:
