@@ -61,7 +61,17 @@
 int active_users[SERVER_CAPACITY];
 int users_queues[SERVER_CAPACITY];
 struct comm_msg received_msg;
+int server_queue
+FILE *server_hist;
 
+void write_history() {
+    time_t t = time(NULL);
+    struct tm tm = *localtime(&t);
+    char cur_data[22];
+    sprintf(cur_data, "%d-%02d-%02d %02d:%02d:%02d", tm.tm_year + 1900, tm.tm_mon + 1, tm.tm_mday, tm.tm_hour,
+            tm.tm_min, tm.tm_sec);
+    fprintf(server_hist, "on: %s; from: %ld; recieved: %s\n", cur_data, received_msg.senderID, received_msg.mtext);
+}
 
 int find_free_id() {
     int new_id = -1;
@@ -158,9 +168,38 @@ void received_STOP() {
     }
 }
 
+void server_shutdown(int signb) {
+    struct comm_msg server_msg;
+    server_msg.mtype = SERVER_SHUT_DOWN;
+    server_msg.senderID = -1;
+    puts("serwer shutting down");
+    for(int i = 0; i < SERVER_CAPACITY; i++) {
+        if(active_users[i] != -1) {
+            if(msgsnd(users_queues[i], &server_msg, sizeof(server_msg), 0) < 0) {
+                perror("failed to send stop to %d",i);
+                continue;
+            }
+            msgrcv(users_queues[i], &server_msg, sizeof(server_msg, 0));
+        }
+    }
+    puts("serwer killed all of its children");
+
+    if(msgctl(server_queue, IPC_RMID, NULL) != 0) {
+        perror("server queue deletion error");
+    }
+    fclose(server_hist);
+    exit(0);
+}
+
 int main() {
+    signal(SIGINT, server_shutdown);
+    server_hist = fopen("server_log.txt", "w");
+    if (server_hist == NULL) {
+        perror("log open error");
+        return -1;
+    }
     for (int i = 0; i < SERVER_CAPACITY; i++) active_users[i] = -1;
-    int server_queue = msgget(SERVER_QUE_KEY, IPC_CREAT | IPC_EXCL);
+    server_queue = msgget(SERVER_QUE_KEY, IPC_CREAT | IPC_EXCL);
     if (server_queue < 0) {
         if (msgctl(SERVER_QUE_KEY, IPC_RMID, NULL) < 0) {
             perror("crt error");
