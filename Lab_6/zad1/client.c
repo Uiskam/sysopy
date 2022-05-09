@@ -56,6 +56,7 @@ int my_id = -1;
 int my_queue;
 int init_ID;
 struct comm_msg received_msg;
+int active_users[SERVER_CAPACITY];
 
 void send_STOP();
 
@@ -105,6 +106,10 @@ void send_2ONE(int receiver_id, char *message) {
     struct comm_msg my_msg;
     my_msg.mtype = TWOONE;
     my_msg.senderID = my_id;
+    if(receiver_id < 0 || receiver_id >= SERVER_CAPACITY || active_users[receiver_id] == -1) {
+        printf("reciever do not exist id: %d\n",init_ID);
+        return;
+    }
     sprintf(my_msg.mtext, "%d;%s", receiver_id, message);
     if (msgsnd(SERVER_QUE_KEY, &my_msg, sizeof(my_msg), 0) < 0) {
         printf("2ONE error id: %d\n", init_ID);
@@ -176,6 +181,7 @@ int find_begin_of_msg(const char input_str[MAXMSG + 10]) {
 }
 
 int main(int argc, char **argv) {
+    for (int i = 0; i < SERVER_CAPACITY; i++) active_users[i] = -1;
     struct passwd *pw = getpwuid(getuid());
     const char *homedir = pw->pw_dir;
     signal(SIGINT, intHandler);
@@ -198,8 +204,7 @@ int main(int argc, char **argv) {
     //send_INIT();
     //msgrcv(server_queue, &received_msg, sizeof(received_msg), INIT, 0);
     //received_INIT();
-    int active_users[SERVER_CAPACITY];
-    for (int i = 0; i < SERVER_CAPACITY; i++) active_users[i] = -1;
+
 
     while (1) {
         if (msgrcv(my_queue, &received_msg, sizeof(received_msg), STOP, IPC_NOWAIT) >= 0) {
