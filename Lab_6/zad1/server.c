@@ -62,10 +62,11 @@ int active_users[SERVER_CAPACITY];
 int users_queues[SERVER_CAPACITY];
 struct comm_msg received_msg;
 
+
 int find_free_id() {
     int new_id = -1;
-    for(int i = 0; i < SERVER_CAPACITY; i++) {
-        if(active_users[i] != -1) {
+    for (int i = 0; i < SERVER_CAPACITY; i++) {
+        if (active_users[i] != -1) {
             return i;
         }
     }
@@ -74,19 +75,19 @@ int find_free_id() {
 
 void received_INIT() {
     int new_id = find_free_id();
-    if(new_id == -1) {
+    if (new_id == -1) {
         puts("server capacity exceeded!");
         return;
     }
     users_queues[new_id] = msgget(atoi(received_msg.mtext), 0600);
-    if(users_queues[new_id] == -1) {
-        perror("client %d queue opening error",received_msg.senderID);
+    if (users_queues[new_id] == -1) {
+        perror("client %d queue opening error", received_msg.senderID);
     }
     struct comm_msg server_msg;
     server_msg.mtype = INIT;
     server_msg.senderID = -1;
-    sprintf(server_msg.mtext,"%d",new_id);
-    if(msgsnd(users_queues[new_id], &server_msg, sizeof(server_msg), 0) < 0) {
+    sprintf(server_msg.mtext, "%d", new_id);
+    if (msgsnd(users_queues[new_id], &server_msg, sizeof(server_msg), 0) < 0) {
         perror("INIT sending error");
         return;
     }
@@ -97,24 +98,68 @@ void received_LIST() {
     server_msg.mtype = LIST;
     server_msg.senderID = -1;
     printf("active users: ");
-    for(int i = 0; i < SERVER_CAPACITY; i++) {
+    for (int i = 0; i < SERVER_CAPACITY; i++) {
         server_msg.active_users[i] = active_users[i];
-        if(active_users[i] != -1) {
-            printf("%d ",i);
+        if (active_users[i] != -1) {
+            printf("%d ", i);
         }
         printf("\n");
     }
-    if(msgsnd(users_queues[received_msg.senderID], &server_msg, sizeof(server_msg), 0) < 0) {
+    if (msgsnd(users_queues[received_msg.senderID], &server_msg, sizeof(server_msg), 0) < 0) {
         perror("list sending error");
         return;
-    }z
+    }
+    z
 }
 
 void received_2ALL() {
+    time_t t = time(NULL);
+    struct tm tm = *localtime(&t);
+    char cur_data[22];
+    sprintf(cur_data, "%d-%02d-%02d %02d:%02d:%02d", tm.tm_year + 1900, tm.tm_mon + 1, tm.tm_mday, tm.tm_hour,
+            tm.tm_min, tm.tm_sec);
     struct comm_msg server_msg;
+    server_msg.senderID = -1;
+    server_msg.mtype = TWOALL;
+    sprintf(server_msg.mtext, "msg from: %ld\nreceived on: %s\n%s", received_msg.senderID, cur_data, received_msg.mtext);
+    for (int i = 0; i < SERVER_CAPACITY; i++) {
+        if (i != received_msg.senderID) {
+            if (msgsnd(users_queues[i], &server_msg, sizeof(server_msg), 0) < 0) {
+                perror("2ALL server error");
+            }
+        }
+    }
 }
+
+void received_2ONE() {
+    time_t t = time(NULL);
+    struct tm tm = *localtime(&t);
+    char cur_data[22];
+    sprintf(cur_data, "%d-%02d-%02d %02d:%02d:%02d", tm.tm_year + 1900, tm.tm_mon + 1, tm.tm_mday, tm.tm_hour,
+            tm.tm_min, tm.tm_sec);
+    struct comm_msg server_msg;
+    server_msg.senderID = -1;
+    server_msg.mtype = TWOONE;
+    sprintf(server_msg.mtext, "msg from: %ld\nreceived on: %s\n%s", received_msg.senderID, cur_data, received_msg.mtext);
+    int receiver_id = atoi(received_msg.mtext);
+    if(receiver_id >= 0 && receiver_id < SERVER_CAPACITY && active_users[receiver_id] != -1) {
+        if (msgsnd(users_queues[receiver_id], &server_msg, sizeof(server_msg), 0) < 0) {
+            perror("2ONE server error");
+        }
+    }
+}
+
+void received_STOP() {
+    if(active_users[received_msg.senderID] != -1) {
+        active_users[received_msg.senderID] = -1;
+        users_queues[received_msg.senderID] = -1;
+    } else {
+        printf("server received zombie signal!\n");
+    }
+}
+
 int main() {
-    for(int i = 0; i < SERVER_CAPACITY; i++) active_users[i] = -1;
+    for (int i = 0; i < SERVER_CAPACITY; i++) active_users[i] = -1;
     int server_queue = msgget(SERVER_QUE_KEY, IPC_CREAT | IPC_EXCL);
     if (server_queue < 0) {
         if (msgctl(SERVER_QUE_KEY, IPC_RMID, NULL) < 0) {
@@ -122,7 +167,7 @@ int main() {
             return -1;
         }
         server_queue = msgget(SERVER_QUE_KEY, IPC_CREAT | IPC_EXCL);
-        if(server_queue < 0) {
+        if (server_queue < 0) {
             perror("crt error V2");
             return -1;
         }

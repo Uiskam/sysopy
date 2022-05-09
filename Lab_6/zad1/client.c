@@ -150,10 +150,7 @@ void received_2ALL_2ONE() {
     time_t t = time(NULL);
     struct tm tm = *localtime(&t);
     printf("client with id: %d\n", init_ID);
-    printf("received from: %ld\n", received_msg.senderID);
-    printf("on: %d-%02d-%02d %02d:%02d:%02d\n", tm.tm_year + 1900, tm.tm_mon + 1, tm.tm_mday, tm.tm_hour, tm.tm_min,
-           tm.tm_sec);
-    printf("msg: %s\n\n", received_msg.mtext);
+    printf("received msg:\n%s\n\n", received_msg.mtext);
 }
 
 void received_SERVER_SHUTD_DOWN() {

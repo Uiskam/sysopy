@@ -31,9 +31,13 @@ int find_begin_of_msg(const char tmp[MAXMSG + 10]) {
 }
 //12;this if test string
 int main(){
-    printf("%d\n", atoi("-1 "));
-    int xd = atoi("12213 21");
-    printf("%d\n",xd);
+    time_t t = time(NULL);
+    struct tm tm = *localtime(&t);
+    char cur_data[22];
+    sprintf(cur_data,"%d-%02d-%02d %02d:%02d:%02d\n", tm.tm_year + 1900, tm.tm_mon + 1, tm.tm_mday, tm.tm_hour, tm.tm_min,tm.tm_sec);
+
+
+    printf("%d\n", strlen(cur_data));
     return 0;
     char cmd[MAXMSG + 10];
     int value = 0;
