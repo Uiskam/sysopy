@@ -25,7 +25,7 @@ int main(int argc, char** argv) {
             break;
         }
 
-        printf("received: %d\n", p.msg);
+        printf("received: %d\n", queue_id);
     }
     puts("HERE");
     msgctl(queue_id, IPC_RMID, NULL);
