@@ -15,8 +15,9 @@
 #define SERVER_SHUT_DOWN 30
 
 #define SERVER_CAPACITY 10
-#define MAXMSG 200
+#define MAXMSG 300
 #define SERVER_QUE_KEY ftok(getpwuid(getuid())->pw_dir,0)
+#define SERVER_WAIT_TIME 5
 
 struct comm_msg {
     long mtype;         /* typ komunikatu   */

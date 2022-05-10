@@ -4,6 +4,7 @@
 #include <stdlib.h>
 #include <time.h>
 #include <string.h>
+#include <time.h>
 #include <sys/types.h>
 #include <sys/select.h>
 #include "comm_def.h"
@@ -57,8 +58,9 @@ int my_queue;
 int init_ID;
 struct comm_msg received_msg;
 int active_users[SERVER_CAPACITY];
+int server_queue;
 
-void send_STOP();
+void send_STOP(); //declaration
 
 void intHandler(int sig_number) {
     printf("WORK END id: %d\n", init_ID);
@@ -71,9 +73,9 @@ void send_INIT() {
     my_msg.mtype = INIT;
     my_msg.senderID = my_id;
     sprintf(my_msg.mtext, "%d", my_queue);
-    if (msgsnd(SERVER_QUE_KEY, &my_msg, sizeof(my_msg), 0) < 0) {
-        printf("INIT error id: %d\n", init_ID);
-        perror("error");
+    if (msgsnd(server_queue, &my_msg, sizeof(my_msg), 0) < 0) {
+        printf("INIT error id: %d", init_ID);
+        perror("errorINIT");
         exit(-1);
     }
     printf("INIT sent id: %d\n", my_id);
@@ -83,9 +85,9 @@ void send_LIST() {
     struct comm_msg my_msg;
     my_msg.mtype = LIST;
     my_msg.senderID = my_id;
-    if (msgsnd(SERVER_QUE_KEY, &my_msg, sizeof(my_msg), 0) < 0) {
+    if (msgsnd(server_queue, &my_msg, sizeof(my_msg), 0) < 0) {
         printf("LIST error id: %d\n", init_ID);
-        perror("error");
+        perror("errorLIST");
         exit(-1);
     }
 }
@@ -95,9 +97,9 @@ void send_2ALL(char *message) {
     my_msg.mtype = TWOALL;
     my_msg.senderID = my_id;
     sprintf(my_msg.mtext, "%s", message);
-    if (msgsnd(SERVER_QUE_KEY, &my_msg, sizeof(my_msg), 0) < 0) {
+    if (msgsnd(server_queue, &my_msg, sizeof(my_msg), 0) < 0) {
         printf("2ALL error id: %d\n", init_ID);
-        perror("error");
+        perror("error2ALL");
         exit(-1);
     }
 }
@@ -111,9 +113,9 @@ void send_2ONE(int receiver_id, char *message) {
         return;
     }
     sprintf(my_msg.mtext, "%d;%s", receiver_id, message);
-    if (msgsnd(SERVER_QUE_KEY, &my_msg, sizeof(my_msg), 0) < 0) {
+    if (msgsnd(server_queue, &my_msg, sizeof(my_msg), 0) < 0) {
         printf("2ONE error id: %d\n", init_ID);
-        perror("error");
+        perror("error2ONE");
         exit(-1);
     }
 }
@@ -123,16 +125,18 @@ void send_STOP() {
     my_msg.mtype = STOP;
     my_msg.senderID = my_id;
     sprintf(my_msg.mtext, "STOP");
-    if (msgsnd(SERVER_QUE_KEY, &my_msg, sizeof(my_msg), 0) < 0) {
+    if (msgsnd(server_queue, &my_msg, sizeof(my_msg), 0) < 0) {
         printf("STOP error id: %d\n", init_ID);
-        perror("error");
+        perror("errorSTOP");
         exit(-1);
     }
     if (msgctl(my_queue, IPC_RMID, NULL) < 0) {
         printf("delete queue error id: %d\n", init_ID);
-        perror("error");
+        perror("errorDELQUE");
         exit(-1);
     }
+    printf("WORK END id: %d\n", init_ID);
+    exit(0);
 }
 
 void received_INIT() {
@@ -147,8 +151,6 @@ void received_LIST(int *user_list) {
 }
 
 void received_2ALL_2ONE() {
-    time_t t = time(NULL);
-    struct tm tm = *localtime(&t);
     printf("client with id: %d\n", init_ID);
     printf("received msg:\n%s\n\n", received_msg.mtext);
 }
@@ -187,20 +189,31 @@ int main(int argc, char **argv) {
         return -1;
     }
     init_ID = atoi(argv[1]);
-    my_queue = msgget(ftok(homedir, init_ID), IPC_CREAT);
-    printf("%d my q\n", my_queue);
-    if (my_queue < 0) {
-        perror("queue creation error");
-        //return -1;
+    key_t tmp = ftok(homedir, init_ID);
+    printf("tmp: %d\n",tmp);
+    my_queue = msgget(tmp, IPC_CREAT | IPC_EXCL | 0666);
+    if(my_queue ==) {
+        perror("queue could not be opened");
+        if(msgctl(tmp, IPC_RMID, NULL) < 0) {
+            //printf("crt DELETE error for %d ",init_ID);
+            perror("error msg");
+            return -1;
+        }
+        my_queue = msgget(tmp, IPC_CREAT | IPC_EXCL | 0666);
+        if(my_queue < 0) {
+            printf("crt CREATE error2 for %d", init_ID);
+            perror("");
+            return -1;
+        }
     }
-    int server_queue = msgget(SERVER_QUE_KEY, 0600);
+    server_queue = msgget(SERVER_QUE_KEY, 0);
     if (server_queue < 0) {
         perror("server queue opening error");
         //return -1;
     }
-    //send_INIT();
-    //msgrcv(server_queue, &received_msg, sizeof(received_msg), INIT, 0);
-    //received_INIT();
+    send_INIT();
+    msgrcv(server_queue, &received_msg, sizeof(received_msg), INIT, 0);
+    received_INIT();
 
 
     while (1) {

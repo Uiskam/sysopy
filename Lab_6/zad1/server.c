@@ -4,6 +4,7 @@
 #include <stdlib.h>
 #include <time.h>
 #include <string.h>
+#include <time.h>
 #include <sys/types.h>
 #include <sys/select.h>
 #include "comm_def.h"
@@ -12,7 +13,7 @@
 /*
  * Serwer odpowiada na komunikat klientów.
  * Zlecenia:
- *  - INIT
+ *  - INIT DONE
  *    klient:
  *      wysyła ID jego kolejki na serwer
  *    serwer:
@@ -20,12 +21,12 @@
  *      wysyła klientowi przypisane mu ID
  *  otwarcie kolejki klienta (nr w kolejności zgłoszeń) i odsyła mu to ID
  *    (komunikacja ta zachodzi przez kolejke klienta)
- *  - LIST
+ *  - LIST DONE
  *    serwer:
  *      wypisanie aktywnych klientów
  *    klient:
  *      akutalizacja listy klientów
- *  - 2ALL string
+ *  - 2ALL string DONE
  *    klient:
  *      wiadomość
  *    serwer:
@@ -61,7 +62,7 @@
 int active_users[SERVER_CAPACITY];
 int users_queues[SERVER_CAPACITY];
 struct comm_msg received_msg;
-int server_queue
+int server_queue;
 FILE *server_hist;
 
 void write_history() {
@@ -74,13 +75,12 @@ void write_history() {
 }
 
 int find_free_id() {
-    int new_id = -1;
     for (int i = 0; i < SERVER_CAPACITY; i++) {
         if (active_users[i] != -1) {
             return i;
         }
     }
-    return i;
+    return -1;
 }
 
 void received_INIT() {
@@ -89,9 +89,11 @@ void received_INIT() {
         puts("server capacity exceeded!");
         return;
     }
-    users_queues[new_id] = msgget(atoi(received_msg.mtext), 0600);
+    users_queues[new_id] = msgget(atoi(received_msg.mtext), 0);
     if (users_queues[new_id] == -1) {
-        perror("client %d queue opening error", received_msg.senderID);
+        printf("client %ld queue opening error", received_msg.senderID);
+        perror(" err ");
+        exit(0);
     }
     struct comm_msg server_msg;
     server_msg.mtype = INIT;
@@ -119,7 +121,6 @@ void received_LIST() {
         perror("list sending error");
         return;
     }
-    z
 }
 
 void received_2ALL() {
@@ -176,10 +177,11 @@ void server_shutdown(int signb) {
     for(int i = 0; i < SERVER_CAPACITY; i++) {
         if(active_users[i] != -1) {
             if(msgsnd(users_queues[i], &server_msg, sizeof(server_msg), 0) < 0) {
-                perror("failed to send stop to %d",i);
+                printf("failed to send stop to %d",i);
+                perror(" err ");
                 continue;
             }
-            msgrcv(users_queues[i], &server_msg, sizeof(server_msg, 0));
+            msgrcv(users_queues[i], &server_msg, sizeof(server_msg), STOP, 0);
         }
     }
     puts("serwer killed all of its children");
@@ -199,26 +201,53 @@ int main() {
         return -1;
     }
     for (int i = 0; i < SERVER_CAPACITY; i++) active_users[i] = -1;
-    server_queue = msgget(SERVER_QUE_KEY, IPC_CREAT | IPC_EXCL);
+    server_queue = msgget(SERVER_QUE_KEY, IPC_CREAT | IPC_EXCL | 0666);
     if (server_queue < 0) {
+        perror("server queue open error");
         if (msgctl(SERVER_QUE_KEY, IPC_RMID, NULL) < 0) {
-            perror("crt error");
+            perror("crt error old queue delete");
             return -1;
         }
-        server_queue = msgget(SERVER_QUE_KEY, IPC_CREAT | IPC_EXCL);
+        server_queue = msgget(SERVER_QUE_KEY, IPC_CREAT | IPC_EXCL | 0666);
         if (server_queue < 0) {
-            perror("crt error V2");
+            perror("crt error queue creation V2");
             return -1;
         }
     }
+    time_t start,end;
+    double dif;
+    time(&start);
     while (1) {
-        if (msgrcv(my_queue, &received_msg, sizeof(received_msg), STOP, IPC_NOWAIT) >= 0) {
-            send_STOP();
-        } else if (msgrcv(my_queue, &received_msg, sizeof(received_msg), LIST, IPC_NOWAIT) >= 0) {
-            send_LIST();
+        time(&end);
+        dif = difftime(end, start);
+        if(dif > SERVER_WAIT_TIME){
+            puts("server shutting down due to lack of requests");
+            server_shutdown(0);
+            break;
         }
-        if (msgrcv(my_queue, &received_msg, sizeof(received_msg), 0, IPC_NOWAIT) >= 0) {
-
+        if (msgrcv(server_queue, &received_msg, sizeof(received_msg), STOP, IPC_NOWAIT) >= 0) {
+            time(&start);
+            received_STOP();
+        } else if (msgrcv(server_queue, &received_msg, sizeof(received_msg), LIST, IPC_NOWAIT) >= 0) {
+            time(&start);
+            received_LIST();
+        }
+        if (msgrcv(server_queue, &received_msg, sizeof(received_msg), 0, IPC_NOWAIT) >= 0) {
+            time(&start);
+            switch (received_msg.mtype) {
+                case INIT:
+                    received_INIT();
+                    break;
+                case TWOALL:
+                    received_2ALL();
+                    break;
+                case TWOONE:
+                    received_2ONE();
+                    break;
+                default:
+                    printf("unknown msg type: %ld id: %d \n", received_msg.mtype, -1);
+                    break;
+            }
         }
     }
 }

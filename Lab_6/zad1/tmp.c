@@ -7,6 +7,7 @@
 #include <sys/types.h>
 #include <sys/select.h>
 #include "comm_def.h"
+#include <time.h>
 #include <signal.h>
 
 struct comm_msg received_msg;
@@ -31,22 +32,11 @@ void handler(int tmp) {
 }
 
 int main() {
-    signal(SIGINT, handler);
-    server_hist = fopen("server_log.txt", "w");
-    if (server_hist == NULL) {
-        perror("log open error");
-        return -1;
-    }
-    received_msg.senderID = 0;
-    sprintf(received_msg.mtext, "a");
-    while (1) {
-        write_history();
-        sleep(1);
-        received_msg.senderID++;
-        received_msg.senderID %= SERVER_CAPACITY;
-        received_msg.mtext[0]++;
-        if(received_msg.mtext[0] >= 123) received_msg.mtext[0] = '1';
-        if(received_msg.mtext[0] == ':') received_msg.mtext[0] = 'a';
-        puts("log updated");
-    }
+    struct passwd *pw = getpwuid(getuid());
+    const char *homedir = pw->pw_dir;
+    int tmp = ftok(homedir, 2137);
+    printf("rm status: %d\n",msgctl(tmp, IPC_RMID, NULL));
+
+
+    return 0;
 }
