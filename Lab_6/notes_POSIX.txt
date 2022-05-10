@@ -1,0 +1,115 @@
+<sys/msg.h> <sys/ipc.h> - msgget, msgctl, msgsnd, msgrcv, ftok
+
+IPC (Inter Process Communication) - grupa mechanizmów do komunikacji i synchronizacji proesów, działających na tym samym systemie
+                                    chyba lepsze niż potoki?
+rodzaje IPC:
+    - kolejki komunikatów, przkeazywnie określonych porcji danych
+    - pamięć współdzielona, współdzielenie przez procesy tego samego fragmentu przestrzeni adresowej
+    - semafory, synchronizacja procesów w dostępie do wspólnych zasobów (np. pamięci współdzielonej)
+
+Do lab_6 potrzebne są tylko kolejki komunikatów
+
+System V kolejki komunikatów są:
+    - reprezentowane strukturą msqid_ds
+        W celu utworzenia kolejki potrzebna jest unikalna 32-bitowa l. całkowita. Służy ona do identyfikacji danej kolejki.
+        Kolejka otrzymuje również ID w ramach pojedynczego mechanizmu tzn. może istnieć kolejka i semafor o tym samym "wewnętrznym" ID.
+        Klucz może być dowolny jednak najlepiej będzie go generować za pomocą:
+            key_t ftok(char *pathname, char proj);
+                pathname - nazwa ścieżkowa pliku
+                proj - jednoliterowe id projektu
+
+    - istniejące aż do momentu zlecenia usunięcia przez proces lub zamknięcia systemu
+
+    - mają określone prawa dostępu w strukturze: ipc_perm
+
+Wyświetlanie mechanizmów IPCS, polecenie ipcs:
+    -s wyświetla semafory
+    -m wyświetla pamięć współdzieloną
+    -q wyświetla kolejki komunikatów
+    -a wyświetla wszystko (domyślne)
+    ipcrm [shm |msg | sem] id - usuwanie mechanizmu ipcs
+        shm - shared memory
+        msg - kolejka komunikatów
+        sem - semafor
+        id - id obiektu
+
+Każda kolejka jest reprezentowana przez strukturę msqid_ds, której elementami są obiekty msg.
+Każdy obiekt msg posiada:
+   - wskaźnik do kolejnego msg
+   - wskaźnik na treść komunikatu
+Kolejka dodatkowo posiada 2 kolejki wait_queue, które trzymają procesy czekające na dostęp do czytania bądź pisania na kolejce.
+
+Struktura msqid_ds:
+struct msqid_ds {
+  struct ipc_perm     msg_perm;     /* instancja ipc_perm (definicja linux/ipc.h), która przechowuje info o
+                                       prawach dostępu i założycielu kolejki*/
+  struct msg         *msg_first;    /* pierwszy komunikat w kolejce */
+  struct msg         *msg_last;     /* ostatni komunikat w kolejce */
+  __kernel_time_t     msg_stime;    /* czas ostatniego msgsnd */
+  __kernel_time_t     msg_rtime;    /* czas ostatniego msgrcv */
+  __kernel_time_t     msg_ctime;    /* czas ostatniej zmiany */
+  struct wait_queue  *wwait;
+  struct wait_queue  *rwait;
+  unsigned short      msg_cbytes;   /* liczba bajtow w kolejce */
+  unsigned short      msg_qnum;     /* liczba komunikatow w kolejce */
+  unsigned short      msg_qbytes;   /* maksymalna liczba bajtow w kolejce */
+  __kernel_ipc_pid_t  msg_lspid;    /* pid ostatniego msgsnd */
+  __kernel_ipc_pid_t  msg_lrpid;    /* pid ostatniego receive*/
+};
+
+Struktura msg: (include linux/msg.h)
+/* jedna struktura msg dla każdego komunikatu */
+struct msg {
+  struct msg *msg_next;   /* następny komunikat w kolejce */
+  long        msg_type;   /* definiowany przez użytkownika typ komunikatu */
+  char       *msg_spot;   /* wskaźnik na treść */
+  time_t      msg_stime;  /* czas wysłania tego komunikatu */
+  short       msg_ts;     /* długosz właściwej treści komunikatu */
+};
+
+Funkcje kolejek:
+- int msgget(key_t key, int msgflg) - tworzenie;/otrzymanie dostępu do kolejki
+        RETURN:
+            ID kolejki, jeżeli poprawnie
+            -1 błąd
+        FLAGI:
+            IPC_CREAT - utworzenie kolejku jezeli nie istnieje
+            IPC_EXCL - (wraz z IPC_CREAT) daje błąd EEXIST, jeżeli kolejka o danym ID już istnieje
+            IPC_PRIVATE - zawsze tworzy
+
+- int msgsnd(int msqid, struct msgbuf *msgp, int msgsz, int msgflg) - wysyła komnukat
+        RETURN:
+            0 sukces
+            -1 błąd
+        msqid - ID kolejki
+        msgp - wskaźnik na strukturę która przechowuje zawartość komunikatu np.
+               struct msgbuf (long mtype //typ komunikatu, char mtext[n] //treść)
+               Jest to przykładowa struktura, która może mieć download postać tak długo, jak jej pierwszym polem jest long mtype i
+               jej zawartość nie przekroczy MSGMAX(4096).
+        msgsz - rozmiar komunikatu (w bajtach), (nie licząc komunikatu typu sizeof(long))
+        IPC_NOWAIT - wywala błąd, jeżeli kolejka jest przepełniona
+
+- int msgrcv(int msgqid, struct msgbuf *msgp, int msgsz, long type, int msgflg) - odbiera komunikat
+        RETURN:
+            liczba bajtów przeczytanych do bufora - sukces
+            -1 - błąd
+        msgqid - ID kolejki
+        msgp - wskaźnik na adres bufora, do którego czytany jest komunikat
+        msgsz - rozmiar bufora
+        type:
+            0 - czytanie najstarszego komunikatu
+            > 0  - czytanie komnukatu o zadanym typie
+            < 0 - czytanie komunikatu o typie mtype = min(all_types_avaiable) && mtype < abs(type)
+        MSG_EXCEPT - dowlony komunikat o typie roznym od type
+        MSG_NOWAIT - błąd dla braku komuniaktu
+        MSG_NOERROR - brak błędu przy przepłenieniu bufora (kopuje się wówczas tyle ile się da)
+
+- int msgctl(int msgqid, int cmd, struct msqid_ds *buf) - modyfikacja i odczyt właściwości kolejki
+        RETURN:
+            0 sukces
+            -1 błąd
+        msgqid - ID kolejki
+        dostępne cmd:
+            IPC_STAT: uzyskanie struktury msgid_ds odpowiadającej kolejce (zostaje ona skopiowana pod adres wskazywany przez buf)
+            IPC_SET: modyfikacja wartości struktury ipc_perm odpowiadającej kolejce
+            IPC_RMID: usunięcie, skasowanie kolejki
