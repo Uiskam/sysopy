@@ -1,0 +1,4 @@
+on: 2022-05-10 03:03:35; from: 1; recieved sig 20 with msg: 32824
+on: 2022-05-10 03:03:36; from: 0; recieved sig 2 with msg: LIST request
+on: 2022-05-10 03:03:37; from: 0; recieved sig 2 with msg: LIST request
+on: 2022-05-10 03:03:38; from: 0; recieved sig 1 with msg: STOP

@@ -62,7 +62,7 @@
 int active_users[SERVER_CAPACITY];
 int users_queues[SERVER_CAPACITY];
 struct comm_msg received_msg;
-int server_queue;
+int server_queue = 0;
 FILE *server_hist;
 
 void write_history() {
@@ -71,12 +71,13 @@ void write_history() {
     char cur_data[22];
     sprintf(cur_data, "%d-%02d-%02d %02d:%02d:%02d", tm.tm_year + 1900, tm.tm_mon + 1, tm.tm_mday, tm.tm_hour,
             tm.tm_min, tm.tm_sec);
-    fprintf(server_hist, "on: %s; from: %ld; recieved: %s\n", cur_data, received_msg.senderID, received_msg.mtext);
+    fprintf(server_hist, "on: %s; from: %ld; recieved sig %ld with msg: %s\n", cur_data, received_msg.senderID,received_msg.mtype, received_msg.mtext);
 }
 
 int find_free_id() {
     for (int i = 0; i < SERVER_CAPACITY; i++) {
-        if (active_users[i] != -1) {
+        //printf(":user %d status is %d\n",i,active_users[i]);
+        if (active_users[i] == -1) {
             return i;
         }
     }
@@ -89,10 +90,11 @@ void received_INIT() {
         puts("server capacity exceeded!");
         return;
     }
-    users_queues[new_id] = msgget(atoi(received_msg.mtext), 0);
+    active_users[new_id] = 1;
+    users_queues[new_id] = atoi(received_msg.mtext);
     if (users_queues[new_id] == -1) {
         printf("client %ld queue opening error", received_msg.senderID);
-        perror(" err ");
+        perror(" server errINIT ");
         exit(0);
     }
     struct comm_msg server_msg;
@@ -103,6 +105,7 @@ void received_INIT() {
         perror("INIT sending error");
         return;
     }
+    puts("server sent INIT response");
 }
 
 void received_LIST() {
@@ -115,8 +118,8 @@ void received_LIST() {
         if (active_users[i] != -1) {
             printf("%d ", i);
         }
-        printf("\n");
     }
+    printf("\n");
     if (msgsnd(users_queues[received_msg.senderID], &server_msg, sizeof(server_msg), 0) < 0) {
         perror("list sending error");
         return;
@@ -203,16 +206,8 @@ int main() {
     for (int i = 0; i < SERVER_CAPACITY; i++) active_users[i] = -1;
     server_queue = msgget(SERVER_QUE_KEY, IPC_CREAT | IPC_EXCL | 0666);
     if (server_queue < 0) {
-        perror("server queue open error");
-        if (msgctl(SERVER_QUE_KEY, IPC_RMID, NULL) < 0) {
-            perror("crt error old queue delete");
-            return -1;
-        }
-        server_queue = msgget(SERVER_QUE_KEY, IPC_CREAT | IPC_EXCL | 0666);
-        if (server_queue < 0) {
-            perror("crt error queue creation V2");
-            return -1;
-        }
+        perror("server queue creation error");
+        return -1;
     }
     time_t start,end;
     double dif;
@@ -228,24 +223,38 @@ int main() {
         if (msgrcv(server_queue, &received_msg, sizeof(received_msg), STOP, IPC_NOWAIT) >= 0) {
             time(&start);
             received_STOP();
+            write_history();
         } else if (msgrcv(server_queue, &received_msg, sizeof(received_msg), LIST, IPC_NOWAIT) >= 0) {
             time(&start);
             received_LIST();
+            write_history();
         }
         if (msgrcv(server_queue, &received_msg, sizeof(received_msg), 0, IPC_NOWAIT) >= 0) {
             time(&start);
             switch (received_msg.mtype) {
                 case INIT:
                     received_INIT();
+                    write_history();
                     break;
                 case TWOALL:
                     received_2ALL();
+                    write_history();
                     break;
                 case TWOONE:
                     received_2ONE();
+                    write_history();
+                    break;
+                case STOP:
+                    received_STOP();
+                    write_history();
+                    break;
+                case LIST:
+                    received_LIST();
+                    write_history();
                     break;
                 default:
-                    printf("unknown msg type: %ld id: %d \n", received_msg.mtype, -1);
+                    printf("server unknown msg type: %ld id: %d \n", received_msg.mtype, -1);
+                    write_history();
                     break;
             }
         }

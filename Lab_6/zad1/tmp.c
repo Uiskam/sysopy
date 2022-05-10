@@ -35,7 +35,14 @@ int main() {
     struct passwd *pw = getpwuid(getuid());
     const char *homedir = pw->pw_dir;
     int tmp = ftok(homedir, 2137);
-    printf("rm status: %d\n",msgctl(tmp, IPC_RMID, NULL));
+    int pid = msgget(tmp, IPC_EXCL | IPC_CREAT | 0666);
+    if(pid < 0) {
+        puts("crt error");
+        return -1;
+    }
+    printf("rm status: %d\n",msgctl(pid, IPC_RMID, NULL));
+    //printf("rm status: %d\n",msgctl(tmp, IPC_RMID, NULL));
+    perror("");
 
 
     return 0;
