@@ -120,6 +120,7 @@ void received_LIST() {
         }
     }
     printf("\n");
+    //printf("sending response to %ld with qid of %d\n",received_msg.senderID,users_queues[received_msg.senderID]);
     if (msgsnd(users_queues[received_msg.senderID], &server_msg, sizeof(server_msg), 0) < 0) {
         perror("list sending error");
         return;
@@ -164,6 +165,7 @@ void received_2ONE() {
 }
 
 void received_STOP() {
+    //puts("UKHTGVHBKMTDTFYGUHJUYTASFDJHSAODSADASDASDASD")
     if(active_users[received_msg.senderID] != -1) {
         active_users[received_msg.senderID] = -1;
         users_queues[received_msg.senderID] = -1;
@@ -187,12 +189,13 @@ void server_shutdown(int signb) {
             msgrcv(users_queues[i], &server_msg, sizeof(server_msg), STOP, 0);
         }
     }
-    puts("serwer killed all of its children");
+    puts("serwer stopped all of its children");
 
     if(msgctl(server_queue, IPC_RMID, NULL) != 0) {
         perror("server queue deletion error");
     }
     fclose(server_hist);
+    puts("server end work");
     exit(0);
 }
 
@@ -221,15 +224,18 @@ int main() {
             break;
         }
         if (msgrcv(server_queue, &received_msg, sizeof(received_msg), STOP, IPC_NOWAIT) >= 0) {
+            printf("Received signal: %ld from user %ld\n",received_msg.mtype, received_msg.senderID);
             time(&start);
             received_STOP();
             write_history();
         } else if (msgrcv(server_queue, &received_msg, sizeof(received_msg), LIST, IPC_NOWAIT) >= 0) {
+            printf("Received signal: %ld from user %ld\n",received_msg.mtype, received_msg.senderID);
             time(&start);
             received_LIST();
             write_history();
         }
         if (msgrcv(server_queue, &received_msg, sizeof(received_msg), 0, IPC_NOWAIT) >= 0) {
+            printf("Received signal: %ld from user %ld\n",received_msg.mtype, received_msg.senderID);
             time(&start);
             switch (received_msg.mtype) {
                 case INIT:

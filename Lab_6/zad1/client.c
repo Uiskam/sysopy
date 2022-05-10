@@ -62,7 +62,7 @@ int server_queue = 0;
 void send_STOP(); //declaration
 
 void intHandler(int sig_number) {
-    printf("WORK END id: %d\n", init_ID);
+    printf("SIGINT WORK END id: %d\n", init_ID);
     send_STOP();
     exit(0);
 }
@@ -77,7 +77,6 @@ void send_INIT() {
         perror("errorINIT");
         exit(-1);
     }
-    printf("INIT sent id: %d\n", init_ID);
 }
 
 void send_LIST() {
@@ -143,13 +142,18 @@ void send_STOP() {
 
 void received_INIT() {
     my_id = atoi(received_msg.mtext);
-    printf("init received id: %d\n", my_id);
+    printf("user id: %d has logged in\n", my_id);
 }
 
 void received_LIST(int *user_list) {
+    //printf("client list of active users: ");
     for (int i = 0; i < SERVER_CAPACITY; i++) {
         user_list[i] = received_msg.active_users[i];
+        /*if(user_list[i] != -1) {
+            printf("%d ",i);
+        }*/
     }
+    //puts("");
 
 }
 
@@ -194,32 +198,29 @@ int main(int argc, char **argv) {
     init_ID = atoi(argv[1]);
     key_t key = ftok(homedir, init_ID);
     my_queue = msgget(key, IPC_CREAT | IPC_EXCL | 0666);
-    printf("CLIENT QUE ID %d\n",my_queue);
     if(my_queue < 0) {
         perror("queue could not be opened");
-        fflush(1);
         return -1;
     }
     server_queue = msgget(SERVER_QUE_KEY, 0);
     if (server_queue < 0) {
         perror("server queue opening error");
-        fflush(1);
         return -1;
     }
-    printf("CLIENT QUE CHECK BEFOR INIT ID %d\n",my_queue);
+    //printf("CLIENT QUE CHECK BEFOR INIT ID %d\n",my_queue);
     send_INIT();
-    msgrcv(my_queue, &received_msg, sizeof(received_msg) - sizeof(long), INIT, 0);
-    printf("CLIENT QUE CHECK AFTER INIT ID %d\n",my_queue);
+    msgrcv(my_queue, &received_msg, sizeof(received_msg), INIT, 0);
     received_INIT();
+    //printf("CLIENT QUE CHECK AFTER INIT ID %d\n",my_queue);
 
 
     while (1) {
-        if (msgrcv(my_queue, &received_msg, sizeof(received_msg) - sizeof(long), STOP, IPC_NOWAIT) >= 0) {
+        if (msgrcv(my_queue, &received_msg, sizeof(received_msg), STOP, IPC_NOWAIT) >= 0) {
             send_STOP();
-        } else if (msgrcv(my_queue, &received_msg, sizeof(received_msg) - sizeof(long), LIST, IPC_NOWAIT) >= 0) {
-            send_LIST();
+        } else if (msgrcv(my_queue, &received_msg, sizeof(received_msg), LIST, IPC_NOWAIT) >= 0) {
+            received_LIST(active_users);
         }
-        if (msgrcv(my_queue, &received_msg, sizeof(received_msg) - sizeof(long), 0, IPC_NOWAIT) >= 0) {
+        if (msgrcv(my_queue, &received_msg, sizeof(received_msg), 0, IPC_NOWAIT) >= 0) {
             switch (received_msg.mtype) {
                 case LIST:
                     received_LIST(active_users);

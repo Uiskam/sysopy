@@ -1,4 +1,7 @@
-on: 2022-05-10 03:03:35; from: 1; recieved sig 20 with msg: 32824
-on: 2022-05-10 03:03:36; from: 0; recieved sig 2 with msg: LIST request
-on: 2022-05-10 03:03:37; from: 0; recieved sig 2 with msg: LIST request
-on: 2022-05-10 03:03:38; from: 0; recieved sig 1 with msg: STOP
+on: 2022-05-10 03:59:10; from: 1; recieved sig 20 with msg: 98322
+on: 2022-05-10 03:59:10; from: 2; recieved sig 20 with msg: 98323
+on: 2022-05-10 03:59:10; from: 3; recieved sig 20 with msg: 98324
+on: 2022-05-10 03:59:10; from: 4; recieved sig 20 with msg: 98325
+on: 2022-05-10 03:59:11; from: 0; recieved sig 1 with msg: STOP
+on: 2022-05-10 03:59:11; from: 2; recieved sig 3 with msg: "MSG for all users test"
+on: 2022-05-10 03:59:11; from: 3; recieved sig 2 with msg: LIST request
