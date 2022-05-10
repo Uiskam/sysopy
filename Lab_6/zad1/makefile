@@ -25,4 +25,6 @@ run_test: compile_cli compile_srv clear_queues
 	./client 3 < instructions/client_3_ins &
 	./client 4 < instructions/client_4_ins &
 
-
+min_run: compile_cli compile_srv clear_queues
+	./server &
+	./client 1 < instructions/client_1_ins &

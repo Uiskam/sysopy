@@ -108,7 +108,7 @@ void send_2ONE(int receiver_id, char *message) {
     my_msg.mtype = TWOONE;
     my_msg.senderID = my_id;
     if(receiver_id < 0 || receiver_id >= SERVER_CAPACITY || active_users[receiver_id] == -1) {
-        printf("reciever do not exist id: %d\n",init_ID);
+        printf("receiver do not exist id: %d\n",init_ID);
         return;
     }
     sprintf(my_msg.mtext, "%d;%s", receiver_id, message);
@@ -158,7 +158,7 @@ void received_LIST(int *user_list) {
 }
 
 void received_2ALL_2ONE() {
-    printf("client with id: %d\n", init_ID);
+    printf("client with id: %d\n", my_id);
     printf("received msg:\n%s\n\n", received_msg.mtext);
 }
 
@@ -215,6 +215,9 @@ int main(int argc, char **argv) {
 
 
     while (1) {
+        //puts("nap");
+        sleep(1);
+        //puts("WROK begin");
         if (msgrcv(my_queue, &received_msg, sizeof(received_msg), STOP, IPC_NOWAIT) >= 0) {
             send_STOP();
         } else if (msgrcv(my_queue, &received_msg, sizeof(received_msg), LIST, IPC_NOWAIT) >= 0) {
@@ -239,7 +242,6 @@ int main(int argc, char **argv) {
                     break;
             }
         }
-        sleep(1);
         char cmd[MAXMSG + 10];
         char msg_input[MAXMSG + 10];
         if (stdin_nonempty() && fgets(cmd, MAXMSG + 10, stdin) != NULL) {

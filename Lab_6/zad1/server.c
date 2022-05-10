@@ -138,7 +138,7 @@ void received_2ALL() {
     server_msg.mtype = TWOALL;
     sprintf(server_msg.mtext, "msg from: %ld\nreceived on: %s\n%s", received_msg.senderID, cur_data, received_msg.mtext);
     for (int i = 0; i < SERVER_CAPACITY; i++) {
-        if (i != received_msg.senderID) {
+        if (i != received_msg.senderID && active_users[i] != -1) {
             if (msgsnd(users_queues[i], &server_msg, sizeof(server_msg), 0) < 0) {
                 perror("2ALL server error");
             }
@@ -196,6 +196,7 @@ void server_shutdown(int signb) {
     }
     fclose(server_hist);
     puts("server end work");
+    fprintf( stderr, "server end\n");
     exit(0);
 }
 
