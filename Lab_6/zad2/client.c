@@ -6,6 +6,7 @@
 #include <string.h>
 #include <sys/types.h>
 #include <sys/select.h>
+#include <mqueue.h>
 #include "comm_def.h"
 #include <signal.h>
 /*

@@ -1,6 +1,6 @@
-basic_comp :=  gcc -Wall -Wextra -pedantic
-mem_err_comp := gcc -Wall -Wextra -Wshadow -Wunused -Wconversion -g -O2 -fsanitize=address
-werr_comp := gcc -Wall -Wextra -pedantic -Werror
+basic_comp :=  gcc -Wall -Wextra -pedantic -lrt
+mem_err_comp := gcc -Wall -Wextra -Wshadow -Wunused -Wconversion -g -O2 -fsanitize=address -lrt
+werr_comp := gcc -Wall -Wextra -pedantic -Werror -lrt
 
 
 clear_queues:
