@@ -61,7 +61,7 @@
  */
 int active_users[SERVER_CAPACITY];
 int users_queues[SERVER_CAPACITY];
-struct comm_msg received_msg;
+char received_msg[MAX_MSG_SIZE]
 const char delimiter[2] = ";";
 int server_queue = 0;
 FILE *server_hist;
@@ -263,7 +263,7 @@ int main() {
         return -1;
     }
     for (int i = 0; i < SERVER_CAPACITY; i++) active_users[i] = -1;
-    server_queue = mq_open(SERVER_QUE_NAME, O_RDONLY | IPC_CREAT | IPC_EXCL, 0666, &atr)
+    server_queue = mq_open(SERVER_QUE_NAME, O_RDONLY | IPC_CREAT | IPC_EXCL | O_NONBLOCK, 0666, &atr)
     if (server_queue < 0) {
         perror("server queue creation error");
         return -1;
@@ -279,8 +279,8 @@ int main() {
             server_shutdown(0);
             break;
         }
-        if (msgrcv(server_queue, &received_msg, sizeof(received_msg), STOP, IPC_NOWAIT) >= 0) {
-            printf("Received signal: %ld from user %ld\n", received_msg.mtype, received_msg.senderID);
+        if (mq_receive(server_queue, received_msg, MAX_MSG_SIZE, NULL) >= 0) {
+            printf("Received signal: %ld from user %ld\n", atoi(received_msg), received_msg.senderID);
             time(&start);
             received_STOP();
             write_history();
