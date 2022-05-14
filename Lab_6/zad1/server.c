@@ -191,16 +191,23 @@ void server_shutdown(int signb) {
     }
     puts("serwer stopped all of its children");
 
-    if(msgctl(server_queue, IPC_RMID, NULL) != 0) {
+    /*if(msgctl(server_queue, IPC_RMID, NULL) != 0) {
         perror("server queue deletion error");
-    }
+    }*/
     fclose(server_hist);
     puts("server end work");
     fprintf( stderr, "server end\n");
     exit(0);
 }
 
+void close_at_exit() {
+    if(msgctl(server_queue, IPC_RMID, NULL) < 0) {
+        perror("SERVER close at exit error");
+    }
+}
+
 int main() {
+    atexit(close_at_exit);
     signal(SIGINT, server_shutdown);
     server_hist = fopen("server_log.txt", "w");
     if (server_hist == NULL) {

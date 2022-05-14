@@ -130,12 +130,12 @@ void send_STOP() {
         exit(-1);
     }
     sleep(1);
-    if (msgctl(my_queue, IPC_RMID, NULL) < 0) {
+    /*if (msgctl(my_queue, IPC_RMID, NULL) < 0) {
         printf("delete queue error id: %d ", init_ID);
         printf("CLIENT QUE ID %d\n",my_queue);
         perror("client errorDELQUE");
         exit(-1);
-    }
+    }*/
     printf("WORK END id: %d\n", init_ID);
     exit(0);
 }
@@ -186,7 +186,13 @@ int find_begin_of_msg(const char input_str[MAXMSG + 10]) {
     return -1;
 }
 
+void close_at_exit() {
+    if(msgctl(my_queue, IPC_RMID, NULL) < 0) {
+        perror("close at exit error!!!!");
+    }
+}
 int main(int argc, char **argv) {
+    atexit(close_at_exit);
     for (int i = 0; i < SERVER_CAPACITY; i++) active_users[i] = -1;
     struct passwd *pw = getpwuid(getuid());
     const char *homedir = pw->pw_dir;
