@@ -56,9 +56,11 @@
 int my_id = -1;
 int my_queue = 0;
 int init_ID = 0;
-struct comm_msg received_msg;
+char received_msg[MAX_MSG_SIZE];
 int active_users[SERVER_CAPACITY];
+const char delimiter[2] = ";";
 int server_queue = 0;
+char my_queue_name[100];
 
 void send_STOP(); //declaration
 
@@ -69,7 +71,7 @@ void intHandler(int sig_number) {
 }
 
 void send_INIT() {
-    struct comm_msg my_msg;
+    /*struct comm_msg my_msg;
     my_msg.mtype = INIT;
     my_msg.senderID = init_ID;
     sprintf(my_msg.mtext, "%d", my_queue);
@@ -77,23 +79,18 @@ void send_INIT() {
         printf("INIT error id: %d", init_ID);
         perror("errorINIT");
         exit(-1);
-    }
-}
-
-void send_LIST() {
-    struct comm_msg my_msg;
-    my_msg.mtype = LIST;
-    my_msg.senderID = my_id;
-    sprintf(my_msg.mtext,"LIST request");
-    if (msgsnd(server_queue, &my_msg, sizeof(my_msg), 0) < 0) {
-        printf("LIST error id: %d\n", init_ID);
-        perror("errorLIST");
+    }*/
+    char msg[MAX_MSG_SIZE];
+    sprintf(msg, "%d;%d;%s;", INIT, init_ID, my_queue_name);
+    if (mq_send(server_queue, msg, MAX_MSG_SIZE, 0) < 0) {
+        printf("INIT error id: %d\n", init_ID);
+        perror("client INIT sending error");
         exit(-1);
     }
 }
 
 void send_2ALL(char *message) {
-    struct comm_msg my_msg;
+    /*struct comm_msg my_msg;
     my_msg.mtype = TWOALL;
     my_msg.senderID = my_id;
     sprintf(my_msg.mtext, "%s", message);
@@ -101,15 +98,22 @@ void send_2ALL(char *message) {
         printf("2ALL error id: %d\n", init_ID);
         perror("error2ALL");
         exit(-1);
+    }*/
+    char msg[MAX_MSG_SIZE];
+    sprintf(msg,"%d;%d;%s",TWOALL, my_id, message);
+    if (mq_send(server_queue, msg, MAX_MSG_SIZE, 0) < 0) {
+        printf("2ALL error id: %d\n", init_ID);
+        perror("client 2ALL sending error");
+        exit(-1);
     }
 }
 
 void send_2ONE(int receiver_id, char *message) {
-    struct comm_msg my_msg;
+    /*struct comm_msg my_msg;
     my_msg.mtype = TWOONE;
     my_msg.senderID = my_id;
-    if(receiver_id < 0 || receiver_id >= SERVER_CAPACITY || active_users[receiver_id] == -1) {
-        printf("receiver do not exist id: %d\n",init_ID);
+    if (receiver_id < 0 || receiver_id >= SERVER_CAPACITY || active_users[receiver_id] == -1) {
+        printf("receiver do not exist id: %d\n", init_ID);
         return;
     }
     sprintf(my_msg.mtext, "%d;%s", receiver_id, message);
@@ -117,11 +121,22 @@ void send_2ONE(int receiver_id, char *message) {
         printf("2ONE error id: %d\n", init_ID);
         perror("error2ONE");
         exit(-1);
+    }*/
+    if (receiver_id < 0 || receiver_id >= SERVER_CAPACITY || active_users[receiver_id] == -1) {
+        printf("receiver do not exist id: %d\n", init_ID);
+        return;
+    }
+    char msg[MAX_MSG_SIZE];
+    sprintf(msg,"%d;%d;%d;%s",TWOONE, my_id,receiver_id, message);
+    if (mq_send(server_queue, msg, MAX_MSG_SIZE, 0) < 0) {
+        printf("2ONE error id: %d\n", init_ID);
+        perror("client 2ALL sending error");
+        exit(-1);
     }
 }
 
 void send_STOP() {
-    struct comm_msg my_msg;
+    /*struct comm_msg my_msg;
     my_msg.mtype = STOP;
     my_msg.senderID = my_id;
     sprintf(my_msg.mtext, "STOP");
@@ -129,20 +144,50 @@ void send_STOP() {
         printf("STOP error id: %d\n", init_ID);
         perror("errorSTOP");
         exit(-1);
+    }*/
+    char msg[MAX_MSG_SIZE];
+    sprintf(msg,"%d;%d;%s;",STOP, my_id, "STOP");
+    if (mq_send(server_queue, msg, MAX_MSG_SIZE, 2) < 0) {
+        printf("STOP error id: %d\n", init_ID);
+        perror("client STOP sending error");
+        exit(-1);
     }
     sleep(1);
-    if (msgctl(my_queue, IPC_RMID, NULL) < 0) {
+    if (mq_unlink(my_queue_name) < 0) {
         printf("delete queue error id: %d ", init_ID);
-        printf("CLIENT QUE ID %d\n",my_queue);
+        printf("CLIENT QUE ID %d\n", my_queue);
         perror("client errorDELQUE");
         exit(-1);
     }
     printf("WORK END id: %d\n", init_ID);
     exit(0);
+
+}
+
+void send_LIST() {
+    /*struct comm_msg my_msg;
+    my_msg.mtype = LIST;
+    my_msg.senderID = my_id;
+    sprintf(my_msg.mtext, "LIST request");
+    if (msgsnd(server_queue, &my_msg, sizeof(my_msg), 0) < 0) {
+        printf("LIST error id: %d\n", init_ID);
+        perror("errorLIST");
+        exit(-1);
+    }*/
+    char msg[MAX_MSG_SIZE];
+    sprintf(msg,"%d;%d;",LIST, my_id);
+    if (mq_send(server_queue, msg, MAX_MSG_SIZE, 1) < 0) {
+        printf("LIST error id: %d\n", init_ID);
+        perror("client LIST sending error");
+        exit(-1);
+    }
 }
 
 void received_INIT() {
-    my_id = atoi(received_msg.mtext);
+    char* token = strtok(received_msg, delimiter);
+    int sig_nb = atoi(token);
+    token = strtok(NULL, delimiter);
+    int my_id = atoi(token);
     printf("user id: %d has logged in\n", my_id);
 }
 
@@ -199,7 +244,7 @@ int main(int argc, char **argv) {
     init_ID = atoi(argv[1]);
     key_t key = ftok(homedir, init_ID);
     my_queue = msgget(key, IPC_CREAT | IPC_EXCL | 0666);
-    if(my_queue < 0) {
+    if (my_queue < 0) {
         perror("queue could not be opened");
         return -1;
     }
@@ -248,19 +293,17 @@ int main(int argc, char **argv) {
         if (stdin_nonempty() && fgets(cmd, MAXMSG + 10, stdin) != NULL) {
             int request_number = atoi(cmd);
             int msg_begin = find_begin_of_msg(cmd);
-            if(msg_begin == -1){
+            if (msg_begin == -1) {
                 puts("wrong instruction");
                 continue;
             }
             strncpy(msg_input, cmd + msg_begin, strlen(cmd));
 
-            if(request_number == LIST) {
+            if (request_number == LIST) {
                 send_LIST();
-            }
-            else if (request_number == TWOALL) {
+            } else if (request_number == TWOALL) {
                 send_2ALL(msg_input);
-            }
-            else if (request_number == TWOONE) {
+            } else if (request_number == TWOONE) {
                 int receiver_id = atoi(msg_input);
                 char msg_to_send[MAXMSG + 10];
                 msg_begin = find_begin_of_msg(msg_input);
@@ -270,8 +313,7 @@ int main(int argc, char **argv) {
                 }
                 strncpy(msg_to_send, msg_input + msg_begin, strlen(msg_input));
                 send_2ONE(receiver_id, msg_to_send);
-            }
-            else if (request_number == STOP) {
+            } else if (request_number == STOP) {
                 send_STOP();
             } else {
                 printf("lower unknown msg type: %ld id: %d \n", received_msg.mtype, init_ID);

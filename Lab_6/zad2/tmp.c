@@ -9,13 +9,18 @@
 #include "comm_def.h"
 #include <time.h>
 #include <signal.h>
-
+void print_text(char* msg) {
+    printf("revcadasd %s\n", msg);
+}
 int main() {
-    char list[100] = "1;2;3;4;5;123;3;3";
-    char *token;
-    token = strtok(list, ";");
-    while (token != NULL) {
-        printf("%s\n",token);
-        token = strtok(NULL, ";");
+    int actv_users[] = {1,1,1,1,-1,-1,1,1,-1,1};
+    int cli_list[22];
+    char msg[8192] = "";
+    for(int i = 0; i < 10; i++) {
+        char tmp[5];
+        sprintf(tmp,"%d;",actv_users[i]);
+        strcat(msg,tmp);
+        //printf("%d\t%s\n",i,msg);
     }
+    printf("msg to send %s\n", msg);
 }

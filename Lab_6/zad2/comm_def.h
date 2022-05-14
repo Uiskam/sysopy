@@ -15,14 +15,14 @@
 #define SERVER_SHUT_DOWN 30
 
 #define SERVER_CAPACITY 10
-#define MAXMSG 300
-#define SERVER_QUE_KEY ftok(getpwuid(getuid())->pw_dir,0)
+#define MAX_MSG_SIZE 8192
+#define QUE_CAPACITY 10
 #define SERVER_WAIT_TIME 5
 
 struct comm_msg {
     long mtype;         /* typ komunikatu   */
     long senderID;      /* id nadawcy */
-    char mtext[MAXMSG];      /* treść komunikatu */
+    char mtext[MAX_MSG_SIZE];      /* treść komunikatu */
     int active_users[SERVER_CAPACITY];
 };
 

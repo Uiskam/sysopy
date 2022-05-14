@@ -63,6 +63,7 @@
 int active_users[SERVER_CAPACITY];
 int users_queues[SERVER_CAPACITY];
 struct comm_msg received_msg;
+const char delimiter[2] = ";";
 int server_queue = 0;
 FILE *server_hist;
 
@@ -86,25 +87,41 @@ int find_free_id() {
 }
 
 void received_INIT() {
+    char* token = strtok(received_msg,delimiter);
+    int sig_nb = atoi(token);
+    token = strtok(NULL, delimiter);
+    int sender_ID = atoi(token);
+    token = strtok(NULL, delimiter);
+    char* client_queue_name = token;
+
     int new_id = find_free_id();
     if (new_id == -1) {
         puts("server capacity exceeded!");
         return;
     }
-    active_users[new_id] = 1;
-    users_queues[new_id] = atoi(received_msg.mtext);
-    if (users_queues[new_id] == -1) {
-        printf("client %ld queue opening error", received_msg.senderID);
-        perror(" server errINIT ");
+
+    int client_queue_id = mq_open(client_queue_name,O_RDONLY);
+    if(client_queue_id < 0) {
+        printf("client %s queue opening error", client_queue_name);
+        perror("server error, client queue opening");
         exit(0);
     }
-    struct comm_msg server_msg;
+    active_users[new_id] = 1;
+    users_queues[new_id] = client_queue_id;
+
+    /*struct comm_msg server_msg;
     server_msg.mtype = INIT;
     server_msg.senderID = -1;
     sprintf(server_msg.mtext, "%d", new_id);
     if (msgsnd(users_queues[new_id], &server_msg, sizeof(server_msg), 0) < 0) {
         perror("INIT sending error");
         return;
+    }*/
+    char msg[MAX_MSG_SIZE];
+    sprintf(msg, "%d;%d;",INIT, new_id);
+    if(mq_send(users_queues[new_id], msg, MAX_MSG_SIZE, 0) < 0) {
+        perror("server INIT response error");
+        exit(-1);
     }
     puts("server sent INIT response");
 }
