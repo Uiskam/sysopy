@@ -1,35 +1,38 @@
 #include <stdio.h>
 #include <sys/ipc.h>
 #include <sys/msg.h>
+#include <time.h>
+#include <stdint.h>
 #include <mqueue.h>
-
-typedef struct packet_s {
-    long type;
-    char msg;
-} packet_st;
+#define MAX_SIZE 8192
 
 int main(int argc, char** argv) {
 
-    key_t key = ftok(".", 'p');
-    if (key < 0) {
-        perror("ftok");
-        return 1;
+
+    struct timespec delay;
+    delay.tv_sec = 1000000000;
+    delay.tv_nsec = 1000;
+    int queue_id = mq_open("/tmpqueue",O_RDONLY | O_NONBLOCK);
+    if(queue_id < 0) {
+        perror("XDDDD");
     }
 
-    int queue_id = msgget(key, 0600);
-
     while (1) {
-        packet_st p;
-        int retval = msgrcv(queue_id, &p, sizeof(p), 0, IPC_NOWAIT);
+        char received[MAX_SIZE];
+        unsigned int pri;
+        int retval = mq_receive(queue_id, received, MAX_SIZE, &pri);
         if (retval < 0) {
-            perror("msgrcv");
+            printf("q_id %d msg legth read %d\n",queue_id,retval);
+            perror("mq_receive");
             break;
         }
 
-        printf("received: %d\n", queue_id);
+        printf("received: %s \t with pri of: %d\n", received, pri);
     }
     puts("HERE");
-    msgctl(queue_id, IPC_RMID, NULL);
+    if (mq_close(queue_id) < 0){
+        perror("on closing");
+    }
 
     return 0;
 }
