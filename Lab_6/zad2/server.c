@@ -61,7 +61,7 @@
  */
 int active_users[SERVER_CAPACITY];
 int users_queues[SERVER_CAPACITY];
-char received_msg[MAX_MSG_SIZE]
+char received_msg[MAX_MSG_SIZE];
 const char delimiter[2] = ";";
 int server_queue = 0;
 FILE *server_hist;
@@ -71,10 +71,17 @@ void write_history() {
     time_t t = time(NULL);
     struct tm tm = *localtime(&t);
     char cur_data[22];
+    char* token;
+    token = strtok(received_msg, delimiter);
+    int sig_nb = atoi(token);
+    token = strtok(NULL, delimiter);
+    int sender_id = atoi(token);
+    token = strtok(NULL, delimiter);
+
     sprintf(cur_data, "%d-%02d-%02d %02d:%02d:%02d", tm.tm_year + 1900, tm.tm_mon + 1, tm.tm_mday, tm.tm_hour,
             tm.tm_min, tm.tm_sec);
-    fprintf(server_hist, "on: %s; from: %ld; recieved sig %ld with msg: %s\n", cur_data, received_msg.senderID,
-            received_msg.mtype, received_msg.mtext);
+    fprintf(server_hist, "on: %s; from: %d; recieved sig %d with msg: %s\n", cur_data, sender_id,
+            sig_nb, token);
 }
 
 int find_free_id() {
@@ -89,9 +96,7 @@ int find_free_id() {
 
 void received_INIT() {
     char *token = strtok(received_msg, delimiter);
-    int sig_nb = atoi(token);
     token = strtok(NULL, delimiter);
-    int sender_ID = atoi(token);
     token = strtok(NULL, delimiter);
     char *client_queue_name = token;
 
@@ -121,7 +126,6 @@ void received_INIT() {
 
 void received_LIST() {
     char *token = strtok(received_msg, delimiter);
-    int sig_nb = atoi(token);
     token = strtok(NULL, delimiter);
     int sender_ID = atoi(token);
 
@@ -152,7 +156,6 @@ void received_2ALL() {
             tm.tm_min, tm.tm_sec);
 
     char *token = strtok(received_msg, delimiter);
-    int sig_nb = atoi(token);
     token = strtok(NULL, delimiter);
     int sender_ID = atoi(token);
     token = strtok(NULL, delimiter);
@@ -178,7 +181,6 @@ void received_2ONE() {
             tm.tm_min, tm.tm_sec);
 
     char *token = strtok(received_msg, delimiter);
-    int sig_nb = atoi(token);
     token = strtok(NULL, delimiter);
     int sender_ID = atoi(token);
     token = strtok(NULL, delimiter);
@@ -190,7 +192,7 @@ void received_2ONE() {
     sprintf(msg, "msg from: %d\nreceived on: %s\n%s", sender_ID, cur_data, message);
     if (receiver_id >= 0 && receiver_id < SERVER_CAPACITY && active_users[receiver_id] != -1) {
         if (mq_send(users_queues[receiver_id], msg, MAX_MSG_SIZE, 0) < 0) {
-            printf("server 2ONE error while sending to %d", i);
+            printf("server 2ONE error while sending to %d", receiver_id);
             perror("");
         }
     }
@@ -198,7 +200,6 @@ void received_2ONE() {
 
 void received_STOP() {
     char *token = strtok(received_msg, delimiter);
-    int sig_nb = atoi(token);
     token = strtok(NULL, delimiter);
     int sender_ID = atoi(token);
 
@@ -224,9 +225,9 @@ void server_shutdown(int signb) {
                 perror("");
                 continue;
             }
-            int bits_read = mq_receive(server_queue, msgV2, MAX_MSG_SIZE, NULL);
+            int bits_read = mq_receive(server_queue, received_msg, MAX_MSG_SIZE, NULL);
             while (bits_read == -1) {
-                mq_receive(server_queue, received_msg, MAX_MSG_SIZE, NULL);
+                bits_read = mq_receive(server_queue, received_msg, MAX_MSG_SIZE, NULL);
             }
             received_STOP();
         }
@@ -250,11 +251,11 @@ void close_at_exit() {
 }
 
 int main() {
-    struct mq_attr attr;
-    attr.mq_flags = 0;
-    attr.mq_maxmsg = 10;
-    attr.mq_msgsize = MAX_SIZE;
-    attr.mq_curmsgs = 0;
+    struct mq_attr atr;
+    atr.mq_flags = 0;
+    atr.mq_maxmsg = 10;
+    atr.mq_msgsize = MAX_MSG_SIZE;
+    atr.mq_curmsgs = 0;
     atexit(close_at_exit);
     signal(SIGINT, server_shutdown);
     server_hist = fopen("server_log.txt", "w");
@@ -263,7 +264,7 @@ int main() {
         return -1;
     }
     for (int i = 0; i < SERVER_CAPACITY; i++) active_users[i] = -1;
-    server_queue = mq_open(SERVER_QUE_NAME, O_RDONLY | IPC_CREAT | IPC_EXCL | O_NONBLOCK, 0666, &atr)
+    server_queue = mq_open(SERVER_QUE_NAME, O_RDONLY | IPC_CREAT | IPC_EXCL | O_NONBLOCK, 0666, &atr);
     if (server_queue < 0) {
         perror("server queue creation error");
         return -1;
@@ -280,20 +281,17 @@ int main() {
             break;
         }
         if (mq_receive(server_queue, received_msg, MAX_MSG_SIZE, NULL) >= 0) {
-            printf("Received signal: %ld from user %ld\n", atoi(received_msg), received_msg.senderID);
+            printf("Received signal: %d\n", atoi(received_msg));
             time(&start);
-            received_STOP();
-            write_history();
-        } else if (msgrcv(server_queue, &received_msg, sizeof(received_msg), LIST, IPC_NOWAIT) >= 0) {
-            printf("Received signal: %ld from user %ld\n", received_msg.mtype, received_msg.senderID);
-            time(&start);
-            received_LIST();
-            write_history();
-        }
-        if (msgrcv(server_queue, &received_msg, sizeof(received_msg), 0, IPC_NOWAIT) >= 0) {
-            printf("Received signal: %ld from user %ld\n", received_msg.mtype, received_msg.senderID);
-            time(&start);
-            switch (received_msg.mtype) {
+            switch (atoi(received_msg)) {
+                case STOP:
+                    received_STOP();
+                    write_history();
+                    break;
+                case LIST:
+                    received_LIST();
+                    write_history();
+                    break;
                 case INIT:
                     received_INIT();
                     write_history();
@@ -306,16 +304,8 @@ int main() {
                     received_2ONE();
                     write_history();
                     break;
-                case STOP:
-                    received_STOP();
-                    write_history();
-                    break;
-                case LIST:
-                    received_LIST();
-                    write_history();
-                    break;
                 default:
-                    printf("server unknown msg type: %ld id: %d \n", received_msg.mtype, -1);
+                    printf("server unknown msg type: %d id: %d \n", atoi(received_msg), -1);
                     write_history();
                     break;
             }
