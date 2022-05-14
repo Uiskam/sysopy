@@ -66,6 +66,7 @@ struct comm_msg received_msg;
 const char delimiter[2] = ";";
 int server_queue = 0;
 FILE *server_hist;
+char my_queue_name[100];
 
 void write_history() {
     time_t t = time(NULL);
@@ -127,20 +128,26 @@ void received_INIT() {
 }
 
 void received_LIST() {
-    struct comm_msg server_msg;
-    server_msg.mtype = LIST;
-    server_msg.senderID = -1;
+    char* token = strtok(received_msg,delimiter);
+    int sig_nb = atoi(token);
+    token = strtok(NULL, delimiter);
+    int sender_ID = atoi(token);
+
+    char msg[MAX_MSG_SIZE];
+    sprintf(msg,"%d;",LIST);
     printf("active users: ");
     for (int i = 0; i < SERVER_CAPACITY; i++) {
-        server_msg.active_users[i] = active_users[i];
+        char tmp[5];
+        sprintf(tmp,"%d;", active_users[i]);
+        strcat(msg,tmp);
         if (active_users[i] != -1) {
             printf("%d ", i);
         }
     }
     printf("\n");
-    //printf("sending response to %ld with qid of %d\n",received_msg.senderID,users_queues[received_msg.senderID]);
-    if (msgsnd(users_queues[received_msg.senderID], &server_msg, sizeof(server_msg), 0) < 0) {
-        perror("list sending error");
+    if (mq_send(users_queues[sender_ID], msg, MAX_MSG_SIZE, 1) < 0) {
+        printf("server list sending error to: %d",sender_ID);
+        perror("");
         return;
     }
 }
@@ -151,14 +158,26 @@ void received_2ALL() {
     char cur_data[22];
     sprintf(cur_data, "%d-%02d-%02d %02d:%02d:%02d", tm.tm_year + 1900, tm.tm_mon + 1, tm.tm_mday, tm.tm_hour,
             tm.tm_min, tm.tm_sec);
-    struct comm_msg server_msg;
+
+    char* token = strtok(received_msg,delimiter);
+    int sig_nb = atoi(token);
+    token = strtok(NULL, delimiter);
+    int sender_ID = atoi(token);
+    token = strtok(NULL, delimiter);
+    char* message = token;
+
+    /*struct comm_msg server_msg;
     server_msg.senderID = -1;
     server_msg.mtype = TWOALL;
-    sprintf(server_msg.mtext, "msg from: %ld\nreceived on: %s\n%s", received_msg.senderID, cur_data, received_msg.mtext);
+    sprintf(server_msg.mtext, "msg from: %ld\nreceived on: %s\n%s", received_msg.senderID, cur_data, received_msg.mtext);*/
+
+    char msg[MAX_MSG_SIZE];
+    sprintf(msg, "%d;msg from: %d\nreceived on: %s\n%s",TWOALL, sender_ID, cur_data, message);
     for (int i = 0; i < SERVER_CAPACITY; i++) {
-        if (i != received_msg.senderID && active_users[i] != -1) {
-            if (msgsnd(users_queues[i], &server_msg, sizeof(server_msg), 0) < 0) {
-                perror("2ALL server error");
+        if (i != sender_ID && active_users[i] != -1) {
+            if (mq_send(users_queues[i], msg, MAX_MSG_SIZE, 0) < 0) {
+                printf("server 2ALL error while sending to %d",i);
+                perror("");
             }
         }
     }
@@ -170,47 +189,66 @@ void received_2ONE() {
     char cur_data[22];
     sprintf(cur_data, "%d-%02d-%02d %02d:%02d:%02d", tm.tm_year + 1900, tm.tm_mon + 1, tm.tm_mday, tm.tm_hour,
             tm.tm_min, tm.tm_sec);
-    struct comm_msg server_msg;
-    server_msg.senderID = -1;
-    server_msg.mtype = TWOONE;
-    sprintf(server_msg.mtext, "msg from: %ld\nreceived on: %s\n%s", received_msg.senderID, cur_data, received_msg.mtext);
-    int receiver_id = atoi(received_msg.mtext);
+
+    char* token = strtok(received_msg,delimiter);
+    int sig_nb = atoi(token);
+    token = strtok(NULL, delimiter);
+    int sender_ID = atoi(token);
+    token = strtok(NULL, delimiter);
+    int receiver_id = atoi(token);
+    token = strtok(NULL, delimiter);
+    char* message = token;
+
+    char msg[MAX_MSG_SIZE];
+    sprintf(msg, "msg from: %d\nreceived on: %s\n%s", sender_ID, cur_data, message);
     if(receiver_id >= 0 && receiver_id < SERVER_CAPACITY && active_users[receiver_id] != -1) {
-        if (msgsnd(users_queues[receiver_id], &server_msg, sizeof(server_msg), 0) < 0) {
-            perror("2ONE server error");
+        if (mq_send(users_queues[receiver_id], msg, MAX_MSG_SIZE, 0) < 0) {
+            printf("server 2ONE error while sending to %d",i);
+            perror("");
         }
     }
 }
 
 void received_STOP() {
-    //puts("UKHTGVHBKMTDTFYGUHJUYTASFDJHSAODSADASDASDASD")
-    if(active_users[received_msg.senderID] != -1) {
-        active_users[received_msg.senderID] = -1;
-        users_queues[received_msg.senderID] = -1;
+    char* token = strtok(received_msg,delimiter);
+    int sig_nb = atoi(token);
+    token = strtok(NULL, delimiter);
+    int sender_ID = atoi(token);
+    token = strtok(NULL, delimiter);
+    char* message = token;
+    if(active_users[sender_ID] != -1) {
+        active_users[sender_ID] = -1;
+        if(mq_close(users_queues[sender_ID]) < 0) {
+            printf("server closing queue error of client: %d\n", sender_ID);
+            perror("");
+        }
     } else {
         printf("server received zombie signal!\n");
     }
 }
 
 void server_shutdown(int signb) {
-    struct comm_msg server_msg;
-    server_msg.mtype = SERVER_SHUT_DOWN;
-    server_msg.senderID = -1;
+    char msg[MAX_MSG_SIZE];
+    sprintf(msg,"%d;",SERVER_SHUT_DOWN);
     puts("serwer shutting down");
     for(int i = 0; i < SERVER_CAPACITY; i++) {
         if(active_users[i] != -1) {
-            if(msgsnd(users_queues[i], &server_msg, sizeof(server_msg), 0) < 0) {
+            if(mq_send(users_queues[i], msg, MAX_MSG_SIZE, 3) < 0) {
                 printf("failed to send stop to %d",i);
-                perror(" err ");
+                perror("");
                 continue;
             }
-            msgrcv(users_queues[i], &server_msg, sizeof(server_msg), STOP, 0);
+            int bits_read = mq_receive(server_queue, msgV2, MAX_MSG_SIZE, NULL);
+            while (bits_read == -1) {
+                mq_receive(server_queue, received_msg, MAX_MSG_SIZE, NULL);
+            }
+            received_STOP();
         }
     }
     puts("serwer stopped all of its children");
 
-    if(msgctl(server_queue, IPC_RMID, NULL) != 0) {
-        perror("server queue deletion error");
+    if(mq_close(server_queue) < 0) {
+        perror("server queue closing error")l
     }
     fclose(server_hist);
     puts("server end work");
@@ -218,7 +256,17 @@ void server_shutdown(int signb) {
     exit(0);
 }
 
+void close_at_exit() {
+    if(mq_unlink(my_queue_name) < 0) {
+        printf("queue deleting error server\n");
+        perror("");
+    } else {
+        printf("server queue successfully\n");
+    }
+}
+
 int main() {
+    atexit(close_at_exit);
     signal(SIGINT, server_shutdown);
     server_hist = fopen("server_log.txt", "w");
     if (server_hist == NULL) {

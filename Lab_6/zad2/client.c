@@ -62,6 +62,15 @@ const char delimiter[2] = ";";
 int server_queue = 0;
 char my_queue_name[100];
 
+void close_at_exit() {
+    if(mq_unlink(my_queue_name) < 0) {
+        printf("queue deleting error id: %d\n", init_ID);
+        perror("");
+    } else {
+        printf("queue successfully deleted id: %d\n", init_ID);
+    }
+}
+
 void send_STOP(); //declaration
 
 void intHandler(int sig_number) {
@@ -71,21 +80,65 @@ void intHandler(int sig_number) {
 }
 
 void send_INIT() {
-    /*struct comm_msg my_msg;
-    my_msg.mtype = INIT;
-    my_msg.senderID = init_ID;
-    sprintf(my_msg.mtext, "%d", my_queue);
-    if (msgsnd(server_queue, &my_msg, sizeof(my_msg), 0) < 0) {
-        printf("INIT error id: %d", init_ID);
-        perror("errorINIT");
-        exit(-1);
-    }*/
     char msg[MAX_MSG_SIZE];
     sprintf(msg, "%d;%d;%s;", INIT, init_ID, my_queue_name);
     if (mq_send(server_queue, msg, MAX_MSG_SIZE, 0) < 0) {
         printf("INIT error id: %d\n", init_ID);
         perror("client INIT sending error");
         exit(-1);
+    }
+}
+
+void send_STOP() {
+    char msg[MAX_MSG_SIZE];
+    sprintf(msg,"%d;%d;%s;",STOP, my_id, "STOP");
+    if (mq_send(server_queue, msg, MAX_MSG_SIZE, 2) < 0) {
+        printf("STOP error id: %d\n", init_ID);
+        perror("client STOP sending error");
+        exit(-1);
+    }
+    sleep(1);
+    if(mq_close(my_queue) < 0) {
+        printf("queue closing error id: %d\n", init_ID);
+        perror("");
+    }
+    printf("WORK END id: %d\n", init_ID);
+    exit(0);
+}
+
+void received_INIT() {
+    char* token = strtok(received_msg, delimiter);
+    int sig_nb = atoi(token);
+    token = strtok(NULL, delimiter);
+    int my_id = atoi(token);
+    printf("user id: %d has logged in\n", my_id);
+}
+
+void send_LIST() {
+    /*struct comm_msg my_msg;
+    my_msg.mtype = LIST;
+    my_msg.senderID = my_id;
+    sprintf(my_msg.mtext, "LIST request");
+    if (msgsnd(server_queue, &my_msg, sizeof(my_msg), 0) < 0) {
+        printf("LIST error id: %d\n", init_ID);
+        perror("errorLIST");
+        exit(-1);
+    }*/
+    char msg[MAX_MSG_SIZE];
+    sprintf(msg,"%d;%d;",LIST, my_id);
+    if (mq_send(server_queue, msg, MAX_MSG_SIZE, 1) < 0) {
+        printf("LIST error id: %d\n", init_ID);
+        perror("client LIST sending error");
+        exit(-1);
+    }
+}
+
+void received_LIST(int *user_list) {
+    char* token;
+    token = strtok(received_msg, delimiter);
+    for (int i = 0; i < SERVER_CAPACITY; i++) {
+        token = strtok(NULL, delimiter);
+        user_list[i] = atoi(token);
     }
 }
 
@@ -135,77 +188,12 @@ void send_2ONE(int receiver_id, char *message) {
     }
 }
 
-void send_STOP() {
-    /*struct comm_msg my_msg;
-    my_msg.mtype = STOP;
-    my_msg.senderID = my_id;
-    sprintf(my_msg.mtext, "STOP");
-    if (msgsnd(server_queue, &my_msg, sizeof(my_msg), 0) < 0) {
-        printf("STOP error id: %d\n", init_ID);
-        perror("errorSTOP");
-        exit(-1);
-    }*/
-    char msg[MAX_MSG_SIZE];
-    sprintf(msg,"%d;%d;%s;",STOP, my_id, "STOP");
-    if (mq_send(server_queue, msg, MAX_MSG_SIZE, 2) < 0) {
-        printf("STOP error id: %d\n", init_ID);
-        perror("client STOP sending error");
-        exit(-1);
-    }
-    sleep(1);
-    if (mq_unlink(my_queue_name) < 0) {
-        printf("delete queue error id: %d ", init_ID);
-        printf("CLIENT QUE ID %d\n", my_queue);
-        perror("client errorDELQUE");
-        exit(-1);
-    }
-    printf("WORK END id: %d\n", init_ID);
-    exit(0);
-
-}
-
-void send_LIST() {
-    /*struct comm_msg my_msg;
-    my_msg.mtype = LIST;
-    my_msg.senderID = my_id;
-    sprintf(my_msg.mtext, "LIST request");
-    if (msgsnd(server_queue, &my_msg, sizeof(my_msg), 0) < 0) {
-        printf("LIST error id: %d\n", init_ID);
-        perror("errorLIST");
-        exit(-1);
-    }*/
-    char msg[MAX_MSG_SIZE];
-    sprintf(msg,"%d;%d;",LIST, my_id);
-    if (mq_send(server_queue, msg, MAX_MSG_SIZE, 1) < 0) {
-        printf("LIST error id: %d\n", init_ID);
-        perror("client LIST sending error");
-        exit(-1);
-    }
-}
-
-void received_INIT() {
-    char* token = strtok(received_msg, delimiter);
-    int sig_nb = atoi(token);
-    token = strtok(NULL, delimiter);
-    int my_id = atoi(token);
-    printf("user id: %d has logged in\n", my_id);
-}
-
-void received_LIST(int *user_list) {
-    //printf("client list of active users: ");
-    for (int i = 0; i < SERVER_CAPACITY; i++) {
-        user_list[i] = received_msg.active_users[i];
-        /*if(user_list[i] != -1) {
-            printf("%d ",i);
-        }*/
-    }
-    //puts("");
-
-}
-
 void received_2ALL_2ONE() {
+    char* token;
+    token = strtok(received_msg, delimiter);
+    token = strtok(NULL, delimiter);
     printf("client with id: %d\n", my_id);
-    printf("received msg:\n%s\n\n", received_msg.mtext);
+    printf("received msg:\n%s\n\n", token);
 }
 
 void received_SERVER_SHUTD_DOWN() {
@@ -233,6 +221,7 @@ int find_begin_of_msg(const char input_str[MAXMSG + 10]) {
 }
 
 int main(int argc, char **argv) {
+    atexit(close_at_exit);
     for (int i = 0; i < SERVER_CAPACITY; i++) active_users[i] = -1;
     struct passwd *pw = getpwuid(getuid());
     const char *homedir = pw->pw_dir;
