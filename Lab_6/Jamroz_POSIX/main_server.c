@@ -20,9 +20,9 @@ int main(int argc, char** argv) {
     while (1) {
         char received[MAX_SIZE];
         unsigned int pri;
-        int retval = mq_receive(queue_id, received, MAX_SIZE, &pri);
+        int retval = mq_receive(3, received, MAX_SIZE, &pri);
         if (retval < 0) {
-            printf("q_id %d msg legth read %d\n",queue_id,retval);
+            printf("q_id %d msg legth read %d\n",3,retval);
             perror("mq_receive");
             break;
         }

@@ -16,8 +16,7 @@ int main(int argc, char **argv) {
     attr.mq_msgsize = MAX_SIZE;
     attr.mq_curmsgs = 0;
 
-    if (mq_unlink("/tmpqueue") != 0)
-        perror("XD");
+
     int q_id = mq_open("/tmpqueue", O_WRONLY | O_CREAT, 0666, &attr);
     if (q_id < 0) {
         perror(":(");
@@ -36,5 +35,7 @@ int main(int argc, char **argv) {
     if (mq_close(q_id) < 0){
         perror("on closing");
     }
+    /*if (mq_unlink("/tmpqueue") != 0)
+        perror("XD");*/
     return 0;
 }
