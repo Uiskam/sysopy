@@ -1,4 +1,3 @@
-#include <sys/msg.h>
 #include <sys/ipc.h>
 #include <stdio.h>
 #include <stdlib.h>
@@ -89,9 +88,17 @@ void send_INIT() {
     }
 }
 
+void received_INIT() {
+    char* token = strtok(received_msg, delimiter);
+    int sig_nb = atoi(token);
+    token = strtok(NULL, delimiter);
+    int my_id = atoi(token);
+    printf("user id: %d has logged in\n", my_id);
+}
+
 void send_STOP() {
     char msg[MAX_MSG_SIZE];
-    sprintf(msg,"%d;%d;%s;",STOP, my_id, "STOP");
+    sprintf(msg,"%d;%d;",STOP, my_id);
     if (mq_send(server_queue, msg, MAX_MSG_SIZE, 2) < 0) {
         printf("STOP error id: %d\n", init_ID);
         perror("client STOP sending error");
@@ -106,24 +113,7 @@ void send_STOP() {
     exit(0);
 }
 
-void received_INIT() {
-    char* token = strtok(received_msg, delimiter);
-    int sig_nb = atoi(token);
-    token = strtok(NULL, delimiter);
-    int my_id = atoi(token);
-    printf("user id: %d has logged in\n", my_id);
-}
-
 void send_LIST() {
-    /*struct comm_msg my_msg;
-    my_msg.mtype = LIST;
-    my_msg.senderID = my_id;
-    sprintf(my_msg.mtext, "LIST request");
-    if (msgsnd(server_queue, &my_msg, sizeof(my_msg), 0) < 0) {
-        printf("LIST error id: %d\n", init_ID);
-        perror("errorLIST");
-        exit(-1);
-    }*/
     char msg[MAX_MSG_SIZE];
     sprintf(msg,"%d;%d;",LIST, my_id);
     if (mq_send(server_queue, msg, MAX_MSG_SIZE, 1) < 0) {
@@ -143,15 +133,6 @@ void received_LIST(int *user_list) {
 }
 
 void send_2ALL(char *message) {
-    /*struct comm_msg my_msg;
-    my_msg.mtype = TWOALL;
-    my_msg.senderID = my_id;
-    sprintf(my_msg.mtext, "%s", message);
-    if (msgsnd(server_queue, &my_msg, sizeof(my_msg), 0) < 0) {
-        printf("2ALL error id: %d\n", init_ID);
-        perror("error2ALL");
-        exit(-1);
-    }*/
     char msg[MAX_MSG_SIZE];
     sprintf(msg,"%d;%d;%s",TWOALL, my_id, message);
     if (mq_send(server_queue, msg, MAX_MSG_SIZE, 0) < 0) {
@@ -162,19 +143,6 @@ void send_2ALL(char *message) {
 }
 
 void send_2ONE(int receiver_id, char *message) {
-    /*struct comm_msg my_msg;
-    my_msg.mtype = TWOONE;
-    my_msg.senderID = my_id;
-    if (receiver_id < 0 || receiver_id >= SERVER_CAPACITY || active_users[receiver_id] == -1) {
-        printf("receiver do not exist id: %d\n", init_ID);
-        return;
-    }
-    sprintf(my_msg.mtext, "%d;%s", receiver_id, message);
-    if (msgsnd(server_queue, &my_msg, sizeof(my_msg), 0) < 0) {
-        printf("2ONE error id: %d\n", init_ID);
-        perror("error2ONE");
-        exit(-1);
-    }*/
     if (receiver_id < 0 || receiver_id >= SERVER_CAPACITY || active_users[receiver_id] == -1) {
         printf("receiver do not exist id: %d\n", init_ID);
         return;
@@ -221,6 +189,12 @@ int find_begin_of_msg(const char input_str[MAXMSG + 10]) {
 }
 
 int main(int argc, char **argv) {
+    struct mq_attr attr;
+    attr.mq_flags = 0;
+    attr.mq_maxmsg = 10;
+    attr.mq_msgsize = MAX_SIZE;
+    attr.mq_curmsgs = 0;
+
     atexit(close_at_exit);
     for (int i = 0; i < SERVER_CAPACITY; i++) active_users[i] = -1;
     struct passwd *pw = getpwuid(getuid());
@@ -231,35 +205,36 @@ int main(int argc, char **argv) {
         return -1;
     }
     init_ID = atoi(argv[1]);
-    key_t key = ftok(homedir, init_ID);
-    my_queue = msgget(key, IPC_CREAT | IPC_EXCL | 0666);
+    sprintf(my_queue_name, "%s%d",homedir,init_ID);
+    my_queue = mq_open(my_queue_name, O_RDONLY | O_CREAT | O_EXCL | O_NONBLOCK, 0666, &attr);
     if (my_queue < 0) {
-        perror("queue could not be opened");
+        printf("queue of %d could not be opened",init_ID);
+        perror("");
         return -1;
     }
-    server_queue = msgget(SERVER_QUE_KEY, 0);
+    server_queue = mq_open(SERVER_QUE_NAME, O_WRONLY);
     if (server_queue < 0) {
         perror("server queue opening error");
         return -1;
     }
-    //printf("CLIENT QUE CHECK BEFOR INIT ID %d\n",my_queue);
     send_INIT();
     msgrcv(my_queue, &received_msg, sizeof(received_msg), INIT, 0);
+    int bites_read = mq_receive(my_queue, received_msg, MAX_MSG_SIZE, NULL);
+    while (bites_read == -1) {
+        bites_read = mq_receive(my_queue, received_msg, MAX_MSG_SIZE, NULL);
+    }
     received_INIT();
-    //printf("CLIENT QUE CHECK AFTER INIT ID %d\n",my_queue);
-
 
     while (1) {
         //puts("nap");
         sleep(1);
         //puts("WROK begin");
-        if (msgrcv(my_queue, &received_msg, sizeof(received_msg), STOP, IPC_NOWAIT) >= 0) {
-            send_STOP();
-        } else if (msgrcv(my_queue, &received_msg, sizeof(received_msg), LIST, IPC_NOWAIT) >= 0) {
-            received_LIST(active_users);
-        }
-        if (msgrcv(my_queue, &received_msg, sizeof(received_msg), 0, IPC_NOWAIT) >= 0) {
-            switch (received_msg.mtype) {
+        if (mq_receive(my_queue, received_msg, MAX_MSG_SIZE, NULL)  >= 0) {
+            int msg_type = atoi(received_msg);
+            switch (msg_type) {
+                case STOP:
+                    send_STOP();
+                    break;
                 case LIST:
                     received_LIST(active_users);
                     break;

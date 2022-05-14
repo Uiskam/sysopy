@@ -1,5 +1,4 @@
 #include <mqueue.h>
-#include <sys/msg.h>
 #include <sys/ipc.h>
 #include <stdio.h>
 #include <stdlib.h>
@@ -74,7 +73,8 @@ void write_history() {
     char cur_data[22];
     sprintf(cur_data, "%d-%02d-%02d %02d:%02d:%02d", tm.tm_year + 1900, tm.tm_mon + 1, tm.tm_mday, tm.tm_hour,
             tm.tm_min, tm.tm_sec);
-    fprintf(server_hist, "on: %s; from: %ld; recieved sig %ld with msg: %s\n", cur_data, received_msg.senderID,received_msg.mtype, received_msg.mtext);
+    fprintf(server_hist, "on: %s; from: %ld; recieved sig %ld with msg: %s\n", cur_data, received_msg.senderID,
+            received_msg.mtype, received_msg.mtext);
 }
 
 int find_free_id() {
@@ -88,12 +88,12 @@ int find_free_id() {
 }
 
 void received_INIT() {
-    char* token = strtok(received_msg,delimiter);
+    char *token = strtok(received_msg, delimiter);
     int sig_nb = atoi(token);
     token = strtok(NULL, delimiter);
     int sender_ID = atoi(token);
     token = strtok(NULL, delimiter);
-    char* client_queue_name = token;
+    char *client_queue_name = token;
 
     int new_id = find_free_id();
     if (new_id == -1) {
@@ -101,8 +101,8 @@ void received_INIT() {
         return;
     }
 
-    int client_queue_id = mq_open(client_queue_name,O_RDONLY);
-    if(client_queue_id < 0) {
+    int client_queue_id = mq_open(client_queue_name, O_WRONLY);
+    if (client_queue_id < 0) {
         printf("client %s queue opening error", client_queue_name);
         perror("server error, client queue opening");
         exit(0);
@@ -110,17 +110,9 @@ void received_INIT() {
     active_users[new_id] = 1;
     users_queues[new_id] = client_queue_id;
 
-    /*struct comm_msg server_msg;
-    server_msg.mtype = INIT;
-    server_msg.senderID = -1;
-    sprintf(server_msg.mtext, "%d", new_id);
-    if (msgsnd(users_queues[new_id], &server_msg, sizeof(server_msg), 0) < 0) {
-        perror("INIT sending error");
-        return;
-    }*/
     char msg[MAX_MSG_SIZE];
-    sprintf(msg, "%d;%d;",INIT, new_id);
-    if(mq_send(users_queues[new_id], msg, MAX_MSG_SIZE, 0) < 0) {
+    sprintf(msg, "%d;%d;", INIT, new_id);
+    if (mq_send(users_queues[new_id], msg, MAX_MSG_SIZE, 0) < 0) {
         perror("server INIT response error");
         exit(-1);
     }
@@ -128,25 +120,25 @@ void received_INIT() {
 }
 
 void received_LIST() {
-    char* token = strtok(received_msg,delimiter);
+    char *token = strtok(received_msg, delimiter);
     int sig_nb = atoi(token);
     token = strtok(NULL, delimiter);
     int sender_ID = atoi(token);
 
     char msg[MAX_MSG_SIZE];
-    sprintf(msg,"%d;",LIST);
+    sprintf(msg, "%d;", LIST);
     printf("active users: ");
     for (int i = 0; i < SERVER_CAPACITY; i++) {
         char tmp[5];
-        sprintf(tmp,"%d;", active_users[i]);
-        strcat(msg,tmp);
+        sprintf(tmp, "%d;", active_users[i]);
+        strcat(msg, tmp);
         if (active_users[i] != -1) {
             printf("%d ", i);
         }
     }
     printf("\n");
     if (mq_send(users_queues[sender_ID], msg, MAX_MSG_SIZE, 1) < 0) {
-        printf("server list sending error to: %d",sender_ID);
+        printf("server list sending error to: %d", sender_ID);
         perror("");
         return;
     }
@@ -159,24 +151,19 @@ void received_2ALL() {
     sprintf(cur_data, "%d-%02d-%02d %02d:%02d:%02d", tm.tm_year + 1900, tm.tm_mon + 1, tm.tm_mday, tm.tm_hour,
             tm.tm_min, tm.tm_sec);
 
-    char* token = strtok(received_msg,delimiter);
+    char *token = strtok(received_msg, delimiter);
     int sig_nb = atoi(token);
     token = strtok(NULL, delimiter);
     int sender_ID = atoi(token);
     token = strtok(NULL, delimiter);
-    char* message = token;
-
-    /*struct comm_msg server_msg;
-    server_msg.senderID = -1;
-    server_msg.mtype = TWOALL;
-    sprintf(server_msg.mtext, "msg from: %ld\nreceived on: %s\n%s", received_msg.senderID, cur_data, received_msg.mtext);*/
+    char *message = token;
 
     char msg[MAX_MSG_SIZE];
-    sprintf(msg, "%d;msg from: %d\nreceived on: %s\n%s",TWOALL, sender_ID, cur_data, message);
+    sprintf(msg, "%d;msg from: %d\nreceived on: %s\n%s", TWOALL, sender_ID, cur_data, message);
     for (int i = 0; i < SERVER_CAPACITY; i++) {
         if (i != sender_ID && active_users[i] != -1) {
             if (mq_send(users_queues[i], msg, MAX_MSG_SIZE, 0) < 0) {
-                printf("server 2ALL error while sending to %d",i);
+                printf("server 2ALL error while sending to %d", i);
                 perror("");
             }
         }
@@ -190,35 +177,34 @@ void received_2ONE() {
     sprintf(cur_data, "%d-%02d-%02d %02d:%02d:%02d", tm.tm_year + 1900, tm.tm_mon + 1, tm.tm_mday, tm.tm_hour,
             tm.tm_min, tm.tm_sec);
 
-    char* token = strtok(received_msg,delimiter);
+    char *token = strtok(received_msg, delimiter);
     int sig_nb = atoi(token);
     token = strtok(NULL, delimiter);
     int sender_ID = atoi(token);
     token = strtok(NULL, delimiter);
     int receiver_id = atoi(token);
     token = strtok(NULL, delimiter);
-    char* message = token;
+    char *message = token;
 
     char msg[MAX_MSG_SIZE];
     sprintf(msg, "msg from: %d\nreceived on: %s\n%s", sender_ID, cur_data, message);
-    if(receiver_id >= 0 && receiver_id < SERVER_CAPACITY && active_users[receiver_id] != -1) {
+    if (receiver_id >= 0 && receiver_id < SERVER_CAPACITY && active_users[receiver_id] != -1) {
         if (mq_send(users_queues[receiver_id], msg, MAX_MSG_SIZE, 0) < 0) {
-            printf("server 2ONE error while sending to %d",i);
+            printf("server 2ONE error while sending to %d", i);
             perror("");
         }
     }
 }
 
 void received_STOP() {
-    char* token = strtok(received_msg,delimiter);
+    char *token = strtok(received_msg, delimiter);
     int sig_nb = atoi(token);
     token = strtok(NULL, delimiter);
     int sender_ID = atoi(token);
-    token = strtok(NULL, delimiter);
-    char* message = token;
-    if(active_users[sender_ID] != -1) {
+
+    if (active_users[sender_ID] != -1) {
         active_users[sender_ID] = -1;
-        if(mq_close(users_queues[sender_ID]) < 0) {
+        if (mq_close(users_queues[sender_ID]) < 0) {
             printf("server closing queue error of client: %d\n", sender_ID);
             perror("");
         }
@@ -229,12 +215,12 @@ void received_STOP() {
 
 void server_shutdown(int signb) {
     char msg[MAX_MSG_SIZE];
-    sprintf(msg,"%d;",SERVER_SHUT_DOWN);
+    sprintf(msg, "%d;", SERVER_SHUT_DOWN);
     puts("serwer shutting down");
-    for(int i = 0; i < SERVER_CAPACITY; i++) {
-        if(active_users[i] != -1) {
-            if(mq_send(users_queues[i], msg, MAX_MSG_SIZE, 3) < 0) {
-                printf("failed to send stop to %d",i);
+    for (int i = 0; i < SERVER_CAPACITY; i++) {
+        if (active_users[i] != -1) {
+            if (mq_send(users_queues[i], msg, MAX_MSG_SIZE, 3) < 0) {
+                printf("failed to send stop to %d", i);
                 perror("");
                 continue;
             }
@@ -247,17 +233,15 @@ void server_shutdown(int signb) {
     }
     puts("serwer stopped all of its children");
 
-    if(mq_close(server_queue) < 0) {
-        perror("server queue closing error")l
-    }
-    fclose(server_hist);
+    if (mq_close(server_queue) < 0) perror("server queue closing error");
+    if (fclose(server_hist) < 0) perror("server_log closing error");
     puts("server end work");
-    fprintf( stderr, "server end\n");
+    fprintf(stderr, "server end\n");
     exit(0);
 }
 
 void close_at_exit() {
-    if(mq_unlink(my_queue_name) < 0) {
+    if (mq_unlink(my_queue_name) < 0) {
         printf("queue deleting error server\n");
         perror("");
     } else {
@@ -266,6 +250,11 @@ void close_at_exit() {
 }
 
 int main() {
+    struct mq_attr attr;
+    attr.mq_flags = 0;
+    attr.mq_maxmsg = 10;
+    attr.mq_msgsize = MAX_SIZE;
+    attr.mq_curmsgs = 0;
     atexit(close_at_exit);
     signal(SIGINT, server_shutdown);
     server_hist = fopen("server_log.txt", "w");
@@ -274,35 +263,35 @@ int main() {
         return -1;
     }
     for (int i = 0; i < SERVER_CAPACITY; i++) active_users[i] = -1;
-    server_queue = msgget(SERVER_QUE_KEY, IPC_CREAT | IPC_EXCL | 0666);
+    server_queue = mq_open(SERVER_QUE_NAME, O_RDONLY | IPC_CREAT | IPC_EXCL, 0666, &atr)
     if (server_queue < 0) {
         perror("server queue creation error");
         return -1;
     }
-    time_t start,end;
+    time_t start, end;
     double dif;
     time(&start);
     while (1) {
         time(&end);
         dif = difftime(end, start);
-        if(dif > SERVER_WAIT_TIME){
+        if (dif > SERVER_WAIT_TIME) {
             puts("server shutting down due to lack of requests");
             server_shutdown(0);
             break;
         }
         if (msgrcv(server_queue, &received_msg, sizeof(received_msg), STOP, IPC_NOWAIT) >= 0) {
-            printf("Received signal: %ld from user %ld\n",received_msg.mtype, received_msg.senderID);
+            printf("Received signal: %ld from user %ld\n", received_msg.mtype, received_msg.senderID);
             time(&start);
             received_STOP();
             write_history();
         } else if (msgrcv(server_queue, &received_msg, sizeof(received_msg), LIST, IPC_NOWAIT) >= 0) {
-            printf("Received signal: %ld from user %ld\n",received_msg.mtype, received_msg.senderID);
+            printf("Received signal: %ld from user %ld\n", received_msg.mtype, received_msg.senderID);
             time(&start);
             received_LIST();
             write_history();
         }
         if (msgrcv(server_queue, &received_msg, sizeof(received_msg), 0, IPC_NOWAIT) >= 0) {
-            printf("Received signal: %ld from user %ld\n",received_msg.mtype, received_msg.senderID);
+            printf("Received signal: %ld from user %ld\n", received_msg.mtype, received_msg.senderID);
             time(&start);
             switch (received_msg.mtype) {
                 case INIT:

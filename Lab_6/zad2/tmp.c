@@ -13,6 +13,10 @@ void print_text(char* msg) {
     printf("revcadasd %s\n", msg);
 }
 int main() {
+    struct passwd *pw = getpwuid(getuid());
+    const char *homedir = pw->pw_dir;
+    printf("home: %s\n", homedir);
+    return 0;
     char msg2[10000]  = "1;longer msg;";
     char* token = strtok(msg2,";");
     printf("token: %s\n",token);

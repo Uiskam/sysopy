@@ -18,6 +18,7 @@
 #define MAX_MSG_SIZE 8192
 #define QUE_CAPACITY 10
 #define SERVER_WAIT_TIME 5
+#define SERVER_QUE_NAME "/server_queue"
 
 struct comm_msg {
     long mtype;         /* typ komunikatu   */
