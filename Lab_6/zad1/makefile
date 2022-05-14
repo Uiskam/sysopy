@@ -20,6 +20,7 @@ mem_srv:
 
 run_test: compile_cli compile_srv clear_queues
 	./server &
+	sleep 0.5
 	./client 1 < instructions/client_1_ins &
 	./client 2 < instructions/client_2_ins &
 	./client 3 < instructions/client_3_ins &
