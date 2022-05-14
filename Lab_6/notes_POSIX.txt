@@ -75,7 +75,11 @@ Otwieranie kolejki:
         0 - sukces
         -1 - error
 
-    size_t mq_recieve(mqd_t mqdes, char *ptr, size_t len, unsigned int *pirop) - czyta komunikat mqdes o 
+    size_t mq_recieve(mqd_t mqdes, char *ptr, size_t len, unsigned int *pirop) - czyta komunikat mqdes długości len do ptr i
+    priorytet do priop
+    RETURN:
+        l. przeczytanch bajtów - sukces
+        -1 - error
 
 
     
