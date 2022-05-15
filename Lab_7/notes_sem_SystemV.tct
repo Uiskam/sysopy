@@ -20,7 +20,7 @@ Funkcje:
     ARGS:
         - key, klucz tworzony ftokeim
         - nsems, liczba semaforów z zbiorze (przy otwieraniu istniejącego nsems == 0)
-        - flag, standard (min. IPC_creat lub IPC_EXCL)
+        - flag, standard (min. IPC_creat lub IPC_EXCL przy towrzeniu nadaje się chmod)
     RETURN:
         semaphores_set_id - on success ( > 0)
         -1 - error
@@ -46,6 +46,6 @@ Funkcje:
     ARGS:
         - semid, id zbioru
         - semnun, nr semafora
-        - cmd, operacje: SETVAL ustawia wartość na arg.val, GETVAL pobiera wartość semafora, IPC_RMID usuwa semafor ze zbioru
+        - cmd, operacje: SETVAL ustawia wartość na arg.val, GETVAL pobiera wartość semafora, IPC_RMID usuwa zbiór z systemu
         - arg, unia bitowa przekuzjąca dodatkowe argumenty
     RETURN: -1 error
