@@ -302,7 +302,6 @@ int main() {
             break;
         }
         if (mq_receive(server_queue, received_msg, MAX_MSG_SIZE, NULL) >= 0) {
-            puts("enetering endless loop");
             printf("Received signal: %d\n", atoi(received_msg));
             strcpy(copy_received_msg, received_msg);
             time(&start);
@@ -316,11 +315,8 @@ int main() {
                     write_history();
                     break;
                 case INIT:
-                    puts("SERVER ENTERED RECIEVED INIT");
                     received_INIT();
-                    puts("SERVER EXITED RECIEVED INIT");
                     write_history();
-                    puts("AIYFGAIYWSDHDOUASHDHSADOIUHSADIUHASDIUHASIUDHASIUDHASIUIUSAHDIUASHDIUASHDIU");
                     break;
                 case TWOALL:
                     received_2ALL();
