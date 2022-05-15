@@ -231,7 +231,9 @@ void server_shutdown(int signb) {
             int bits_read = mq_receive(server_queue, received_msg, MAX_MSG_SIZE, NULL);
             while (bits_read == -1) {
                 bits_read = mq_receive(server_queue, received_msg, MAX_MSG_SIZE, NULL);
+                //printf("waiting for the sun %d\n",i);
             }
+            //printf("received msg: %s\n", received_msg);
             received_STOP();
         }
     }
@@ -245,8 +247,8 @@ void server_shutdown(int signb) {
 }
 
 void close_at_exit() {
-    if (mq_unlink(my_queue_name) < 0) {
-        printf("queue deleting error server\n");
+    if (mq_unlink(SERVER_QUE_NAME) < 0) {
+        printf("queue deleting error server ");
         perror("");
     } else {
         printf("server queue successfully\n");
@@ -263,10 +265,6 @@ int create_queue() {
 }
 
 int main() {
-    printf("server pid %d\n",getpid());
-    /*char gowno[100];
-    sprintf(gowno, "ps aux | grep %d",getpid());
-    system(gowno);*/
     atexit(close_at_exit);
     signal(SIGINT, server_shutdown);
     server_hist = fopen("server_log.txt", "w");
@@ -293,7 +291,6 @@ int main() {
     double dif;
     time(&start);
     while (1) {
-        //puts("enetering endless loop");
         time(&end);
         dif = difftime(end, start);
         if (dif > SERVER_WAIT_TIME) {

@@ -105,12 +105,12 @@ void send_STOP() {
         perror("client STOP sending error");
         exit(-1);
     }
-    sleep(1);
     if (mq_close(my_queue) < 0) {
         printf("queue closing error id: %d\n", init_ID);
         perror("");
     }
     printf("WORK END id: %d\n", init_ID);
+    fflush(stdout);
     exit(0);
 }
 
@@ -214,8 +214,6 @@ void gen_queue_name(int client_init_ID) {
     strcat(my_queue_name, tmp);
 }
 int main(int argc, char **argv) {
-
-    printf("client pid %d\n",getpid());
     atexit(close_at_exit);
     for (int i = 0; i < SERVER_CAPACITY; i++) active_users[i] = -1;
     signal(SIGINT, intHandler);
@@ -225,7 +223,6 @@ int main(int argc, char **argv) {
     }
     init_ID = atoi(argv[1]);
     gen_queue_name(init_ID);
-    printf("my name: %s\n",my_queue_name);
     //printf("queue name %s\n", my_queue_name);
     my_queue = create_queue();
     if (my_queue < 0) {
@@ -239,7 +236,7 @@ int main(int argc, char **argv) {
             my_queue = create_queue();
         }
         if (my_queue < 0) {
-            perror("CHUJ KURWA ");
+            perror("client crt queue error ");
             return -1;
         }
     }
