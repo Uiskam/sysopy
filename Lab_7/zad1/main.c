@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <unistd.h>
-#include <errno.h>>
+#include <errno.h>
 #include <signal.h>
 #include <sys/wait.h>
 #include <sys/ipc.h>
@@ -10,44 +10,44 @@
 #include <sys/shm.h>
 #include <sys/types.h>
 #include "comm_def.h"
-pid_t * producers_pid;
-pid_t * delivery_pid;
-int producer_nb;
-int delivery_nb;
+
+int *producers_pid = NULL;
+int *delivery_pid = NULL;
 int shm_mem_id;
 int sem_set;
 
-void at_exit() {
-    for(int i = 0; i < producer_nb; i++) {
-        kill(producers_pid[i], SIGINT);
+void exit_handling() {
+    if(producers_pid != NULL) {
+        for (int i = 0; i < PRODUCER_NB; i++) {
+            kill(producers_pid[i], SIGINT);
+        }
     }
-    for(int i = 0; i < delivery_nb; i++) {
-        kill(delivery_pid[i], SIGINT);
+    if(delivery_pid != NULL) {
+        for (int i = 0; i < DELIVERY_NB; i++) {
+            kill(delivery_pid[i], SIGINT);
+        }
     }
-    free(producers_pid);
-    free(delivery_pid);
-    if(shmctl(shm_mem_id, IPC_RMID,NULL )==-1){
+    if (shmctl(shm_mem_id, IPC_RMID, NULL) == -1) {
         perror("shared memory removal error");
     }
-    if(semctl(sem_set, 0, IPC_RMID)==-1) {
+    if (semctl(sem_set, 0, IPC_RMID) == -1) {
         perror("sem set removal error");
     }
-
+    puts("main end");
 }
-int main(int argc, char **argv) {
-    if (argc != 3) {
-        puts("Wrong arg number (int)makers_nb (int)delivery_nb are requierd!");
-        return -1;
-    }
-    producer_nb = atoi(argv[1]);
-    delivery_nb = atoi(argv[2]);
-    if (producer_nb <= 0 || delivery_nb <= 0) {
-        puts("makers_nb and deliver_nb must be a positive integer!");
-        return -1;
-    }
+
+void sig_handler(int sig_nb) {
+    exit_handling();
+}
+
+int main() {
+    atexit(exit_handling);
+    signal(SIGINT, sig_handler);
 
     //shm_mem creation
-    key_t mem_key = ftok(PATHNAME, PROJ_ID);
+    struct passwd *pw = getpwuid(getuid());
+    const char *homedir = pw->pw_dir;
+    key_t mem_key = ftok(homedir, PROJ_ID);
     if (mem_key == -1) {
         perror("mem_key creation error");
         exit(0);
@@ -64,8 +64,10 @@ int main(int argc, char **argv) {
     }
     for (int i = 0; i < STOVE_SIZE; i++) pizzeria_status->stove[i] = -1;
     for (int i = 0; i < TABLE_SIZE; i++) pizzeria_status->table[i] = -1;
-    pizzeria_status->latest_stove_index = STOVE_SIZE - 1;
-    pizzeria_status->latest_table_index = TABLE_SIZE - 1;
+    pizzeria_status->stove_in_index = 0;
+    pizzeria_status->stove_out_index = 0;
+    pizzeria_status->table_in_index = 0;
+    pizzeria_status->table_out_index = 0;
     if (shmdt(pizzeria_status) == -1) {
         perror("post initialisation shm memory detaching error");
         exit(0);
@@ -77,7 +79,7 @@ int main(int argc, char **argv) {
         perror("semaphore set key creation error");
         exit(0);
     }
-    sem_set = semget(sem_set_key, 5, IPC_CREAT);
+    sem_set = semget(sem_set_key, 5, IPC_CREAT | 0666);
     if (sem_set == -1) {
         perror("sem set creation error");
         exit(0);
@@ -103,32 +105,32 @@ int main(int argc, char **argv) {
         exit(0);
     }
     arg.val = TABLE_SIZE;
-    if (semctl(sem_set, TABLE_SIZE, SETVAL, arg) == -1) {
-        perror("semaphore TABLE_SIZE could not be set");
+    if (semctl(sem_set, TABLE_SPACE, SETVAL, arg) == -1) {
+        perror("semaphore TABLE_SPACE could not be set");
         exit(0);
     }
 
-    producers_pid = calloc(producer_nb, sizeof(pid_t));
-    delivery_pid =calloc(delivery_nb, sizeof(pid_t));
-    if(producers_pid == NULL || delivery_pid == NULL) {
+    producers_pid = calloc(PRODUCER_NB, sizeof(pid_t));
+    delivery_pid = calloc(DELIVERY_NB, sizeof(pid_t));
+    if (producers_pid == NULL || delivery_pid == NULL) {
         perror("producers/delivery pid allocation error");
         exit(-1);
     }
-    for(int i =0 ; i < producer_nb; i++) {
-        if((producer_nb[i] = fork()) == -1) {
-            printf("%d producer failed to create\n",i);
+    for (int i = 0; i < PRODUCER_NB; i++) {
+        if ((producers_pid[i] = fork()) == -1) {
+            printf("%d producer failed to create\n", i);
             perror("");
-        } else if(producer_nb[i] == 0) {
-            execl("./producer","producer");
+        } else if (producers_pid[i] == 0) {
+            execl("./producer", "producer", (char *) NULL);
             perror("producer run error");
         }
     }
-    for(int i =0 ; i < delivery_nb; i++) {
-        if((delivery_pid[i] = fork()) == -1) {
-            printf("%d delivery failed to create\n",i);
+    for (int i = 0; i < DELIVERY_NB; i++) {
+        if ((delivery_pid[i] = fork()) == -1) {
+            printf("%d delivery failed to create\n", i);
             perror("");
-        } else if(delivery_pid[i] == 0) {
-            execl("./deliver","deliver");
+        } else if (delivery_pid[i] == 0) {
+            execl("./deliver", "deliver", (char *) NULL);
             perror("deliver run error");
         }
     }
