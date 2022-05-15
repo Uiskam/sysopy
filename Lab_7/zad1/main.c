@@ -27,17 +27,18 @@ void exit_handling() {
             kill(delivery_pid[i], SIGINT);
         }
     }
+
     if (shmctl(shm_mem_id, IPC_RMID, NULL) == -1) {
-        perror("shared memory removal error");
+        perror("MAIN shared memory removal error");
     }
     if (semctl(sem_set, 0, IPC_RMID) == -1) {
-        perror("sem set removal error");
+        perror("MAIN sem set removal error");
     }
     puts("main end");
 }
 
 void sig_handler(int sig_nb) {
-    exit_handling();
+    exit(0);
 }
 
 int main() {
@@ -47,19 +48,19 @@ int main() {
     //shm_mem creation
     struct passwd *pw = getpwuid(getuid());
     const char *homedir = pw->pw_dir;
-    key_t mem_key = ftok(homedir, PROJ_ID);
+    key_t mem_key = ftok(PATHNAME, PROJ_ID);
     if (mem_key == -1) {
-        perror("mem_key creation error");
+        perror("MAIN mem_key creation error");
         exit(0);
     }
     shm_mem_id = shmget(mem_key, sizeof(struct Pizzeria_status), IPC_CREAT | 0666);
     if (shm_mem_id == -1) {
-        perror("shared memory creation creation error");
+        perror("MAIN shared memory creation creation error");
         exit(0);
     }
     struct Pizzeria_status *pizzeria_status = shmat(shm_mem_id, NULL, 0);
     if (pizzeria_status == (void *) -1) {
-        perror("shared memory attaching error");
+        perror("MAIN shared memory attaching error");
         exit(0);
     }
     for (int i = 0; i < STOVE_SIZE; i++) pizzeria_status->stove[i] = -1;
@@ -69,51 +70,51 @@ int main() {
     pizzeria_status->table_in_index = 0;
     pizzeria_status->table_out_index = 0;
     if (shmdt(pizzeria_status) == -1) {
-        perror("post initialisation shm memory detaching error");
+        perror("MAIN post initialisation shm memory detaching error");
         exit(0);
     }
 
     //sem set creation
     key_t sem_set_key = ftok(PATHNAME, PROJ_ID);
     if (sem_set_key == -1) {
-        perror("semaphore set key creation error");
+        perror("MAIN semaphore set key creation error");
         exit(0);
     }
     sem_set = semget(sem_set_key, 5, IPC_CREAT | 0666);
     if (sem_set == -1) {
-        perror("sem set creation error");
+        perror("MAIN sem set creation error");
         exit(0);
     }
     union semun arg;
     arg.val = 1;
     if (semctl(sem_set, TABLE_USED, SETVAL, arg) == -1) {
-        perror("semaphore TABLE_USED could not be set");
+        perror("MAIN semaphore TABLE_USED could not be set");
         exit(0);
     }
     if (semctl(sem_set, STOVE_USED, SETVAL, arg) == -1) {
-        perror("semaphore STOVE_USED could not be set");
+        perror("MAIN semaphore STOVE_USED could not be set");
         exit(0);
     }
     arg.val = 0;
     if (semctl(sem_set, TABLE_NON_EMPTY, SETVAL, arg) == -1) {
-        perror("semaphore TABLE_USED could not be set");
+        perror("MAIN semaphore TABLE_USED could not be set");
         exit(0);
     }
     arg.val = STOVE_SIZE;
     if (semctl(sem_set, STOVE_SPACE, SETVAL, arg) == -1) {
-        perror("semaphore STOVE_SPACE could not be set");
+        perror("MAIN semaphore STOVE_SPACE could not be set");
         exit(0);
     }
     arg.val = TABLE_SIZE;
     if (semctl(sem_set, TABLE_SPACE, SETVAL, arg) == -1) {
-        perror("semaphore TABLE_SPACE could not be set");
+        perror("MAIN semaphore TABLE_SPACE could not be set");
         exit(0);
     }
 
     producers_pid = calloc(PRODUCER_NB, sizeof(pid_t));
     delivery_pid = calloc(DELIVERY_NB, sizeof(pid_t));
     if (producers_pid == NULL || delivery_pid == NULL) {
-        perror("producers/delivery pid allocation error");
+        perror("MAIN producers/delivery pid allocation error");
         exit(-1);
     }
     for (int i = 0; i < PRODUCER_NB; i++) {
@@ -122,16 +123,16 @@ int main() {
             perror("");
         } else if (producers_pid[i] == 0) {
             execl("./producer", "producer", (char *) NULL);
-            perror("producer run error");
+            perror("MAIN producer run error");
         }
     }
     for (int i = 0; i < DELIVERY_NB; i++) {
         if ((delivery_pid[i] = fork()) == -1) {
-            printf("%d delivery failed to create\n", i);
+            printf("MAIN %d delivery failed to create\n", i);
             perror("");
         } else if (delivery_pid[i] == 0) {
             execl("./deliver", "deliver", (char *) NULL);
-            perror("deliver run error");
+            perror("MAIN deliver run error");
         }
     }
     while (wait(NULL) != -1);

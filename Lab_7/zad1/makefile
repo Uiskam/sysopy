@@ -22,5 +22,7 @@ mem_del:
 
 all: compile_del compile_main compile_prod
 
-run: all
+compile: all
+
+run:
 	./main 1 1
