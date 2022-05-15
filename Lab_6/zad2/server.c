@@ -65,6 +65,7 @@
 int active_users[SERVER_CAPACITY];
 int users_queues[SERVER_CAPACITY];
 char received_msg[MAX_MSG_SIZE];
+char copy_received_msg[MAX_MSG_SIZE];
 const char delimiter[2] = ";";
 int server_queue = 0;
 FILE *server_hist;
@@ -75,12 +76,11 @@ void write_history() {
     struct tm tm = *localtime(&t);
     char cur_data[22];
     char* token;
-    token = strtok(received_msg, delimiter);
+    token = strtok(copy_received_msg, delimiter);
     int sig_nb = atoi(token);
     token = strtok(NULL, delimiter);
     int sender_id = atoi(token);
     token = strtok(NULL, delimiter);
-
     sprintf(cur_data, "%d-%02d-%02d %02d:%02d:%02d", tm.tm_year + 1900, tm.tm_mon + 1, tm.tm_mday, tm.tm_hour,
             tm.tm_min, tm.tm_sec);
     fprintf(server_hist, "on: %s; from: %d; recieved sig %d with msg: %s\n", cur_data, sender_id,
@@ -263,7 +263,10 @@ int create_queue() {
 }
 
 int main() {
-
+    printf("server pid %d\n",getpid());
+    /*char gowno[100];
+    sprintf(gowno, "ps aux | grep %d",getpid());
+    system(gowno);*/
     atexit(close_at_exit);
     signal(SIGINT, server_shutdown);
     server_hist = fopen("server_log.txt", "w");
@@ -290,6 +293,7 @@ int main() {
     double dif;
     time(&start);
     while (1) {
+        //puts("enetering endless loop");
         time(&end);
         dif = difftime(end, start);
         if (dif > SERVER_WAIT_TIME) {
@@ -298,7 +302,9 @@ int main() {
             break;
         }
         if (mq_receive(server_queue, received_msg, MAX_MSG_SIZE, NULL) >= 0) {
+            puts("enetering endless loop");
             printf("Received signal: %d\n", atoi(received_msg));
+            strcpy(copy_received_msg, received_msg);
             time(&start);
             switch (atoi(received_msg)) {
                 case STOP:
@@ -310,8 +316,11 @@ int main() {
                     write_history();
                     break;
                 case INIT:
+                    puts("SERVER ENTERED RECIEVED INIT");
                     received_INIT();
+                    puts("SERVER EXITED RECIEVED INIT");
                     write_history();
+                    puts("AIYFGAIYWSDHDOUASHDHSADOIUHSADIUHASDIUHASIUDHASIUDHASIUIUSAHDIUASHDIUASHDIU");
                     break;
                 case TWOALL:
                     received_2ALL();

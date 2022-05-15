@@ -93,7 +93,7 @@ void send_INIT() {
 void received_INIT() {
     char *token = strtok(received_msg, delimiter);
     token = strtok(NULL, delimiter);
-    int my_id = atoi(token);
+    my_id = atoi(token);
     printf("user id: %d has logged in\n", my_id);
 }
 
@@ -195,7 +195,7 @@ int create_queue() {
     attr.mq_maxmsg = 10;
     attr.mq_msgsize = MAX_MSG_SIZE;
     attr.mq_curmsgs = 0;
-    system(" ls -al /dev/mqueue/");
+    //system(" ls -al /dev/mqueue/");
     printf("mny name %s\n", my_queue_name);
     return mq_open(my_queue_name, O_RDONLY | O_CREAT | O_EXCL | O_NONBLOCK, S_IRUSR | S_IWUSR, &attr);
 }
@@ -204,15 +204,18 @@ void gen_queue_name(int client_init_ID) {
     struct passwd *pw = getpwuid(getuid());
     char *homedir = pw->pw_dir;
     char* token = strtok(homedir, "/");
-    char my[100] = "/";
+    sprintf(my_queue_name, "/");
     while (token != NULL) {
-        strcat(jamroz_chuj, token);
+        strcat(my_queue_name, token);
         token = strtok(NULL, "/");
     }
+    char tmp[20];
+    sprintf(tmp, "%d", client_init_ID);
+    strcat(my_queue_name, tmp);
 }
 int main(int argc, char **argv) {
 
-
+    printf("client pid %d\n",getpid());
     atexit(close_at_exit);
     for (int i = 0; i < SERVER_CAPACITY; i++) active_users[i] = -1;
     signal(SIGINT, intHandler);
@@ -222,6 +225,7 @@ int main(int argc, char **argv) {
     }
     init_ID = atoi(argv[1]);
     gen_queue_name(init_ID);
+    printf("my name: %s\n",my_queue_name);
     //printf("queue name %s\n", my_queue_name);
     my_queue = create_queue();
     if (my_queue < 0) {
@@ -281,6 +285,7 @@ int main(int argc, char **argv) {
         char cmd[MAX_MSG_SIZE + 10];
         char msg_input[MAX_MSG_SIZE + 10];
         if (stdin_nonempty() && fgets(cmd, MAX_MSG_SIZE + 10, stdin) != NULL) {
+            //printf("im in here\n");
             int request_number = atoi(cmd);
             int msg_begin = find_begin_of_msg(cmd);
             if (msg_begin == -1) {
@@ -288,7 +293,7 @@ int main(int argc, char **argv) {
                 continue;
             }
             strncpy(msg_input, cmd + msg_begin, strlen(cmd));
-
+            //printf("req nb %d\n",request_number);
             if (request_number == LIST) {
                 send_LIST();
             } else if (request_number == TWOALL) {
