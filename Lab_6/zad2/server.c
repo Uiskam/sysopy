@@ -71,20 +71,39 @@ int server_queue = 0;
 FILE *server_hist;
 char my_queue_name[100];
 
+const char* return_sig_name(int sig_nb) {
+    switch (sig_nb) {
+        case INIT:
+            return "INIT";
+        case STOP:
+            return "STOP";
+        case LIST:
+            return "LIST";
+        case TWOALL:
+            return "2ALL";
+        case TWOONE:
+            return "2ONE";
+        case SERVER_SHUT_DOWN:
+            return "SERVER_SHUT_DOWN";
+        default:
+            return "unknown sig";
+    }
+}
 void write_history() {
     time_t t = time(NULL);
     struct tm tm = *localtime(&t);
     char cur_data[22];
     char* token;
     token = strtok(copy_received_msg, delimiter);
-    int sig_nb = atoi(token);
+    int sig_nb = atoi(copy_received_msg);
     token = strtok(NULL, delimiter);
     int sender_id = atoi(token);
     token = strtok(NULL, delimiter);
+    if(sig_nb == 4) token = strtok(NULL, delimiter);
     sprintf(cur_data, "%d-%02d-%02d %02d:%02d:%02d", tm.tm_year + 1900, tm.tm_mon + 1, tm.tm_mday, tm.tm_hour,
             tm.tm_min, tm.tm_sec);
-    fprintf(server_hist, "on: %s; from: %d; recieved sig %d with msg: %s\n", cur_data, sender_id,
-            sig_nb, token);
+    fprintf(server_hist, "on: %s; from: %d; recieved sig %s with msg: %s\n", cur_data, sender_id,
+            return_sig_name(sig_nb), token);
 }
 
 int find_free_id() {
@@ -184,15 +203,16 @@ void received_2ONE() {
             tm.tm_min, tm.tm_sec);
 
     char *token = strtok(received_msg, delimiter);
+    int sig_nb = atoi(token);
     token = strtok(NULL, delimiter);
     int sender_ID = atoi(token);
     token = strtok(NULL, delimiter);
     int receiver_id = atoi(token);
     token = strtok(NULL, delimiter);
     char *message = token;
-
+    printf("PROCESSING 2ONE %d; %d; %d; %s\n",sig_nb,sender_ID,receiver_id, message);
     char msg[MAX_MSG_SIZE];
-    sprintf(msg, "msg from: %d\nreceived on: %s\n%s", sender_ID, cur_data, message);
+    sprintf(msg, "%d;msg from: %d\nreceived on: %s\n%s",TWOONE, sender_ID, cur_data, message);
     if (receiver_id >= 0 && receiver_id < SERVER_CAPACITY && active_users[receiver_id] != -1) {
         if (mq_send(users_queues[receiver_id], msg, MAX_MSG_SIZE, 0) < 0) {
             printf("server 2ONE error while sending to %d", receiver_id);
@@ -251,7 +271,7 @@ void close_at_exit() {
         printf("queue deleting error server ");
         perror("");
     } else {
-        printf("server queue successfully\n");
+        printf("server queue was deleted successfully\n");
     }
 }
 
@@ -299,7 +319,7 @@ int main() {
             break;
         }
         if (mq_receive(server_queue, received_msg, MAX_MSG_SIZE, NULL) >= 0) {
-            printf("Received signal: %d\n", atoi(received_msg));
+            printf("Received signal: %s\n", return_sig_name(atoi(received_msg)));
             strcpy(copy_received_msg, received_msg);
             time(&start);
             switch (atoi(received_msg)) {

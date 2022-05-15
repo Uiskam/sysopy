@@ -94,7 +94,7 @@ void received_INIT() {
     char *token = strtok(received_msg, delimiter);
     token = strtok(NULL, delimiter);
     my_id = atoi(token);
-    printf("user id: %d has logged in\n", my_id);
+    printf("user with init_id: %d has logged in and received id: %d has logged in\n",init_ID, my_id);
 }
 
 void send_STOP() {
@@ -196,7 +196,6 @@ int create_queue() {
     attr.mq_msgsize = MAX_MSG_SIZE;
     attr.mq_curmsgs = 0;
     //system(" ls -al /dev/mqueue/");
-    printf("mny name %s\n", my_queue_name);
     return mq_open(my_queue_name, O_RDONLY | O_CREAT | O_EXCL | O_NONBLOCK, S_IRUSR | S_IWUSR, &attr);
 }
 
@@ -240,6 +239,7 @@ int main(int argc, char **argv) {
             return -1;
         }
     }
+    sleep(1);
     server_queue = mq_open(SERVER_QUE_NAME, O_WRONLY);
     if (server_queue < 0) {
         perror("server queue opening error");
