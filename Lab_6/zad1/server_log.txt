@@ -1,12 +1,14 @@
-on: 2022-05-15 03:44:06; from: 1; recieved sig INIT with msg: 6
-on: 2022-05-15 03:44:06; from: 2; recieved sig INIT with msg: 7
-on: 2022-05-15 03:44:06; from: 3; recieved sig INIT with msg: 8
-on: 2022-05-15 03:44:06; from: 4; recieved sig INIT with msg: 9
-on: 2022-05-15 03:44:07; from: 0; recieved sig LIST with msg: LIST request
-on: 2022-05-15 03:44:07; from: 1; recieved sig LIST with msg: LIST request
-on: 2022-05-15 03:44:07; from: 2; recieved sig 2ALL with msg: "MSG for all users test"
-on: 2022-05-15 03:44:07; from: 3; recieved sig LIST with msg: LIST request
-on: 2022-05-15 03:44:08; from: 0; recieved sig STOP with msg: STOP
-on: 2022-05-15 03:44:08; from: 1; recieved sig 2ONE with msg: 2;"From user 1 to user 3 test"
+on: 2022-05-15 21:50:50; from: 3; recieved sig INIT with msg: 17
+on: 2022-05-15 21:50:54; from: 2; recieved sig INIT with msg: 18
+on: 2022-05-15 21:50:56; from: 1; recieved sig INIT with msg: 19
+on: 2022-05-15 21:51:00; from: 1; recieved sig STOP with msg: STOP
+on: 2022-05-15 21:51:00; from: 0; recieved sig STOP with msg: STOP
+on: 2022-05-15 21:51:01; from: 2; recieved sig STOP with msg: STOP
+on: 2022-05-15 21:51:07; from: 3; recieved sig INIT with msg: 20
+on: 2022-05-15 21:51:08; from: 2; recieved sig INIT with msg: 21
+on: 2022-05-15 21:51:11; from: 1; recieved sig INIT with msg: 22
+on: 2022-05-15 21:51:33; from: 1; recieved sig LIST with msg: LIST request
+on: 2022-05-15 21:51:40; from: 1; recieved sig 2ONE with msg: 0;msg for 0;
 
-on: 2022-05-15 03:44:08; from: 3; recieved sig LIST with msg: LIST request
+on: 2022-05-15 21:52:09; from: 1; recieved sig 2ALL with msg: asdsadadasdasd;
+

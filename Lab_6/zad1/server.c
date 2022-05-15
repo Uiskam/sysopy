@@ -260,7 +260,7 @@ int main() {
             write_history();
         }
         if (msgrcv(server_queue, &received_msg, sizeof(received_msg), 0, IPC_NOWAIT) >= 0) {
-            printf("Received signal: %ld from user %ld\n",received_msg.mtype, received_msg.senderID);
+            printf("Received signal: %s from user %ld\n",return_sig_name(received_msg.mtype), received_msg.senderID);
             time(&start);
             switch (received_msg.mtype) {
                 case INIT:
