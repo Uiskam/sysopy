@@ -64,14 +64,31 @@ int users_queues[SERVER_CAPACITY];
 struct comm_msg received_msg;
 int server_queue = 0;
 FILE *server_hist;
-
+const char* return_sig_name(int sig_nb) {
+    switch (sig_nb) {
+        case INIT:
+            return "INIT";
+        case STOP:
+            return "STOP";
+        case LIST:
+            return "LIST";
+        case TWOALL:
+            return "2ALL";
+        case TWOONE:
+            return "2ONE";
+        case SERVER_SHUT_DOWN:
+            return "SERVER_SHUT_DOWN";
+        default:
+            return "unknown sig";
+    }
+}
 void write_history() {
     time_t t = time(NULL);
     struct tm tm = *localtime(&t);
     char cur_data[22];
     sprintf(cur_data, "%d-%02d-%02d %02d:%02d:%02d", tm.tm_year + 1900, tm.tm_mon + 1, tm.tm_mday, tm.tm_hour,
             tm.tm_min, tm.tm_sec);
-    fprintf(server_hist, "on: %s; from: %ld; recieved sig %ld with msg: %s\n", cur_data, received_msg.senderID,received_msg.mtype, received_msg.mtext);
+    fprintf(server_hist, "on: %s; from: %ld; recieved sig %s with msg: %s\n", cur_data, received_msg.senderID,return_sig_name(received_msg.mtype), received_msg.mtext);
 }
 
 int find_free_id() {
@@ -232,7 +249,7 @@ int main() {
             break;
         }
         if (msgrcv(server_queue, &received_msg, sizeof(received_msg), STOP, IPC_NOWAIT) >= 0) {
-            printf("Received signal: %ld from user %ld\n",received_msg.mtype, received_msg.senderID);
+            printf("Received signal: %s from user %ld\n",return_sig_name(received_msg.mtype), received_msg.senderID);
             time(&start);
             received_STOP();
             write_history();
