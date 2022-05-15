@@ -6,9 +6,12 @@
 #include <string.h>
 #include <time.h>
 #include <sys/types.h>
+#include <fcntl.h>
 #include <sys/select.h>
+#include <sys/stat.h>
 #include "comm_def.h"
 #include <signal.h>
+#include <errno.h>
 
 /*
  * Serwer odpowiada na komunikat klientów.
@@ -250,12 +253,17 @@ void close_at_exit() {
     }
 }
 
-int main() {
+int create_queue() {
     struct mq_attr atr;
     atr.mq_flags = 0;
     atr.mq_maxmsg = 10;
     atr.mq_msgsize = MAX_MSG_SIZE;
     atr.mq_curmsgs = 0;
+    return mq_open(SERVER_QUE_NAME, O_RDONLY | O_CREAT | O_EXCL | O_NONBLOCK, 0666, &atr);
+}
+
+int main() {
+
     atexit(close_at_exit);
     signal(SIGINT, server_shutdown);
     server_hist = fopen("server_log.txt", "w");
@@ -264,10 +272,19 @@ int main() {
         return -1;
     }
     for (int i = 0; i < SERVER_CAPACITY; i++) active_users[i] = -1;
-    server_queue = mq_open(SERVER_QUE_NAME, O_RDONLY | IPC_CREAT | IPC_EXCL | O_NONBLOCK, 0666, &atr);
+    server_queue = create_queue();
     if (server_queue < 0) {
-        perror("server queue creation error");
-        return -1;
+        if(errno == 17) {
+            if(mq_unlink(SERVER_QUE_NAME) < 0){
+                perror("existing server queue deletion error");
+                return -1;
+            }
+            server_queue = create_queue();
+        }
+        if(server_queue < 0) {
+            perror("server queue creation error");
+            return -1;
+        }
     }
     time_t start, end;
     double dif;

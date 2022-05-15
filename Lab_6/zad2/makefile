@@ -17,12 +17,13 @@ mem_srv:
 
 run_test: compile_cli compile_srv
 	./server &
-	sleep 0.5
+	sleep 1
 	./client 1 < instructions/client_1_ins &
 	./client 2 < instructions/client_2_ins &
 	./client 3 < instructions/client_3_ins &
 	./client 4 < instructions/client_4_ins &
 
-min_run: compile_cli compile_srv clear_queues
+min_run: compile_cli compile_srv
 	./server &
+	sleep 1
 	./client 1 < instructions/client_1_ins &

@@ -3,9 +3,11 @@
 #include <stdlib.h>
 #include <time.h>
 #include <string.h>
-#include <sys/types.h>
+#include <fcntl.h>
 #include <sys/select.h>
+#include <sys/types.h>
 #include <mqueue.h>
+#include <errno.h>
 #include "comm_def.h"
 #include <signal.h>
 /*
@@ -187,29 +189,55 @@ int find_begin_of_msg(const char input_str[MAX_MSG_SIZE + 10]) {
     return -1;
 }
 
-int main(int argc, char **argv) {
+int create_queue() {
     struct mq_attr attr;
     attr.mq_flags = 0;
     attr.mq_maxmsg = 10;
     attr.mq_msgsize = MAX_MSG_SIZE;
     attr.mq_curmsgs = 0;
+    system(" ls -al /dev/mqueue/");
+    printf("mny name %s\n", my_queue_name);
+    return mq_open(my_queue_name, O_RDONLY | O_CREAT | O_EXCL | O_NONBLOCK, S_IRUSR | S_IWUSR, &attr);
+}
+
+void gen_queue_name(int client_init_ID) {
+    struct passwd *pw = getpwuid(getuid());
+    char *homedir = pw->pw_dir;
+    char* token = strtok(homedir, "/");
+    char my[100] = "/";
+    while (token != NULL) {
+        strcat(jamroz_chuj, token);
+        token = strtok(NULL, "/");
+    }
+}
+int main(int argc, char **argv) {
+
 
     atexit(close_at_exit);
     for (int i = 0; i < SERVER_CAPACITY; i++) active_users[i] = -1;
-    struct passwd *pw = getpwuid(getuid());
-    const char *homedir = pw->pw_dir;
     signal(SIGINT, intHandler);
     if (argc != 2) {
         printf("wrong arg number, 1 arg (int) is required\n");
         return -1;
     }
     init_ID = atoi(argv[1]);
-    sprintf(my_queue_name, "%s%d", homedir, init_ID);
-    my_queue = mq_open(my_queue_name, O_RDONLY | O_CREAT | O_EXCL | O_NONBLOCK, 0666, &attr);
+    gen_queue_name(init_ID);
+    //printf("queue name %s\n", my_queue_name);
+    my_queue = create_queue();
     if (my_queue < 0) {
-        printf("queue of %d could not be opened", init_ID);
-        perror("");
-        return -1;
+        //printf("queue of %d could not be opened\n", init_ID);
+        perror("client queue could not be opened");
+        if (errno == 17) {
+            if (mq_unlink(my_queue_name) < 0) {
+                perror("existing client queue deletion error");
+                return -1;
+            }
+            my_queue = create_queue();
+        }
+        if (my_queue < 0) {
+            perror("CHUJ KURWA ");
+            return -1;
+        }
     }
     server_queue = mq_open(SERVER_QUE_NAME, O_WRONLY);
     if (server_queue < 0) {

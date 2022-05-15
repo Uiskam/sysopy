@@ -14,10 +14,17 @@ void print_text(char* msg) {
 }
 int main() {
     struct passwd *pw = getpwuid(getuid());
-    const char *homedir = pw->pw_dir;
-    printf("home: %s\n", homedir);
+    char *homedir = pw->pw_dir;
+    char* token = strtok(homedir, "/");
+    char jamroz_chuj[100] = "/";
+    while (token != NULL) {
+        strcat(jamroz_chuj, token);
+        token = strtok(NULL, "/");
+    }
+    printf("namne : %s\n", jamroz_chuj);
+
     return 0;
-    char msg2[10000]  = "1;longer msg;";
+    /*char msg2[10000]  = "1;longer msg;";
     char* token = strtok(msg2,";");
     printf("token: %s\n",token);
     token = strtok(NULL, ";");
@@ -32,5 +39,5 @@ int main() {
         strcat(msg,tmp);
         //printf("%d\t%s\n",i,msg);
     }
-    printf("msg to send %s\n", msg);
+    printf("msg to send %s\n", msg);*/
 }
