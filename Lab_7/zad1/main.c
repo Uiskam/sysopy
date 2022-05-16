@@ -15,6 +15,7 @@ int *producers_pid = NULL;
 int *delivery_pid = NULL;
 int shm_mem_id;
 int sem_set;
+struct Pizzeria_status *pizzeria_status;
 
 void exit_handling() {
     if(producers_pid != NULL) {
@@ -27,7 +28,11 @@ void exit_handling() {
             kill(delivery_pid[i], SIGINT);
         }
     }
-
+    printf("total delivery sum: %d\n",pizzeria_status->total_delivered);
+    if (shmdt(pizzeria_status) == -1) {
+        perror("MAIN post initialisation shm memory detaching error");
+        exit(0);
+    }
     if (shmctl(shm_mem_id, IPC_RMID, NULL) == -1) {
         perror("MAIN shared memory removal error");
     }
@@ -58,7 +63,7 @@ int main() {
         perror("MAIN shared memory creation creation error");
         exit(0);
     }
-    struct Pizzeria_status *pizzeria_status = shmat(shm_mem_id, NULL, 0);
+    pizzeria_status = shmat(shm_mem_id, NULL, 0);
     if (pizzeria_status == (void *) -1) {
         perror("MAIN shared memory attaching error");
         exit(0);
@@ -69,10 +74,8 @@ int main() {
     pizzeria_status->stove_out_index = 0;
     pizzeria_status->table_in_index = 0;
     pizzeria_status->table_out_index = 0;
-    if (shmdt(pizzeria_status) == -1) {
-        perror("MAIN post initialisation shm memory detaching error");
-        exit(0);
-    }
+    pizzeria_status->total_delivered = 0;
+
 
     //sem set creation
     key_t sem_set_key = ftok(PATHNAME, PROJ_ID);

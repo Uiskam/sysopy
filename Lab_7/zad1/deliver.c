@@ -64,7 +64,7 @@ void work() {
            tm.tm_min, tm.tm_sec, current_time.tv_usec / 1000, pizza_to_be_delivered, TABLE_SIZE - cur_pizza_on_table_nb - 1);
     pizzeria_status->table[pizzeria_status->table_out_index] = -1;
     pizzeria_status->table_out_index = (pizzeria_status->table_out_index + 1) % TABLE_SIZE;
-
+    pizzeria_status->total_delivered++;
     table_used.sem_op = 1;
     table_space.sem_op = 1;
     if(semop(sem_set, (struct sembuf[]){table_used, table_space}, 2) == -1) {
@@ -77,6 +77,7 @@ void work() {
     printf("PID: %d on: %d-%02d-%02d %02d:%02d:%02d:%03ld. Dostarczam pizze: %d\n", getpid(), tm.tm_year + 1900,
            tm.tm_mon + 1, tm.tm_mday, tm.tm_hour,
            tm.tm_min, tm.tm_sec, current_time.tv_usec / 1000, pizza_to_be_delivered);
+
     go_to_sleep(4,1);
 }
 int main() {

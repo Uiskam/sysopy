@@ -31,6 +31,7 @@ struct Pizzeria_status{
     int stove_out_index;
     int table_in_index;
     int table_out_index;
+    int total_delivered;
 };
 
 union semun {

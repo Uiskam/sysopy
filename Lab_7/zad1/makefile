@@ -25,4 +25,5 @@ all: compile_del compile_main compile_prod
 compile: all
 
 run:
-	./main 1 1
+	./main
+
