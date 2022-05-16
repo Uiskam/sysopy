@@ -1,31 +1,29 @@
-basic_comp :=  gcc -Wall -Wextra -pedantic
+basic_comp :=  gcc -Wall -Wextra -pedantic -Wshadow -Wunused
 mem_err_comp := gcc -Wall -Wextra -Wshadow -Wunused -Wconversion -g -O2 -fsanitize=address
 werr_comp := gcc -Wall -Wextra -pedantic -Werror
 
+compile_main:
+	$(basic_comp) main.c -o main -lrt -lpthread
 
-clear_queues:
-	ipcrm --all=msg
+mem_main:
+	$(mem_err_comp) main.c -o main -lrt -lpthread
 
-compile_cli:
-	$(basic_comp) client.c -o client
+compile_prod:
+	$(basic_comp) producer.c -o producer -lrt -lpthread
 
-mem_cli:
-	$(mem_err_comp) client.c -o client
+mem_prod:
+	$(mem_err_comp) producer.c -o producer -lrt -lpthread
 
-compile_srv:
-	$(basic_comp) server.c -o server
+compile_del:
+	$(basic_comp) deliver.c -o deliver -lrt -lpthread
 
-mem_srv:
-	$(mem_err_comp) server.c -o server
+mem_del:
+	$(mem_err_comp) deliver.c -o deliver -lrt -lpthread
 
-run_test: compile_cli compile_srv clear_queues
-	./server &
-	sleep 0.5
-	./client 1 < instructions/client_1_ins &
-	./client 2 < instructions/client_2_ins &
-	./client 3 < instructions/client_3_ins &
-	./client 4 < instructions/client_4_ins &
+all: compile_del compile_main compile_prod
 
-min_run: compile_cli compile_srv clear_queues
-	./server &
-	./client 1 < instructions/client_1_ins &
+compile: all
+
+run:
+	./main
+

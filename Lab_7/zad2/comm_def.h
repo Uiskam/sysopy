@@ -6,26 +6,39 @@
 #ifndef SYSOPY_COMM_DEF_H
 #define SYSOPY_COMM_DEF_H
 
-#define STOP 1
-#define LIST 2
-#define TWOALL 3
-#define TWOONE 4
+#define PIZZA_TYPES_QUAN 10
+#define STOVE_SIZE 5
+#define TABLE_SIZE 5
+#define PATHNAME "/home"
+#define PROJ_ID 2006
 
-#define INIT 20
-#define SERVER_SHUT_DOWN 30
+#define PRODUCER_NB 1
+#define DELIVERY_NB 1
 
-#define SERVER_CAPACITY 10
-#define MAXMSG 300
-#define SERVER_QUE_KEY ftok(getpwuid(getuid())->pw_dir,0)
-#define SERVER_WAIT_TIME 5
+#define TABLE_USED 0
+#define TABLE_SPACE 1
+#define TABLE_NON_EMPTY 2
+#define STOVE_USED 3
+#define STOVE_SPACE 4
 
-struct comm_msg {
-    long mtype;         /* typ komunikatu   */
-    long senderID;      /* id nadawcy */
-    char mtext[MAXMSG];      /* treść komunikatu */
-    int active_users[SERVER_CAPACITY];
+#define SECOND 1000000
+
+
+struct Pizzeria_status{
+    int stove[STOVE_SIZE];
+    int table[TABLE_SIZE];
+    int stove_in_index;
+    int stove_out_index;
+    int table_in_index;
+    int table_out_index;
+    int total_delivered;
 };
 
-
+union semun {
+    int val;
+    struct semid_ds *buf;
+    unsigned short *array;
+    struct seminfo  *__buf;
+};
 
 #endif //SYSOPY_COMM_DEF_H
