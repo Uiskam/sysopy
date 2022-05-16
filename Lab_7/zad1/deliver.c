@@ -82,7 +82,7 @@ void work() {
 }
 int main() {
 
-    srand(time(NULL));
+    srand(time(NULL) * getpid());
     atexit(exit_handler);
     signal(SIGINT, sig_handler);
     puts("delivery alived");
