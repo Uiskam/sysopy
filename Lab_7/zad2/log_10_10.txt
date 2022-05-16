@@ -1,0 +1,333 @@
+./main
+producer alived
+PID: 57932 on: 2022-05-16 04:02:11:664. Przygotowuje pizze: 1
+PID: 57932 on: 2022-05-16 04:02:11:664. Dodałem pizze: 1 Liczba pizz w piecu 2
+PID: 57932 on: 2022-05-16 04:02:16:196. Wyjmuje pizze: 1 Liczba pizz w piecu 4 Liczba pizz na stole 1
+PID: 57932 on: 2022-05-16 04:02:18:157. Przygotowuje pizze: 7
+PID: 57932 on: 2022-05-16 04:02:20:728. Dodałem pizze: 7 Liczba pizz w piecu 5
+PID: 57932 on: 2022-05-16 04:02:25:381. Wyjmuje pizze: 7 Liczba pizz w piecu 4 Liczba pizz na stole 1
+PID: 57932 on: 2022-05-16 04:02:26:995. Przygotowuje pizze: 0
+PID: 57932 on: 2022-05-16 04:02:30:034. Dodałem pizze: 0 Liczba pizz w piecu 4
+PID: 57932 on: 2022-05-16 04:02:34:355. Wyjmuje pizze: 0 Liczba pizz w piecu 4 Liczba pizz na stole 1
+PID: 57932 on: 2022-05-16 04:02:35:922. Przygotowuje pizze: 4
+PID: 57932 on: 2022-05-16 04:02:38:676. Dodałem pizze: 4 Liczba pizz w piecu 4
+PID: 57932 on: 2022-05-16 04:02:42:967. Wyjmuje pizze: 4 Liczba pizz w piecu 4 Liczba pizz na stole 2
+PID: 57932 on: 2022-05-16 04:02:44:914. Przygotowuje pizze: 0
+PID: 57932 on: 2022-05-16 04:02:47:257. Dodałem pizze: 0 Liczba pizz w piecu 5
+PID: 57932 on: 2022-05-16 04:02:52:255. Wyjmuje pizze: 0 Liczba pizz w piecu 4 Liczba pizz na stole 2
+PID: 57932 on: 2022-05-16 04:02:53:640. Przygotowuje pizze: 7
+PID: 57932 on: 2022-05-16 04:02:57:253. Dodałem pizze: 7 Liczba pizz w piecu 5
+PID: 57932 on: 2022-05-16 04:03:01:602. Wyjmuje pizze: 7 Liczba pizz w piecu 4 Liczba pizz na stole 1
+PID: 57932 on: 2022-05-16 04:03:02:971. Przygotowuje pizze: 1
+PID: 57932 on: 2022-05-16 04:03:05:952. Dodałem pizze: 1 Liczba pizz w piecu 5
+producer alived
+PID: 57931 on: 2022-05-16 04:02:11:664. Przygotowuje pizze: 1
+PID: 57931 on: 2022-05-16 04:02:11:664. Dodałem pizze: 1 Liczba pizz w piecu 1
+PID: 57931 on: 2022-05-16 04:02:16:196. Wyjmuje pizze: 1 Liczba pizz w piecu 4 Liczba pizz na stole 1
+PID: 57931 on: 2022-05-16 04:02:18:157. Przygotowuje pizze: 7
+PID: 57931 on: 2022-05-16 04:02:20:728. Dodałem pizze: 7 Liczba pizz w piecu 5
+PID: 57931 on: 2022-05-16 04:02:25:381. Wyjmuje pizze: 7 Liczba pizz w piecu 4 Liczba pizz na stole 1
+PID: 57931 on: 2022-05-16 04:02:26:994. Przygotowuje pizze: 0
+PID: 57931 on: 2022-05-16 04:02:30:034. Dodałem pizze: 0 Liczba pizz w piecu 4
+PID: 57931 on: 2022-05-16 04:02:34:355. Wyjmuje pizze: 0 Liczba pizz w piecu 4 Liczba pizz na stole 1
+PID: 57931 on: 2022-05-16 04:02:35:921. Przygotowuje pizze: 4
+PID: 57931 on: 2022-05-16 04:02:38:676. Dodałem pizze: 4 Liczba pizz w piecu 5
+PID: 57931 on: 2022-05-16 04:02:42:966. Wyjmuje pizze: 4 Liczba pizz w piecu 4 Liczba pizz na stole 1
+PID: 57931 on: 2022-05-16 04:02:44:914. Przygotowuje pizze: 0
+PID: 57931 on: 2022-05-16 04:02:47:256. Dodałem pizze: 0 Liczba pizz w piecu 5
+PID: 57931 on: 2022-05-16 04:02:52:255. Wyjmuje pizze: 0 Liczba pizz w piecu 4 Liczba pizz na stole 1
+PID: 57931 on: 2022-05-16 04:02:53:640. Przygotowuje pizze: 7
+PID: 57931 on: 2022-05-16 04:02:57:253. Dodałem pizze: 7 Liczba pizz w piecu 5
+PID: 57931 on: 2022-05-16 04:03:01:602. Wyjmuje pizze: 7 Liczba pizz w piecu 4 Liczba pizz na stole 1
+PID: 57931 on: 2022-05-16 04:03:02:971. Przygotowuje pizze: 1
+PID: 57931 on: 2022-05-16 04:03:05:951. Dodałem pizze: 1 Liczba pizz w piecu 5
+total delivery sum: 60
+main end
+producer alived
+PID: 57936 on: 2022-05-16 04:02:11:668. Przygotowuje pizze: 1
+PID: 57936 on: 2022-05-16 04:02:11:668. Dodałem pizze: 1 Liczba pizz w piecu 5
+PID: 57936 on: 2022-05-16 04:02:16:200. Wyjmuje pizze: 1 Liczba pizz w piecu 4 Liczba pizz na stole 1
+PID: 57936 on: 2022-05-16 04:02:18:161. Przygotowuje pizze: 7
+PID: 57936 on: 2022-05-16 04:02:20:732. Dodałem pizze: 7 Liczba pizz w piecu 5
+PID: 57936 on: 2022-05-16 04:02:25:385. Wyjmuje pizze: 7 Liczba pizz w piecu 4 Liczba pizz na stole 1
+PID: 57936 on: 2022-05-16 04:02:26:998. Przygotowuje pizze: 0
+PID: 57936 on: 2022-05-16 04:02:30:038. Dodałem pizze: 0 Liczba pizz w piecu 5
+PID: 57936 on: 2022-05-16 04:02:34:359. Wyjmuje pizze: 0 Liczba pizz w piecu 4 Liczba pizz na stole 1
+PID: 57936 on: 2022-05-16 04:02:35:925. Przygotowuje pizze: 4
+PID: 57936 on: 2022-05-16 04:02:38:680. Dodałem pizze: 4 Liczba pizz w piecu 5
+PID: 57936 on: 2022-05-16 04:02:42:970. Wyjmuje pizze: 4 Liczba pizz w piecu 4 Liczba pizz na stole 4
+PID: 57936 on: 2022-05-16 04:02:44:917. Przygotowuje pizze: 0
+PID: 57936 on: 2022-05-16 04:02:47:260. Dodałem pizze: 0 Liczba pizz w piecu 5
+PID: 57936 on: 2022-05-16 04:02:52:258. Wyjmuje pizze: 0 Liczba pizz w piecu 4 Liczba pizz na stole 4
+PID: 57936 on: 2022-05-16 04:02:53:643. Przygotowuje pizze: 7
+PID: 57936 on: 2022-05-16 04:02:57:257. Dodałem pizze: 7 Liczba pizz w piecu 5
+PID: 57936 on: 2022-05-16 04:03:01:606. Wyjmuje pizze: 7 Liczba pizz w piecu 4 Liczba pizz na stole 1
+PID: 57936 on: 2022-05-16 04:03:02:974. Przygotowuje pizze: 1
+PID: 57936 on: 2022-05-16 04:03:05:955. Dodałem pizze: 1 Liczba pizz w piecu 4
+producer alived
+PID: 57940 on: 2022-05-16 04:02:11:668. Przygotowuje pizze: 1
+PID: 57940 on: 2022-05-16 04:02:11:668. Dodałem pizze: 1 Liczba pizz w piecu 4
+PID: 57940 on: 2022-05-16 04:02:16:200. Wyjmuje pizze: 1 Liczba pizz w piecu 4 Liczba pizz na stole 1
+PID: 57940 on: 2022-05-16 04:02:18:160. Przygotowuje pizze: 7
+PID: 57940 on: 2022-05-16 04:02:20:732. Dodałem pizze: 7 Liczba pizz w piecu 5
+PID: 57940 on: 2022-05-16 04:02:25:385. Wyjmuje pizze: 7 Liczba pizz w piecu 4 Liczba pizz na stole 1
+PID: 57940 on: 2022-05-16 04:02:26:999. Przygotowuje pizze: 0
+PID: 57940 on: 2022-05-16 04:02:30:038. Dodałem pizze: 0 Liczba pizz w piecu 5
+PID: 57940 on: 2022-05-16 04:02:34:359. Wyjmuje pizze: 0 Liczba pizz w piecu 4 Liczba pizz na stole 1
+PID: 57940 on: 2022-05-16 04:02:35:925. Przygotowuje pizze: 4
+PID: 57940 on: 2022-05-16 04:02:38:680. Dodałem pizze: 4 Liczba pizz w piecu 5
+PID: 57940 on: 2022-05-16 04:02:42:970. Wyjmuje pizze: 4 Liczba pizz w piecu 4 Liczba pizz na stole 5
+PID: 57940 on: 2022-05-16 04:02:44:918. Przygotowuje pizze: 0
+PID: 57940 on: 2022-05-16 04:02:47:260. Dodałem pizze: 0 Liczba pizz w piecu 5
+PID: 57940 on: 2022-05-16 04:02:52:258. Wyjmuje pizze: 0 Liczba pizz w piecu 4 Liczba pizz na stole 5
+PID: 57940 on: 2022-05-16 04:02:53:644. Przygotowuje pizze: 7
+PID: 57940 on: 2022-05-16 04:02:57:257. Dodałem pizze: 7 Liczba pizz w piecu 5
+PID: 57940 on: 2022-05-16 04:03:01:606. Wyjmuje pizze: 7 Liczba pizz w piecu 4 Liczba pizz na stole 1
+PID: 57940 on: 2022-05-16 04:03:02:974. Przygotowuje pizze: 1
+PID: 57940 on: 2022-05-16 04:03:05:955. Dodałem pizze: 1 Liczba pizz w piecu 5
+delivery alived
+PID: 57942 on: 2022-05-16 04:02:16:196. Pobieram pizze: 1 Liczba pizz na stole 0
+PID: 57942 on: 2022-05-16 04:02:20:382. Dostarczam pizze: 1
+PID: 57942 on: 2022-05-16 04:02:25:381. Pobieram pizze: 7 Liczba pizz na stole 0
+PID: 57942 on: 2022-05-16 04:02:29:913. Dostarczam pizze: 7
+PID: 57942 on: 2022-05-16 04:02:34:355. Pobieram pizze: 0 Liczba pizz na stole 0
+PID: 57942 on: 2022-05-16 04:02:39:316. Dostarczam pizze: 0
+PID: 57942 on: 2022-05-16 04:02:43:968. Pobieram pizze: 4 Liczba pizz na stole 4
+PID: 57942 on: 2022-05-16 04:02:48:057. Dostarczam pizze: 4
+PID: 57942 on: 2022-05-16 04:02:52:670. Pobieram pizze: 0 Liczba pizz na stole 4
+PID: 57942 on: 2022-05-16 04:02:56:991. Dostarczam pizze: 0
+PID: 57942 on: 2022-05-16 04:03:01:602. Pobieram pizze: 7 Liczba pizz na stole 0
+PID: 57942 on: 2022-05-16 04:03:06:168. Dostarczam pizze: 7
+producer alived
+PID: 57937 on: 2022-05-16 04:02:11:673. Przygotowuje pizze: 1
+PID: 57937 on: 2022-05-16 04:02:16:200. Dodałem pizze: 1 Liczba pizz w piecu 5
+PID: 57937 on: 2022-05-16 04:02:20:732. Wyjmuje pizze: 1 Liczba pizz w piecu 4 Liczba pizz na stole 1
+PID: 57937 on: 2022-05-16 04:02:22:693. Przygotowuje pizze: 7
+PID: 57937 on: 2022-05-16 04:02:25:385. Dodałem pizze: 7 Liczba pizz w piecu 5
+PID: 57937 on: 2022-05-16 04:02:30:038. Wyjmuje pizze: 7 Liczba pizz w piecu 4 Liczba pizz na stole 1
+PID: 57937 on: 2022-05-16 04:02:31:651. Przygotowuje pizze: 0
+PID: 57937 on: 2022-05-16 04:02:34:359. Dodałem pizze: 0 Liczba pizz w piecu 5
+PID: 57937 on: 2022-05-16 04:02:38:680. Wyjmuje pizze: 0 Liczba pizz w piecu 4 Liczba pizz na stole 4
+PID: 57937 on: 2022-05-16 04:02:40:246. Przygotowuje pizze: 4
+PID: 57937 on: 2022-05-16 04:02:42:970. Dodałem pizze: 4 Liczba pizz w piecu 5
+PID: 57937 on: 2022-05-16 04:02:47:260. Wyjmuje pizze: 4 Liczba pizz w piecu 4 Liczba pizz na stole 4
+PID: 57937 on: 2022-05-16 04:02:49:208. Przygotowuje pizze: 0
+PID: 57937 on: 2022-05-16 04:02:52:258. Dodałem pizze: 0 Liczba pizz w piecu 5
+PID: 57937 on: 2022-05-16 04:02:57:257. Wyjmuje pizze: 0 Liczba pizz w piecu 4 Liczba pizz na stole 1
+PID: 57937 on: 2022-05-16 04:02:58:642. Przygotowuje pizze: 7
+PID: 57937 on: 2022-05-16 04:03:01:606. Dodałem pizze: 7 Liczba pizz w piecu 5
+PID: 57937 on: 2022-05-16 04:03:05:955. Wyjmuje pizze: 7 Liczba pizz w piecu 4 Liczba pizz na stole 4
+PID: 57937 on: 2022-05-16 04:03:07:323. Przygotowuje pizze: 1
+producer alived
+PID: 57933 on: 2022-05-16 04:02:11:664. Przygotowuje pizze: 1
+PID: 57933 on: 2022-05-16 04:02:11:664. Dodałem pizze: 1 Liczba pizz w piecu 3
+PID: 57933 on: 2022-05-16 04:02:16:196. Wyjmuje pizze: 1 Liczba pizz w piecu 4 Liczba pizz na stole 1
+PID: 57933 on: 2022-05-16 04:02:18:157. Przygotowuje pizze: 7
+PID: 57933 on: 2022-05-16 04:02:20:728. Dodałem pizze: 7 Liczba pizz w piecu 5
+PID: 57933 on: 2022-05-16 04:02:25:381. Wyjmuje pizze: 7 Liczba pizz w piecu 4 Liczba pizz na stole 1
+PID: 57933 on: 2022-05-16 04:02:26:995. Przygotowuje pizze: 0
+PID: 57933 on: 2022-05-16 04:02:30:034. Dodałem pizze: 0 Liczba pizz w piecu 5
+PID: 57933 on: 2022-05-16 04:02:34:355. Wyjmuje pizze: 0 Liczba pizz w piecu 4 Liczba pizz na stole 1
+PID: 57933 on: 2022-05-16 04:02:35:922. Przygotowuje pizze: 4
+PID: 57933 on: 2022-05-16 04:02:38:676. Dodałem pizze: 4 Liczba pizz w piecu 5
+PID: 57933 on: 2022-05-16 04:02:42:967. Wyjmuje pizze: 4 Liczba pizz w piecu 3 Liczba pizz na stole 3
+PID: 57933 on: 2022-05-16 04:02:44:914. Przygotowuje pizze: 0
+PID: 57933 on: 2022-05-16 04:02:47:257. Dodałem pizze: 0 Liczba pizz w piecu 5
+PID: 57933 on: 2022-05-16 04:02:52:255. Wyjmuje pizze: 0 Liczba pizz w piecu 3 Liczba pizz na stole 3
+PID: 57933 on: 2022-05-16 04:02:53:640. Przygotowuje pizze: 7
+PID: 57933 on: 2022-05-16 04:02:57:253. Dodałem pizze: 7 Liczba pizz w piecu 5
+PID: 57933 on: 2022-05-16 04:03:01:602. Wyjmuje pizze: 7 Liczba pizz w piecu 4 Liczba pizz na stole 1
+PID: 57933 on: 2022-05-16 04:03:02:971. Przygotowuje pizze: 1
+PID: 57933 on: 2022-05-16 04:03:05:952. Dodałem pizze: 1 Liczba pizz w piecu 5
+producer alived
+PID: 57934 on: 2022-05-16 04:02:11:672. Przygotowuje pizze: 1
+PID: 57934 on: 2022-05-16 04:02:16:200. Dodałem pizze: 1 Liczba pizz w piecu 5
+PID: 57934 on: 2022-05-16 04:02:20:732. Wyjmuje pizze: 1 Liczba pizz w piecu 4 Liczba pizz na stole 1
+PID: 57934 on: 2022-05-16 04:02:22:693. Przygotowuje pizze: 7
+PID: 57934 on: 2022-05-16 04:02:25:385. Dodałem pizze: 7 Liczba pizz w piecu 5
+PID: 57934 on: 2022-05-16 04:02:30:038. Wyjmuje pizze: 7 Liczba pizz w piecu 4 Liczba pizz na stole 1
+PID: 57934 on: 2022-05-16 04:02:31:652. Przygotowuje pizze: 0
+PID: 57934 on: 2022-05-16 04:02:34:359. Dodałem pizze: 0 Liczba pizz w piecu 5
+PID: 57934 on: 2022-05-16 04:02:38:680. Wyjmuje pizze: 0 Liczba pizz w piecu 4 Liczba pizz na stole 5
+PID: 57934 on: 2022-05-16 04:02:40:246. Przygotowuje pizze: 4
+PID: 57934 on: 2022-05-16 04:02:42:970. Dodałem pizze: 4 Liczba pizz w piecu 5
+PID: 57934 on: 2022-05-16 04:02:47:260. Wyjmuje pizze: 4 Liczba pizz w piecu 4 Liczba pizz na stole 5
+PID: 57934 on: 2022-05-16 04:02:49:208. Przygotowuje pizze: 0
+PID: 57934 on: 2022-05-16 04:02:52:259. Dodałem pizze: 0 Liczba pizz w piecu 5
+PID: 57934 on: 2022-05-16 04:02:57:257. Wyjmuje pizze: 0 Liczba pizz w piecu 4 Liczba pizz na stole 1
+PID: 57934 on: 2022-05-16 04:02:58:642. Przygotowuje pizze: 7
+PID: 57934 on: 2022-05-16 04:03:01:606. Dodałem pizze: 7 Liczba pizz w piecu 5
+PID: 57934 on: 2022-05-16 04:03:05:955. Wyjmuje pizze: 7 Liczba pizz w piecu 3 Liczba pizz na stole 5
+PID: 57934 on: 2022-05-16 04:03:07:324. Przygotowuje pizze: 1
+delivery alived
+PID: 57945 on: 2022-05-16 04:02:16:196. Pobieram pizze: 1 Liczba pizz na stole 0
+PID: 57945 on: 2022-05-16 04:02:20:383. Dostarczam pizze: 1
+PID: 57945 on: 2022-05-16 04:02:25:381. Pobieram pizze: 7 Liczba pizz na stole 0
+PID: 57945 on: 2022-05-16 04:02:29:913. Dostarczam pizze: 7
+PID: 57945 on: 2022-05-16 04:02:34:355. Pobieram pizze: 0 Liczba pizz na stole 0
+PID: 57945 on: 2022-05-16 04:02:39:316. Dostarczam pizze: 0
+PID: 57945 on: 2022-05-16 04:02:43:969. Pobieram pizze: 4 Liczba pizz na stole 2
+PID: 57945 on: 2022-05-16 04:02:48:057. Dostarczam pizze: 4
+PID: 57945 on: 2022-05-16 04:02:52:670. Pobieram pizze: 0 Liczba pizz na stole 2
+PID: 57945 on: 2022-05-16 04:02:56:991. Dostarczam pizze: 0
+PID: 57945 on: 2022-05-16 04:03:01:602. Pobieram pizze: 7 Liczba pizz na stole 0
+PID: 57945 on: 2022-05-16 04:03:06:169. Dostarczam pizze: 7
+delivery alived
+PID: 57948 on: 2022-05-16 04:02:16:200. Pobieram pizze: 1 Liczba pizz na stole 0
+PID: 57948 on: 2022-05-16 04:02:20:386. Dostarczam pizze: 1
+PID: 57948 on: 2022-05-16 04:02:25:385. Pobieram pizze: 7 Liczba pizz na stole 0
+PID: 57948 on: 2022-05-16 04:02:29:917. Dostarczam pizze: 7
+PID: 57948 on: 2022-05-16 04:02:34:359. Pobieram pizze: 0 Liczba pizz na stole 0
+PID: 57948 on: 2022-05-16 04:02:39:319. Dostarczam pizze: 0
+PID: 57948 on: 2022-05-16 04:02:43:972. Pobieram pizze: 4 Liczba pizz na stole 1
+PID: 57948 on: 2022-05-16 04:02:48:061. Dostarczam pizze: 4
+PID: 57948 on: 2022-05-16 04:02:52:674. Pobieram pizze: 0 Liczba pizz na stole 1
+PID: 57948 on: 2022-05-16 04:02:56:995. Dostarczam pizze: 0
+PID: 57948 on: 2022-05-16 04:03:01:606. Pobieram pizze: 7 Liczba pizz na stole 0
+PID: 57948 on: 2022-05-16 04:03:06:172. Dostarczam pizze: 7
+producer alived
+PID: 57935 on: 2022-05-16 04:02:11:670. Przygotowuje pizze: 1
+PID: 57935 on: 2022-05-16 04:02:16:196. Dodałem pizze: 1 Liczba pizz w piecu 5
+PID: 57935 on: 2022-05-16 04:02:20:728. Wyjmuje pizze: 1 Liczba pizz w piecu 4 Liczba pizz na stole 1
+PID: 57935 on: 2022-05-16 04:02:22:689. Przygotowuje pizze: 7
+PID: 57935 on: 2022-05-16 04:02:25:381. Dodałem pizze: 7 Liczba pizz w piecu 5
+PID: 57935 on: 2022-05-16 04:02:30:034. Wyjmuje pizze: 7 Liczba pizz w piecu 4 Liczba pizz na stole 1
+PID: 57935 on: 2022-05-16 04:02:31:648. Przygotowuje pizze: 0
+PID: 57935 on: 2022-05-16 04:02:34:355. Dodałem pizze: 0 Liczba pizz w piecu 5
+PID: 57935 on: 2022-05-16 04:02:38:676. Wyjmuje pizze: 0 Liczba pizz w piecu 4 Liczba pizz na stole 2
+PID: 57935 on: 2022-05-16 04:02:40:243. Przygotowuje pizze: 4
+PID: 57935 on: 2022-05-16 04:02:42:967. Dodałem pizze: 4 Liczba pizz w piecu 4
+PID: 57935 on: 2022-05-16 04:02:47:257. Wyjmuje pizze: 4 Liczba pizz w piecu 4 Liczba pizz na stole 2
+PID: 57935 on: 2022-05-16 04:02:49:204. Przygotowuje pizze: 0
+PID: 57935 on: 2022-05-16 04:02:52:255. Dodałem pizze: 0 Liczba pizz w piecu 4
+PID: 57935 on: 2022-05-16 04:02:57:253. Wyjmuje pizze: 0 Liczba pizz w piecu 4 Liczba pizz na stole 1
+PID: 57935 on: 2022-05-16 04:02:58:638. Przygotowuje pizze: 7
+PID: 57935 on: 2022-05-16 04:03:01:602. Dodałem pizze: 7 Liczba pizz w piecu 5
+PID: 57935 on: 2022-05-16 04:03:05:951. Wyjmuje pizze: 7 Liczba pizz w piecu 4 Liczba pizz na stole 2
+PID: 57935 on: 2022-05-16 04:03:07:320. Przygotowuje pizze: 1
+delivery alived
+PID: 57947 on: 2022-05-16 04:02:16:200. Pobieram pizze: 1 Liczba pizz na stole 0
+PID: 57947 on: 2022-05-16 04:02:20:386. Dostarczam pizze: 1
+PID: 57947 on: 2022-05-16 04:02:25:385. Pobieram pizze: 7 Liczba pizz na stole 0
+PID: 57947 on: 2022-05-16 04:02:29:917. Dostarczam pizze: 7
+PID: 57947 on: 2022-05-16 04:02:34:359. Pobieram pizze: 0 Liczba pizz na stole 0
+PID: 57947 on: 2022-05-16 04:02:39:320. Dostarczam pizze: 0
+PID: 57947 on: 2022-05-16 04:02:43:972. Pobieram pizze: 4 Liczba pizz na stole 0
+PID: 57947 on: 2022-05-16 04:02:48:061. Dostarczam pizze: 4
+PID: 57947 on: 2022-05-16 04:02:52:674. Pobieram pizze: 0 Liczba pizz na stole 0
+PID: 57947 on: 2022-05-16 04:02:56:995. Dostarczam pizze: 0
+PID: 57947 on: 2022-05-16 04:03:01:606. Pobieram pizze: 7 Liczba pizz na stole 0
+PID: 57947 on: 2022-05-16 04:03:06:172. Dostarczam pizze: 7
+delivery alived
+PID: 57950 on: 2022-05-16 04:02:20:732. Pobieram pizze: 1 Liczba pizz na stole 0
+PID: 57950 on: 2022-05-16 04:02:24:918. Dostarczam pizze: 1
+PID: 57950 on: 2022-05-16 04:02:30:038. Pobieram pizze: 7 Liczba pizz na stole 0
+PID: 57950 on: 2022-05-16 04:02:34:570. Dostarczam pizze: 7
+PID: 57950 on: 2022-05-16 04:02:38:745. Pobieram pizze: 0 Liczba pizz na stole 0
+PID: 57950 on: 2022-05-16 04:02:43:706. Dostarczam pizze: 0
+PID: 57950 on: 2022-05-16 04:02:48:359. Pobieram pizze: 4 Liczba pizz na stole 0
+PID: 57950 on: 2022-05-16 04:02:52:447. Dostarczam pizze: 4
+PID: 57950 on: 2022-05-16 04:02:57:257. Pobieram pizze: 0 Liczba pizz na stole 0
+PID: 57950 on: 2022-05-16 04:03:01:577. Dostarczam pizze: 0
+PID: 57950 on: 2022-05-16 04:03:05:989. Pobieram pizze: 7 Liczba pizz na stole 0
+delivery alived
+PID: 57946 on: 2022-05-16 04:02:20:728. Pobieram pizze: 1 Liczba pizz na stole 0
+PID: 57946 on: 2022-05-16 04:02:24:914. Dostarczam pizze: 1
+PID: 57946 on: 2022-05-16 04:02:30:034. Pobieram pizze: 7 Liczba pizz na stole 1
+PID: 57946 on: 2022-05-16 04:02:34:566. Dostarczam pizze: 7
+PID: 57946 on: 2022-05-16 04:02:38:741. Pobieram pizze: 0 Liczba pizz na stole 2
+PID: 57946 on: 2022-05-16 04:02:43:702. Dostarczam pizze: 0
+PID: 57946 on: 2022-05-16 04:02:48:355. Pobieram pizze: 4 Liczba pizz na stole 2
+PID: 57946 on: 2022-05-16 04:02:52:443. Dostarczam pizze: 4
+PID: 57946 on: 2022-05-16 04:02:57:253. Pobieram pizze: 0 Liczba pizz na stole 0
+PID: 57946 on: 2022-05-16 04:03:01:574. Dostarczam pizze: 0
+PID: 57946 on: 2022-05-16 04:03:05:986. Pobieram pizze: 7 Liczba pizz na stole 2
+producer alived
+PID: 57939 on: 2022-05-16 04:02:11:670. Przygotowuje pizze: 1
+PID: 57939 on: 2022-05-16 04:02:16:196. Dodałem pizze: 1 Liczba pizz w piecu 5
+PID: 57939 on: 2022-05-16 04:02:20:728. Wyjmuje pizze: 1 Liczba pizz w piecu 4 Liczba pizz na stole 1
+PID: 57939 on: 2022-05-16 04:02:22:689. Przygotowuje pizze: 7
+PID: 57939 on: 2022-05-16 04:02:25:381. Dodałem pizze: 7 Liczba pizz w piecu 5
+PID: 57939 on: 2022-05-16 04:02:30:034. Wyjmuje pizze: 7 Liczba pizz w piecu 4 Liczba pizz na stole 1
+PID: 57939 on: 2022-05-16 04:02:31:648. Przygotowuje pizze: 0
+PID: 57939 on: 2022-05-16 04:02:34:355. Dodałem pizze: 0 Liczba pizz w piecu 5
+PID: 57939 on: 2022-05-16 04:02:38:676. Wyjmuje pizze: 0 Liczba pizz w piecu 4 Liczba pizz na stole 1
+PID: 57939 on: 2022-05-16 04:02:40:242. Przygotowuje pizze: 4
+PID: 57939 on: 2022-05-16 04:02:42:966. Dodałem pizze: 4 Liczba pizz w piecu 5
+PID: 57939 on: 2022-05-16 04:02:47:256. Wyjmuje pizze: 4 Liczba pizz w piecu 4 Liczba pizz na stole 1
+PID: 57939 on: 2022-05-16 04:02:49:204. Przygotowuje pizze: 0
+PID: 57939 on: 2022-05-16 04:02:52:255. Dodałem pizze: 0 Liczba pizz w piecu 5
+PID: 57939 on: 2022-05-16 04:02:57:253. Wyjmuje pizze: 0 Liczba pizz w piecu 4 Liczba pizz na stole 1
+PID: 57939 on: 2022-05-16 04:02:58:638. Przygotowuje pizze: 7
+PID: 57939 on: 2022-05-16 04:03:01:602. Dodałem pizze: 7 Liczba pizz w piecu 5
+PID: 57939 on: 2022-05-16 04:03:05:951. Wyjmuje pizze: 7 Liczba pizz w piecu 4 Liczba pizz na stole 1
+PID: 57939 on: 2022-05-16 04:03:07:320. Przygotowuje pizze: 1
+delivery alived
+PID: 57941 on: 2022-05-16 04:02:20:728. Pobieram pizze: 1 Liczba pizz na stole 0
+PID: 57941 on: 2022-05-16 04:02:24:914. Dostarczam pizze: 1
+PID: 57941 on: 2022-05-16 04:02:30:034. Pobieram pizze: 7 Liczba pizz na stole 0
+PID: 57941 on: 2022-05-16 04:02:34:566. Dostarczam pizze: 7
+PID: 57941 on: 2022-05-16 04:02:38:741. Pobieram pizze: 0 Liczba pizz na stole 4
+PID: 57941 on: 2022-05-16 04:02:43:702. Dostarczam pizze: 0
+PID: 57941 on: 2022-05-16 04:02:48:355. Pobieram pizze: 4 Liczba pizz na stole 4
+PID: 57941 on: 2022-05-16 04:02:52:443. Dostarczam pizze: 4
+PID: 57941 on: 2022-05-16 04:02:57:253. Pobieram pizze: 0 Liczba pizz na stole 0
+PID: 57941 on: 2022-05-16 04:03:01:574. Dostarczam pizze: 0
+PID: 57941 on: 2022-05-16 04:03:05:986. Pobieram pizze: 7 Liczba pizz na stole 4
+delivery alived
+PID: 57949 on: 2022-05-16 04:02:20:732. Pobieram pizze: 1 Liczba pizz na stole 0
+PID: 57949 on: 2022-05-16 04:02:24:918. Dostarczam pizze: 1
+PID: 57949 on: 2022-05-16 04:02:30:038. Pobieram pizze: 7 Liczba pizz na stole 0
+PID: 57949 on: 2022-05-16 04:02:34:570. Dostarczam pizze: 7
+PID: 57949 on: 2022-05-16 04:02:38:745. Pobieram pizze: 0 Liczba pizz na stole 1
+PID: 57949 on: 2022-05-16 04:02:43:706. Dostarczam pizze: 0
+PID: 57949 on: 2022-05-16 04:02:48:358. Pobieram pizze: 4 Liczba pizz na stole 1
+PID: 57949 on: 2022-05-16 04:02:52:447. Dostarczam pizze: 4
+PID: 57949 on: 2022-05-16 04:02:57:257. Pobieram pizze: 0 Liczba pizz na stole 0
+PID: 57949 on: 2022-05-16 04:03:01:577. Dostarczam pizze: 0
+PID: 57949 on: 2022-05-16 04:03:05:989. Pobieram pizze: 7 Liczba pizz na stole 1
+producer alived
+PID: 57938 on: 2022-05-16 04:02:11:669. Przygotowuje pizze: 1
+PID: 57938 on: 2022-05-16 04:02:16:196. Dodałem pizze: 1 Liczba pizz w piecu 5
+PID: 57938 on: 2022-05-16 04:02:20:728. Wyjmuje pizze: 1 Liczba pizz w piecu 4 Liczba pizz na stole 1
+PID: 57938 on: 2022-05-16 04:02:22:689. Przygotowuje pizze: 7
+PID: 57938 on: 2022-05-16 04:02:25:381. Dodałem pizze: 7 Liczba pizz w piecu 5
+PID: 57938 on: 2022-05-16 04:02:30:034. Wyjmuje pizze: 7 Liczba pizz w piecu 3 Liczba pizz na stole 2
+PID: 57938 on: 2022-05-16 04:02:31:648. Przygotowuje pizze: 0
+PID: 57938 on: 2022-05-16 04:02:34:356. Dodałem pizze: 0 Liczba pizz w piecu 5
+PID: 57938 on: 2022-05-16 04:02:38:676. Wyjmuje pizze: 0 Liczba pizz w piecu 3 Liczba pizz na stole 3
+PID: 57938 on: 2022-05-16 04:02:40:243. Przygotowuje pizze: 4
+PID: 57938 on: 2022-05-16 04:02:42:967. Dodałem pizze: 4 Liczba pizz w piecu 5
+PID: 57938 on: 2022-05-16 04:02:47:257. Wyjmuje pizze: 4 Liczba pizz w piecu 4 Liczba pizz na stole 3
+PID: 57938 on: 2022-05-16 04:02:49:204. Przygotowuje pizze: 0
+PID: 57938 on: 2022-05-16 04:02:52:255. Dodałem pizze: 0 Liczba pizz w piecu 5
+PID: 57938 on: 2022-05-16 04:02:57:253. Wyjmuje pizze: 0 Liczba pizz w piecu 4 Liczba pizz na stole 1
+PID: 57938 on: 2022-05-16 04:02:58:638. Przygotowuje pizze: 7
+PID: 57938 on: 2022-05-16 04:03:01:602. Dodałem pizze: 7 Liczba pizz w piecu 5
+PID: 57938 on: 2022-05-16 04:03:05:952. Wyjmuje pizze: 7 Liczba pizz w piecu 3 Liczba pizz na stole 3
+PID: 57938 on: 2022-05-16 04:03:07:320. Przygotowuje pizze: 1
+delivery alived
+PID: 57943 on: 2022-05-16 04:02:16:196. Pobieram pizze: 1 Liczba pizz na stole 0
+PID: 57943 on: 2022-05-16 04:02:20:383. Dostarczam pizze: 1
+PID: 57943 on: 2022-05-16 04:02:25:381. Pobieram pizze: 7 Liczba pizz na stole 0
+PID: 57943 on: 2022-05-16 04:02:29:913. Dostarczam pizze: 7
+PID: 57943 on: 2022-05-16 04:02:34:355. Pobieram pizze: 0 Liczba pizz na stole 0
+PID: 57943 on: 2022-05-16 04:02:39:316. Dostarczam pizze: 0
+PID: 57943 on: 2022-05-16 04:02:43:969. Pobieram pizze: 4 Liczba pizz na stole 3
+PID: 57943 on: 2022-05-16 04:02:48:057. Dostarczam pizze: 4
+PID: 57943 on: 2022-05-16 04:02:52:670. Pobieram pizze: 0 Liczba pizz na stole 3
+PID: 57943 on: 2022-05-16 04:02:56:991. Dostarczam pizze: 0
+PID: 57943 on: 2022-05-16 04:03:01:602. Pobieram pizze: 7 Liczba pizz na stole 0
+PID: 57943 on: 2022-05-16 04:03:06:169. Dostarczam pizze: 7
+delivery alived
+PID: 57944 on: 2022-05-16 04:02:20:728. Pobieram pizze: 1 Liczba pizz na stole 0
+PID: 57944 on: 2022-05-16 04:02:24:915. Dostarczam pizze: 1
+PID: 57944 on: 2022-05-16 04:02:30:034. Pobieram pizze: 7 Liczba pizz na stole 0
+PID: 57944 on: 2022-05-16 04:02:34:566. Dostarczam pizze: 7
+PID: 57944 on: 2022-05-16 04:02:38:741. Pobieram pizze: 0 Liczba pizz na stole 3
+PID: 57944 on: 2022-05-16 04:02:43:702. Dostarczam pizze: 0
+PID: 57944 on: 2022-05-16 04:02:48:355. Pobieram pizze: 4 Liczba pizz na stole 3
+PID: 57944 on: 2022-05-16 04:02:52:443. Dostarczam pizze: 4
+PID: 57944 on: 2022-05-16 04:02:57:253. Pobieram pizze: 0 Liczba pizz na stole 0
+PID: 57944 on: 2022-05-16 04:03:01:574. Dostarczam pizze: 0
+PID: 57944 on: 2022-05-16 04:03:05:986. Pobieram pizze: 7 Liczba pizz na stole 3

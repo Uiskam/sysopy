@@ -12,8 +12,8 @@
 #define PATHNAME "/home"
 #define PROJ_ID 2006
 
-#define PRODUCER_NB 1
-#define DELIVERY_NB 1
+#define PRODUCER_NB 3
+#define DELIVERY_NB 3
 
 #define TABLE_USED "/table_used"
 #define TABLE_SPACE "/table_space"

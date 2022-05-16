@@ -36,6 +36,7 @@ void exit_handler() {
     if (sem_close(stove_space) == -1) perror("DELIVERY sem close error");
     if (sem_close(table_space) == -1)perror("DELIVERY sem close error");
     if (sem_close(table_non_empty) == -1)perror("DELIVERY sem close error");
+    puts("DELIVER end");
 }
 
 void sig_handler(int useless) {
@@ -81,7 +82,7 @@ void work() {
 
 int main() {
     puts("delivery alived");
-    srand(time(NULL));
+    srand(time(NULL) * getpid());
     atexit(exit_handler);
     signal(SIGINT, sig_handler);
 
