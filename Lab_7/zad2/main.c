@@ -7,35 +7,52 @@
 #include <sys/wait.h>
 #include <sys/types.h>
 #include "comm_def.h"
+#include <semaphore.h>
+#include <sys/mman.h>
+#include <sys/stat.h>
+#include <fcntl.h>
 
 int *producers_pid = NULL;
 int *delivery_pid = NULL;
 int shm_mem_id;
-int sem_set;
 struct Pizzeria_status *pizzeria_status;
+sem_t *table_used;
+sem_t *stove_used;
+sem_t *table_non_empty;
+sem_t *stove_space;
+sem_t *table_space;
 
 void exit_handling() {
-    if(producers_pid != NULL) {
+    if (producers_pid != NULL) {
         for (int i = 0; i < PRODUCER_NB; i++) {
             kill(producers_pid[i], SIGINT);
         }
     }
-    if(delivery_pid != NULL) {
+    if (delivery_pid != NULL) {
         for (int i = 0; i < DELIVERY_NB; i++) {
             kill(delivery_pid[i], SIGINT);
         }
     }
-    printf("total delivery sum: %d\n",pizzeria_status->total_delivered);
-    if (shmdt(pizzeria_status) == -1) {
+    printf("total delivery sum: %d\n", pizzeria_status->total_delivered);
+    if (munmap(pizzeria_status, sizeof(struct Pizzeria_status)) == -1) {
         perror("MAIN post initialisation shm memory detaching error");
         exit(0);
     }
-    if (shmctl(shm_mem_id, IPC_RMID, NULL) == -1) {
+    if (shm_unlink(PATHNAME) == -1) {
         perror("MAIN shared memory removal error");
     }
-    if (semctl(sem_set, 0, IPC_RMID) == -1) {
-        perror("MAIN sem set removal error");
-    }
+
+    if (sem_close(table_used) == -1) perror("MAIN sem close error");
+    if (sem_close(stove_used) == -1) perror("MAIN sem close error");
+    if (sem_close(stove_space) == -1) perror("MAIN sem close error");
+    if (sem_close(table_space) == -1)perror("MAIN sem close error");
+    if (sem_close(table_non_empty) == -1)perror("MAIN sem close error");
+
+    if (sem_unlink(TABLE_USED) == -1) perror("MAIN sem delete error");
+    if (sem_unlink(STOVE_USED) == -1)perror("MAIN sem delete error");
+    if (sem_unlink(STOVE_SPACE) == -1) perror("MAIN sem delete error");
+    if (sem_unlink(TABLE_SPACE) == -1) perror("MAIN sem delete error");
+    if (sem_unlink(TABLE_NON_EMPTY) == -1) perror("MAIN sem delete error");
     puts("main end");
 }
 
@@ -48,19 +65,16 @@ int main() {
     signal(SIGINT, sig_handler);
 
     //shm_mem creation
-    struct passwd *pw = getpwuid(getuid());
-    const char *homedir = pw->pw_dir;
-    key_t mem_key = ftok(PATHNAME, PROJ_ID);
-    if (mem_key == -1) {
-        perror("MAIN mem_key creation error");
-        exit(0);
-    }
-    shm_mem_id = shmget(mem_key, sizeof(struct Pizzeria_status), IPC_CREAT | 0666);
+    shm_mem_id = shm_open(PATHNAME, O_RDWR | O_CREAT, 0666);
     if (shm_mem_id == -1) {
         perror("MAIN shared memory creation creation error");
         exit(0);
     }
-    pizzeria_status = shmat(shm_mem_id, NULL, 0);
+    if (ftruncate(shm_mem_id, sizeof(struct Pizzeria_status)) == -1) {
+        perror("MAIN ftruncate error");
+        exit(0);
+    }
+    pizzeria_status = mmap(NULL, sizeof(struct Pizzeria_status), PROT_READ | PROT_WRITE, MAP_SHARED, shm_mem_id, 0);
     if (pizzeria_status == (void *) -1) {
         perror("MAIN shared memory attaching error");
         exit(0);
@@ -75,39 +89,24 @@ int main() {
 
 
     //sem set creation
-    key_t sem_set_key = ftok(PATHNAME, PROJ_ID);
-    if (sem_set_key == -1) {
-        perror("MAIN semaphore set key creation error");
+    if ((table_used = sem_open(TABLE_USED, O_CREAT, 0666, 1)) == SEM_FAILED) {
+        perror("MAIN sem TABLE_USED error");
         exit(0);
     }
-    sem_set = semget(sem_set_key, 5, IPC_CREAT | 0666);
-    if (sem_set == -1) {
-        perror("MAIN sem set creation error");
+    if ((stove_used = sem_open(STOVE_USED, O_CREAT, 0666, 1)) == SEM_FAILED) {
+        perror("MAIN sem STOVE_USED error");
         exit(0);
     }
-    union semun arg;
-    arg.val = 1;
-    if (semctl(sem_set, TABLE_USED, SETVAL, arg) == -1) {
-        perror("MAIN semaphore TABLE_USED could not be set");
+    if ((table_non_empty = sem_open(TABLE_NON_EMPTY, O_CREAT, 0666, 0)) == SEM_FAILED) {
+        perror("MAIN sem TBL_NON error");
         exit(0);
     }
-    if (semctl(sem_set, STOVE_USED, SETVAL, arg) == -1) {
-        perror("MAIN semaphore STOVE_USED could not be set");
+    if ((stove_space = sem_open(STOVE_SPACE, O_CREAT, 0666, STOVE_SIZE)) == SEM_FAILED) {
+        perror("MAIN sem STOVE_SPACE error");
         exit(0);
     }
-    arg.val = 0;
-    if (semctl(sem_set, TABLE_NON_EMPTY, SETVAL, arg) == -1) {
-        perror("MAIN semaphore TABLE_USED could not be set");
-        exit(0);
-    }
-    arg.val = STOVE_SIZE;
-    if (semctl(sem_set, STOVE_SPACE, SETVAL, arg) == -1) {
-        perror("MAIN semaphore STOVE_SPACE could not be set");
-        exit(0);
-    }
-    arg.val = TABLE_SIZE;
-    if (semctl(sem_set, TABLE_SPACE, SETVAL, arg) == -1) {
-        perror("MAIN semaphore TABLE_SPACE could not be set");
+    if ((table_space = sem_open(TABLE_SPACE, O_CREAT, 0666, TABLE_SIZE)) == SEM_FAILED) {
+        perror("MAIN sem TABLE_SPACE error");
         exit(0);
     }
 

@@ -15,11 +15,11 @@
 #define PRODUCER_NB 1
 #define DELIVERY_NB 1
 
-#define TABLE_USED 0
-#define TABLE_SPACE 1
-#define TABLE_NON_EMPTY 2
-#define STOVE_USED 3
-#define STOVE_SPACE 4
+#define TABLE_USED "/table_used"
+#define TABLE_SPACE "/table_space"
+#define TABLE_NON_EMPTY "/table_non_empty"
+#define STOVE_USED "/stove_used"
+#define STOVE_SPACE "/stove_space"
 
 #define SECOND 1000000
 
