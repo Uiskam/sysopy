@@ -1,0 +1,13 @@
+zad2
+N = M = 3
+total delivery sum: 9
+N = M = 10
+total delivery sum: 64
+N = M = 30
+total delivery sum: 61
+
+Przy zwiększaniu M i N z mały z 3 na 10 widać spory skok wydajności dostawy. Jednak dla zmiany z 10 na 30 widać, że 
+nasza pizzeria osiągnęła szczyt swojej wydajności gdyż suma dostarczonej pizzy zmalała. 
+
+Dzięki semaforom udało się zsynchronizować dostęp do pamięci współdzielonej między procesami, nie przekroczono limitów pizzy na stole 
+i w na tablicy. 
