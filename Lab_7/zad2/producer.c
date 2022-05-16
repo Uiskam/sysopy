@@ -105,7 +105,7 @@ int main() {
     srand(time(NULL) * getpid());
     atexit(exit_handler);
     signal(SIGINT, sig_handler);
-    puts("producer alived");
+    puts("producer start");
     //shm_mem creation
     shm_mem_id = shm_open(PATHNAME, O_RDWR, 0);
     if (shm_mem_id == -1) {

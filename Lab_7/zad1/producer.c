@@ -126,7 +126,7 @@ int main() {
     srand(time(NULL) * getpid());
     atexit(exit_handler);
     signal(SIGINT, sig_handler);
-    puts("producer alived");
+    puts("producer start");
     int key = ftok(PATHNAME, PROJ_ID);
     if (key == -1) {
         perror("PRODUCER key gen error");

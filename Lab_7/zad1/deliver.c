@@ -85,7 +85,7 @@ int main() {
     srand(time(NULL) * getpid());
     atexit(exit_handler);
     signal(SIGINT, sig_handler);
-    puts("delivery alived");
+    puts("delivery start");
     int key = ftok(PATHNAME, PROJ_ID);
     if (key == -1) {
         perror("DELIVERY mem key gen error");
