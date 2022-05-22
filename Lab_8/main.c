@@ -203,8 +203,6 @@ int main(int argc, char **argv) {
         close_files();
         return -1;
     }
-    write_result_file();
-    return  0;
     int thread_number = atoi(argv[1]);
     struct Thread_arg *thread_intervals = malloc(sizeof(struct Thread_arg) * thread_number);
     for (int k = 1; k <= thread_number; k++) {

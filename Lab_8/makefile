@@ -8,11 +8,17 @@ compile:
 mem:
 	$(mem_err_comp) main.c -o main -lpthread
 
-run_num: compile
+hand_num: compile
 	./main 2 numbers ./resources/hands.ascii.pgm ./results/hands.ascii.inverted.pgm
 
-run_blk: compile
+hand_blk: compile
 	./main 3 block ./resources/hands.ascii.pgm ./results/hands.ascii.inverted.pgm
+
+mount_num: compile
+	./main 2 numbers ./resources/mountain.ascii.pgm ./results/mountain.ascii.inverted.pgm
+
+mount_blk: compile
+	./main 3 block ./resources/mountain.ascii.pgm ./results/mountain.ascii.inverted.pgm
 
 my_num: compile
 	./main 4 numbers ./resources/my.pgm ./results/my_result.pgm
