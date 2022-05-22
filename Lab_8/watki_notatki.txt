@@ -1,0 +1,85 @@
+Kompilacja z -lpthread na końcu!!!
+#include<pthreads.h>
+
+Proces kończy, działanie jak skończą się wykonowyac wszystkie wątki (zwrócenie z main kończy działanie wszystkich wątków).
+Wątek jest identyfikowany za pomocą ID (pthread_t). Każdy watek ma osobny stos.
+Wątki współdzielą:
+    - przestrzeń adresową (zmienne globalne)
+    - identyfikatory procesu (PID, UID, PPID, ...)
+    - deskryptory plików
+    - obsługę sygnałów
+    - limity i liczniki zużycia zasobów
+    - rygle na pliki, umask, katalog główny/bieżący, wartości nice
+
+Wątek ma własne:
+    - threadID (TID)
+    - maskę sygnałów
+    - wartość errno
+    - dane własne (thread local)
+    - stos, zmienne lokalne
+    - inne
+
+Tworzenie wątków:
+int pthread_create(pthread_t *thread, const pthread_attr_t *attr, void *(*start_routine) (void *), void *arg)
+    thread - wskaźnik do zmiennej, do której zostanie zapisany TID
+    attr - opcjonalne, dodatkowe ustawienia (NULL najlepiej)
+    start_routine - adres funkcji, która ma zostać wykonana w utworzonym wątku
+    arg - argument, z którym ma zostać wywołana
+    RETURN:
+        0, powodzenie
+        errno, error
+
+int pthread_equal(pthread_t tid1, pthread_t tid2) - porównuje TID
+    RETURN:
+        0, tid1 == tid2
+
+pthread_t pthread_self() - wątek pobiera swoje TID
+
+
+Cykl życia wątku.
+Wątek może zakończyć działanie, jeżeli:
+    - watek główny zakończy działanie (poprzez return w main)
+    - którykolwiek wątek procesu wywoła exit
+    - którykolwiek wątek otrzyma sygnał, którego domyślnym sposobem obsługi jest zakończenie procesu
+    - zwróci wartość ze swojej funkcji
+    - wywoła pthread_exit
+    - anulowany jest przez inny wątek
+
+Funkcje:
+    void pthread_exit(void* rval_ptr); - kończy działanie wątku i zwraca rval_ptr (return sth to jest to samo)
+                                         wywołanie tego w głównym nie kończy pozostałych wątków
+
+    int pthread_cancel(pthread_t tid) - przerywa działanie wątku o danym TID
+
+    int pthread_setcancel(int state, int *oldstate) - ustawienie reakcji na anulowanie, jeżeli wątek nie pozwala na anulowanie,
+                                                      to jego anulacja jesz wstrzymana do czasu zniesienia zakazu
+        state: PTHREAD_CANCEL_ENABLE lub PTHREAD_CANCEL_DISABLE
+
+    int pthread_setcanceltype(int type, int *oldtype) - ustawienie trybu anulowania
+        type: PTHREAD_CANCEL_DEFERRED (domyślnie) - wątek kontynuuje swoje działanie do momentu napotkania tzw. cancellation point
+              PTHREAD_CANCEL_ASYNCHRONOUS - wątek kończy swoje działanie natychmiast
+
+    Cancellation point - wywołanie jednej z wymienionej jako takowy przez standard POSIX funkcji (np. read, write, pause).
+                         W szczególności cancellation point stanowi wywołanie funkcji pthread_testcancel
+
+    int pthread_join(pthread_t thread, void **rval_ptr) - czeka na zakończenie wątki i zapisuje to co zwrócił (jeżlei wartoć != NULL)
+        RETURN:
+            0 - sukces
+            errno - error
+
+    int pthread_detach(pthread_t tid) - funkcja odłącz wątek (czyli jego returny nie sa przechowywane az do wywoałania join)
+        RETURN:
+                0 - sukces
+                errno - error
+
+
+SYGNAŁY a wątki
+Sygnały dostarczane sa do 1 wątku. Sygnały sprzętowe są wysyłane do tego, kto je wywołał, a reszta chuj wie.
+Wątki mają osobne3 maski sygnałów, ale wspólne ustawienia ich obsługi(?!?).
+
+    int pthread_sigmask(int how, const sigset_t* set, sigset_t* oset) - ustawia maskę sygnałów wątku (analogiczne do sigprocmask,
+    którego działanie dla programu wielowątkowego jest niezdefiniowane)
+
+    int pthread_kill(pthread_t thread, int signo);
+    int pthread_sigqueue(pthread_t thread, int sig, const union sigval value);
+    Wysyłają sygnały do zadanych wątków. 

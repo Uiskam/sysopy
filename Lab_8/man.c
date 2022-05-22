@@ -1,25 +1,31 @@
-#define _GNU_SOURCE
 #include <stdio.h>
+#include <unistd.h>
 #include <stdlib.h>
+#include <time.h>
 
-int
-main(void)
+#define BILLION  1000000000L;
+
+int main( int argc, char **argv )
 {
-    FILE *stream;
-    char *line = NULL;
-    size_t len = 0;
-    ssize_t read;
+    struct timespec start, stop;
+    double accum;
 
-    stream = fopen("./resources/mountain.ascii.pgm", "r");
-    if (stream == NULL)
-        exit(EXIT_FAILURE);
-
-    while ((read = getline(&line, &len, stream)) != -1) {
-        printf("Pobrano wiersz o długości %zu :\n", read);
-        printf("%s", line);
+    if( clock_gettime( CLOCK_REALTIME, &start) == -1 ) {
+        perror( "clock gettime" );
+        exit( EXIT_FAILURE );
     }
 
-    free(line);
-    fclose(stream);
-    exit(EXIT_SUCCESS);
+    system( argv[1] );
+    sleep(2);
+    if( clock_gettime( CLOCK_REALTIME, &stop) == -1 ) {
+        perror( "clock gettime" );
+        exit( EXIT_FAILURE );
+    }
+
+    accum = ( stop.tv_sec - start.tv_sec )
+            + ( stop.tv_nsec - start.tv_nsec )
+              / BILLION;
+    printf( "%ld\n", 1000000000L -  1000000000);
+    return( EXIT_SUCCESS );
 }
+
