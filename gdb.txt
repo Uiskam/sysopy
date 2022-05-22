@@ -1,0 +1,13 @@
+- compile program w -g flag
+- run gdb ./program_name
+- commands:
+	- break number/function_name (creates a break point where gdb should stop)
+	- clear number/funtoin_name (deletes breakpoint)
+	- watch variable_name (gdb will print variable each time it's value changes)
+	- run (runs a program)
+	- print var_name (prints value of var_name)
+	- step (steps into a function call)
+	- next (steps over a fucntion call)
+	- enter (key) (repetes th elast command)
+	- continue (continues till the next break/watchpoint)
+	- quit (ends gdb session)
