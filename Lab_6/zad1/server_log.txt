@@ -1,14 +1,17 @@
-on: 2022-05-15 21:50:50; from: 3; recieved sig INIT with msg: 17
-on: 2022-05-15 21:50:54; from: 2; recieved sig INIT with msg: 18
-on: 2022-05-15 21:50:56; from: 1; recieved sig INIT with msg: 19
-on: 2022-05-15 21:51:00; from: 1; recieved sig STOP with msg: STOP
-on: 2022-05-15 21:51:00; from: 0; recieved sig STOP with msg: STOP
-on: 2022-05-15 21:51:01; from: 2; recieved sig STOP with msg: STOP
-on: 2022-05-15 21:51:07; from: 3; recieved sig INIT with msg: 20
-on: 2022-05-15 21:51:08; from: 2; recieved sig INIT with msg: 21
-on: 2022-05-15 21:51:11; from: 1; recieved sig INIT with msg: 22
-on: 2022-05-15 21:51:33; from: 1; recieved sig LIST with msg: LIST request
-on: 2022-05-15 21:51:40; from: 1; recieved sig 2ONE with msg: 0;msg for 0;
+on: 2022-05-17 15:29:39; from: 1; recieved sig INIT with msg: 12
+on: 2022-05-17 15:29:43; from: 2; recieved sig INIT with msg: 13
+on: 2022-05-17 15:29:46; from: 3; recieved sig INIT with msg: 14
+on: 2022-05-17 15:29:56; from: 0; recieved sig LIST with msg: LIST request
+on: 2022-05-17 15:30:09; from: 0; recieved sig 2ALL with msg: Wiadomosc do wszysktich;
 
-on: 2022-05-15 21:52:09; from: 1; recieved sig 2ALL with msg: asdsadadasdasd;
+on: 2022-05-17 15:30:18; from: 0; recieved sig LIST with msg: LIST request
+on: 2022-05-17 15:31:40; from: 0; recieved sig 2ONE with msg: 1;tmp;
 
+on: 2022-05-17 15:31:48; from: 1; recieved sig LIST with msg: LIST request
+on: 2022-05-17 15:31:57; from: 1; recieved sig 2ONE with msg: 0;tmp;
+
+on: 2022-05-17 15:32:06; from: 1; recieved sig 2ONE with msg: 0;drughseivge;
+
+on: 2022-05-17 15:32:18; from: 1; recieved sig 2ALL with msg: DO WSZYKCIH ODEWA;
+
+on: 2022-05-17 15:32:27; from: 1; recieved sig STOP with msg: STOP

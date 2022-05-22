@@ -1,7 +1,12 @@
-on: 2022-05-15 21:54:06; from: 3; recieved sig INIT with msg: /homeuiskam3
-on: 2022-05-15 21:54:10; from: 1; recieved sig INIT with msg: /homeuiskam1
-on: 2022-05-15 21:54:13; from: 2; recieved sig INIT with msg: /homeuiskam2
-on: 2022-05-15 21:54:16; from: 2; recieved sig LIST with msg: (null)
-on: 2022-05-15 21:54:23; from: 2; recieved sig 2ALL with msg: msg for all
-on: 2022-05-15 21:54:35; from: 2; recieved sig 2ONE with msg: msg for 0
-on: 2022-05-15 21:54:40; from: 2; recieved sig STOP with msg: (null)
+on: 2022-05-17 15:25:13; from: 1; recieved sig INIT with msg: /homeuiskam1
+on: 2022-05-17 15:25:13; from: 2; recieved sig INIT with msg: /homeuiskam2
+on: 2022-05-17 15:25:13; from: 3; recieved sig INIT with msg: /homeuiskam3
+on: 2022-05-17 15:25:13; from: 4; recieved sig INIT with msg: /homeuiskam4
+on: 2022-05-17 15:25:14; from: 0; recieved sig LIST with msg: (null)
+on: 2022-05-17 15:25:14; from: 1; recieved sig LIST with msg: (null)
+on: 2022-05-17 15:25:14; from: 2; recieved sig 2ALL with msg: "MSG for all users test"
+on: 2022-05-17 15:25:14; from: 3; recieved sig LIST with msg: (null)
+on: 2022-05-17 15:25:15; from: 0; recieved sig STOP with msg: (null)
+on: 2022-05-17 15:25:15; from: 1; recieved sig 2ONE with msg: "From user 1 to user 3 test"
+
+on: 2022-05-17 15:25:15; from: 3; recieved sig LIST with msg: (null)
