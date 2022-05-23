@@ -185,8 +185,6 @@ void* calculations(void* arg) {
     clock_gettime(CLOCK_REALTIME, &end);
     double* elapsed_time = malloc(sizeof(double));
     *elapsed_time = (end.tv_sec - begin.tv_sec) + (double)(end.tv_nsec - begin.tv_nsec) / BILION;
-    puts("thread exit");
-    fflush(stdout);
     pthread_exit((void * )elapsed_time);
 }
 
@@ -210,7 +208,7 @@ int main(int argc, char **argv) {
             int interval_length = _ceil(MAX_VAL, thread_number);
             thread_intervals[k-1].begin = (k - 1) * interval_length;
             thread_intervals[k-1].end = min(k * interval_length - 1, MAX_VAL);
-            printf("%d %d %d %d\n",k-1,interval_length, k ,interval_length );
+            //printf("%d %d %d %d\n",k-1,interval_length, k ,interval_length );
         } else if(MODE == 2){
             int interval_length = _ceil(IMAGE_WIDTH, thread_number);
             thread_intervals[k-1].begin = (k - 1) * interval_length;
@@ -223,7 +221,7 @@ int main(int argc, char **argv) {
             return -1;
         }
     }
-    for(int i =0; i < thread_number; i++) printf("int no %d, begin: %d, end %d\n",i,thread_intervals[i].begin, thread_intervals[i].end);
+    //for(int i =0; i < thread_number; i++) printf("int no %d, begin: %d, end %d\n",i,thread_intervals[i].begin, thread_intervals[i].end);
     double total_real_time = 0;
     struct timespec begin, end;
     pthread_t* tid_tab = malloc(thread_number * sizeof (pthread_t));
@@ -248,16 +246,16 @@ int main(int argc, char **argv) {
             free(tid_tab);
             return -1;
         }
-        printf("time of %d thread: %.9f\n", i, *thread_time);
+        printf("time of %d thread: %.6f\n", i, *thread_time);
         fflush(stdout);
-        total_real_time += *thread_time;
+        //total_real_time += *thread_time;
         free(thread_time);
     }
     clock_gettime(CLOCK_REALTIME, &end);
     total_real_time += (end.tv_sec - begin.tv_sec) + (double)(end.tv_nsec - begin.tv_nsec)/ BILION;
     printf("Total real time %.6lf\n", total_real_time);
     write_result_file();
-    //free(tid_tab);
-    //free(thread_intervals);
+    free(tid_tab);
+    free(thread_intervals);
     close_files();
 }

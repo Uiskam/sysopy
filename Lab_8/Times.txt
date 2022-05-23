@@ -1,0 +1,105 @@
+1 2 4 8 16
+Rozmiar pliku: 720 486
+
+Wariant 1
+Liczba wątków:
+1
+	time of 0 thread: 0.003906
+	Total real time 0.004181
+
+2
+	time of 0 thread: 0.003558
+	time of 1 thread: 0.001517
+	Total real time 0.003658
+
+4
+	time of 0 thread: 0.003588
+	time of 1 thread: 0.001810
+	time of 2 thread: 0.002193
+	time of 3 thread: 0.003260
+	Total real time 0.006223
+
+8
+	time of 0 thread: 0.004511
+	time of 1 thread: 0.001573
+	time of 2 thread: 0.001607
+	time of 3 thread: 0.001790
+	time of 4 thread: 0.002177
+	time of 5 thread: 0.002553
+	time of 6 thread: 0.002178
+	time of 7 thread: 0.003010
+	Total real time 0.007006
+
+16
+	time of 0 thread: 0.001002
+	time of 1 thread: 0.003061
+	time of 2 thread: 0.001006
+	time of 3 thread: 0.001349
+	time of 4 thread: 0.006278
+	time of 5 thread: 0.001241
+	time of 6 thread: 0.003877
+	time of 7 thread: 0.001419
+	time of 8 thread: 0.001346
+	time of 9 thread: 0.001317
+	time of 10 thread: 0.001175
+	time of 11 thread: 0.001188
+	time of 12 thread: 0.004540
+	time of 13 thread: 0.003102
+	time of 14 thread: 0.002026
+	time of 15 thread: 0.000705
+	Total real time 0.007576
+	
+Wariant 2
+Liczba wątków:
+1
+	time of 0 thread: 0.000724
+	Total real time 0.000926
+
+2
+	time of 0 thread: 0.000383
+	time of 1 thread: 0.001546
+	Total real time 0.000646
+
+4
+	time of 0 thread: 0.000181
+	time of 0 thread: 0.000173
+	time of 1 thread: 0.000174
+	time of 2 thread: 0.000170
+	time of 3 thread: 0.000171
+	Total real time 0.000410
+
+
+8
+	time of 0 thread: 0.000092
+	time of 1 thread: 0.000091
+	time of 2 thread: 0.000093
+	time of 3 thread: 0.000095
+	time of 4 thread: 0.000249
+	time of 5 thread: 0.000094
+	time of 6 thread: 0.000099
+	time of 7 thread: 0.000138
+	Total real time 0.000654
+
+
+16
+	time of 0 thread: 0.000045
+	time of 1 thread: 0.000046
+	time of 2 thread: 0.000045
+	time of 3 thread: 0.000382
+	time of 4 thread: 0.000224
+	time of 5 thread: 0.000080
+	time of 6 thread: 0.000067
+	time of 7 thread: 0.000152
+	time of 8 thread: 0.000109
+	time of 9 thread: 0.000093
+	time of 10 thread: 0.000051
+	time of 11 thread: 0.000046
+	time of 12 thread: 0.000047
+	time of 13 thread: 0.000047
+	time of 14 thread: 0.000047
+	time of 15 thread: 0.000046
+	Total real time 0.000614
+
+
+
+
