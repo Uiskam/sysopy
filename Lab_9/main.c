@@ -26,51 +26,54 @@ pthread_cond_t wake_up_santa = PTHREAD_COND_INITIALIZER;
 
 pthread_mutex_t elves_are_back_mutex = PTHREAD_MUTEX_INITIALIZER;
 pthread_mutex_t elves_queue_mutex = PTHREAD_MUTEX_INITIALIZER;
-pthread_mutex_t elves_queue_check = PTHREAD_MUTEX_INITIALIZER;
-pthread_mutex_t reindeers_status_check = PTHREAD_MUTEX_INITIALIZER;
+pthread_mutex_t reindeers_status_check_mutex = PTHREAD_MUTEX_INITIALIZER;
 
 sem_t elves_sem;
 sem_t santa_sleep;
+pthread_t elves_threads[ELVES_NUMBER];
+
+
+void get_into_queue(int id) {
+    pthread_mutex_lock(&elves_queue_mutex);
+    printf("Elf %d: czeka %d elfów na Mikołaja\n",id, ++elves_queue_size);
+        can_elf_work[id] = 0;
+        if(elves_queue_size == 3) {
+            if(sem_post(&santa_sleep)) {
+                printf("elf %d SANTA IS DEAD!", id);
+                perror("");
+                exit(0);
+            }
+        }
+        pthread_mutex_unlock(&elves_queue_mutex);
+}
 
 void* elf(void * ID) {
     int id = *((int *)ID);
-    printf("elfe with id: %d comes to life\n",id);
+    printf("elf with id: %d comes to life\n",id);
+    go_to_sleep(1,1);
     while (1) {
         go_to_sleep(2,3);
         int sem_ret;
         if((sem_ret = sem_trywait(&elves_sem)) == 0) {
-            pthread_mutex_lock(&elves_queue_mutex);
-            printf("Elf %d: czeka %d elfów na Mikołaja\n",id, ++elves_queue_size);
-            pthread_mutex_unlock(&elves_queue_mutex);
-            can_elf_work[id] = 0;
-            pthread_mutex_lock(&elves_queue_mutex);
-            if(elves_queue_size == 3) {
-                if(sem_post(&santa_sleep) != 0) {
-                    printf("elf %d SANTA IS DEAD!", id);
-                    perror("");
-                    return NULL;
-                }
-            }
-            pthread_mutex_unlock(&elves_queue_mutex);
+            get_into_queue(id);
         } else if(sem_ret == -1 && errno == EAGAIN) {
             printf("Elf %d: czeka na powrót elfów\n", id);
-            if(sem_wait((&elves_sem)) != 0){printf("Elf %d sem error",id); perror(""); return NULL;}
-            pthread_mutex_lock(&elves_queue_mutex);
-            printf("Elf %d: czeka %d elfów na Mikołaja\n",id, ++elves_queue_size);
-            pthread_mutex_unlock(&elves_queue_mutex);
-            can_elf_work[id] = 0;
+            
+            if(sem_wait((&elves_sem)) != 0){printf("Elf %d sem error",id); perror(""); exit(0);}
+            get_into_queue(id);
+
         } else {
             printf("Elf %d queueing error",id);
             perror("");
-            return NULL;
+            exit(0);
         }
         pthread_mutex_lock(&elves_are_back_mutex);
         while (can_elf_work[id] == 0){
             pthread_cond_wait(&elves_are_back, &elves_are_back_mutex);
         }
         pthread_mutex_unlock(&elves_are_back_mutex);
-        if(sem_post(&elves_sem) != 0){printf("elf %d destoryed sem", id);perror("");return 0;}
-        printf("Elf %d: wracam do pracy!\n",id);
+        if(sem_post(&elves_sem) != 0){printf("elf %d destoryed sem", id);perror("");exit(0);}
+        //printf("Elf %d: wracam do pracy!\n",id);
         pthread_mutex_lock(&elves_queue_mutex);
         elves_queue_size--;
         pthread_mutex_unlock(&elves_queue_mutex);
@@ -80,12 +83,13 @@ void* elf(void * ID) {
 void kill_all_threads(){puts("TO BE IMPLEMENTED");}
 
 void* santa(void * null) {
-    puts("Santa comes to lifr\n");
+    puts("Santa comes to life\n");
     int delivery_counter = 0;
     while (1) {
-        if(sem_wait(&santa_sleep) != 0){perror("santa sleep sem_wait error"); kill_all_threads(); return 0;}
-        pthread_mutex_lock(&reindeers_status_check);
-        pthread_mutex_lock(&elves_queue_check);
+        if(sem_wait(&santa_sleep) != 0){perror("santa sleep sem_wait error"); kill_all_threads(); exit(0);}
+        puts("Mikołaj: budzę się");
+        pthread_mutex_lock(&reindeers_status_check_mutex);
+        pthread_mutex_lock(&elves_queue_mutex);
         if(reindeers_counter == 9) {
             printf("Mikołaj: dostarczam zabawki\n");
         } else if(elves_queue_size == 3) {
@@ -97,9 +101,14 @@ void* santa(void * null) {
                 }
             }
             puts("");
-        } else if(elves_queue_size > 3){printf("elves queue size should never exceed 3! rn = %d\n", elves_queue_size);kill_all_threads(); return NULL;}
-        pthread_mutex_unlock(&reindeers_status_check);
+            pthread_mutex_lock(&elves_are_back_mutex);
+            pthread_cond_broadcast(&elves_are_back);
+            pthread_mutex_unlock(&elves_are_back_mutex);
 
+        } else if(elves_queue_size > 3){printf("elves queue size should never exceed 3! rn = %d\n", elves_queue_size);kill_all_threads(); exit(0);}
+        pthread_mutex_unlock(&reindeers_status_check_mutex);
+        pthread_mutex_unlock(&elves_queue_mutex);
+        puts("Mikołaj: zasypiam");
     }
 }
 
@@ -112,7 +121,6 @@ int main() {
         perror("santa sem creation error");
         return 0;
     }
-    pthread_t elves_threads[ELVES_NUMBER];
     int elves_id[ELVES_NUMBER];
     for(int i = 0; i < ELVES_NUMBER; i++) {
         can_elf_work[i] = 1; 
@@ -125,6 +133,11 @@ int main() {
             printf("thread %d creation error",i);
             perror("");
         }
+    }
+    pthread_t santa_thread; 
+    if(pthread_create(&santa_thread, NULL, &santa, NULL)){
+        perror("santa creatiorn error!");
+        return 0;
     }
     sleep(20);
     puts("main work end");

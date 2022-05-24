@@ -1,0 +1,5437 @@
+gcc -g -Wall -Wextra -Wshadow -Wunused -O0 main.c -o main -lpthread
+./main
+elf with id: 0 comes to life
+elf with id: 1 comes to life
+elf with id: 2 comes to life
+elf with id: 3 comes to life
+elf with id: 4 comes to life
+elf with id: 5 comes to life
+elf with id: 6 comes to life
+elf with id: 7 comes to life
+elf with id: 8 comes to life
+elf with id: 9 comes to life
+Santa comes to life
+
+Elf 5: czeka 1 elfów na Mikołaja
+Elf 0: czeka 2 elfów na Mikołaja
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 5 8 
+Elf 8: czeka 3 elfów na Mikołaja
+Elf 5: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 5 8 
+Elf 5: czeka 3 elfów na Mikołaja
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 5 8 
+Elf 5: czeka 3 elfów na Mikołaja
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 5 8 
+Elf 8: czeka 3 elfów na Mikołaja
+Elf 5: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 5 8 
+Elf 5: czeka 3 elfów na Mikołaja
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 5 8 
+Elf 8: czeka 3 elfów na Mikołaja
+Elf 5: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 5 8 
+Elf 5: czeka 3 elfów na Mikołaja
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 5 8 
+Elf 8: czeka 3 elfów na Mikołaja
+Elf 5: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 5 8 
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 8 
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 8 
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 8 
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 8 
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 8 
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 8 
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 8 
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 8 
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 8 
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 8 
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 8 
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 8 
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 8 
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 8 
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 8 
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Elf 0: czeka 3 elfów na Mikołaja
+Elf 5: czeka 3 elfów na Mikołaja
+Elf 8: czeka 3 elfów na Mikołaja
+Mikolaj rozwiazuje problemy elfów: 0 5 8 
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 
+Mikołaj: zasypiam
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikołaj: zasypiam
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 8 
+Elf 0: czeka 3 elfów na Mikołaja
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 8 
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 
+Mikołaj: zasypiam
+Elf 0: czeka 2 elfów na Mikołaja
+Elf 5: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 5 
+Elf 5: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 5 
+Mikołaj: zasypiam
+Elf 5: czeka 2 elfów na Mikołaja
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 5 
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Elf 8: czeka 3 elfów na Mikołaja
+Elf 5: czeka 3 elfów na Mikołaja
+Mikolaj rozwiazuje problemy elfów: 0 5 8 
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikołaj: zasypiam
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 8 
+Elf 5: czeka 3 elfów na Mikołaja
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 5 8 
+Elf 5: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 5 
+Elf 5: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 5 
+Elf 5: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 5 
+Elf 5: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 5 
+Elf 5: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 5 
+Elf 5: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 5 
+Elf 5: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 5 
+Elf 5: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 5 
+Elf 5: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 5 
+Elf 5: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 5 
+Elf 5: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 5 
+Elf 5: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 5 
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 
+Mikołaj: zasypiam
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 8 
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 8 
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 8 
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 8 
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 8 
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 8 
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 8 
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 8 
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 8 
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 8 
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 8 
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 8 
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 8 
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 8 
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 8 
+Mikołaj: zasypiam
+Elf 8: czeka 2 elfów na Mikołaja
+Elf 0: czeka 3 elfów na Mikołaja
+Elf 5: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 5 8 
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 
+Mikołaj: zasypiam
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikołaj: zasypiam
+Elf 5: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 5 8 
+Mikołaj: zasypiam
+Elf 5: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 5 
+Mikołaj: zasypiam
+Elf 5: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 5 
+Mikołaj: zasypiam
+Elf 5: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 5 
+Mikołaj: zasypiam
+Elf 5: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 5 
+Mikołaj: zasypiam
+Elf 5: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 5 
+Mikołaj: zasypiam
+Elf 5: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 5 
+Mikołaj: zasypiam
+Elf 5: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 5 
+Mikołaj: zasypiam
+Elf 5: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 5 
+Mikołaj: zasypiam
+Elf 5: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 5 
+Mikołaj: zasypiam
+Elf 5: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 5 
+Mikołaj: zasypiam
+Elf 5: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 5 
+Mikołaj: zasypiam
+Elf 5: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 5 
+Mikołaj: zasypiam
+Elf 5: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 5 
+Mikołaj: zasypiam
+Elf 5: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 5 
+Mikołaj: zasypiam
+Elf 5: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 5 
+Mikołaj: zasypiam
+Elf 5: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 5 
+Mikołaj: zasypiam
+Elf 5: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 5 
+Mikołaj: zasypiam
+Elf 5: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 5 
+Mikołaj: zasypiam
+Elf 5: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 5 
+Mikołaj: zasypiam
+Elf 5: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 5 
+Mikołaj: zasypiam
+Elf 5: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 5 
+Mikołaj: zasypiam
+Elf 5: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 5 
+Mikołaj: zasypiam
+Elf 5: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 5 
+Mikołaj: zasypiam
+Elf 5: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 5 
+Mikołaj: zasypiam
+Elf 5: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 5 
+Elf 5: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 5 
+Elf 5: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 5 
+Elf 5: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 5 
+Elf 5: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 5 
+Elf 5: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 5 
+Elf 5: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 5 
+Elf 5: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikołaj: zasypiam
+Elf 8: czeka 2 elfów na Mikołaja
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 5 8 
+Mikołaj: zasypiam
+Elf 5: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 5 
+Mikołaj: zasypiam
+Elf 5: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 5 
+Mikołaj: zasypiam
+Elf 5: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 5 
+Mikołaj: zasypiam
+Elf 5: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 5 
+Mikołaj: zasypiam
+Elf 5: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 5 
+Mikołaj: zasypiam
+Elf 5: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 5 
+Mikołaj: zasypiam
+Elf 5: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 5 
+Mikołaj: zasypiam
+Elf 5: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 5 
+Mikołaj: zasypiam
+Elf 5: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 5 
+Mikołaj: zasypiam
+Elf 5: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 5 
+Mikołaj: zasypiam
+Elf 5: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 5 
+Mikołaj: zasypiam
+Elf 5: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 5 
+Mikołaj: zasypiam
+Elf 5: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 5 
+Mikołaj: zasypiam
+Elf 5: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 5 
+Mikołaj: zasypiam
+Elf 5: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 5 
+Mikołaj: zasypiam
+Elf 5: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 5 
+Mikołaj: zasypiam
+Elf 5: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 5 
+Mikołaj: zasypiam
+Elf 5: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 5 
+Mikołaj: zasypiam
+Elf 5: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 5 
+Mikołaj: zasypiam
+Elf 5: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 5 
+Mikołaj: zasypiam
+Elf 5: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 5 
+Mikołaj: zasypiam
+Elf 5: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 5 
+Mikołaj: zasypiam
+Elf 5: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 5 
+Mikołaj: zasypiam
+Elf 5: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 5 
+Mikołaj: zasypiam
+Elf 5: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 5 
+Mikołaj: zasypiam
+Elf 5: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 5 
+Mikołaj: zasypiam
+Elf 5: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 5 
+Mikołaj: zasypiam
+Elf 5: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 5 
+Mikołaj: zasypiam
+Elf 5: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 5 
+Mikołaj: zasypiam
+Elf 5: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 5 
+Mikołaj: zasypiam
+Elf 5: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 5 
+Mikołaj: zasypiam
+Elf 5: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 5 
+Mikołaj: zasypiam
+Elf 5: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 5 
+Mikołaj: zasypiam
+Elf 5: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 5 
+Mikołaj: zasypiam
+Elf 5: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 5 
+Mikołaj: zasypiam
+Elf 5: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 5 
+Mikołaj: zasypiam
+Elf 5: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 5 
+Mikołaj: zasypiam
+Elf 5: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 5 
+Mikołaj: zasypiam
+Elf 5: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 5 
+Mikołaj: zasypiam
+Elf 5: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 5 
+Mikołaj: zasypiam
+Elf 5: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 5 
+Mikołaj: zasypiam
+Elf 5: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 5 
+Mikołaj: zasypiam
+Elf 5: czeka 3 elfów na Mikołaja
+Elf 8: czeka 3 elfów na Mikołaja
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 5 8 
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 
+Mikołaj: zasypiam
+Elf 0: czeka 3 elfów na Mikołaja
+Elf 5: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 5 
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 
+Mikołaj: zasypiam
+Elf 5: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 5 
+Mikołaj: zasypiam
+Elf 5: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 5 
+Mikołaj: zasypiam
+Elf 5: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikołaj: zasypiam
+Elf 8: czeka 3 elfów na Mikołaja
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 5 8 
+Elf 0: czeka 3 elfów na Mikołaja
+Elf 5: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 5 
+Elf 5: czeka 3 elfów na Mikołaja
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 5 
+Elf 0: czeka 3 elfów na Mikołaja
+Elf 5: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 5 
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 
+Mikołaj: zasypiam
+Elf 5: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 5 
+Mikołaj: zasypiam
+Elf 5: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 5 
+Mikołaj: zasypiam
+Elf 5: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 5 
+Mikołaj: zasypiam
+Elf 5: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikołaj: zasypiam
+Elf 0: czeka 3 elfów na Mikołaja
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 5 8 
+Elf 8: czeka 3 elfów na Mikołaja
+Elf 5: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 5 8 
+Elf 5: czeka 3 elfów na Mikołaja
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 5 8 
+Elf 8: czeka 3 elfów na Mikołaja
+Elf 5: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 5 8 
+Elf 8: czeka 3 elfów na Mikołaja
+Elf 5: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 5 8 
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 8 
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 8 
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 8 
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 8 
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 8 
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 8 
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 8 
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 8 
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 8 
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 8 
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 8 
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 8 
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 8 
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 8 
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 8 
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 8 
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 8 
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 8 
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 
+Elf 5: czeka 3 elfów na Mikołaja
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 5 8 
+Elf 8: czeka 3 elfów na Mikołaja
+Elf 5: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 5 8 
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 8 
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 8 
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 8 
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 
+Mikołaj: zasypiam
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 8 
+Mikołaj: zasypiam
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikołaj: zasypiam
+Elf 0: czeka 3 elfów na Mikołaja
+Elf 5: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 5 8 
+Elf 5: czeka 3 elfów na Mikołaja
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 5 8 
+Elf 5: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 5 
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 
+Mikołaj: zasypiam
+Elf 5: czeka 2 elfów na Mikołaja
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 5 
+Elf 5: czeka 3 elfów na Mikołaja
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 5 
+Elf 0: czeka 3 elfów na Mikołaja
+Elf 5: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 5 
+Elf 5: czeka 3 elfów na Mikołaja
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 5 
+Elf 0: czeka 3 elfów na Mikołaja
+Elf 5: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 5 
+Elf 5: czeka 3 elfów na Mikołaja
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 5 
+Elf 0: czeka 3 elfów na Mikołaja
+Elf 5: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 5 
+Elf 5: czeka 3 elfów na Mikołaja
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 5 
+Elf 0: czeka 3 elfów na Mikołaja
+Elf 5: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 5 
+Elf 5: czeka 3 elfów na Mikołaja
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 5 
+Elf 0: czeka 3 elfów na Mikołaja
+Elf 5: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 5 
+Elf 5: czeka 3 elfów na Mikołaja
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 5 
+Elf 0: czeka 3 elfów na Mikołaja
+Elf 5: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 5 
+Elf 5: czeka 3 elfów na Mikołaja
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 5 
+Elf 5: czeka 3 elfów na Mikołaja
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 5 
+Elf 0: czeka 3 elfów na Mikołaja
+Elf 5: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 5 
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 
+Elf 5: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 5 
+Elf 5: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 5 
+Elf 5: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 5 
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 8 
+Elf 5: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 5 
+Elf 5: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikołaj: zasypiam
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 5 8 
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 8 
+Mikołaj: zasypiam
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 8 
+Mikołaj: zasypiam
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 8 
+Mikołaj: zasypiam
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 8 
+Mikołaj: zasypiam
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 8 
+Mikołaj: zasypiam
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikołaj: zasypiam
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 8 
+Elf 8: czeka 3 elfów na Mikołaja
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 8 
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 8 
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 8 
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 
+Mikołaj: zasypiam
+Elf 8: czeka 2 elfów na Mikołaja
+Elf 0: czeka 3 elfów na Mikołaja
+Elf 5: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 5 8 
+Elf 5: czeka 3 elfów na Mikołaja
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 5 8 
+Elf 8: czeka 3 elfów na Mikołaja
+Elf 5: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 5 8 
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 8 
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 8 
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 
+Mikołaj: zasypiam
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 
+Mikołaj: zasypiam
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 
+Mikołaj: zasypiam
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 
+Mikołaj: zasypiam
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 
+Mikołaj: zasypiam
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 
+Mikołaj: zasypiam
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 
+Mikołaj: zasypiam
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikołaj: zasypiam
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 8 
+Elf 0: czeka 3 elfów na Mikołaja
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 8 
+Elf 8: czeka 3 elfów na Mikołaja
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 8 
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 8 
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 8 
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 8 
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 8 
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 8 
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 8 
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 8 
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 8 
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 8 
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 8 
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 8 
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 8 
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 8 
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 8 
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 8 
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 8 
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 8 
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 8 
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 8 
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 8 
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 8 
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 8 
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 8 
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 8 
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Elf 5: czeka 3 elfów na Mikołaja
+Elf 0: czeka 3 elfów na Mikołaja
+Mikolaj rozwiazuje problemy elfów: 0 5 8 
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 
+Mikołaj: zasypiam
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikołaj: zasypiam
+Elf 5: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 5 8 
+Elf 5: czeka 3 elfów na Mikołaja
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 5 8 
+Elf 8: czeka 3 elfów na Mikołaja
+Elf 5: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 5 8 
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 8 
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 8 
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 8 
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 8 
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 8 
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 8 
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 8 
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 
+Mikołaj: zasypiam
+Elf 8: czeka 2 elfów na Mikołaja
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 8 
+Elf 8: czeka 3 elfów na Mikołaja
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 8 
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 
+Mikołaj: zasypiam
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Elf 5: czeka 3 elfów na Mikołaja
+Elf 8: czeka 3 elfów na Mikołaja
+Mikolaj rozwiazuje problemy elfów: 0 5 8 
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 
+Mikołaj: zasypiam
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 8 
+Mikołaj: zasypiam
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 8 
+Mikołaj: zasypiam
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikołaj: zasypiam
+Elf 5: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 5 8 
+Elf 8: czeka 3 elfów na Mikołaja
+Elf 5: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 5 8 
+Elf 5: czeka 3 elfów na Mikołaja
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 5 8 
+Elf 8: czeka 3 elfów na Mikołaja
+Elf 5: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 5 8 
+Elf 5: czeka 3 elfów na Mikołaja
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 5 8 
+Elf 5: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 5 
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 
+Mikołaj: zasypiam
+Elf 8: czeka 3 elfów na Mikołaja
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 8 
+Elf 0: czeka 3 elfów na Mikołaja
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 8 
+Elf 8: czeka 3 elfów na Mikołaja
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 8 
+Elf 0: czeka 3 elfów na Mikołaja
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 8 
+Elf 8: czeka 3 elfów na Mikołaja
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 8 
+Elf 0: czeka 3 elfów na Mikołaja
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 8 
+Elf 8: czeka 3 elfów na Mikołaja
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 8 
+Elf 0: czeka 3 elfów na Mikołaja
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 8 
+Elf 0: czeka 3 elfów na Mikołaja
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 8 
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikołaj: zasypiam
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 8 
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 8 
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 8 
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 8 
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 8 
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 8 
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 8 
+Mikołaj: zasypiam
+Elf 8: czeka 2 elfów na Mikołaja
+Elf 0: czeka 3 elfów na Mikołaja
+Elf 5: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 5 8 
+Elf 5: czeka 3 elfów na Mikołaja
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 5 8 
+Elf 8: czeka 3 elfów na Mikołaja
+Elf 5: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 5 8 
+Elf 5: czeka 3 elfów na Mikołaja
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 5 8 
+Elf 8: czeka 3 elfów na Mikołaja
+Elf 5: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 5 8 
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 8 
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 8 
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 
+Mikołaj: zasypiam
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 8 
+Mikołaj: zasypiam
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 8 
+Mikołaj: zasypiam
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 8 
+Mikołaj: zasypiam
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikołaj: zasypiam
+Elf 0: czeka 3 elfów na Mikołaja
+Elf 5: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 5 8 
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 8 
+Elf 8: czeka 3 elfów na Mikołaja
+Elf 0: czeka 3 elfów na Mikołaja
+Elf 5: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 5 8 
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 
+Mikołaj: zasypiam
+Elf 8: czeka 3 elfów na Mikołaja
+Elf 0: czeka 3 elfów na Mikołaja
+Elf 5: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 5 8 
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 8 
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 8 
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 8 
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 8 
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 8 
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 8 
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 8 
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 8 
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 8 
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 8 
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 8 
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikołaj: zasypiam
+Elf 8: czeka 2 elfów na Mikołaja
+Elf 0: czeka 3 elfów na Mikołaja
+Elf 5: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 5 8 
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 8 
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 
+Mikołaj: zasypiam
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 8 
+Mikołaj: zasypiam
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 8 
+Mikołaj: zasypiam
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 8 
+Mikołaj: zasypiam
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikołaj: zasypiam
+Elf 5: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 5 8 
+Elf 5: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 5 
+Elf 5: czeka 3 elfów na Mikołaja
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 5 
+Elf 5: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 5 
+Elf 5: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 5 
+Elf 5: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 5 
+Elf 5: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 5 
+Elf 5: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 5 
+Elf 5: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 5 
+Elf 5: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 5 
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 
+Mikołaj: zasypiam
+Elf 5: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 5 
+Elf 5: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 5 
+Elf 5: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 5 
+Elf 5: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 5 
+Mikołaj: zasypiam
+Elf 5: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 5 
+Mikołaj: zasypiam
+Elf 5: czeka 2 elfów na Mikołaja
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 5 
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 
+Mikołaj: zasypiam
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 
+Mikołaj: zasypiam
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 
+Mikołaj: zasypiam
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 
+Mikołaj: zasypiam
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 
+Mikołaj: zasypiam
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 
+Mikołaj: zasypiam
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 
+Mikołaj: zasypiam
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 
+Mikołaj: zasypiam
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 
+Mikołaj: zasypiam
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 
+Mikołaj: zasypiam
+Elf 8: czeka 2 elfów na Mikołaja
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 8 
+Mikołaj: zasypiam
+Elf 0: czeka 2 elfów na Mikołaja
+Elf 5: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 5 
+Elf 0: czeka 3 elfów na Mikołaja
+Elf 5: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 5 
+Elf 5: czeka 3 elfów na Mikołaja
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 5 
+Elf 5: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 5 
+Elf 5: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 5 
+Elf 0: czeka 3 elfów na Mikołaja
+Elf 5: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 5 
+Elf 0: czeka 3 elfów na Mikołaja
+Elf 5: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Elf 8: czeka 3 elfów na Mikołaja
+Mikolaj rozwiazuje problemy elfów: 0 5 8 
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 8 
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 
+Elf 5: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 5 
+Elf 5: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 5 
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 
+Mikołaj: zasypiam
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 8 
+Mikołaj: zasypiam
+Elf 5: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 5 
+Mikołaj: zasypiam
+Elf 5: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikołaj: zasypiam
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 5 8 
+Elf 5: czeka 3 elfów na Mikołaja
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 5 8 
+Elf 8: czeka 3 elfów na Mikołaja
+Elf 5: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 5 8 
+Elf 5: czeka 3 elfów na Mikołaja
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 5 8 
+Elf 5: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 5 
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 
+Mikołaj: zasypiam
+Elf 5: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 5 
+Mikołaj: zasypiam
+Elf 5: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikołaj: zasypiam
+Elf 8: czeka 3 elfów na Mikołaja
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 5 8 
+Elf 0: czeka 3 elfów na Mikołaja
+Elf 5: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 5 
+Elf 5: czeka 3 elfów na Mikołaja
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 5 
+Elf 0: czeka 3 elfów na Mikołaja
+Elf 5: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 5 
+Elf 5: czeka 3 elfów na Mikołaja
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 5 
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Elf 0: czeka 3 elfów na Mikołaja
+Elf 5: czeka 3 elfów na Mikołaja
+Mikolaj rozwiazuje problemy elfów: 0 5 
+Elf 5: czeka 3 elfów na Mikołaja
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 5 
+Elf 0: czeka 3 elfów na Mikołaja
+Elf 5: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 5 
+Elf 5: czeka 3 elfów na Mikołaja
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 5 
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 
+Mikołaj: zasypiam
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikołaj: zasypiam
+Elf 5: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 5 
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 
+Mikołaj: zasypiam
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikołaj: zasypiam
+Elf 5: czeka 3 elfów na Mikołaja
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 5 8 
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 
+Mikołaj: zasypiam
+Elf 0: czeka 3 elfów na Mikołaja
+Elf 5: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 5 
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 
+Elf 5: czeka 3 elfów na Mikołaja
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 5 
+Elf 5: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 5 
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 
+Mikołaj: zasypiam
+Elf 5: czeka 2 elfów na Mikołaja
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 5 8 
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 8 
+Mikołaj: zasypiam
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 8 
+Mikołaj: zasypiam
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikołaj: zasypiam
+Elf 0: czeka 3 elfów na Mikołaja
+Elf 5: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 5 8 
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 
+Mikołaj: zasypiam
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 8 
+Mikołaj: zasypiam
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 
+Mikołaj: zasypiam
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 
+Mikołaj: zasypiam
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikołaj: zasypiam
+Elf 5: czeka 3 elfów na Mikołaja
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 5 8 
+Elf 8: czeka 3 elfów na Mikołaja
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 8 
+Elf 0: czeka 3 elfów na Mikołaja
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 8 
+Elf 8: czeka 3 elfów na Mikołaja
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 8 
+Elf 0: czeka 3 elfów na Mikołaja
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 8 
+Elf 8: czeka 3 elfów na Mikołaja
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 8 
+Elf 0: czeka 3 elfów na Mikołaja
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Elf 5: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 5 8 
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 
+Mikołaj: zasypiam
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikołaj: zasypiam
+Elf 5: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 5 
+Elf 5: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 5 
+Elf 5: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 5 
+Mikołaj: zasypiam
+Elf 5: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 5 
+Mikołaj: zasypiam
+Elf 5: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikołaj: zasypiam
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 5 8 
+Elf 5: czeka 3 elfów na Mikołaja
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 5 8 
+Elf 5: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 5 
+Elf 5: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 5 
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 8 
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 8 
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 
+Mikołaj: zasypiam
+Elf 8: czeka 2 elfów na Mikołaja
+Elf 5: czeka 3 elfów na Mikołaja
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 5 8 
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 
+Mikołaj: zasypiam
+Elf 5: czeka 3 elfów na Mikołaja
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 5 8 
+Elf 5: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 5 
+Elf 5: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 5 
+Elf 5: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 5 
+Elf 5: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 5 
+Elf 5: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 5 
+Elf 5: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 5 
+Elf 5: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 5 
+Elf 5: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 5 
+Elf 5: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 5 
+Elf 5: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 5 
+Elf 5: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 5 
+Elf 5: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 5 
+Elf 5: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 5 
+Elf 5: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 5 
+Elf 5: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 5 
+Elf 5: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 5 
+Elf 5: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 5 
+Elf 5: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 5 
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 
+Mikołaj: zasypiam
+Elf 5: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 5 
+Mikołaj: zasypiam
+Elf 5: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 5 
+Mikołaj: zasypiam
+Elf 5: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 5 
+Mikołaj: zasypiam
+Elf 5: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 5 
+Elf 5: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 5 
+Mikołaj: zasypiam
+Elf 5: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikołaj: zasypiam
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 5 
+Elf 5: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 5 
+Elf 5: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 5 
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 
+Mikołaj: zasypiam
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 
+Mikołaj: zasypiam
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 
+Mikołaj: zasypiam
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikołaj: zasypiam
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 8 
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 8 
+Mikołaj: zasypiam
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 8 
+Mikołaj: zasypiam
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 8 
+Mikołaj: zasypiam
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikołaj: zasypiam
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 8 
+Elf 8: czeka 3 elfów na Mikołaja
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 8 
+Elf 0: czeka 3 elfów na Mikołaja
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Elf 5: czeka 3 elfów na Mikołaja
+Mikolaj rozwiazuje problemy elfów: 0 5 8 
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 
+Mikołaj: zasypiam
+Elf 5: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 5 
+Mikołaj: zasypiam
+Elf 5: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikołaj: zasypiam
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 5 8 
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 8 
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 8 
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 8 
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 8 
+Mikołaj: zasypiam
+Elf 8: czeka 2 elfów na Mikołaja
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 8 
+Elf 0: czeka 3 elfów na Mikołaja
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 8 
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 
+Mikołaj: zasypiam
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 
+Mikołaj: zasypiam
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 
+Mikołaj: zasypiam
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 
+Mikołaj: zasypiam
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 
+Mikołaj: zasypiam
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 
+Mikołaj: zasypiam
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 
+Mikołaj: zasypiam
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 
+Mikołaj: zasypiam
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 
+Mikołaj: zasypiam
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 
+Mikołaj: zasypiam
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Elf 5: czeka 3 elfów na Mikołaja
+Elf 8: czeka 3 elfów na Mikołaja
+Mikolaj rozwiazuje problemy elfów: 0 5 8 
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 
+Mikołaj: zasypiam
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 8 
+Mikołaj: zasypiam
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 8 
+Mikołaj: zasypiam
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 8 
+Mikołaj: zasypiam
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikołaj: zasypiam
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 8 
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 
+Mikołaj: zasypiam
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 
+Mikołaj: zasypiam
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 
+Mikołaj: zasypiam
+Elf 0: czeka 2 elfów na Mikołaja
+Elf 5: czeka 3 elfów na Mikołaja
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 5 8 
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 
+Mikołaj: zasypiam
+Elf 0: czeka 2 elfów na Mikołaja
+Elf 5: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 5 
+Elf 0: czeka 3 elfów na Mikołaja
+Elf 5: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 5 
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 
+Mikołaj: zasypiam
+Elf 0: czeka 2 elfów na Mikołaja
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 8 
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 8 
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 8 
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 8 
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 8 
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 8 
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 8 
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 8 
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 8 
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 8 
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 8 
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 8 
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 8 
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 8 
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 8 
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 8 
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 8 
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 8 
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 8 
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 8 
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 8 
+Mikołaj: zasypiam
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 8 
+Mikołaj: zasypiam
+Elf 8: czeka 2 elfów na Mikołaja
+Elf 5: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 5 8 
+Elf 8: czeka 3 elfów na Mikołaja
+Elf 5: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 5 8 
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 8 
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 8 
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 8 
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 8 
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 8 
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 8 
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 8 
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 8 
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 8 
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 
+Mikołaj: zasypiam
+Elf 8: czeka 2 elfów na Mikołaja
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 8 
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 
+Mikołaj: zasypiam
+Elf 0: czeka 2 elfów na Mikołaja
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 8 
+Mikołaj: zasypiam
+Elf 8: czeka 2 elfów na Mikołaja
+Elf 5: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 5 8 
+Elf 8: czeka 3 elfów na Mikołaja
+Elf 5: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 5 8 
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 8 
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 8 
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 8 
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 8 
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 8 
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 8 
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 8 
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 8 
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 8 
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 8 
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 8 
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 
+Mikołaj: zasypiam
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikołaj: zasypiam
+Elf 5: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 5 8 
+Elf 5: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 5 
+Elf 5: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 5 
+Elf 5: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 5 
+Elf 5: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 5 
+Elf 5: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 5 
+Mikołaj: zasypiam
+Elf 5: czeka 2 elfów na Mikołaja
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 5 8 
+Mikołaj: zasypiam
+Elf 8: czeka 2 elfów na Mikołaja
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 8 
+Elf 8: czeka 3 elfów na Mikołaja
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 8 
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 8 
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 8 
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 8 
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 8 
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 8 
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 
+Mikołaj: zasypiam
+Elf 8: czeka 2 elfów na Mikołaja
+Elf 5: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 5 8 
+Elf 5: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 5 
+Elf 5: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 5 
+Elf 5: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 5 
+Elf 5: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 5 
+Elf 5: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 5 
+Elf 5: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 5 
+Elf 5: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 5 
+Elf 5: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 5 
+Elf 5: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 5 
+Elf 5: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 5 
+Mikołaj: zasypiam
+Elf 5: czeka 2 elfów na Mikołaja
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 5 
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 
+Mikołaj: zasypiam
+Elf 0: czeka 2 elfów na Mikołaja
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 8 
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 8 
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 8 
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 8 
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 8 
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 8 
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 8 
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 8 
+Mikołaj: zasypiam
+Elf 8: czeka 2 elfów na Mikołaja
+Elf 5: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 5 8 
+Elf 8: czeka 3 elfów na Mikołaja
+Elf 5: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 5 8 
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 8 
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Elf 5: czeka 3 elfów na Mikołaja
+Elf 0: czeka 3 elfów na Mikołaja
+Mikolaj rozwiazuje problemy elfów: 0 5 8 
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 
+Mikołaj: zasypiam
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Elf 5: czeka 3 elfów na Mikołaja
+Mikolaj rozwiazuje problemy elfów: 0 5 
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikołaj: zasypiam
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 8 
+Elf 0: czeka 3 elfów na Mikołaja
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 8 
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 8 
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 
+Mikołaj: zasypiam
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 
+Mikołaj: zasypiam
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 
+Mikołaj: zasypiam
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 
+Mikołaj: zasypiam
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 
+Mikołaj: zasypiam
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 
+Mikołaj: zasypiam
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 
+Mikołaj: zasypiam
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 
+Mikołaj: zasypiam
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 
+Mikołaj: zasypiam
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 
+Mikołaj: zasypiam
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 
+Mikołaj: zasypiam
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 
+Mikołaj: zasypiam
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 
+Mikołaj: zasypiam
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 
+Mikołaj: zasypiam
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 
+Mikołaj: zasypiam
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 
+Mikołaj: zasypiam
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 
+Mikołaj: zasypiam
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 
+Mikołaj: zasypiam
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 
+Mikołaj: zasypiam
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 
+Mikołaj: zasypiam
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 
+Mikołaj: zasypiam
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 
+Mikołaj: zasypiam
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikołaj: zasypiam
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 8 
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 8 
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 8 
+Mikołaj: zasypiam
+Elf 8: czeka 2 elfów na Mikołaja
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 8 
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 8 
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 8 
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 8 
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 8 
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 8 
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 8 
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 8 
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 8 
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 8 
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 8 
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 8 
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 8 
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 8 
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 8 
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 8 
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 8 
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 8 
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 8 
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 8 
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 8 
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 8 
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 8 
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 8 
+Mikołaj: zasypiam
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikołaj: zasypiam
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 8 
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 
+Mikołaj: zasypiam
+Elf 0: czeka 2 elfów na Mikołaja
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Elf 5: czeka 3 elfów na Mikołaja
+Mikolaj rozwiazuje problemy elfów: 0 5 8 
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 
+Mikołaj: zasypiam
+Elf 5: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 5 
+Mikołaj: zasypiam
+Elf 5: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 5 
+Elf 5: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 5 
+Elf 5: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 5 
+Elf 5: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 5 
+Elf 5: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 5 
+Elf 5: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 5 
+Elf 5: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 5 
+Elf 5: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 5 
+Elf 5: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikołaj: zasypiam
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 5 
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 
+Mikołaj: zasypiam
+Elf 0: czeka 2 elfów na Mikołaja
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 8 
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 8 
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 8 
+Mikołaj: zasypiam
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 8 
+Mikołaj: zasypiam
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 8 
+Mikołaj: zasypiam
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 8 
+Mikołaj: zasypiam
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 8 
+Mikołaj: zasypiam
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 8 
+Mikołaj: zasypiam
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 8 
+Mikołaj: zasypiam
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 8 
+Mikołaj: zasypiam
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 8 
+Mikołaj: zasypiam
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 8 
+Mikołaj: zasypiam
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikołaj: zasypiam
+Elf 5: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 5 8 
+Elf 5: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 5 
+Elf 5: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 5 
+Mikołaj: zasypiam
+Elf 5: czeka 2 elfów na Mikołaja
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 5 8 
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 8 
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 8 
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 8 
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 8 
+Mikołaj: zasypiam
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikołaj: zasypiam
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 8 
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 
+Mikołaj: zasypiam
+Elf 0: czeka 2 elfów na Mikołaja
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 8 
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 8 
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 8 
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 8 
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 8 
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 8 
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 8 
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 8 
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 8 
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 8 
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 8 
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 8 
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 8 
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 8 
+Mikołaj: zasypiam
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikołaj: zasypiam
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 8 
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 
+Mikołaj: zasypiam
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 
+Mikołaj: zasypiam
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikołaj: zasypiam
+Elf 5: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 5 
+Elf 5: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 5 
+Elf 5: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 5 
+Mikołaj: zasypiam
+Elf 5: czeka 2 elfów na Mikołaja
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 5 
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 
+Mikołaj: zasypiam
+Elf 0: czeka 2 elfów na Mikołaja
+Elf 5: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 5 
+Elf 5: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Elf 8: czeka 3 elfów na Mikołaja
+Elf 0: czeka 3 elfów na Mikołaja
+Mikolaj rozwiazuje problemy elfów: 0 5 8 
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 
+Mikołaj: zasypiam
+Elf 5: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 5 
+Mikołaj: zasypiam
+Elf 5: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 5 
+Mikołaj: zasypiam
+Elf 5: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 5 
+Mikołaj: zasypiam
+Elf 5: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 5 
+Mikołaj: zasypiam
+Elf 5: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 5 
+Mikołaj: zasypiam
+Elf 5: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 5 
+Mikołaj: zasypiam
+Elf 5: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 5 
+Elf 5: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 5 
+Elf 5: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 5 
+Elf 5: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 5 
+Elf 5: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 5 
+Mikołaj: zasypiam
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 
+Mikołaj: zasypiam
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 
+Mikołaj: zasypiam
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 
+Mikołaj: zasypiam
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 
+Mikołaj: zasypiam
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 
+Mikołaj: zasypiam
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 
+Mikołaj: zasypiam
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 
+Mikołaj: zasypiam
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikołaj: zasypiam
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 8 
+Mikołaj: zasypiam
+Elf 0: czeka 3 elfów na Mikołaja
+Elf 5: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 5 
+Elf 5: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 5 
+Elf 5: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 5 
+Elf 5: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 5 
+Elf 5: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 5 
+Elf 5: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 5 
+Elf 5: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 5 
+Elf 5: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 5 
+Elf 5: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 5 
+Elf 5: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 5 
+Elf 5: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 5 
+Elf 5: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 5 
+Elf 5: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 5 
+Elf 5: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 5 
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 
+Mikołaj: zasypiam
+Elf 5: czeka 2 elfów na Mikołaja
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 5 8 
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 8 
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 8 
+Mikołaj: zasypiam
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 8 
+Mikołaj: zasypiam
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 8 
+Mikołaj: zasypiam
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 8 
+Mikołaj: zasypiam
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 8 
+Mikołaj: zasypiam
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 8 
+Mikołaj: zasypiam
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 8 
+Mikołaj: zasypiam
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 8 
+Mikołaj: zasypiam
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 8 
+Mikołaj: zasypiam
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 8 
+Mikołaj: zasypiam
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 8 
+Mikołaj: zasypiam
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 8 
+Mikołaj: zasypiam
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 8 
+Mikołaj: zasypiam
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 8 
+Mikołaj: zasypiam
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 8 
+Mikołaj: zasypiam
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 8 
+Mikołaj: zasypiam
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 8 
+Mikołaj: zasypiam
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 8 
+Mikołaj: zasypiam
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 8 
+Mikołaj: zasypiam
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 8 
+Mikołaj: zasypiam
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 8 
+Mikołaj: zasypiam
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 8 
+Mikołaj: zasypiam
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 8 
+Mikołaj: zasypiam
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 8 
+Mikołaj: zasypiam
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 8 
+Mikołaj: zasypiam
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 8 
+Mikołaj: zasypiam
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 8 
+Mikołaj: zasypiam
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 8 
+Mikołaj: zasypiam
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 8 
+Mikołaj: zasypiam
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 8 
+Mikołaj: zasypiam
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 8 
+Mikołaj: zasypiam
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 8 
+Mikołaj: zasypiam
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 8 
+Mikołaj: zasypiam
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 8 
+Mikołaj: zasypiam
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 8 
+Mikołaj: zasypiam
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 8 
+Mikołaj: zasypiam
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 8 
+Mikołaj: zasypiam
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 8 
+Mikołaj: zasypiam
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 8 
+Mikołaj: zasypiam
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 8 
+Mikołaj: zasypiam
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 8 
+Mikołaj: zasypiam
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 8 
+Mikołaj: zasypiam
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 8 
+Mikołaj: zasypiam
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 8 
+Mikołaj: zasypiam
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 8 
+Mikołaj: zasypiam
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 8 
+Mikołaj: zasypiam
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 8 
+Mikołaj: zasypiam
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 8 
+Mikołaj: zasypiam
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 8 
+Mikołaj: zasypiam
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 8 
+Mikołaj: zasypiam
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 8 
+Mikołaj: zasypiam
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 8 
+Mikołaj: zasypiam
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 8 
+Mikołaj: zasypiam
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 8 
+Mikołaj: zasypiam
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 8 
+Mikołaj: zasypiam
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 8 
+Mikołaj: zasypiam
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 8 
+Mikołaj: zasypiam
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 8 
+Mikołaj: zasypiam
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 8 
+Mikołaj: zasypiam
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 8 
+Mikołaj: zasypiam
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 8 
+Mikołaj: zasypiam
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 8 
+Mikołaj: zasypiam
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 8 
+Mikołaj: zasypiam
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 8 
+Mikołaj: zasypiam
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 8 
+Mikołaj: zasypiam
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 8 
+Mikołaj: zasypiam
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 8 
+Mikołaj: zasypiam
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 8 
+Mikołaj: zasypiam
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 8 
+Mikołaj: zasypiam
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 8 
+Mikołaj: zasypiam
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 8 
+Mikołaj: zasypiam
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 8 
+Mikołaj: zasypiam
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikołaj: zasypiam
+Elf 5: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 5 8 
+Elf 5: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 5 
+Elf 5: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 5 
+Elf 5: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 5 
+Elf 5: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 5 
+Elf 5: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 5 
+Elf 5: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 5 
+Elf 5: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 5 
+Elf 5: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 5 
+Elf 5: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 5 
+Elf 5: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 5 
+Elf 5: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 5 
+Mikołaj: zasypiam
+Elf 5: czeka 2 elfów na Mikołaja
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 5 
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 
+Mikołaj: zasypiam
+Elf 0: czeka 3 elfów na Mikołaja
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 8 
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Elf 5: czeka 3 elfów na Mikołaja
+Elf 8: czeka 3 elfów na Mikołaja
+Mikolaj rozwiazuje problemy elfów: 0 5 8 
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 
+Mikołaj: zasypiam
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 8 
+Mikołaj: zasypiam
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 8 
+Mikołaj: zasypiam
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 8 
+Mikołaj: zasypiam
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 8 
+Mikołaj: zasypiam
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikołaj: zasypiam
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 8 
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 
+Mikołaj: zasypiam
+Elf 0: czeka 2 elfów na Mikołaja
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 8 
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 8 
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 8 
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 8 
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 8 
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 8 
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 8 
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 8 
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 8 
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 8 
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 8 
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 8 
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 8 
+Mikołaj: zasypiam
+Elf 8: czeka 2 elfów na Mikołaja
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 8 
+Elf 8: czeka 3 elfów na Mikołaja
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 8 
+Elf 0: czeka 3 elfów na Mikołaja
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 8 
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Elf 8: czeka 3 elfów na Mikołaja
+Elf 5: czeka 3 elfów na Mikołaja
+Mikolaj rozwiazuje problemy elfów: 0 5 8 
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 
+Mikołaj: zasypiam
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 
+Mikołaj: zasypiam
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 
+Mikołaj: zasypiam
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 
+Mikołaj: zasypiam
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 
+Mikołaj: zasypiam
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 
+Mikołaj: zasypiam
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 
+Mikołaj: zasypiam
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 
+Mikołaj: zasypiam
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 
+Mikołaj: zasypiam
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 
+Mikołaj: zasypiam
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 
+Mikołaj: zasypiam
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 
+Mikołaj: zasypiam
+Elf 0: czeka 3 elfów na Mikołaja
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 8 
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 
+Mikołaj: zasypiam
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikołaj: zasypiam
+Elf 5: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 5 
+Elf 5: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 5 
+Mikołaj: zasypiam
+Elf 5: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikołaj: zasypiam
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 5 
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 
+Mikołaj: zasypiam
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikołaj: zasypiam
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 8 
+Mikołaj: zasypiam
+Elf 8: czeka 2 elfów na Mikołaja
+Elf 5: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 5 8 
+Elf 8: czeka 3 elfów na Mikołaja
+Elf 5: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 5 8 
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 8 
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 8 
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 8 
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 8 
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 8 
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 8 
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 8 
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 8 
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 8 
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 8 
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 8 
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 8 
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 8 
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 8 
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikołaj: zasypiam
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 8 
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 
+Mikołaj: zasypiam
+Elf 0: czeka 2 elfów na Mikołaja
+Elf 5: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 5 
+Elf 5: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 5 
+Elf 5: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 5 
+Elf 5: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 5 
+Elf 5: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 5 
+Elf 5: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 5 
+Elf 5: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 5 
+Elf 5: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 5 
+Elf 5: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 5 
+Elf 5: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 5 
+Elf 5: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 5 
+Elf 5: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 5 
+Elf 5: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 5 
+Elf 5: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 5 
+Elf 5: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 5 
+Elf 5: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 5 
+Elf 5: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 5 
+Elf 5: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 5 
+Elf 5: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 5 
+Elf 5: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 5 
+Elf 5: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 5 
+Elf 5: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 5 
+Elf 5: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 5 
+Elf 5: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 5 
+Elf 5: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 5 
+Elf 5: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 5 
+Elf 5: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 5 
+Elf 5: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 5 
+Elf 5: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 5 
+Elf 5: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 5 
+Elf 5: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 5 
+Elf 5: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 5 
+Elf 5: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 5 
+Elf 5: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 5 
+Elf 5: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 5 
+Elf 5: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 5 
+Elf 5: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 5 
+Mikołaj: zasypiam
+Elf 5: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikołaj: zasypiam
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 5 8 
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 8 
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 8 
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 8 
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 8 
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 8 
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 8 
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 8 
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 8 
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 8 
+Mikołaj: zasypiam
+Elf 8: czeka 2 elfów na Mikołaja
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Elf 3: czeka 4 elfów na Mikołaja
+Elf 5: czeka na powrót elfów
+Mikolaj rozwiazuje problemy elfów: 0 3 8 
+Mikołaj: zasypiam
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 
+Mikołaj: zasypiam
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 
+Mikołaj: zasypiam
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 
+Mikołaj: zasypiam
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 
+Mikołaj: zasypiam
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 
+Mikołaj: zasypiam
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 
+Mikołaj: zasypiam
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 
+Mikołaj: zasypiam
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 
+Mikołaj: zasypiam
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 
+Mikołaj: zasypiam
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 
+Mikołaj: zasypiam
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 
+Mikołaj: zasypiam
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 
+Mikołaj: zasypiam
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 
+Mikołaj: zasypiam
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 
+Mikołaj: zasypiam
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 
+Mikołaj: zasypiam
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Elf 3: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 3 
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 0 
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Elf 8: czeka 3 elfów na Mikołaja
+Elf 5: czeka 4 elfów na Mikołaja
+Elf 3: czeka na powrót elfów
+Mikolaj rozwiazuje problemy elfów: 0 5 8 
+Mikołaj: zasypiam
+Mikołaj: budzę się
+Mikolaj rozwiazuje problemy elfów: 
+Mikołaj: zasypiam
+Elf 0: czeka 3 elfów na Mikołaja
+Elf 3: czeka 4 elfów na Mikołaja
+Mikołaj: budzę się
+elves queue size should never exceed 3! rn = 4
+TO BE IMPLEMENTED
