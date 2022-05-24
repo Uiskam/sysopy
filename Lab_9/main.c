@@ -20,14 +20,12 @@ sem_t elves_sem;
 void* elf(void * ID) {
     int id = *((int *)ID);
     printf("elfe with id: %d comes to life\n",id);
+    int sem_val;
     while (1) {
         go_to_sleep(2,3);
+        
+        if(sem_wait(&elves_sem) != 0) {printf("elf %d sem_wait error", id);perror("");}
         printf("Elf %d: czeka %d elfów na Mikołaja\n",id, ++elves_queue_size);
-        if(sem_wait(&elves_sem) != 0) {
-            printf("elf %d sem_wait error", id);
-            perror("");
-        }
-        if()
     }
     
 }
