@@ -1,0 +1,190 @@
+gcc -g -Wall -Wextra -Wshadow -Wunused -O0 main.c -o main -lpthread
+./main
+elf with id: 0 comes to life
+elf with id: 1 comes to life
+elf with id: 3 comes to life
+elf with id: 4 comes to life
+elf with id: 5 comes to life
+elf with id: 6 comes to life
+elf with id: 7 comes to life
+elf with id: 8 comes to life
+elf with id: 2 comes to life
+elf with id: 9 comes to life
+reinder 0 comes to life
+reinder 1 comes to life
+reinder 2 comes to life
+reinder 3 comes to life
+reinder 4 comes to life
+reinder 5 comes to life
+reinder 6 comes to life
+reinder 7 comes to life
+reinder 8 comes to life
+Santa comes to life
+
+Elf 1: czeka 1 elfów na Mikołaja
+Elf 6: czeka 2 elfów na Mikołaja
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikołaj: rozwiązuje problemy elfów: 0 1 6 
+Elf 4: czeka na powrót elfów
+Elf 9: czeka na powrót elfów
+Elf 3: czeka na powrót elfów
+Elf 5: czeka na powrót elfów
+Elf 2: czeka na powrót elfów
+Elf 0: Mikołaj rozwiązuje problem
+Elf 1: Mikołaj rozwiązuje problem
+Elf 6: Mikołaj rozwiązuje problem
+Mikołaj: zasypiam
+Elf 4: czeka 1 elfów na Mikołaja
+Elf 9: czeka 2 elfów na Mikołaja
+Elf 3: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikołaj: rozwiązuje problemy elfów: 3 4 9 
+Elf 8: czeka na powrót elfów
+Elf 7: czeka na powrót elfów
+Elf 3: Mikołaj rozwiązuje problem
+Elf 9: Mikołaj rozwiązuje problem
+Elf 4: Mikołaj rozwiązuje problem
+Elf 5: czeka 1 elfów na Mikołaja
+Renifer 6: czeka 1 reniferów na Mikołaja
+Elf 2: czeka 2 elfów na Mikołaja
+Mikołaj: zasypiam
+Renifer 0: czeka 2 reniferów na Mikołaja
+Renifer 7: czeka 3 reniferów na Mikołaja
+Renifer 1: czeka 4 reniferów na Mikołaja
+Elf 8: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikołaj: rozwiązuje problemy elfów: 2 5 8 
+Elf 6: czeka na powrót elfów
+Elf 5: Mikołaj rozwiązuje problem
+Renifer 5: czeka 5 reniferów na Mikołaja
+Elf 7: czeka 1 elfów na Mikołaja
+Mikołaj: zasypiam
+Elf 2: Mikołaj rozwiązuje problem
+Renifer 3: czeka 6 reniferów na Mikołaja
+Elf 8: Mikołaj rozwiązuje problem
+Elf 6: czeka 2 elfów na Mikołaja
+Renifer 2: czeka 7 reniferów na Mikołaja
+Elf 9: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikołaj: rozwiązuje problemy elfów: 6 7 9 
+Elf 0: czeka na powrót elfów
+Elf 3: czeka na powrót elfów
+Elf 1: czeka na powrót elfów
+Elf 5: czeka na powrót elfów
+Elf 7: Mikołaj rozwiązuje problem
+Elf 9: Mikołaj rozwiązuje problem
+Elf 6: Mikołaj rozwiązuje problem
+Mikołaj: zasypiam
+Renifer 8: czeka 8 reniferów na Mikołaja
+Renifer 4: czeka 9 reniferów na Mikołaja
+Renifer 4: wybudzam Mikołaja
+Elf 0: czeka 1 elfów na Mikołaja
+Mikołaj: budzę się
+Mikołaj: dostarczam zabawki
+Elf 8: czeka na powrót elfów
+Elf 2: czeka na powrót elfów
+Elf 4: czeka na powrót elfów
+Elf 6: czeka na powrót elfów
+Elf 7: czeka na powrót elfów
+Mikołaj: zasypiam
+Elf 1: czeka 2 elfów na Mikołaja
+Elf 3: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikołaj: rozwiązuje problemy elfów: 0 1 3 
+Elf 9: czeka na powrót elfów
+Elf 0: Mikołaj rozwiązuje problem
+Elf 5: czeka 1 elfów na Mikołaja
+Elf 1: Mikołaj rozwiązuje problem
+Elf 8: czeka 2 elfów na Mikołaja
+Mikołaj: zasypiam
+Elf 3: Mikołaj rozwiązuje problem
+Elf 2: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikołaj: rozwiązuje problemy elfów: 2 5 8 
+Elf 5: Mikołaj rozwiązuje problem
+Elf 8: Mikołaj rozwiązuje problem
+Mikołaj: zasypiam
+Elf 4: czeka 1 elfów na Mikołaja
+Elf 6: czeka 2 elfów na Mikołaja
+Elf 2: Mikołaj rozwiązuje problem
+Elf 7: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikołaj: rozwiązuje problemy elfów: 4 6 7 
+Elf 0: czeka na powrót elfów
+Elf 4: Mikołaj rozwiązuje problem
+Elf 9: czeka 1 elfów na Mikołaja
+Elf 7: Mikołaj rozwiązuje problem
+Elf 0: czeka 2 elfów na Mikołaja
+Elf 6: Mikołaj rozwiązuje problem
+Mikołaj: zasypiam
+Renifer 6: czeka 1 reniferów na Mikołaja
+Renifer 2: czeka 2 reniferów na Mikołaja
+Elf 1: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikołaj: rozwiązuje problemy elfów: 0 1 9 
+Elf 3: czeka na powrót elfów
+Elf 5: czeka na powrót elfów
+Elf 2: czeka na powrót elfów
+Elf 8: czeka na powrót elfów
+Elf 4: czeka na powrót elfów
+Elf 9: Mikołaj rozwiązuje problem
+Mikołaj: zasypiam
+Renifer 3: czeka 3 reniferów na Mikołaja
+Elf 3: czeka 1 elfów na Mikołaja
+Renifer 4: czeka 4 reniferów na Mikołaja
+Elf 1: Mikołaj rozwiązuje problem
+Renifer 1: czeka 5 reniferów na Mikołaja
+Elf 0: Mikołaj rozwiązuje problem
+Elf 2: czeka 2 elfów na Mikołaja
+Elf 5: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikołaj: rozwiązuje problemy elfów: 2 3 5 
+Elf 7: czeka na powrót elfów
+Elf 6: czeka na powrót elfów
+Elf 5: Mikołaj rozwiązuje problem
+Renifer 5: czeka 6 reniferów na Mikołaja
+Elf 2: Mikołaj rozwiązuje problem
+Renifer 8: czeka 7 reniferów na Mikołaja
+Elf 3: Mikołaj rozwiązuje problem
+Renifer 7: czeka 8 reniferów na Mikołaja
+Elf 8: czeka 1 elfów na Mikołaja
+Elf 7: czeka 2 elfów na Mikołaja
+Mikołaj: zasypiam
+Elf 4: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikołaj: rozwiązuje problemy elfów: 4 7 8 
+Elf 1: czeka na powrót elfów
+Elf 8: Mikołaj rozwiązuje problem
+Elf 4: Mikołaj rozwiązuje problem
+Elf 7: Mikołaj rozwiązuje problem
+Elf 6: czeka 1 elfów na Mikołaja
+Renifer 0: czeka 9 reniferów na Mikołaja
+Renifer 0: wybudzam Mikołaja
+Mikołaj: zasypiam
+Elf 1: czeka 2 elfów na Mikołaja
+Elf 0: czeka 3 elfów na Mikołaja
+Mikołaj: budzę się
+Mikołaj: dostarczam zabawki
+Elf 3: czeka na powrót elfów
+Elf 9: czeka na powrót elfów
+Elf 4: czeka na powrót elfów
+Elf 5: czeka na powrót elfów
+Elf 2: czeka na powrót elfów
+Elf 8: czeka na powrót elfów
+Elf 7: czeka na powrót elfów
+Mikołaj: zasypiam
+Renifer 6: czeka 1 reniferów na Mikołaja
+Renifer 7: czeka 2 reniferów na Mikołaja
+Renifer 5: czeka 3 reniferów na Mikołaja
+Renifer 4: czeka 4 reniferów na Mikołaja
+Renifer 8: czeka 5 reniferów na Mikołaja
+Renifer 2: czeka 6 reniferów na Mikołaja
+Renifer 0: czeka 7 reniferów na Mikołaja
+Renifer 3: czeka 8 reniferów na Mikołaja
+Renifer 1: czeka 9 reniferów na Mikołaja
+Renifer 1: wybudzam Mikołaja
+Mikołaj: budzę się
+Mikołaj: dostarczam zabawki
+SANTA IS ON KILLING SPREE!
+main work end
