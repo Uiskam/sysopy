@@ -58,25 +58,25 @@ void* elf(void * ID) {
             get_into_queue(id);
         } else if(sem_ret == -1 && errno == EAGAIN) {
             printf("Elf %d: czeka na powrót elfów\n", id);
-            
             if(sem_wait((&elves_sem)) != 0){printf("Elf %d sem error",id); perror(""); exit(0);}
             get_into_queue(id);
 
         } else {
-            printf("Elf %d queueing error",id);
+            printf("ELF %d QUEUEING ERROR!!!",id);
             perror("");
             exit(0);
+            return NULL;
         }
         pthread_mutex_lock(&elves_are_back_mutex);
         while (can_elf_work[id] == 0){
             pthread_cond_wait(&elves_are_back, &elves_are_back_mutex);
         }
         pthread_mutex_unlock(&elves_are_back_mutex);
-        if(sem_post(&elves_sem) != 0){printf("elf %d destoryed sem", id);perror("");exit(0);}
-        //printf("Elf %d: wracam do pracy!\n",id);
         pthread_mutex_lock(&elves_queue_mutex);
         elves_queue_size--;
         pthread_mutex_unlock(&elves_queue_mutex);
+        if(sem_post(&elves_sem) != 0){printf("elf %d destoryed sem", id);perror("");exit(0);}
+
     }
 }
 
@@ -93,6 +93,7 @@ void* santa(void * null) {
         if(reindeers_counter == 9) {
             printf("Mikołaj: dostarczam zabawki\n");
         } else if(elves_queue_size == 3) {
+            go_to_sleep(1,1);
             printf("Mikolaj rozwiazuje problemy elfów: ");
             for(int i = 0; i < ELVES_NUMBER; i++) {
                 if(can_elf_work[i] == 0) {
