@@ -1,0 +1,6 @@
+Wariant 1 wykonuje się dłużej od waranitu 2 ze wzlgedu na to, że kazdy wątek musi przejśc po całej tablicy co w zasadzie jest
+wolniejsze niż program jednowątkowy (wraz z zwiększeniem liczby wątków program zwalnia ze względu na narzut spowodowany
+tworzeniem i czekaniem na zakończenie wątków). 
+
+Uzywając waraiantu 2 można zauważyc poprawę czasu wykonania w stosunku do wariantu 1. W wariacie 2 obliczenia się prowadzone
+równolegle co powoduje odwrotną proporcję czasu wykonania do liczby wątków. 
