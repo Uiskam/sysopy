@@ -1,0 +1,19 @@
+po stronie servera:
+    - swtorzenie struct sockaddr_in dla gniazd
+    - socket, stworzenie gniazda
+    - memset po sockaddr_in, ustawienie qwszystkiego w strukturze na 0
+    - konfiguracja sockaddr_in serverowego
+        sin_family, sin_port (htons (konwersja adresu z sieciowego na lokalny)), sin_addr.s_addr - inet_addr or inet_aton("127.0.0.1")// htonl(INADDR_ANY)
+        htonl, htons - konwersja z lokalnego na sieciowy porzadek bajtów
+    - bind
+    - listen
+    - accpet
+    - operacje read/write 
+    - close
+
+po stronie klienta:
+    - socket
+    - memset (po sockaddr servera)
+    - konfiguracja sockaddr server tak samo jako po stronie servera
+    - connect
+    - write, read
