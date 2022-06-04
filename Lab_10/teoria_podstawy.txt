@@ -1,0 +1,79 @@
+Gniazda (sockety) - mechanizm komunikacji proceów lokalny i zdlanych
+
+
+Dziedzina gniazda - okreśa protokół wykorzystywane przez gniazdo i przestrzeń nazw w której zostanie umieszczony:
+    Podstawowe:
+    - AF_UNIX/AF_LOCAL, komunikacje lokalna (wewnątrz maszyny)
+    - AF_INET, komunikacja internetowa za pomocą PIv4
+    - AF_INET6, komunikacja internetowa za pomocą IPv6
+    Inne:
+    - AF_PACKET, obsługa "surowych: ramer wewnątrz warstwy łącza danych
+    - AF_NETLINK, komunikacja z interfejsami jądra
+    - AP_IPX, AF_X25 i wiele innych
+
+
+Tryby komunikacji, sposób komunikacji między procesami:
+    - SOCK_STREAM, niezawodna dwukierunkowa komunikacja podobna do rozmowy przez telefon
+        - niezawdone, protokół dostarcza wszystkie dane i w razie czego wykrywa stracone pakiety i umożliwa ich obsługę
+        - uporządkowana, dane są dostarczne w kolejności wysłania
+        - srumieniowa, dane są wysyłane jako strumienie bajtów (niezaleznych od przesłanego obiektu), konieczna jest interpretacja sygnału
+                    np poprzez odpowiednie wskaźniki
+        - oparta o połączenia, przekazywanie danych wymafa zestawnienia połączenia, które zostanie użyte do komunikacji, protokół komunikacji dostarcza narzędzia
+                               do nawiązania połączenia i utrzymania go
+
+    - SOCK_DGRAM, zawodna bezpołączeniowa komunikacja datagramowa, jak przesyłanie listów
+        - zawodna, dane mogą zsotac utracone, a protokół nie pounformuje o tym adresata i nie wykrwya utraty danych
+        - nieuporządkowana, dane mogą dotrzec w innej kolejności lub moga zostac dostarczone więcej niż raz
+        - bezpołączeniowa, nie ma połaczenia miedzy procesami, po prostu jest dane są wysłane na wskazany adres
+        - datgramowa, dane są przekazywane jako komunikaty z podziałem na wiadomości, brak łączenia ich w strumień
+    - SOCK_SEQPACKET, SOCK_STREAM + SOCK_DGRAM
+    - SOCK_RAW, samodzielna definicja ramek
+    i wiele innych
+
+
+Protkoł, określa sposób komunikacji:
+    - TCP dla SOCK_STREAM
+    - UDP dla SOCK_DGRAM
+
+
+Adresy gniazd, struktury przechowujące informacje o adresie gniazda:
+    Podstowa struktura to:
+        struct sockaddr {
+            sa_family_t     sa_family;
+            char            sa_data[14];
+        };
+    Jednak w praktyce każda dziedzina ma sowją strukturę, która później jest rzutowana na sockaddr lub na odwrót.
+
+    AF_INET, wykorzystuje sockaddr_in (definicja w netinet/in.h):
+        struct sockaddr_in {
+            sa_family_t     sa_family; // addres family: AF_INET
+            in_port_t       sin_port; //port, liczba od 0 do 65535 (1-1024 to porty dla su), sin_port = 0 to system wybierze dla nas port
+            struct in_addr  sin_addr; //adres internetowy
+        };
+
+        struct in_addr {
+            uint32_t    s_addr; INADDR_ANY połączenie z dolownym adresem, INADDR_LOOPBACK tylko połączenia lokalne
+        }
+    Na 1 port może przypadać tylko 1 gniazdo.
+
+    AF_INET6, sock_addr_in6 (netinet/in.h):
+        struct sockaddr_in6 {
+            sa_family_t     sin6_family;   
+            in_port_t       sin6_port;     //port, liczba od 0 do 65535 (1-1024 to porty dla su), sin_port = 0 to system wybierze dla nas port
+            uint32_t        sin6_flowinfo; 
+            struct in6_addr sin6_addr;     //in6addr_any połączenie z dolownym adresem, in6addr_loopback tylko połączenia lokalne
+            uint32_t        sin6_scope_id; 
+        };
+
+        struct in6_addr {
+            unsigned char   s6_addr[16];   /* IPv6 address */
+        };
+
+    AF_UNIX, sockaddr_un (sys/un.h)
+    #define UNIX_PATH_MAX    108
+
+    struct sockaddr_un {
+        sa_family_t sun_family;               /* AF_UNIX */
+        char        sun_path[UNIX_PATH_MAX];  //ścieżka do pliku gniazda, jeżeli plik isnitął wcześniej to wywali błąd (nawet po wcześniejszym wykonaniu)
+                                                dlatego pliki gniazda zawsze nalezy usuwac po wykonaniu programu (int unlink(const char* path) z unistd.h)
+    };

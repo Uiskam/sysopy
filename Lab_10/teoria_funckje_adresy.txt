@@ -1,0 +1,45 @@
+includy:
+    sys/socket.h
+    netinet/in.h
+    arpa/inet.h
+
+int inet_aton(const char* cp, struct i_addr *inp) - zamienia adres IPv4 z tekstu na bity i zapisuje wynik w inp
+    cp - wskaźnik na IP jako tekst
+    inp - wskaźnik na pamięc przechowujący structa z adresem
+    RETURN: 0  - error, not0 - succes
+
+chat *inet_ntoa(struct in_addt in) - na podstawie in tworzy IPv$ w formie tekstu i zwraca wskaźnik na wynik,
+                                        in jest wykorzystywany w koljenych wywołaniach więc żeby zachowac jego wartośc trzeb go SKOPIOWAć
+    RETURN: NULL - error
+
+int inet_pton(int af, const char *src, void *dst) - przkształca stringa z adresem na strukturę
+    af - rodzina adrsów AF_INET lub AF_INET6
+    src - wskaźnik na adres do przetowrzenia
+    dst - wskaźnik na zaalkowany obszar pamięci (struct in_addr dla AF_INET lub struct in6_addr dla AF_INET6)
+    RETURN: 0/-1 error, 1 sukces
+
+const char *inet_ntop(int af, const void *src, char *dst, socklen_t size) - zamenia adres ze struktury na tekst
+    af — rodzina adresów; AF_INET dla IPv4, AF_INET6 dla IPv6
+    src — wskaźnik na właściwą dla rodzinwy adresów strukturę przechowującą adres
+    dst — wskaźnik na zaalokowany dla bufora znakowego obszar pamięci w którym powinna zostać umieszczona tekstowa reprezentacja adresu
+    size – ilość bajtów dostępnych w buforze docelowym (minimum INET_ADDRSTRLEN dla AF_INET i INET6_ADDRSTRLEN dla AF_INET6)
+    RETURN: NULL - error
+
+includy:
+    netdb.h
+
+const char *inet_ntop(int af, const void *src, char *dst, socklen_t size) - konwersja adresu ze struktury na tekst
+    af — rodzina adresów; AF_INET dla IPv4, AF_INET6 dla IPv6 — inne wartości nie są obsługiwane
+    src — wskaźnik na właściwą dla rodzinwy adresów strukturę przechowującą adres
+    dst — wskaźnik na zaalokowany dla bufora znakowego obszar pamięci w którym powinna zostać umieszczona tekstowa reprezentacja adresu
+    size – ilość bajtów dostępnych w buforze docelowym (minimum INET_ADDRSTRLEN dla AF_INET i INET6_ADDRSTRLEN dla AF_INET6
+    RETURN : NULL - error
+
+includy:
+    unistd.h
+    #define _BSD_SOURCE
+
+int gethostname(char *name, size_t len) - pobiera nazwe lokalnego komputera
+    name - wskaźnik gdzie ma być umieszoncza nazwa, (wielkośc HOST_NAME_MAX z limist.h)
+    len - wielkośc name (trzeba wliczyć miejsce na \0 (HOST_NAME_MAX +1 ?))
+    RETURN: 0 - sukces, -1 error
