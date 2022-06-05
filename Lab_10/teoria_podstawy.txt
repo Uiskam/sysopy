@@ -47,7 +47,7 @@ Adresy gniazd, struktury przechowujące informacje o adresie gniazda:
     AF_INET, wykorzystuje sockaddr_in (definicja w netinet/in.h):
         struct sockaddr_in {
             sa_family_t     sa_family; // addres family: AF_INET
-            in_port_t       sin_port; //port, liczba od 0 do 65535 (1-1024 to porty dla su), sin_port = 0 to system wybierze dla nas port
+            in_port_t       sin_port; //port, liczba od 0 do 65535 (1-1023 to porty dla su), sin_port = 0 to system wybierze dla nas port
             struct in_addr  sin_addr; //adres internetowy
         };
 
@@ -58,8 +58,8 @@ Adresy gniazd, struktury przechowujące informacje o adresie gniazda:
 
     AF_INET6, sock_addr_in6 (netinet/in.h):
         struct sockaddr_in6 {
-            sa_family_t     sin6_family;   
-            in_port_t       sin6_port;     //port, liczba od 0 do 65535 (1-1024 to porty dla su), sin_port = 0 to system wybierze dla nas port
+            sa_family_t     sin6_family;   // addres family: AF_INET6
+            in_port_t       sin6_port;     //port, liczba od 0 do 65535 (1-1023 to porty dla su), sin_port = 0 to system wybierze dla nas port
             uint32_t        sin6_flowinfo; 
             struct in6_addr sin6_addr;     //in6addr_any połączenie z dolownym adresem, in6addr_loopback tylko połączenia lokalne
             uint32_t        sin6_scope_id; 
@@ -71,7 +71,6 @@ Adresy gniazd, struktury przechowujące informacje o adresie gniazda:
 
     AF_UNIX, sockaddr_un (sys/un.h)
     #define UNIX_PATH_MAX    108
-
     struct sockaddr_un {
         sa_family_t sun_family;               /* AF_UNIX */
         char        sun_path[UNIX_PATH_MAX];  //ścieżka do pliku gniazda, jeżeli plik isnitął wcześniej to wywali błąd (nawet po wcześniejszym wykonaniu)
