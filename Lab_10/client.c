@@ -7,6 +7,7 @@
 #include <unistd.h>
 #include <string.h>
 #include <stdlib.h>
+#include <sys/un.h>
 
 #define UNIX_MAX_PATH 108
 

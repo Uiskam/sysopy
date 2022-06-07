@@ -39,7 +39,7 @@ Protkoł, określa sposób komunikacji:
 Adresy gniazd, struktury przechowujące informacje o adresie gniazda:
     Podstowa struktura to:
         struct sockaddr {
-            sa_family_t     sa_family;
+            sa_family_t     sa_family; //AF_LOCAL
             char            sa_data[14];
         };
     Jednak w praktyce każda dziedzina ma sowją strukturę, która później jest rzutowana na sockaddr lub na odwrót.

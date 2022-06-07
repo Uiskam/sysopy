@@ -63,6 +63,8 @@ int close(int sockfd) - zamykanie deskryptora gniazda, operacje na gnieździe st
     sockfd - numer deskryptora
     RETURN 0 sukces, -1 error
 
+
+Monitorowanie wielu sygnałów
 int poll(struct pollfd *fds, nfds_t nfds, int timeout) - oczekuje na zdarzenia, a po ich wystąpieniu aktualizuje struktury które opisywały zdarzenie na które oczekujemy
     fds - tablica struktur zawierającyc informacje o zdarzeniach które nas interesują i miejsca na zapisanie zdarzeń które wystąpiły
     nfds - liczba struktur w tablicy
@@ -75,7 +77,7 @@ Struktura defnująca zdarzenie ktore nas interesuje
 struct pollfd {
     int   fd;         numer deskryptora
     short events;     maska bitowa okreslająca monitorowane zdarzenia
-                      POLLIN - możliwy odczytane
+                      POLLIN - są dane do oczytania
                       POLLOUT - możliwy zapisane
                       POLLURG - pojawenie się danych pirorytetowych
                       POLLRDHUP - cos czego raczej nie użyje
