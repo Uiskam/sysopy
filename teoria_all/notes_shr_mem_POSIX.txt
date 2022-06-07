@@ -1,0 +1,42 @@
+Includy:
+    - sys/mman.h, sys/stat.h i fcntl.h
+    - LINKOWANIE z rt (-lrt ?)
+
+Funkcje:
+    - int shm_open(const char *name, int oflag, mode_t mode), tworzy segment pamięci współdzielonej
+    ARGS:
+        - name, nazwa tak samo, jak dla kolejek
+        - oflag, tak samo, jak dla kolejek (O_CREAT itd.)
+        - mode,  tak samo, jak dla kolejek (0666)
+    RETURN:
+        - file_descriptor, pamięci współdzielonej on success
+        -1 on error
+
+    - int ftruncate(int fd, off_t length), TRZEBA TO WYWOŁAĆ PO SHM_OPEN, określa rozmiar pamięci współdzielonej
+    ARGS:
+        - fd, pamięci
+        - off_t, rozmiar pamięci w bajtach
+    RETURN: 0, -1
+
+    -void* mmap(void* addr, size_t len, int prot, int flags, int fd, off_t offset) - dołączanie otwartej pamięci do procesu
+    ARGS:
+        - addr, adres gdzie chcemy podłączyć (zostawić NULL wtedy system sobie sam wybierze)
+        - len, liczba bajtów mapowanych do przestrzeni procesu
+        - prot, prawa dostępu do pamięci, PROT_READ (odczyt), PROT_WRITE (zapis),PROT_EXEC (prawo wykonania), PROT_NONE (brak uprawnień)
+        - flags, specyfikacja użycia (MAP_SHARED, MAP_PRIVATE, MAP_FIXED)
+        - fd, to co zwrócił shm_open
+        - offset, przesunięci początku mapowania (najczęściej 0)
+    RETURN:
+        - wskaźnik na początek pamięci
+        - (void*) -1 error
+
+    - int munmap(void *addr, size_t len) - odłączenie pamięci od przestrzeni adresowej procesu
+    ARGS:
+        - *addr, zwrotka z mmap
+        - len, to samo co daliśmy w mmap
+    RETURN: 0 -1
+
+    - int shm_unlink(const char * name) - usunięcie pamięci po jej zamknięciu,(uniemożliwia dalsze shm_open), usuwany jak wszystkie procesu zamkną
+    ARGS:
+        - name, oczywiste
+    RETURN: 0 -1

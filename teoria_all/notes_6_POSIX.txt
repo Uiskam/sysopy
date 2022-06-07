@@ -1,0 +1,85 @@
+Kolejki w POSIX:
+    - określona długość i priorytet
+    - jest z niej odczytywany pojedynczy komnukat o najwyższym priorytecie
+
+Komunikat zawiera:
+    - priorytet (unsigned int)
+    - długość (size_t)
+    - dane (jeżeli size_t > 0)
+
+Kolejki tworzone są w określonym katalogu (np. /dev/mqueue)
+
+wymagane #include:
+    - #include <mqueue.h>
+
+Struktura mq_attr (sktrukuta przechowująca inforamcje o kolejce):
+struct mq_attr {
+               long mq_flags;       /* Sygnalizator kolejki: 0 or O_NONBLOCK */
+               long mq_maxmsg;      /* Maksymalna liczba komunikatów w kolejce/
+               long mq_msgsize;     /* Maksymalny rozmiar komuniaktu (bajty) */
+               long mq_curmsgs;     /* Liczba kounikatów aktualnie w kolejce */
+           };
+
+Otwieranie kolejki:
+    mqd_t mq_open(const char *name, int oflag, [,mode_t mode, struct mq_attr* attr]) - tworzy kolejkę bądź otwiera istniejącą
+    FLAGI:
+        O_RDONLY
+        O_WRONLY
+        O_RDWR Open the queue to both send and receive messages.
+        O_CLOEXEC (since Linux 2.6.26)
+              Set the close-on-exec flag for the message queue
+              descriptor.  See open(2) for a discussion of why this flag
+              is useful.
+
+        O_CREAT
+              Create the message queue if it does not exist.  The owner
+              (user ID) of the message queue is set to the effective
+              user ID of the calling process.  The group ownership
+              (group ID) is set to the effective group ID of the calling
+              process.
+
+        O_EXCL If O_CREAT was specified in oflag, and a queue with the
+              given name already exists, then fail with the error
+              EEXIST.
+
+        O_NONBLOCK Opens queue in nonblocking mode (mq_recieve or mq_send do not block but throws an error EAGAIN)
+              
+        O_CREAT If used mode and attr must be provided.
+                Mode is standard 0666 and attr is a struct which is described above (and only mq_maxmsg and mq_msgsize are taken into consideration) 
+    RETURN:
+        deskryptor - w przypadku powodzenia
+        -1 - error
+
+    
+    int mq_close(mqd_t qyeye_key) - zamkyka kolejkę (nie usuwa) (przy końcu pracy wszystkie otwarte kolejki są zamykane)
+    RETURN:
+        0 - sukces
+        -1 - error
+
+    
+    int mq_unlink(const char * name) - usuwa kolejkę o nazwe name (usuwa dowiązanie 1 z dowiązań trwałych)
+    RETURN:
+        0 - sukces 
+        -1 - error
+    
+    
+    int ms_getattr(mqd_t mqdes, struct mq_attr *attr) - odzczytuje parametry kolejki i zapisuje je do attr
+    RETURN:
+        0 - sukces
+        -1 - error
+
+    
+    int mq_send(mqd_t mqdes, const char * ptr, size_t len, unsigned int prio) - wysyłła do kolejki mqdes komunikat ptr o długośc len
+    Priorytet nie może miec więcej niż MQ_PRIO_MAX
+    RETURN:
+        0 - sukces
+        -1 - error
+
+    size_t mq_recieve(mqd_t mqdes, char *ptr, size_t len, unsigned int *pirop) - czyta komunikat mqdes długości len do ptr i
+    priorytet do priop
+    RETURN:
+        l. przeczytanch bajtów - sukces
+        -1 - error
+
+
+    

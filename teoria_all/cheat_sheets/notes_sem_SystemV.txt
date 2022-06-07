@@ -1,0 +1,59 @@
+Semafory, zmienne licznikowe posiadające 2 operacje:
+    - dekrementacje
+        - jeżeli wartość semafora była > 0 to po prostu się dekrementuje
+        - jeżeli wartość == 0 proces dekrementujący zostaje zablokowany aż do momentu inkrementacji semafora przez inny proces
+          (po odblokowaniu proces zmniejszy wartość semafora o 1?)
+    - inkrementacja
+        - zwiększeni wartości o 1 i odblokowanie 1 oczekującego procesu
+
+Implementacja SYSTEM V:
+    - można zmieniać semafor o wartości inne niż 1 (pod warunkiem, że po operacji sem >= 0, operacja, która to narusza, jej
+      wykonanie jest zatrzymane do czasu, gdy wartość semafora pozwoli na zachowanie tego warunku)
+    - możliwe jest wykonywanie operacji na kilki na raz atomowo (wszyscy albo nikt)
+    - definiuje operacje blokowania procesu jeżeli semafor ma wartość 0
+
+Includy:
+    - sys/sem.h, sys/ipc.h i sys/types.h
+
+Funkcje:
+    - int semget(key_t key, int nsems, int flag) - tworzy zbiór semaforów, po stworzeniu dobrze jest zainicjować wartości
+    ARGS:
+        - key, klucz tworzony ftokeim
+        - nsems, liczba semaforów z zbiorze (przy otwieraniu istniejącego nsems == 0)
+        - flag, standard (min. IPC_creat lub IPC_EXCL przy towrzeniu nadaje się chmod 0666)
+    RETURN:
+        semaphores_set_id - on success ( > 0)
+        -1 - error
+
+     - int semop(int semid, struct sembuf * sops, unsigned nsops) - wykonwyanie operacji na ziobrze semid
+     ARGS:
+        - semid, id zbioru semaforów
+        - nsops, liczba operacji do wykonania
+        - sops, tablica długości nsops specyfikująca operacje na semaforach za pomocą struktury sembuf
+          struct sembuf
+          {
+             unsigned short sem_num; - nr semafora ze zbioru, na którym wykonywana jest operacja
+             short sem_op; - operacja do wykonania, sem_op < 0 zmniejsza wartość sem_num o sem_op, sem_op > 0 na odwrót,
+                             sem_op == 0 operacja oczekiwania aż wartość semafora będzie == 0
+             short sem_flg; - flaga operacji, IPC_NOWAIT (nie czeka aż będzie można przpeorawdzić operacja i zwraca błąd
+                              SEM_UNDO, po zakończeniu procesu operacja jest cofana
+          };
+      RETURN:
+        0 - success
+        -1 - error
+
+    - int semctl(int semid, int semnum, int cmd, union semun arg) - wykonuje pewne dodatkowe operacje na zbiorze
+    ARGS:
+        - semid, id zbioru
+        - semnun, nr semafora
+        - cmd, operacje: SETVAL ustawia wartość na arg.val, GETVAL pobiera wartość semafora, IPC_RMID usuwa zbiór z systemu
+        - arg, unia bitowa przekuzjąca dodatkowe argumenty
+    RETURN: -1 error
+
+
+    struct sembuf 
+    {
+        unsigned short sem_num;
+        short sem_op;
+        short sem_flg;
+    };  

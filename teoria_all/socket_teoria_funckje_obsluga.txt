@@ -1,0 +1,89 @@
+includy:
+    sys.socket.h
+    sys/types.h
+
+int socket(int domain, int type, int protocol) - tworzy gniazdo i zwraca nr deskryptora
+    domain - dziedzina AF_UNIX, AF_INET, AF_INET6
+    type - SOCK_STREAM, SOCK_DGRAM (| SOCK_NONBLOCK socekt w trybie nie blokująvym
+                                      SOCK_CLOEXEC zamknij deskryptor przy wowołaniu execve)
+    protocol - protokół komunikacji (0 ustawia to co ma być, istotne dla AF_PACKET)
+    RETURN -1 error
+
+int bind(int sockfd, const struct sockaddr *addr, socklen_t addrlen) - powiązuje gniazdo z nazwą, konieczne dla servera, 
+                                                                       inaczej nie da się odwołac do gniazda
+    sockfd - deskryptor gniazda
+    addr - wskaźnik na stkrutkrę typu sockaddr
+    addrlen - wiekość addr (sizeof addr)
+    RETURN 0 sukces, -1 error
+
+int listen(inst sockfd, int backlog) - rozpoczynanie akecptowania połączeń ze strony klienta
+    sockfd - deskryptor gniazda
+    backlog - maksymalna liczba akceptowanych połączeń (połaczenia porzekraczające tą liczbę sa ignorowane)
+    RETURN: 0 sukces, -1 error
+
+int connect(int sockfd, const struct sockaddr *addr, socklen_t addrlen) - dla gniazd strumeniowych łączy klienta z serverem
+                                                                          dla gniazd datagramowych ustawia adres na który bedą wysyłane dane oraz adres z którego będą odbierane
+    sockfd - deskryptor gniazda
+    addr - wskaźnik na stkrutkrę typu sockaddr
+    addrlen - wiekość addr (sizeof addr)
+    RETURN 0 sukces, -1 error
+
+
+Funckje do akceptacji oczekujących połączeń, wywołanie akceptuje oczekujące połączenie i zwraca deskryptor służacy do komunikacji z klientem
+
+int accept(int sockfd, struct sockaddr *addr, socklen_t *addrlen)
+int accept4(int sockfd, struct sockaddr *addr, socklen_t *addrlen, int flags) 
+    sockfd - deskryptor gniazda
+    addr - wskaźnik do pamięci z adresem klienta, który się łączy (NULL jeżeli adres klienta mamy w dupie)
+    addrlen - (sizeof addr) lub NULL jeżeli addr == NULL
+    flags - SOCK_NONBLOCK, SOCK_CLOEXEC w odniesienu do gniazda klienta
+    RETURN: -1 error
+
+ssize_t write(int sockfd, const void *buf, size_t len) - wysyałenie danych z użyciem gniazda
+    sockfd - deskryptor gniazda
+    buf - wskaźnik na dane do wysłania
+    len - długośc danych do wysłania
+    RETURN ilośc wysłanych bajtów, -1 error
+
+ssize_t read(int sockfd, const void *buf, size_t len)
+    sockfd — numer deskryptora gniazda
+    buf — wskaźnik do miejsca w pamięci w którym chcemy zapisać dane
+    len — maksymalna ilość bajtów które zostaną odczytane z gniazda i zapisane w buf
+    RETURN ilość odczytanych bajtów, -1 error
+
+int shutdown(int sockfd, int how) - kończenie komunikacji z użyciem gniazda, wykonanie dodatkowych czynności związnych z protkołem
+    sockfd — numer deskryptora gniazda
+    how — określa sposób zamknięcia gniazda:
+        SHUT_RD — zamyka kanał odczytu z gniazda
+        SHUT_WR — zamyka kanał zapisu do gniazda
+        SHUT_RDWR — zamyka oba kanały komunikacji
+    RETURN 0 sukces, -1 error
+
+int close(int sockfd) - zamykanie deskryptora gniazda, operacje na gnieździe stają nieodzolone
+    sockfd - numer deskryptora
+    RETURN 0 sukces, -1 error
+
+
+Monitorowanie wielu sygnałów
+int poll(struct pollfd *fds, nfds_t nfds, int timeout) - oczekuje na zdarzenia, a po ich wystąpieniu aktualizuje struktury które opisywały zdarzenie na które oczekujemy
+    fds - tablica struktur zawierającyc informacje o zdarzeniach które nas interesują i miejsca na zapisanie zdarzeń które wystąpiły
+    nfds - liczba struktur w tablicy
+    timeout - maksymalny czas oczekuwania (ujemna to czekanie w nieskończonośc)
+    RETURN ilośc deskryptorów na których wystąpiły obserwowane zmiany
+           0 jezeli upłynął czas
+           -1 błąd
+
+Struktura defnująca zdarzenie ktore nas interesuje
+struct pollfd {
+    int   fd;         numer deskryptora
+    short events;     maska bitowa okreslająca monitorowane zdarzenia
+                      POLLIN - są dane do oczytania
+                      POLLOUT - możliwy zapisane
+                      POLLURG - pojawenie się danych pirorytetowych
+                      POLLRDHUP - cos czego raczej nie użyje
+    short revents;    maska określająca jakie zdarzenia zaszły
+                      to co w events i dodatkowo:
+                      POLLERR - wystąpił błąd
+                      POLLHUP - nastąpiło rozłączenia
+                      POLLNVAL - nieprawidłowy deskryptor
+};

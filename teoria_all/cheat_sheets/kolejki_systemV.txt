@@ -1,0 +1,46 @@
+System V:
+    Tworzenie kolejki:
+        int msgget(key_t key, int msgflg | 0666) - tworzy kolejkę
+            key - rezultat wywołamnia ftok()
+            msgflg - IPC_CREAT, towrzy kolejke jezeli nie istnieje
+                     IPC_EXCL - (wraz z IPC_CREAT) daje błąd EEXIST, jeżeli kolejka o danym ID już istnieje
+
+    Odbieranie komunikwatów: (w system V msgp jest zdefiniowaną przez użytkownika strukturą ale pierwsze pole to long msgtype)
+       int msgrcv(int msgqid, struct msgbuf *msgp, int msgsz, long type, int msgflg) - odbiera komunikat
+        RETURN:
+            liczba bajtów przeczytanych do bufora - sukces
+            -1 - błąd
+        msgqid - ID kolejki
+        msgp - wskaźnik na adres bufora, do którego czytany jest komunikat
+        msgsz - rozmiar bufora
+        type:
+            0 - czytanie najstarszego komunikatu
+            > 0  - czytanie komnukatu o zadanym typie
+            < 0 - czytanie komunikatu o typie mtype = min(all_types_avaiable) && mtype < abs(type)
+        MSG_EXCEPT - dowlony komunikat o typie roznym od type
+        MSG_NOWAIT - błąd dla braku komuniaktu
+        MSG_NOERROR - brak błędu przy przepłenieniu bufora (kopuje się wówczas tyle ile się da)
+
+    Wysyłanie:
+        int msgsnd(int msqid, struct msgbuf *msgp, int msgsz, int msgflg) - wysyła komnukat
+        RETURN:
+            0 sukces
+            -1 błąd
+        msqid - ID kolejki
+        msgp - wskaźnik na strukturę która przechowuje zawartość komunikatu np.
+               struct msgbuf (long mtype //typ komunikatu, char mtext[n] //treść)
+               Jest to przykładowa struktura, która może mieć download postać tak długo, jak jej pierwszym polem jest long mtype i
+               jej zawartość nie przekroczy MSGMAX(4096).
+        msgsz - rozmiar komunikatu (w bajtach), (nie licząc komunikatu typu sizeof(long))
+        IPC_NOWAIT - wywala błąd, jeżeli kolejka jest przepełniona
+
+    USUWANIE (na końcu trzeba bo wpierdol):
+        int msgctl(int msgqid, int cmd, struct msqid_ds *buf(NULL przy usuwaniu)) - modyfikacja i odczyt właściwości kolejki
+        RETURN:
+            0 sukces
+            -1 błąd
+        msgqid - ID kolejki
+        dostępne cmd:
+            IPC_STAT: uzyskanie struktury msgid_ds odpowiadającej kolejce (zostaje ona skopiowana pod adres wskazywany przez buf)
+            IPC_SET: modyfikacja wartości struktury ipc_perm odpowiadającej kolejce
+            IPC_RMID: usunięcie, skasowanie kolejki

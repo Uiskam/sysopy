@@ -11,6 +11,8 @@
 
 #define UNIX_MAX_PATH 108
 
+
+void display()
 int main(int argc, char ** argv) {
     return 0;
 }

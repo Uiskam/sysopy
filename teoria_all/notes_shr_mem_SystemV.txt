@@ -1,0 +1,37 @@
+Dzielenie się pamięcią między procesami. Nie zapewnia synchronizacji (dlatego trzeba stosować np semafory).
+Includy:
+    - sys/shm.h, sys/ipc.h, sys/types.h
+
+Funckje:
+    - int shmget(key_t key, size_t size, int shmflg), zwraca id segmentu pamięci współdzielonej
+    ARGS:
+        - key, klucz (najlepiej z ftok)
+        - size, rozmiar pamięci, 0, jeżeli otwieramy istniejąca już pamięć
+        - shmflag, flagi IPC takie same jak do kolejek + chmod 0666
+    RETURN:
+        shmid, success
+        -1, error
+
+    - void* shmat(int shmid, const void *shmaddr, int shmflg) - podłączanie utworzonej pamięci współdzielonej, trzba go później odłączyć
+                                                                shmdt
+    ARGS:
+        - shmid, id pamięci
+        - shmaddr, adres gdzie ma zostać podłączona (najlepiej, żeby to było NULL, wtedy system sam sobie dobierze)
+        - shmflg, np SHM_RDONLY - podłącza pamięć w trybie tylko do odczytu
+    RETURN:
+        memory_address on success
+        (void*) -1 - on error
+
+    - int shmdt(const void* shmaddr) - zamyka, odmontowuje zamontowany fragment pamięci za pomocą shmat
+    ARGS:
+        - shmaddr, adres zwrócny przez shmat
+    RETURN: 0, -1
+
+    - void* shmctl(int shmid, int cmd, struct shmid_ds *buf) - usuwanie pamięci z systemu (usunie się jak wszystkie procesy się od niego odłączą)
+                                                               po wywołaniu tego nie można już przyłączać
+    ARGS:
+        - shmid, id
+        - cmd, IPC_RMID
+        - buf, dla IPC_RMID jest ignorowany
+    RETURN: -1 error
+

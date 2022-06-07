@@ -1,0 +1,38 @@
+POSIX implementuje semafory po bożemu bez udziwnień jak w System V
+Includy:
+    - semaphore.h, sys/stat.h i fcntl.h
+    - LINKOWANIE z -pthread
+
+Funkcje:
+
+    - sem_t* sem_open(const char* name, int oflag, mode_t mode, unsigned int value) - otwieranie/tworzenie semafora
+    ARGS:
+        - name, nazwa semafora
+        - oflag, tryb otwarcia (tak jak przy kolejkach O_CREAT itd)
+        - value, początkowa wartość
+    RETURN
+        - adres stworzonego semafora - success
+        - SEM_FAILED - error
+     sem_open(TABLE_USED, O_CREAT, 0666, 1) - tworzenie nowego
+     sem_open(TABLE_USED, 0) - otwarcie istniejącego     
+
+
+    - int sem_post(sem_t* sem), inkrementacja semafora
+    ARGS:
+        - sem, wskaźnik na semafor
+    RETURN:
+        0, success
+        -1, error
+
+    - int sem_wait(sem_t* sem), dekrementacja wszystko analogiczne do sem_post
+
+    - int sem_trywait(sem_t * sem), to samo co sem_wait ale nie blokuje procesu tylko zwraca -1 (errno = EAGAIN)
+
+    - int sem_getvalue(sem_t* sem, int* valp), zapisuje aktualną wartość semafora do valp
+    RETURN: 0, -1
+
+    - int sem_close(sem_t *sem) - zamykanie semafora
+    RETURN: 0, -1
+
+    - int sem_unlink(const char* name) - usuwanie semafora
+    RETURN: 0, -1

@@ -1,7 +1,7 @@
 po stornie servera:
     tworznie localnego socketa:
         - socket(AF_UNIX, SOCK_STREAM/SOCK_DGRAM, 0)
-        - stwórz sockaddr_un name,
+        - stwórz struct sockaddr_un name,
             - memset(&name, 0, sizeof(name))
             - name.sun_family = AF_UNIX
             - strcpy(sock_addr.sun_path, path_given_as_an_arg)
@@ -10,14 +10,35 @@ po stornie servera:
         - listen(sock_fd, MAX_NB_OF_CLIENTS)
 
     tworznie zdalnego socketa:
-        - socket(AF_INET, SOCK_STREAM/SOCK_DGRAM, 0)
-        - stwórz sockaddr_in name
+        - socked_fd =  socket(AF_INET, SOCK_STREAM/SOCK_DGRAM, 0)
+        - stwórz struct sockaddr_in name
             - memset(&name, 0, sizeof(name))
             - name.sin_family = AF_INET
-            - name.sin_addr.s_addr = inet_addr("127.0.0.1")/INADDR_ANY
+            - name.sin_addr.s_addr = inet_addr("127.0.0.1") or INADDR_ANY
             - name.sin_port = htons(port_nb)
         - bind(sock_fd, (struct sockaddr *) &name, sizeof(name))
         - listen(sock_fd, MAX_NB_OF_CLIENTS)
+
+    
+po stronie klienta:
+    socket lokalny:
+        - server_socket = socket(AF_UNIX, SOCK_STREAM/SOCK_DGRAM, 0)
+        - stwórz struct sockaddr_un nazwa;
+            - memset(&name, 0, sizeof(name))
+            - nazwa.sun_path = AF_UNIX
+            - strcpy(nazwa.sun_path, addres_given)
+            - connect(server_socket, (struct sockaddr *)&nazwa, sizeof(nazwa))
+    
+    socket zdalny:
+        - server_socket = socket(AF_UNIX, SOCK_STREAM/SOCK_DGRAM, 0)
+        - stwórz struct sockaddr_in nazwa
+            - memset(&name, 0, sizeof(name))
+            - nazwa.sin_family = AF_INET
+            - nazwa.port = htons(port_nb)
+            - name.sin_addr.s_addr = inet_addr("127.0.0.1") or INADDR_ANY
+        - connect(server_socket, (struct sockaddr *) &nazwa, sizeof(nazwa))
+
+
 
     monitorowane wielu deskryptorów:
         - stwórz struct pollfd dla intersujęcego nas socketa
@@ -25,7 +46,7 @@ po stornie servera:
 
     obsługa AF_INET:
         - accept(sock_fd, struct sockaddr *addr, socklen_t * addrlen), akceptacja pierwszego oczekującego połączenia i zapisanie wiadmości o kliencie do addr,
-                                                                       zwraca deskryptor socketa klienta
+                                                                       zwraca deskryptor socketa klienta, odpowiedx na connect ze strony klienta
         - write(sock_fd, const void* buf, size_t count)), pisanie do socketu, buf wskaźnik na dane do wysłania, count długośc danch 
         - read(sock_fd, const void *buf, size_t len), buf wskaźnik na miejsce zapisu o długości len
         - close(sock_fd), na końcu pracy
