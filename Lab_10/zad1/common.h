@@ -1,1 +1,6 @@
 #define MAX_MSG_LENGTH 128
+#define SERVER_ADDRES "127.0.0.1"
+#define MAX_CLIENT_NUMBER 16
+#define CLIENT_MAX_NAME_SIZE 32
+#define X_SYMBOL 10
+#define Y_SYMBOL 11

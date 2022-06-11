@@ -9,6 +9,7 @@
 #include <stdlib.h>
 #include <poll.h>
 #include <sys/un.h>
+#include <signal.h>
 #include "common.h"
 
 #define UNIX_MAX_PATH 108
@@ -48,7 +49,7 @@ void connect_local(char* server_scoket_path) {
 }
 
 void connect_remote(char* ip_addres, int port_nb) {
-    int server_socket = socket(AF_INET, SOCK_STREAM, 0);
+    server_socket = socket(AF_INET, SOCK_STREAM, 0);
     if(server_socket == -1) {
         perror("Remote srv socket creation error");
         exit(1);
@@ -113,7 +114,7 @@ int check_game_for_completion() { //returns 1 if I won, 2 if opponent won, 0 for
     return 0;
 }
 
-void listen_to_server(cahr* my_name) {
+void listen_to_server(char* my_name) {
     /*
     rzeczy na które musi umiec odpowiedziec klient:
         nazwa zajęta JEST
@@ -132,7 +133,7 @@ void listen_to_server(cahr* my_name) {
     server->events = POLLIN;
     char msg_from_srv[MAX_MSG_LENGTH + 1], msg_to_srv[MAX_MSG_LENGTH + 1];
     sprintf(msg_to_srv, "%s", my_name);
-    int first_iter = 0, msg_to_srv_length = sizeof(my_name), bytes_read;
+    int msg_to_srv_length = sizeof(my_name), bytes_read;
     if(write(server->fd, msg_to_srv, msg_to_srv_length) == -1) {
                 perror("Name msg sending error");
     }
@@ -148,8 +149,8 @@ void listen_to_server(cahr* my_name) {
         msg_from_srv[bytes_read] = '\0';
         
         if(strcmp(msg_from_srv, "kick") == 0) { //reakcja na bycie wyrzucnowym z serwera
-            puts("I have been kicked out for not responding");
-            free(server)
+            puts("I have been kicked out");
+            free(server);
             return;
         }  
 
@@ -192,7 +193,7 @@ void listen_to_server(cahr* my_name) {
                     } else {
                         puts("I lost :(");
                     }
-                    free (server)
+                    free (server);
                     return;
                 } 
                 
@@ -222,9 +223,7 @@ void listen_to_server(cahr* my_name) {
 }
 
 int main(int argc, char ** argv) {
-    for(int i =0; i < sizeof("tmp msg"); i++) {
-        printf("%c",tmp[i]);
-    } puts("");
+    
     if(argc != 4 && argc != 5 && ((argc != 4 || strcmp("local", argv[2]) == 0) || (argc != 5 || strcmp("remote", argv[2]) == 0))) {
         puts("Wrong number of args!");
         return 0;
