@@ -126,21 +126,19 @@ void listen_to_server(cahr* my_name) {
         koniec gry JEST
         ping JEST
         swoja nazwa JEST
-    */
+    */ 
     struct pollfd *server = malloc(sizeof(struct pollfd));
     server->fd = server_socket;
     server->events = POLLIN;
     char msg_from_srv[MAX_MSG_LENGTH + 1], msg_to_srv[MAX_MSG_LENGTH + 1];
     sprintf(msg_to_srv, "%s", my_name);
     int first_iter = 0, msg_to_srv_length = sizeof(my_name), bytes_read;
+    if(write(server->fd, msg_to_srv, msg_to_srv_length) == -1) {
+                perror("Name msg sending error");
+    }
+    msg_to_srv[0] = '\0';
 
     while (1) {
-        if(msg_to_srv[0] != '\0') {
-            if(write(server->fd, msg_to_srv, msg_to_srv_length) == -1) {
-                perror("Msg sending error");
-            }
-        }
-        
         poll(server, 1, -1);
         if ((bytes_read = read(server->fd, msg_from_srv, MAX_MSG_LENGTH)) == -1) {
             free(server);
@@ -148,6 +146,18 @@ void listen_to_server(cahr* my_name) {
             exit(1);
         }  
         msg_from_srv[bytes_read] = '\0';
+        
+        if(strcmp(msg_from_srv, "kick") == 0) { //reakcja na bycie wyrzucnowym z serwera
+            puts("I have been kicked out for not responding");
+            free(server)
+            return;
+        }  
+
+        if(msg_to_srv[0] != '\0') {
+            if(write(server->fd, msg_to_srv, msg_to_srv_length) == -1) {
+                perror("Msg sending error");
+            }
+        }
 
         if(strcmp(msg_from_srv, "name taken") == 0) { //nazwa zajęta
             puts("My name is already taken");
@@ -164,7 +174,7 @@ void listen_to_server(cahr* my_name) {
             if(x < 0 || x > 2 || y < 0 || y > 2 || board[x][y] != ' ') {
                 printf("Recived incorrect move %d %d\n", x, y);
                 sprintf(msg_to_srv, "wrong move given");
-                write(server->fd, msg_to_srv, sizeof("wrong move given"));
+                msg_to_srv_length = sizeof("wrong move given");
             } else {
                 board[x][y] = opponent_symbol;
                 int game_result = check_game_for_completion();
@@ -186,17 +196,9 @@ void listen_to_server(cahr* my_name) {
                     return;
                 } 
                 
-            }
-            
-
-        } else if(strcmp(msg_from_srv,"ping") == 0) {
-            write(server->fd, "ping", sizeof("ping"));
-        } else if(strcmp(msg_from_srv, "kick") == 0) { //reakcja na bycie wyrzucnowym z serwera
-            puts("I have been kicked out for not responding");
-            free(server)
-            return;
-        }  else if(atoi(msg_from_srv) == 10 || atoi(msg_from_srv) == 11) { //rozpoczecie gry
-            if(atoi(msg_from_srv) == 10) {
+            }          
+        } else if(atoi(msg_from_srv) == X_SYMBOL || atoi(msg_from_srv) == Y_SYMBOL) { //rozpoczecie gry
+            if(atoi(msg_from_srv) == X_SYMBOL) {
                 my_symbol = 'x';
                 opponent_symbol = 'o';
                 int move_to_play = move();
@@ -207,6 +209,9 @@ void listen_to_server(cahr* my_name) {
                 opponent_symbol = 'x';
                 msg_to_srv[0] = '\0';
             }
+        } else if(strcmp(msg_from_srv, "no space") == 0) {
+            puts("Server is full!");
+            return;
         }
         else {
             printf("Unknown msg from server: %s\n", msg_from_srv);
