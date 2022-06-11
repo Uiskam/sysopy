@@ -113,28 +113,31 @@ int check_game_for_completion() { //returns 1 if I won, 2 if opponent won, 0 for
     return 0;
 }
 
-void listen_to_server() {
+void listen_to_server(cahr* my_name) {
     /*
     rzeczy na które musi umiec odpowiedziec klient:
-        nazwa zajęta
-        ping
-        ruch przeciwnika
-        wypisanie z listy
+        nazwa zajęta JEST
+        ping JEST
+        ruch przeciwnika JEST
+        wypisanie z listy JEST
+        rozpoczęcie gry JEST
     rzeczy które wysyła klient:
-        swój ruch 
-        koniec gry
-        swoja nazwa
+        swój ruch JEST
+        koniec gry JEST
+        swoja nazwa JEST
     */
     struct pollfd *server = malloc(sizeof(struct pollfd));
     server->fd = server_socket;
     server->events = POLLIN;
     char msg_from_srv[MAX_MSG_LENGTH + 1], msg_to_srv[MAX_MSG_LENGTH + 1];
-    int first_iter = 0, msg_to_srv_length, bytes_read;
+    sprintf(msg_to_srv, "%s", my_name);
+    int first_iter = 0, msg_to_srv_length = sizeof(my_name), bytes_read;
+
     while (1) {
-        if(first_iter) {
-            write(server->fd, msg_to_srv, msg_to_srv_length);
-        } else {
-            first_iter = 1;
+        if(msg_to_srv[0] != '\0') {
+            if(write(server->fd, msg_to_srv, msg_to_srv_length) == -1) {
+                perror("Msg sending error");
+            }
         }
         
         poll(server, 1, -1);
@@ -186,6 +189,24 @@ void listen_to_server() {
 
         } else if(strcmp(msg_from_srv,"ping") == 0) {
             write(server->fd, "ping", sizeof("ping"));
+        } else if(strcmp(msg_from_srv, "kick") == 0) { //reakcja na bycie wyrzucnowym z serwera
+            puts("I have been kicked out for not responding");
+            return;
+        }  else if(atoi(msg_from_srv) == 10 || atoi(msg_from_srv) == 11) { //rozpoczecie gry
+            if(atoi(msg_from_srv) == 10) {
+                my_symbol = 'x';
+                opponent_symbol = 'o';
+                int move_to_play = move();
+                sprintf(msg_to_srv, "%d", move_to_play);
+                msg_to_srv_length = sizeof('1');    
+            } else {
+                my_symbol = 'o';
+                opponent_symbol = 'x';
+                msg_to_srv[0] = '\0';
+            }
+        }
+        else {
+            printf("Unknown msg from server: %s\n", msg_from_srv);
         }
     }
     
@@ -193,9 +214,6 @@ void listen_to_server() {
 }
 
 int main(int argc, char ** argv) {
-    char tmp[MAX_MSG_LENGTH];
-    sprintf(tmp, "tmp msg");
-    printf("thats printf %s\n",tmp);
     for(int i =0; i < sizeof("tmp msg"); i++) {
         printf("%c",tmp[i]);
     } puts("");
