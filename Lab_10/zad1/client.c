@@ -124,6 +124,7 @@ void listen_to_server(cahr* my_name) {
     rzeczy które wysyła klient:
         swój ruch JEST
         koniec gry JEST
+        ping JEST
         swoja nazwa JEST
     */
     struct pollfd *server = malloc(sizeof(struct pollfd));
@@ -181,6 +182,7 @@ void listen_to_server(cahr* my_name) {
                     } else {
                         puts("I lost :(");
                     }
+                    free (server)
                     return;
                 } 
                 
@@ -191,6 +193,7 @@ void listen_to_server(cahr* my_name) {
             write(server->fd, "ping", sizeof("ping"));
         } else if(strcmp(msg_from_srv, "kick") == 0) { //reakcja na bycie wyrzucnowym z serwera
             puts("I have been kicked out for not responding");
+            free(server)
             return;
         }  else if(atoi(msg_from_srv) == 10 || atoi(msg_from_srv) == 11) { //rozpoczecie gry
             if(atoi(msg_from_srv) == 10) {
@@ -219,6 +222,10 @@ int main(int argc, char ** argv) {
     } puts("");
     if(argc != 4 && argc != 5 && ((argc != 4 || strcmp("local", argv[2]) == 0) || (argc != 5 || strcmp("remote", argv[2]) == 0))) {
         puts("Wrong number of args!");
+        return 0;
+    }
+    if(strlen(argv[1]) > CLIENT_MAX_NAME_SIZE) {
+        puts("Name is too long");
         return 0;
     }
     if(strcmp("local", argv[2]) == 0) 
