@@ -1,241 +1,253 @@
-#include <sys/socket.h>
-#include <sys/types.h>
-#include <netinet/in.h>
-#include <netinet/ip.h>
-#include <arpa/inet.h>
 #include <stdio.h>
-#include <unistd.h>
-#include <string.h>
 #include <stdlib.h>
-#include <poll.h>
+#include <unistd.h>
+#include <stdio.h>
+#include <sys/socket.h>
 #include <sys/un.h>
+#include <stdlib.h>
+#include <netinet/in.h>
+#include <string.h>
+#include <poll.h>
+#include <pthread.h>
 #include <signal.h>
-#include "common.h"
 
-#define UNIX_MAX_PATH 108
-char board[3][3];
+#include "shared.h"
+
+char *my_name;
 int server_socket;
-char my_symbol;
-char opponent_symbol;
+char m_figure;
+char o_figure;
+int m_moves[4];
+int o_moves[4];
+int m_moves_no = 0;
+int o_moves_no = 0;
 
-void init_board() {
-    for(int i = 0; i < 3; i++) {
-        for(int j = 0; j < 3; j++)
-            board[i][j] = ' ';
+void connect_to_server(char *type, char *address) {
+    if (strcmp(type, "local") == 0) {
+        //connect local socket
+
+        if ((server_socket = socket(AF_UNIX, SOCK_STREAM, 0)) <= 0) {
+            perror("socket failed");
+            exit(1);
+        }
+        struct sockaddr_un sa;
+        sa.sun_family = AF_UNIX;
+        strcpy(sa.sun_path, address);
+        if (connect(server_socket, (struct sockaddr *) &sa, sizeof(sa)) < 0) {
+            perror("connect local failed");
+            exit(1);
+        }
+
+    } else if (strcmp(type, "remote") == 0) {
+        //connect to network socket
+
+        int port = atoi(address);
+        if ((server_socket = socket(AF_INET, SOCK_STREAM, 0)) <= 0) {
+            perror("socket failed");
+            exit(1);
+        }
+        struct sockaddr_in sa;
+        sa.sin_family = AF_INET;
+        sa.sin_port = htons(port);
+        sa.sin_addr.s_addr = INADDR_ANY;
+        if (connect(server_socket, (struct sockaddr *) &sa, sizeof(sa)) < 0) {
+            perror("connect network failed");
+            exit(1);
+        }
+
+    } else {
+        exit(1);
+    }
+}
+
+void register_in_server() {
+    char buff[MSG_LEN];
+    sprintf(buff, "%s", my_name);
+    if(send(server_socket, buff, MSG_LEN, 0) == -1) {
+        perror("register msg snd error");
     }
 }
 
 void display() {
-    for(int i = 0; i < 3; i++) {
-        printf("%c|%c|%c\n",board[i][0], board[i][1], board[i][2]);
+    char board[3][3];
+    for (int i = 0; i < 3; i++) for (int j = 0; j < 3; j++) board[i][j] = ' ';
+    for (int i = 0; i < m_moves_no; i++) {
+        int m = m_moves[i] - 1;
+        board[m / 3][m % 3] = m_figure;
+    }
+    for (int i = 0; i < o_moves_no; i++) {
+        int m = o_moves[i] - 1;
+        board[m / 3][m % 3] = o_figure;
+    }
+    for (int i = 0; i < 3; i++) {
+        for (int j = 0; j < 3; j++) {
+            printf("|%c", board[i][j]);
+        }
+        puts("|");
+    }
+}
+
+void check_game() {
+    char winning = ' ';
+    char board[3][3];
+    for (int i = 0; i < 3; i++) for (int j = 0; j < 3; j++) board[i][j] = ' ';
+    for (int i = 0; i < m_moves_no; i++) {
+        int m = m_moves[i] - 1;
+        board[m / 3][m % 3] = m_figure;
+    }
+    for (int i = 0; i < o_moves_no; i++) {
+        int m = o_moves[i] - 1;
+        board[m / 3][m % 3] = o_figure;
+    }
+    for (int i = 0; i < 3; i++) {
+        if (board[i][0] == board[i][1] && board[i][0] == board[i][2]) {
+            winning = board[i][0];
+        }
+        if (board[0][i] == board[1][i] && board[0][i] == board[2][i]) {
+            winning = board[0][i];
+        }
+    }
+    //diagonals
+    if (board[0][0] == board[1][1] && board[0][0] == board[2][2]) {
+        winning = board[0][0];
+    }
+    if (board[0][2] == board[1][1] && board[0][2] == board[2][0]) {
+        winning = board[0][2];
     }
     
-}
-
-void connect_local(char* server_scoket_path) {
-    server_socket = socket(AF_UNIX, SOCK_STREAM, 0);
-    if(server_socket == -1) {
-        perror("Local srv socket creation error");
-        exit(1);
-    }
-    struct sockaddr_un srv_addr;
-    memset(&srv_addr, 0, sizeof(srv_addr));
-    srv_addr.sun_family = AF_UNIX;
-    strcpy(srv_addr.sun_path, server_scoket_path);
-    if(connect(server_socket,(struct sockaddr *) &srv_addr, sizeof(srv_addr))) {
-        perror("Local srv connecting error");
-        exit(1);
-    }
-}
-
-void connect_remote(char* ip_addres, int port_nb) {
-    server_socket = socket(AF_INET, SOCK_STREAM, 0);
-    if(server_socket == -1) {
-        perror("Remote srv socket creation error");
-        exit(1);
-    }
-    struct sockaddr_in srv_addr; 
-    memset(&srv_addr, 0, sizeof(srv_addr));
-    srv_addr.sin_family = AF_INET;
-    srv_addr.sin_port = htons(port_nb);
-    srv_addr.sin_addr.s_addr = inet_addr(ip_addres);
-    if (connect(server_socket, (struct sockaddr *) &srv_addr, sizeof(srv_addr))) {
-        perror("Remote srv connecting error ");
-        exit(1);
-    }
-}
-
-int move() {
-    while (1){
-        int x,y;
-        printf("Please give a move to play (row): ");
-        scanf("%d", &x);
-        printf("Please give a move to play (column): ");
-        scanf("%d", &y);
-        if(board[x][y] == ' ' && x >= 0 && x <= 2 && y >= 0 && y <= 2) {
-            board[x][y] = my_symbol;
-            return x * 3 + y;
+    if (winning != ' ') {
+        puts("winner");
+        printf("server scoketV2 %d\n", server_socket);
+        if(send(server_socket, "L", MSG_LEN, 0) == -1) {
+            perror("loser msg sned error");
         }
-        puts("This filed is already taken or coordinates are not valid!");
+        exit(0);
+    }
+    if (m_moves_no + o_moves_no == 9) {
+        printf("server scoketV3 %d\n", server_socket);
+        if(send(server_socket, "D", MSG_LEN, 0) == -1) {
+            perror("draw msg sending error");
+        }
+        exit(0);
     }
 }
 
-int check_game_for_completion() { //returns 1 if I won, 2 if opponent won, 0 for draw, 10 if game is not ended
-    for(int i = 0; i < 3; i++) {
-        if (board[i][0] == board[i][1] && board[i][1] == board[i][2]) {
-            if(board[i][0] == my_symbol)
-                return 1;
-            return -1;
-        }
-    }
-    for(int j = 0; j < 3; j++) {
-        if (board[0][j] == board[1][j] && board[1][j] == board[2][j]) {
-            if(board[0][j] == my_symbol)
-                return 1;
-            return -1;
-        }
-    }
-    if(board[0][0] == board[1][1] && board[1][1] == board[2][2]) {
-        if(board[0][0] == my_symbol)
-            return 1;
-        return -1; 
-    }
-    if(board[2][0] == board[1][1] && board[1][1] == board[0][2]) {
-        if(board[2][0] == my_symbol)
-            return 1;
-        return -1; 
-    }
-    for(int i = 0; i < 3; i++) {
-        for(int j = 0; j < 3; j++) {
-            if(board[i][j] != ' ')
-                return 10;
-        }
-    }
-    return 0;
-}
-
-void listen_to_server(char* my_name) {
-    /*
-    rzeczy na które musi umiec odpowiedziec klient:
-        nazwa zajęta JEST
-        ping JEST
-        ruch przeciwnika JEST
-        wypisanie z listy JEST
-        rozpoczęcie gry JEST
-    rzeczy które wysyła klient:
-        swój ruch JEST
-        koniec gry JEST
-        ping JEST
-        swoja nazwa JEST
-    */ 
-    struct pollfd *server = malloc(sizeof(struct pollfd));
-    server->fd = server_socket;
-    server->events = POLLIN;
-    char msg_from_srv[MAX_MSG_LENGTH + 1], msg_to_srv[MAX_MSG_LENGTH + 1];
-    sprintf(msg_to_srv, "%s", my_name);
-    int msg_to_srv_length = sizeof(my_name), bytes_read;
-    if(write(server->fd, msg_to_srv, msg_to_srv_length) == -1) {
-                perror("Name msg sending error");
-    }
-    msg_to_srv[0] = '\0';
-
+void make_move() {
+    int m;
     while (1) {
-        poll(server, 1, -1);
-        if ((bytes_read = read(server->fd, msg_from_srv, MAX_MSG_LENGTH)) == -1) {
-            free(server);
-            perror("Server reading error ");
-            exit(1);
-        }  
-        msg_from_srv[bytes_read] = '\0';
-        
-        if(strcmp(msg_from_srv, "kick") == 0) { //reakcja na bycie wyrzucnowym z serwera
-            puts("I have been kicked out");
-            free(server);
-            return;
-        }  
-
-        if(msg_to_srv[0] != '\0') {
-            if(write(server->fd, msg_to_srv, msg_to_srv_length) == -1) {
-                perror("Msg sending error");
+        int correct_move = 1;
+        printf("give move [square number, are numbered from 1 to 9 from the top left corner to bottom right one]: ");
+        scanf("%d", &m);
+        if(1 > m || m > 9) {
+            puts("wrong val");
+            correct_move = 0;
+        }
+        for (int i = 0; i < m_moves_no; i++) {
+            if (m_moves[i] == m) {
+                puts("this square is already taken");
+                correct_move = 0;
             }
         }
 
-        if(strcmp(msg_from_srv, "name taken") == 0) { //nazwa zajęta
-            puts("My name is already taken");
-            free(server);
-            return;
-
-        } else if(strcmp(msg_from_srv, "ping") == 0) { //ping
-            sprintf(msg_to_srv, "ping");
-            msg_to_srv_length = sizeof("ping");
-
-        } else if(atoi(msg_from_srv) >= 0 && atoi(msg_from_srv) <= 9) { //odebranie i wysłanie ruchu (ew koniec gry jeżeli nie ma miejsca na planszy lub ktoś wygrał)
-            int opponent_move = atoi(msg_from_srv);
-            int x = opponent_move / 3, y = opponent_move % 3;
-            if(x < 0 || x > 2 || y < 0 || y > 2 || board[x][y] != ' ') {
-                printf("Recived incorrect move %d %d\n", x, y);
-                sprintf(msg_to_srv, "wrong move given");
-                msg_to_srv_length = sizeof("wrong move given");
-            } else {
-                board[x][y] = opponent_symbol;
-                int game_result = check_game_for_completion();
-                if(game_result > 1) {
-                    int move_to_play = move();
-                    sprintf(msg_to_srv, "%d", move_to_play);
-                    msg_to_srv_length = sizeof('1');    
-                } else {
-                    sprintf(msg_to_srv, "end");
-                    msg_to_srv_length = sizeof("end");
-                    if(game_result == 1) {
-                        puts("I won!!!");
-                    } else if (game_result == 0) {
-                        puts("draw");
-                    } else {
-                        puts("I lost :(");
-                    }
-                    free (server);
-                    return;
-                } 
-                
-            }          
-        } else if(atoi(msg_from_srv) == X_SYMBOL || atoi(msg_from_srv) == Y_SYMBOL) { //rozpoczecie gry
-            if(atoi(msg_from_srv) == X_SYMBOL) {
-                my_symbol = 'x';
-                opponent_symbol = 'o';
-                int move_to_play = move();
-                sprintf(msg_to_srv, "%d", move_to_play);
-                msg_to_srv_length = sizeof('1');    
-            } else {
-                my_symbol = 'o';
-                opponent_symbol = 'x';
-                msg_to_srv[0] = '\0';
+        for (int i = 0; i < o_moves_no; i++) {
+            if (o_moves[i] == m) {
+                puts("this square is already taken");
+                correct_move = 0;
             }
-        } else if(strcmp(msg_from_srv, "no space") == 0) {
-            puts("Server is full!");
-            return;
         }
-        else {
-            printf("Unknown msg from server: %s\n", msg_from_srv);
+        if(correct_move) {
+            break;
         }
     }
     
-    
+
+    m_moves[m_moves_no++] = m;
+    display();
+    check_game();
+    char buff[MSG_LEN];
+    sprintf(buff, "%d", m);
+    if(send(server_socket, buff, MSG_LEN, 0) == -1) {
+        perror("move msg sending error");
+    }
+    puts("###################");
 }
 
-int main(int argc, char ** argv) {
-    
-    if(argc != 4 && argc != 5 && ((argc != 4 || strcmp("local", argv[2]) == 0) || (argc != 5 || strcmp("remote", argv[2]) == 0))) {
-        puts("Wrong number of args!");
-        return 0;
+
+void server_listen() {
+    printf("server scoket %d\n", server_socket);
+    char msg[MSG_LEN];
+
+    struct pollfd *sockets = malloc(sizeof(struct pollfd));
+    sockets->fd = server_socket;
+    sockets->events = POLLIN;
+
+    m_moves_no = 0;
+    o_moves_no = 0;
+
+    while (1 == 1) {
+        poll(sockets, 1, -1);
+
+        recv(server_socket, msg, MSG_LEN, 0);
+        if (strcmp(msg, "P") == 0) {
+            //puts("ping reveived");
+            if(send(server_socket, "P", MSG_LEN, 0) == -1) {
+                perror("ping sending error");
+            }
+            continue;
+        } else if (strcmp(msg, "NT") == 0) {
+            puts("Name is already taken");
+            exit(0);
+        } else if (strcmp(msg, "NO") == 0) {
+            m_moves_no = 0;
+            o_moves_no = 0;
+            puts("no opponent, for the moment");
+        } else if (strcmp(msg, "X") == 0) {
+            m_figure = 'X';
+            o_figure = 'O';
+            printf("my char %c\n", m_figure);
+        } else if (strcmp(msg, "O") == 0) {
+            m_figure = 'O';
+            o_figure = 'X';
+            printf("my char %c\n", m_figure);
+            display();
+            make_move();
+        } else if (strlen(msg) == 1 && msg[0] >= '1' && msg[0] <= '9') {
+            int move = msg[0] - '0';
+            o_moves[o_moves_no++] = move;
+            display();
+            make_move();
+        } else if (strlen(msg) == 1 && msg[0] == 'W') {
+            puts("winner");
+            exit(0);
+        } else if (strlen(msg) == 1 && msg[0] == 'L') {
+            puts("loser");
+            exit(0);
+        } else if (strlen(msg) == 1 && msg[0] == 'D') {
+            puts("dead draw");
+            exit(0);
+        } else {
+            printf("%s\n", msg);
+        }
     }
-    if(strlen(argv[1]) > CLIENT_MAX_NAME_SIZE) {
-        puts("Name is too long");
-        return 0;
+}
+
+int main(int argc, char **argv) {
+    if (argc != 4) {
+        puts("wrong number of agrs");
+        return 1;
     }
-    if(strcmp("local", argv[2]) == 0) 
-        connect_local(argv[2]);
-    else if (strcmp("remote", argv[2]) == 0) {
-        connect_remote(argv[3], atoi(argv[4]));
-    }
+    my_name = argv[1];
+
+    printf("start\n");
+
+    connect_to_server(argv[2], argv[3]);
+
+    printf("connected\n");
+
+    register_in_server();
+
+    server_listen();
+
+
     return 0;
 }

@@ -30,11 +30,11 @@ po stronie klienta:
             - connect(server_socket, (struct sockaddr *)&nazwa, sizeof(nazwa))
     
     socket zdalny:
-        - server_socket = socket(AF_UNIX, SOCK_STREAM/SOCK_DGRAM, 0)
+        - server_socket = socket(AF_INET, SOCK_STREAM/SOCK_DGRAM, 0)
         - stwórz struct sockaddr_in nazwa
             - memset(&name, 0, sizeof(name))
             - nazwa.sin_family = AF_INET
-            - nazwa.port = htons(port_nb)
+            - nazwa.sin_port = htons(port_nb)
             - name.sin_addr.s_addr = inet_addr("127.0.0.1") or INADDR_ANY
         - connect(server_socket, (struct sockaddr *) &nazwa, sizeof(nazwa))
 
@@ -49,4 +49,4 @@ po stronie klienta:
                                                                        zwraca deskryptor socketa klienta, odpowiedx na connect ze strony klienta
         - write(sock_fd, const void* buf, size_t count)), pisanie do socketu, buf wskaźnik na dane do wysłania, count długośc danch 
         - read(sock_fd, const void *buf, size_t len), buf wskaźnik na miejsce zapisu o długości len
-        - close(sock_fd), na końcu pracy
+        - close(sock_fd), na końcu pracy serwera 
