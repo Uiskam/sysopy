@@ -124,14 +124,15 @@ void check_game(int last_move) {
     if (winning != ' ') {
         puts("winner");
         sprintf(end_msg, "L%d" , last_move);
-        if(send(server_socket2, "L", sizeof("L"), 0) == -1) {
+        if(send(server_socket2, end_msg, sizeof(end_msg), 0) == -1) {
             perror("loser msg sned error");
         }
         exit(0);
     }
     if (my_moves_no + op_moves_no == 9) {
         puts("dead draw");
-        if(send(server_socket2, "D", sizeof("D"), 0) == -1) {
+        sprintf(end_msg, "D%d" , last_move);
+        if(send(server_socket2, end_msg , sizeof(end_msg), 0) == -1) {
             perror("draw msg sending error");
         }
         exit(0);
@@ -225,13 +226,17 @@ void server_listen() {
             op_moves[op_moves_no++] = move;
             display();
             make_move();
-        } else if (strlen(msg) == 1 && msg[0] == 'W') {
+        } else if (strlen(msg) == 2 && msg[0] == 'W') {
             puts("winner");
             exit(0);
-        } else if (strlen(msg) == 1 && msg[0] == 'L') {
+        } else if (strlen(msg) == 2 && msg[0] == 'L') {
+            op_moves[op_moves_no++] = msg[1] - 48;
+            display();
             puts("loser");
             exit(0);
-        } else if (strlen(msg) == 1 && msg[0] == 'D') {
+        } else if (strlen(msg) == 2 && msg[0] == 'D') {
+            op_moves[op_moves_no++] = msg[1] - 48;
+            display();
             puts("dead draw");
             exit(0);
         } else {

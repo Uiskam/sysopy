@@ -171,8 +171,7 @@ void clients_listen() {
                     }
                 }
             }
-        } else if (strlen(msg) == 1 && (msg[0] == 'W' || msg[0] == 'L' || msg[0] == 'D')) {
-            puts("end");
+        } else if (strlen(msg) == 2 && (msg[0] == 'W' || msg[0] == 'L' || msg[0] == 'D')) {
             for (int i = 0; i < clients_no; i++) {
                 if (clients[i].socket == socket) {
                     if (clients[i].opponentSocket == -1) {
@@ -185,10 +184,24 @@ void clients_listen() {
                         for (int j = 0; j < clients_no; j++) {
                             if (clients[j].socket == clients[i].opponentSocket) {
                                 clients[j].is_alive = 0;
+                                printf("game beteween %s and %s came to and end\n", clients[i].name, clients[j].name);
+                                clients_no--;
+                                if(i < clients_no - 1) {
+                                    clients[i] = clients[clients_no - 1];
+                                    if(j == clients_no -1) {
+                                        j = i;
+                                    }
+                                }
+                                clients_no--;
+                                if(j < clients_no - 1) {
+                                    clients[j] = clients[clients_no - 1];
+                                }
+                                i = 100;
+                                j = 100;
                             }
                         }
                     }
-                    remove_dead_clients();
+                    //remove_dead_clients();
                 }
             }
         } else {
