@@ -1,3 +1,4 @@
+#include <signal.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
@@ -40,33 +41,37 @@ void local_socket_init(char *path) {
     strcpy(sa.sun_path, path);
     unlink(path);
     if (bind(local_socket, (struct sockaddr *) &sa, sizeof(sa)) < 0) {
-        perror("bind failed");
+        perror("local bind failed");
         exit(1);
     }
     if (listen(local_socket, MAX_CLIENTS) < 0) {
-        perror("listen failed");
+        perror("local listen failed");
         exit(1);
     }
 }
 
 void network_socket_init(char *path) {
     int port = atoi(path);
+    if(port > 65535 || port < 1024) {
+        puts("wrong port nb, port must be greater than 1023 and lesser then 65536");
+        exit(1);
+    }
     if ((network_socket = socket(AF_INET, SOCK_STREAM, 0)) <= 0) {
-        perror("socket failed");
+        perror("remote socket failed");
         exit(1);
     }
 
     struct sockaddr_in sa;
     sa.sin_family = AF_INET;
-    sa.sin_port = htons(port);
+    sa.sin_port = htons((unsigned short)port);
     sa.sin_addr.s_addr = INADDR_ANY;
 
     if (bind(network_socket, (struct sockaddr *) &sa, sizeof(sa)) < 0) {
-        perror("bind failed");
+        perror("remote bind failed");
         exit(1);
     }
     if (listen(network_socket, MAX_CLIENTS) < 0) {
-        perror("listen failed");
+        perror("remote listen failed");
         exit(1);
     }
 }
@@ -114,15 +119,16 @@ void remove_dead_clients() {
 
 void *ping_clients() {
     while (1) {
-        sleep(8);
+        sleep(30);
         pthread_mutex_lock(&mutex);
         //printf("ping\n");
         remove_dead_clients();
         for (int i = 0; i < clients_no; i++) {
             if (!clients[i].is_alive) continue;
-            if(send(clients[i].socket, "P", MSG_LEN, 0) == -1) {
+            if(send(clients[i].socket, "P", sizeof("P"), 0) == -1) {
                 perror("ping sending error");
             }
+            printf("removing client %s (%d)\n", clients[i].name, clients[i].socket);
             clients[i].is_alive = 0; //ping back set to 1
         }
         pthread_mutex_unlock(&mutex);
@@ -137,11 +143,12 @@ void clients_listen() {
     while (1) {
         int socket = monitoring_clients();
         char msg[MSG_LEN];
-        if (recv(socket, msg, MSG_LEN, 0) <= 0) {
+        int bytes_read;
+        if ((bytes_read = recv(socket, msg, MSG_LEN, 0)) <= 0) {
             sleep(1);
             continue;
         }
-
+        msg[bytes_read] = '\0';
         pthread_mutex_lock(&mutex);
         if (strcmp(msg, "P") == 0) {
             for (int i = 0; i < clients_no; i++) {
@@ -150,15 +157,15 @@ void clients_listen() {
                 }
             }
         } else if (strlen(msg) == 1 && msg[0] >= '1' && msg[0] <= '9') {
-            puts("move");
             for (int i = 0; i < clients_no; i++) {
                 if (clients[i].socket == socket) {
                     if (clients[i].opponentSocket == -1) {
-                        if(send(socket, "NO", MSG_LEN, 0) == -1) {
+                        if(send(socket, "no oponnent", sizeof("no oponnent"), 0) == -1) {
                             perror("no opponent sending error");
                         }
                     } else {
-                        if(send(clients[i].opponentSocket, msg, MSG_LEN, 0) == -1) {
+                        printf("move from %s (%d) to %d\n", clients[i].name, clients[i].socket, clients[i].opponentSocket);
+                        if(send(clients[i].opponentSocket, msg, sizeof(msg), 0) == -1) {
                             perror("move sending error");
                         }
                     }
@@ -171,7 +178,7 @@ void clients_listen() {
                     if (clients[i].opponentSocket == -1) {
                         clients[i].is_alive = 0;
                     } else {
-                        if(send(clients[i].opponentSocket, msg, MSG_LEN, 0) == -1) {
+                        if(send(clients[i].opponentSocket, msg, sizeof(msg), 0) == -1) {
                             perror("end msg sending error");
                         }
                         clients[i].is_alive = 0;
@@ -193,7 +200,7 @@ void clients_listen() {
                 } else if (strcmp(msg, clients[i].name) == 0) {
                     is_new = 0;
                     printf("registered failed, name %s taken\n", msg);
-                    if(send(socket, "NT", MSG_LEN, 0) == -1) {
+                    if(send(socket, "name taken", sizeof("name taken"), 0) == -1) {
                         perror("name taken sending error");
                     }
                 }
@@ -215,16 +222,17 @@ void clients_listen() {
                         was = 1;
                         clients[i].opponentSocket = socket;
                         clients[clients_no - 1].opponentSocket = clients[i].socket;
-                        if(send(socket, "X", MSG_LEN, 0) == -1) {
+                        printf("paired %s (%d) with %s (%d)\n", clients[i].name, clients[i].socket, clients[clients_no -1].name, clients[clients_no -1].socket);
+                        if(send(socket, "X", sizeof("X"), 0) == -1) {
                             perror("x symbol sending error");
                         }
-                        if(send(clients[i].socket, "O", MSG_LEN, 0) == -1) {
+                        if(send(clients[i].socket, "O", sizeof("O"), 0) == -1) {
                             perror("o symbol sending error");
                         }
                     }
                 }
                 if (!was) {
-                    if(send(socket, "NO", MSG_LEN, 0) == -1) {
+                    if(send(socket, "no oponnent", sizeof("no oponnent"), 0) == -1) {
                         perror("no opponent sending error");
                     }
                 }
@@ -235,7 +243,19 @@ void clients_listen() {
     }
 }
 
+void sigint_hanlder(int signum) {
+    puts("SIGINT received - closing");
+    if(close(local_socket) == -1) {
+        perror("local closing error");
+    }
+    if(close(network_socket) == -1) {
+        perror("network closing error");
+    }
+    exit(1);
+}
+
 int main(int argc, char **argv) {
+    signal(SIGINT, sigint_hanlder);
     if (argc != 3) {
         puts("wrong number of args");
         return 1;

@@ -2,12 +2,11 @@
 #define MAX_CLIENTS 5
 #define MSG_LEN 1024
 
-//message types
-//NT - name taken
-//NO - no oponnent
+//messages
+//name taken
+//no oponnent
 //1,2,3,4,5,6,7,8,9 - moves
 //O , X - your sign (O always begin)
 //L, W, D - lose, win, draw
-//Q - quit
 //P - ping
 

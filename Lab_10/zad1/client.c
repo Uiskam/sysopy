@@ -15,12 +15,13 @@
 
 char *my_name;
 int server_socket;
-char m_figure;
-char o_figure;
-int m_moves[4];
-int o_moves[4];
-int m_moves_no = 0;
-int o_moves_no = 0;
+int server_socket2;
+char my_figure;
+char op_figure;
+int my_moves[5];
+int op_moves[5];
+int my_moves_no = 0;
+int op_moves_no = 0;
 
 void connect_to_server(char *type, char *address) {
     if (strcmp(type, "local") == 0) {
@@ -42,13 +43,17 @@ void connect_to_server(char *type, char *address) {
         //connect to network socket
 
         int port = atoi(address);
+        if(port > 65535 || port < 1024) {
+            puts("wrong port nb, port must be greater than 1023 and lesser then 65536");
+            exit(1);
+        }
         if ((server_socket = socket(AF_INET, SOCK_STREAM, 0)) <= 0) {
             perror("socket failed");
             exit(1);
         }
         struct sockaddr_in sa;
         sa.sin_family = AF_INET;
-        sa.sin_port = htons(port);
+        sa.sin_port = htons((unsigned short) port);
         sa.sin_addr.s_addr = INADDR_ANY;
         if (connect(server_socket, (struct sockaddr *) &sa, sizeof(sa)) < 0) {
             perror("connect network failed");
@@ -63,7 +68,7 @@ void connect_to_server(char *type, char *address) {
 void register_in_server() {
     char buff[MSG_LEN];
     sprintf(buff, "%s", my_name);
-    if(send(server_socket, buff, MSG_LEN, 0) == -1) {
+    if(send(server_socket, buff, sizeof(buff), 0) == -1) {
         perror("register msg snd error");
     }
 }
@@ -71,13 +76,13 @@ void register_in_server() {
 void display() {
     char board[3][3];
     for (int i = 0; i < 3; i++) for (int j = 0; j < 3; j++) board[i][j] = ' ';
-    for (int i = 0; i < m_moves_no; i++) {
-        int m = m_moves[i] - 1;
-        board[m / 3][m % 3] = m_figure;
+    for (int i = 0; i < my_moves_no; i++) {
+        int m = my_moves[i] - 1;
+        board[m / 3][m % 3] = my_figure;
     }
-    for (int i = 0; i < o_moves_no; i++) {
-        int m = o_moves[i] - 1;
-        board[m / 3][m % 3] = o_figure;
+    for (int i = 0; i < op_moves_no; i++) {
+        int m = op_moves[i] - 1;
+        board[m / 3][m % 3] = op_figure;
     }
     for (int i = 0; i < 3; i++) {
         for (int j = 0; j < 3; j++) {
@@ -87,17 +92,17 @@ void display() {
     }
 }
 
-void check_game() {
+void check_game(int last_move) {
     char winning = ' ';
     char board[3][3];
     for (int i = 0; i < 3; i++) for (int j = 0; j < 3; j++) board[i][j] = ' ';
-    for (int i = 0; i < m_moves_no; i++) {
-        int m = m_moves[i] - 1;
-        board[m / 3][m % 3] = m_figure;
+    for (int i = 0; i < my_moves_no; i++) {
+        int m = my_moves[i] - 1;
+        board[m / 3][m % 3] = my_figure;
     }
-    for (int i = 0; i < o_moves_no; i++) {
-        int m = o_moves[i] - 1;
-        board[m / 3][m % 3] = o_figure;
+    for (int i = 0; i < op_moves_no; i++) {
+        int m = op_moves[i] - 1;
+        board[m / 3][m % 3] = op_figure;
     }
     for (int i = 0; i < 3; i++) {
         if (board[i][0] == board[i][1] && board[i][0] == board[i][2]) {
@@ -115,17 +120,18 @@ void check_game() {
         winning = board[0][2];
     }
     
+    char end_msg[3];
     if (winning != ' ') {
         puts("winner");
-        printf("server scoketV2 %d\n", server_socket);
-        if(send(server_socket, "L", MSG_LEN, 0) == -1) {
+        sprintf(end_msg, "L%d" , last_move);
+        if(send(server_socket2, "L", sizeof("L"), 0) == -1) {
             perror("loser msg sned error");
         }
         exit(0);
     }
-    if (m_moves_no + o_moves_no == 9) {
-        printf("server scoketV3 %d\n", server_socket);
-        if(send(server_socket, "D", MSG_LEN, 0) == -1) {
+    if (my_moves_no + op_moves_no == 9) {
+        puts("dead draw");
+        if(send(server_socket2, "D", sizeof("D"), 0) == -1) {
             perror("draw msg sending error");
         }
         exit(0);
@@ -142,15 +148,15 @@ void make_move() {
             puts("wrong val");
             correct_move = 0;
         }
-        for (int i = 0; i < m_moves_no; i++) {
-            if (m_moves[i] == m) {
+        for (int i = 0; i < my_moves_no; i++) {
+            if (my_moves[i] == m) {
                 puts("this square is already taken");
                 correct_move = 0;
             }
         }
 
-        for (int i = 0; i < o_moves_no; i++) {
-            if (o_moves[i] == m) {
+        for (int i = 0; i < op_moves_no; i++) {
+            if (op_moves[i] == m) {
                 puts("this square is already taken");
                 correct_move = 0;
             }
@@ -161,12 +167,12 @@ void make_move() {
     }
     
 
-    m_moves[m_moves_no++] = m;
+    my_moves[my_moves_no++] = m;
     display();
-    check_game();
+    check_game(m);
     char buff[MSG_LEN];
     sprintf(buff, "%d", m);
-    if(send(server_socket, buff, MSG_LEN, 0) == -1) {
+    if(send(server_socket, buff, sizeof(buff), 0) == -1) {
         perror("move msg sending error");
     }
     puts("###################");
@@ -181,39 +187,42 @@ void server_listen() {
     sockets->fd = server_socket;
     sockets->events = POLLIN;
 
-    m_moves_no = 0;
-    o_moves_no = 0;
+    my_moves_no = 0;
+    op_moves_no = 0;
 
     while (1 == 1) {
         poll(sockets, 1, -1);
-
-        recv(server_socket, msg, MSG_LEN, 0);
+        int bytes_read;
+        if((bytes_read = recv(server_socket, msg, MSG_LEN, 0)) == -1) {
+            perror("reading from server error");
+        }
+        msg[bytes_read] = '\0';
         if (strcmp(msg, "P") == 0) {
-            //puts("ping reveived");
-            if(send(server_socket, "P", MSG_LEN, 0) == -1) {
+            //puts("pong");
+            if(send(server_socket, "P", sizeof("P"), 0) == -1) {
                 perror("ping sending error");
             }
             continue;
-        } else if (strcmp(msg, "NT") == 0) {
+        } else if (strcmp(msg, "name taken") == 0) {
             puts("Name is already taken");
             exit(0);
-        } else if (strcmp(msg, "NO") == 0) {
-            m_moves_no = 0;
-            o_moves_no = 0;
+        } else if (strcmp(msg, "no oponnent") == 0) {
+            my_moves_no = 0;
+            op_moves_no = 0;
             puts("no opponent, for the moment");
         } else if (strcmp(msg, "X") == 0) {
-            m_figure = 'X';
-            o_figure = 'O';
-            printf("my char %c\n", m_figure);
+            my_figure = 'X';
+            op_figure = 'O';
+            printf("my char %c\n", my_figure);
         } else if (strcmp(msg, "O") == 0) {
-            m_figure = 'O';
-            o_figure = 'X';
-            printf("my char %c\n", m_figure);
+            my_figure = 'O';
+            op_figure = 'X';
+            printf("my char %c\n", my_figure);
             display();
             make_move();
         } else if (strlen(msg) == 1 && msg[0] >= '1' && msg[0] <= '9') {
             int move = msg[0] - '0';
-            o_moves[o_moves_no++] = move;
+            op_moves[op_moves_no++] = move;
             display();
             make_move();
         } else if (strlen(msg) == 1 && msg[0] == 'W') {
@@ -237,17 +246,11 @@ int main(int argc, char **argv) {
         return 1;
     }
     my_name = argv[1];
-
     printf("start\n");
-
     connect_to_server(argv[2], argv[3]);
-
+    server_socket2 = server_socket;
     printf("connected\n");
-
     register_in_server();
-
     server_listen();
-
-
     return 0;
 }
